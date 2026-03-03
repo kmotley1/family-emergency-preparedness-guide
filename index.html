@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Emergency Preparedness Guide — Be Ready Before You Need To Be</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rust: #C94B2A;
+      --rust-dark: #A33C20;
+      --rust-light: #E8603D;
+      --cream: #F5F0E8;
+      --warm-white: #FAF8F4;
+      --ink: #1A1612;
+      --bark: #3D2E22;
+      --sand: #D4C4A8;
+      --sage: #7A8C6E;
+      --alert: #E8A020;
+      --muted: #8B7355;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--warm-white);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--ink);
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-texture {
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.015) 2px, rgba(255,255,255,0.015) 4px);
+      z-index: 0;
+    }
+
+    .hero-accent {
+      position: absolute;
+      top: 0; right: 0;
+      width: 45%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--rust) 0%, #8B2E12 100%);
+      clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+      z-index: 0;
+      opacity: 0.9;
+    }
+
+    .hero-accent::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        -45deg, transparent, transparent 8px,
+        rgba(0,0,0,0.08) 8px, rgba(0,0,0,0.08) 9px
+      );
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--alert);
+      background: rgba(232, 160, 32, 0.12);
+      border: 1px solid rgba(232, 160, 32, 0.3);
+      padding: 6px 14px;
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(60px, 7vw, 96px);
+      line-height: 0.92;
+      color: var(--cream);
+      letter-spacing: 0.01em;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 span {
+      color: var(--rust-light);
+      display: block;
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--sand);
+      font-weight: 300;
+      max-width: 440px;
+      margin-bottom: 40px;
+    }
+
+    .hero-sub strong {
+      color: var(--cream);
+      font-weight: 600;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--rust);
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 16px 32px;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      letter-spacing: 0.02em;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--rust-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201, 75, 42, 0.4);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--sand);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(212, 196, 168, 0.3);
+      padding-bottom: 2px;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover { color: var(--cream); border-color: var(--cream); }
+
+    .price-display {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .price-main {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 64px;
+      color: var(--cream);
+      line-height: 1;
+    }
+
+    .price-old {
+      font-size: 22px;
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    .price-label {
+      font-size: 13px;
+      color: var(--alert);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── HERO RIGHT ── */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .guide-mockup {
+      background: var(--cream);
+      width: 300px;
+      height: 400px;
+      border-radius: 4px;
+      box-shadow: -12px 12px 0 var(--rust-dark), 24px 24px 60px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform: rotate(-2deg);
+      transition: transform 0.3s ease;
+    }
+
+    .guide-mockup:hover { transform: rotate(0deg) scale(1.02); }
+
+    .mockup-header {
+      background: var(--rust);
+      padding: 20px;
+      flex-shrink: 0;
+    }
+
+    .mockup-header-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .mockup-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      color: white;
+      line-height: 1;
+    }
+
+    .mockup-body {
+      padding: 18px;
+      flex: 1;
+      background: var(--cream);
+    }
+
+    .mockup-line {
+      height: 7px;
+      background: var(--sand);
+      border-radius: 4px;
+      margin-bottom: 8px;
+      opacity: 0.6;
+    }
+
+    .mockup-line.short { width: 60%; }
+    .mockup-line.medium { width: 80%; }
+    .mockup-line.long { width: 100%; }
+
+    .mockup-section {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--sand);
+    }
+
+    .mockup-check {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .check-box {
+      width: 10px; height: 10px;
+      border: 1.5px solid var(--rust);
+      border-radius: 1px;
+      flex-shrink: 0;
+    }
+
+    .check-box.filled { background: var(--rust); border-color: var(--rust); }
+
+    .check-line {
+      height: 6px;
+      background: var(--bark);
+      border-radius: 4px;
+      opacity: 0.3;
+      flex: 1;
+    }
+
+    .format-badges {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .format-badge {
+      background: var(--ink);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--cream);
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      padding: 5px 10px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    /* ── SOCIAL PROOF STRIP ── */
+    .proof-strip {
+      background: var(--bark);
+      padding: 18px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .proof-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--sand);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .proof-icon {
+      width: 18px;
+      height: 18px;
+      color: var(--alert);
+      flex-shrink: 0;
+    }
+
+    /* ── SECTION COMMON ── */
+    section {
+      padding: 100px 40px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(40px, 5vw, 64px);
+      line-height: 1;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .section-title .accent { color: var(--rust); }
+
+    /* ── PAIN SECTION ── */
+    .pain-section {
+      background: var(--cream);
+    }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .pain-left {
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--bark);
+      font-weight: 300;
+    }
+
+    .pain-left p { margin-bottom: 18px; }
+
+    .pain-left strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .stat-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: white;
+      border: 1px solid var(--sand);
+      border-radius: 4px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--rust);
+    }
+
+    .stat-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      color: var(--rust);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ── WHAT YOU GET ── */
+    .formats-section {
+      background: white;
+    }
+
+    .formats-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .formats-desc {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--bark);
+      font-weight: 300;
+    }
+
+    .formats-desc p { margin-bottom: 16px; }
+
+    .format-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .format-item {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 16px;
+      padding: 20px;
+      border: 1px solid var(--sand);
+      border-radius: 4px;
+      transition: all 0.2s;
+      background: var(--warm-white);
+    }
+
+    .format-item:hover {
+      border-color: var(--rust);
+      box-shadow: 0 4px 20px rgba(201, 75, 42, 0.1);
+      transform: translateX(4px);
+    }
+
+    .format-type {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--rust);
+      background: rgba(201, 75, 42, 0.08);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 4px;
+    }
+
+    .format-info h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .format-info p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .format-audience {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--sage);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ── CONTENT OVERVIEW ── */
+    .content-section {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    .content-section .section-label { color: var(--alert); }
+    .content-section .section-title { color: var(--cream); }
+
+    .chapters {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 60px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .chapter {
+      padding: 32px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      transition: background 0.2s;
+    }
+
+    .chapter:hover { background: rgba(255,255,255,0.04); }
+
+    .chapter-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      color: rgba(255,255,255,0.06);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .chapter-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .chapter-desc {
+      font-size: 13px;
+      color: rgba(212, 196, 168, 0.6);
+      line-height: 1.55;
+    }
+
+    /* ── WHO IT'S FOR ── */
+    .who-section { background: var(--cream); }
+
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+
+    .who-card {
+      padding: 28px 24px;
+      border: 1px solid var(--sand);
+      border-radius: 4px;
+      background: white;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .who-card:hover {
+      border-color: var(--rust);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+
+    .who-emoji {
+      font-size: 36px;
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .who-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .who-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-section {
+      background: white;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      margin-top: 60px;
+    }
+
+    .testimonial {
+      padding: 28px;
+      border: 1px solid var(--sand);
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .testimonial::before {
+      content: '"';
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 80px;
+      color: var(--rust);
+      opacity: 0.15;
+      position: absolute;
+      top: 8px;
+      left: 20px;
+      line-height: 1;
+    }
+
+    .testimonial-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--bark);
+      font-style: italic;
+      margin-bottom: 20px;
+      padding-top: 20px;
+    }
+
+    .testimonial-author {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .testimonial-role {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .stars {
+      color: var(--alert);
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    /* ── PRICING / CTA ── */
+    .pricing-section {
+      background: var(--cream);
+    }
+
+    .pricing-card {
+      max-width: 680px;
+      margin: 60px auto 0;
+      background: white;
+      border: 2px solid var(--ink);
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 8px 8px 0 var(--rust);
+    }
+
+    .pricing-header {
+      background: var(--ink);
+      padding: 32px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pricing-header-left h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .pricing-header-left p {
+      font-size: 13px;
+      color: var(--sand);
+    }
+
+    .pricing-amount {
+      text-align: right;
+    }
+
+    .price-big {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 72px;
+      color: var(--rust-light);
+      line-height: 1;
+    }
+
+    .price-was {
+      font-size: 14px;
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    .pricing-body {
+      padding: 36px 40px;
+    }
+
+    .includes-list {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+
+    .includes-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--cream);
+      font-size: 15px;
+      color: var(--ink);
+    }
+
+    .includes-list li:last-child { border-bottom: none; }
+
+    .check-icon {
+      color: var(--sage);
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .includes-list li span { font-size: 13px; color: var(--muted); display: block; margin-top: 2px; }
+
+    .buy-btn {
+      display: block;
+      width: 100%;
+      background: var(--rust);
+      color: white;
+      text-align: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 20px;
+      border-radius: 3px;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .buy-btn:hover {
+      background: var(--rust-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201, 75, 42, 0.4);
+    }
+
+    .guarantee {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 24px;
+      padding: 16px;
+      background: rgba(122, 140, 110, 0.08);
+      border-radius: 4px;
+      border: 1px solid rgba(122, 140, 110, 0.2);
+    }
+
+    .guarantee-icon { font-size: 28px; }
+
+    .guarantee-text {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .guarantee-text strong { color: var(--ink); font-weight: 600; }
+
+    /* ── FAQ ── */
+    .faq-section { background: white; }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px 60px;
+      margin-top: 60px;
+    }
+
+    .faq-item {}
+
+    .faq-q {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .faq-a {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: var(--sand);
+      padding: 40px;
+      text-align: center;
+    }
+
+    footer p { font-size: 13px; opacity: 0.6; }
+
+    /* ── STICKY CTA ── */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--ink);
+      border-top: 2px solid var(--rust);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .sticky-bar.visible { transform: translateY(0); }
+
+    .sticky-text {
+      color: var(--cream);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .sticky-text span { color: var(--alert); }
+
+    .sticky-btn {
+      background: var(--rust);
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 28px;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .sticky-btn:hover { background: var(--rust-light); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner, .pain-grid, .formats-intro { grid-template-columns: 1fr; }
+      .hero-accent { display: none; }
+      .chapters { grid-template-columns: 1fr 1fr; }
+      .who-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid, .faq-grid { grid-template-columns: 1fr; }
+      .format-badges { display: none; }
+      .proof-strip { gap: 24px; }
+      .hero h1 { font-size: 60px; }
+      section { padding: 60px 20px; }
+      .pricing-header { flex-direction: column; gap: 20px; text-align: center; }
+      .pricing-body { padding: 28px 24px; }
+    }
+
+    @media (max-width: 600px) {
+      .chapters { grid-template-columns: 1fr; }
+      .who-grid { grid-template-columns: 1fr; }
+      .stat-cards { grid-template-columns: 1fr; }
+      .sticky-bar { padding: 12px 20px; }
+      .sticky-text { font-size: 12px; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-label { animation: fadeUp 0.5s ease 0.1s both; }
+    .hero h1 { animation: fadeUp 0.6s ease 0.2s both; }
+    .hero-sub { animation: fadeUp 0.6s ease 0.35s both; }
+    .cta-group { animation: fadeUp 0.6s ease 0.5s both; }
+    .hero-visual { animation: fadeUp 0.7s ease 0.6s both; }
+  </style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero" id="top">
+  <div class="hero-texture"></div>
+  <div class="hero-accent"></div>
+
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-label">⚡ Emergency Preparedness • 2026 Edition</div>
+
+      <h1>
+        Prepare Now.
+        <span>Protect What</span>
+        Matters.
+      </h1>
+
+      <p class="hero-sub">
+        A <strong>battle-tested, practical guide</strong> built from lived experience through political upheaval and economic collapse — not survival fantasy. Six core principles, actionable checklists, and a 30-day plan that actually works.
+      </p>
+
+      <div class="price-display">
+        <div class="price-main">$17</div>
+        <div class="price-old">$35</div>
+        <div class="price-label">▲ Launch Price</div>
+      </div>
+
+      <div class="cta-group">
+        <a href="#pricing" class="btn-primary">
+          Get the Guide →
+        </a>
+        <a href="#formats" class="btn-secondary">See what's included ↓</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="guide-mockup">
+        <div class="mockup-header">
+          <div class="mockup-header-label">Field Guide • 2026</div>
+          <div class="mockup-title">Family Emergency Preparedness Guide</div>
+        </div>
+        <div class="mockup-body">
+          <div class="mockup-line long"></div>
+          <div class="mockup-line medium"></div>
+          <div class="mockup-line long"></div>
+          <div class="mockup-section">
+            <div class="mockup-check">
+              <div class="check-box filled"></div>
+              <div class="check-line"></div>
+            </div>
+            <div class="mockup-check">
+              <div class="check-box filled"></div>
+              <div class="check-line" style="width:70%"></div>
+            </div>
+            <div class="mockup-check">
+              <div class="check-box"></div>
+              <div class="check-line" style="width:85%"></div>
+            </div>
+            <div class="mockup-check">
+              <div class="check-box"></div>
+              <div class="check-line" style="width:60%"></div>
+            </div>
+            <div class="mockup-check">
+              <div class="check-box"></div>
+              <div class="check-line"></div>
+            </div>
+          </div>
+          <div class="mockup-section">
+            <div class="mockup-line short"></div>
+            <div class="mockup-line medium" style="opacity:0.35; margin-top: 8px"></div>
+            <div class="mockup-line long" style="opacity:0.25; margin-top: 8px"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="format-badges">
+        <div class="format-badge">PDF</div>
+        <div class="format-badge">DOCX</div>
+        <div class="format-badge">OBSIDIAN</div>
+        <div class="format-badge">NOTION</div>
+        <div class="format-badge">XLSX</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SOCIAL PROOF STRIP ══ -->
+<div class="proof-strip">
+  <div class="proof-item">
+    <svg class="proof-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    Instant digital download
+  </div>
+  <div class="proof-item">
+    <svg class="proof-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+    Lifetime access, all updates
+  </div>
+  <div class="proof-item">
+    <svg class="proof-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+    30-day money back guarantee
+  </div>
+  <div class="proof-item">
+    <svg class="proof-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+    5 formats for every skill level
+  </div>
+</div>
+
+<!-- ══ PAIN ══ -->
+<section class="pain-section">
+  <div class="section-inner">
+    <div class="section-label">// The Reality</div>
+    <h2 class="section-title">Most Families Are <span class="accent">One Crisis Away</span> from Chaos</h2>
+
+    <div class="pain-grid">
+      <div class="pain-left">
+        <p>Power goes out for a week. The ATM network is down. Your kids are asking what's for dinner and you're staring at a pantry of half-eaten chips and expired canned soup.</p>
+
+        <p>This isn't a doomsday fantasy. <strong>It's Tuesday in Texas after an ice storm.</strong> Or Thursday in Florida after a hurricane. Or Monday after a cyberattack on the banking system.</p>
+
+        <p>Most preparedness content is written by people who've never actually been through a real collapse — it's theoretical, overwhelming, or designed to sell you $10,000 of gear you'll never use.</p>
+
+        <p><strong>This guide is different.</strong> It was built from real lived experience — surviving political instability, economic turmoil, and civil unrest. Six proven principles. A 30-day plan you can start today. No fear-mongering. No survivalist gatekeeping.</p>
+
+        <p>Just the stuff that actually matters when things go sideways.</p>
+      </div>
+
+      <div class="stat-cards">
+        <div class="stat-card">
+          <div class="stat-number">53%</div>
+          <div class="stat-label">of Americans can't cover a $400 emergency expense without borrowing</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">3 days</div>
+          <div class="stat-label">is all it takes for grocery store shelves to empty during a regional crisis</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">72hrs</div>
+          <div class="stat-label">the minimum FEMA recommends before aid reaches most disaster zones</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1 in 5</div>
+          <div class="stat-label">American families have no emergency plan whatsoever</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FORMATS ══ -->
+<section class="formats-section" id="formats">
+  <div class="section-inner">
+    <div class="section-label">// Five Formats, One Purchase</div>
+    <h2 class="section-title">Built for <span class="accent">Every</span> Kind of Person</h2>
+
+    <div class="formats-intro">
+      <div class="formats-desc">
+        <p>Whether you prefer to print and hang it on the fridge, or build an automated reminder system in Obsidian that syncs across all your devices — we've got you covered.</p>
+        <p>One purchase. All five formats. No upsells.</p>
+        <p>Each format is built specifically for how that tool works — not just exported from Word. The Obsidian vault has internal links and tags. The Notion template is ready to duplicate. The Excel tracker has real formulas.</p>
+      </div>
+
+      <div class="format-list">
+        <div class="format-item">
+          <div class="format-type">PDF</div>
+          <div class="format-info">
+            <h4>Print-Ready PDF</h4>
+            <p>Clean, professional layout. Print the checklists and stick them on the fridge or in your go-bag. No internet required — ever.</p>
+            <div class="format-audience">👴 For: Print lovers, low-tech households, grandparents</div>
+          </div>
+        </div>
+
+        <div class="format-item">
+          <div class="format-type">DOCX</div>
+          <div class="format-info">
+            <h4>Word Document</h4>
+            <p>Fully editable in Word, Google Docs, or LibreOffice. Customize it with your family's info, local contacts, and personal notes.</p>
+            <div class="format-audience">💼 For: Customizers, families who want to make it their own</div>
+          </div>
+        </div>
+
+        <div class="format-item">
+          <div class="format-type">.MD</div>
+          <div class="format-info">
+            <h4>Obsidian Vault</h4>
+            <p>A full linked knowledge base with tags, internal navigation, and checklist plugins. Turn your preparedness into a living system that grows with you.</p>
+            <div class="format-audience">🧠 For: PKM nerds, Obsidian users, knowledge workers</div>
+          </div>
+        </div>
+
+        <div class="format-item">
+          <div class="format-type">CSV</div>
+          <div class="format-info">
+            <h4>Notion-Ready Template</h4>
+            <p>Import directly into Notion. Database views, checkboxes, progress tracking, and priority tags — all pre-built. Share with your whole household.</p>
+            <div class="format-audience">📋 For: Notion users, collaborative families, team preparedness</div>
+          </div>
+        </div>
+
+        <div class="format-item">
+          <div class="format-type">XLSX</div>
+          <div class="format-info">
+            <h4>Excel / Sheets Tracker</h4>
+            <p>A real spreadsheet with formulas: budget tracking, supply inventory, expiration date reminders, and a 30-day action plan with auto-calculated progress.</p>
+            <div class="format-audience">📊 For: Spreadsheet people, data-driven planners, budgeters</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTENT ══ -->
+<section class="content-section">
+  <div class="section-inner">
+    <div class="section-label">// Inside the Guide</div>
+    <h2 class="section-title">Six Core Principles + Complete Checklists</h2>
+
+    <div class="chapters">
+      <div class="chapter">
+        <div class="chapter-num">01</div>
+        <div class="chapter-title">Family Emergency Plan</div>
+        <div class="chapter-desc">Meeting points, communication protocols, children's pickup plans, decision hierarchies. The conversation you need to have — and exactly how to have it.</div>
+      </div>
+      <div class="chapter">
+        <div class="chapter-num">02</div>
+        <div class="chapter-title">Cash Reserve Strategy</div>
+        <div class="chapter-desc">Why 30% of monthly income matters, how to store it safely, and what denominations you'll actually need when digital payments fail.</div>
+      </div>
+      <div class="chapter">
+        <div class="chapter-num">03</div>
+        <div class="chapter-title">Go-Bag Essentials</div>
+        <div class="chapter-desc">A complete, vetted 30-item go-bag checklist. What to prioritize, what to skip, and how to build yours without spending a fortune.</div>
+      </div>
+      <div class="chapter">
+        <div class="chapter-num">04</div>
+        <div class="chapter-title">Self-Defense & Safety</div>
+        <div class="chapter-desc">Firearms training guidance, non-firearm alternatives, situational awareness skills, and how to think about safety without paranoia.</div>
+      </div>
+      <div class="chapter">
+        <div class="chapter-num">05</div>
+        <div class="chapter-title">Self-Sufficiency Skills</div>
+        <div class="chapter-desc">Gardening, food preservation, first aid, water purification, and 15-skill development tracker. Practical abilities that matter when supply chains fail.</div>
+      </div>
+      <div class="chapter">
+        <div class="chapter-num">06</div>
+        <div class="chapter-title">Community Networks</div>
+        <div class="chapter-desc">How to identify trustworthy neighbors, build mutual aid relationships, and approach community as a preparedness asset — not a liability.</div>
+      </div>
+      <div class="chapter">
+        <div class="chapter-num">+</div>
+        <div class="chapter-title">30-Day Action Plan</div>
+        <div class="chapter-desc">A week-by-week breakdown so you know exactly what to do first, second, and third. No overwhelm — just a practical sequence that builds momentum.</div>
+      </div>
+      <div class="chapter">
+        <div class="chapter-num">+</div>
+        <div class="chapter-title">Skills Development Tracker</div>
+        <div class="chapter-desc">15 core survival skills with a check-off system, learning resources, and progress indicators. Turn skills from abstract to accomplished.</div>
+      </div>
+      <div class="chapter">
+        <div class="chapter-num">+</div>
+        <div class="chapter-title">Quick Reference Appendix</div>
+        <div class="chapter-desc">All checklists in standalone format for printing and posting. The go-bag list, emergency plan template, and skills tracker — grab-and-go ready.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHO ══ -->
+<section class="who-section">
+  <div class="section-inner">
+    <div class="section-label">// Who This Is For</div>
+    <h2 class="section-title">You Don't Have to Be a <span class="accent">Prepper</span> to Need This</h2>
+
+    <div class="who-grid">
+      <div class="who-card">
+        <span class="who-emoji">👪</span>
+        <div class="who-title">Parents & Families</div>
+        <div class="who-desc">You've thought about what would happen if the power went out for a week. This is the plan you've been putting off making.</div>
+      </div>
+      <div class="who-card">
+        <span class="who-emoji">🏙️</span>
+        <div class="who-title">Urban & Suburban Dwellers</div>
+        <div class="who-desc">You don't need a bunker. You need 72 hours of readiness — enough to outlast most crises without panicking.</div>
+      </div>
+      <div class="who-card">
+        <span class="who-emoji">📰</span>
+        <div class="who-title">News-Watchers</div>
+        <div class="who-desc">You see what's happening in the world and want to be less worried. Preparedness is the antidote to anxiety.</div>
+      </div>
+      <div class="who-card">
+        <span class="who-emoji">🌍</span>
+        <div class="who-title">Immigrants & First-Gen</div>
+        <div class="who-desc">You know from experience or family history that stability isn't guaranteed. This guide validates what you already believe.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section class="testimonials-section">
+  <div class="section-inner">
+    <div class="section-label">// What People Are Saying</div>
+    <h2 class="section-title">Finally, Something <span class="accent">Actually Useful</span></h2>
+
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-text">I've downloaded probably a dozen free preparedness guides and tossed them all. This one actually got done — we had our family meeting last weekend and built our go-bags over two weekends. The 30-day plan is the only reason we finished it.</div>
+        <div class="testimonial-author">Maria C.</div>
+        <div class="testimonial-role">Mother of 3, Phoenix, AZ</div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-text">The Obsidian vault is incredible — I've linked it to my daily notes and have reminders set for rotating food and water. This is exactly how I wanted to manage preparedness and I never would have set it up myself. Worth it for that alone.</div>
+        <div class="testimonial-author">Dev K.</div>
+        <div class="testimonial-role">Software engineer, remote worker</div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-text">My parents are immigrants. This guide finally articulated everything my mom has been saying since I was a kid about keeping cash and having a plan. I bought it for myself and sent a copy to my siblings. No fluff, no fear — just common sense.</div>
+        <div class="testimonial-author">James T.</div>
+        <div class="testimonial-role">Healthcare worker, Chicago, IL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICING ══ -->
+<section class="pricing-section" id="pricing">
+  <div class="section-inner" style="text-align:center">
+    <div class="section-label">// Get It Today</div>
+    <h2 class="section-title">One Price. <span class="accent">Everything</span> Included.</h2>
+    <p style="color: var(--muted); font-size: 16px; max-width: 480px; margin: 0 auto;">No subscriptions. No tiers. All five formats, all updates, forever.</p>
+
+    <div class="pricing-card">
+      <div class="pricing-header">
+        <div class="pricing-header-left">
+          <h3>Family Emergency Preparedness Guide</h3>
+          <p>2026 Edition — All Formats Bundle</p>
+        </div>
+        <div class="pricing-amount">
+          <div class="price-big">$17</div>
+          <div class="price-was">was $35</div>
+        </div>
+      </div>
+      <div class="pricing-body">
+        <ul class="includes-list">
+          <li>
+            <span class="check-icon">✓</span>
+            <div><strong>Print-Ready PDF</strong><span>Clean layout, print-and-post checklists, no internet needed</span></div>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <div><strong>Editable Word Document (DOCX)</strong><span>Customize with your family info, contacts, local resources</span></div>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <div><strong>Obsidian Vault (.md files)</strong><span>Full linked knowledge base with tags, checkboxes, and backlinks</span></div>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <div><strong>Notion-Ready CSV Template</strong><span>Importable database with views, checkboxes, and progress tracking</span></div>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <div><strong>Excel / Google Sheets Tracker (XLSX)</strong><span>Budget tracker, supply inventory, expiration reminders, auto-progress</span></div>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <div><strong>Lifetime Updates</strong><span>As the guide expands, you get every new version free</span></div>
+          </li>
+        </ul>
+
+        <a href="#" class="buy-btn">Get Instant Access — $17 →</a>
+
+        <div class="guarantee">
+          <div class="guarantee-icon">🛡️</div>
+          <div class="guarantee-text">
+            <strong>30-Day Money-Back Guarantee.</strong> If you open this guide, follow the first week of the 30-day plan, and don't feel more prepared and more at ease — reply to your receipt email and we'll refund you immediately. No questions.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="faq-section">
+  <div class="section-inner">
+    <div class="section-label">// Common Questions</div>
+    <h2 class="section-title">Straight <span class="accent">Answers</span></h2>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">Is this guide political?</div>
+        <div class="faq-a">No. Preparedness doesn't have a party affiliation. The guide draws from experiences of real political upheaval and focuses on practical action that protects any family regardless of their politics. Hurricanes, power outages, and economic downturns don't check voter registration.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need to be technical to use the Obsidian vault?</div>
+        <div class="faq-a">Basic familiarity with Obsidian helps, but we include a quick-start instruction file. If you've never used Obsidian, you can download it free and be up and running in 15 minutes. Alternatively, just use the PDF — it has everything.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is this just a list of stuff to buy?</div>
+        <div class="faq-a">Definitely not. Less than 20% of the guide is about physical supplies. The rest covers skills, plans, community, financial resilience, and mindset. You can start today with zero dollars spent.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">I live in an apartment. Is this relevant to me?</div>
+        <div class="faq-a">Yes. Every section includes apartment-appropriate options — container gardening instead of a yard, go-bags that fit under a bed, community networks with neighbors. The principles work regardless of your living situation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How is this different from free FEMA guides?</div>
+        <div class="faq-a">FEMA guides are written by committees for the broadest possible audience. This guide is written from personal experience with actual political and economic instability — and it doesn't pull punches about what really matters when systems fail.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Will I get future updates?</div>
+        <div class="faq-a">Yes. The guide is actively being expanded. As new content, checklists, and resources are added, anyone who's purchased will receive the updated versions at no additional cost.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ══ -->
+<section style="background: var(--rust); padding: 80px 40px; text-align: center;">
+  <div style="max-width: 600px; margin: 0 auto;">
+    <div style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 20px;">// Your Move</div>
+    <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 72px); color: white; line-height: 1; margin-bottom: 20px;">
+      The Best Time to Prepare Was Last Year.<br>The Second Best Time Is Now.
+    </h2>
+    <p style="font-size: 17px; color: rgba(255,255,255,0.8); margin-bottom: 36px; line-height: 1.6;">
+      If you prepare and nothing happens, you've lost nothing. If you don't prepare and something happens, you've lost everything.
+    </p>
+    <a href="#pricing" class="btn-primary" style="background: white; color: var(--rust); font-size: 17px; padding: 20px 48px;">
+      Get the Guide for $17 →
+    </a>
+    <p style="font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 20px;">30-day money-back guarantee · Instant download · All 5 formats</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Family Emergency Preparedness Guide. All rights reserved.<br>Questions? <a href="mailto:hello@example.com" style="color: var(--sand);">hello@example.com</a></p>
+</footer>
+
+<!-- ══ STICKY BAR ══ -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-text">Family Emergency Preparedness Guide — <span>$17, all 5 formats</span></div>
+  <a href="#pricing" class="sticky-btn">Get It Now →</a>
+</div>
+
+<script>
+  // Sticky bar appears after scrolling past hero
+  const hero = document.querySelector('.hero');
+  const stickyBar = document.getElementById('stickyBar');
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.isIntersecting) {
+        stickyBar.classList.add('visible');
+      } else {
+        stickyBar.classList.remove('visible');
+      }
+    },
+    { threshold: 0.1 }
+  );
+
+  observer.observe(hero);
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
