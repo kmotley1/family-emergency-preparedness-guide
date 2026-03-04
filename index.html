@@ -695,14 +695,20 @@
     }
 
     .includes-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      align-items: start;
+      gap: 12px;
       padding: 12px 0;
       border-bottom: 1px solid var(--gray-lt);
       font-size: 15px;
       color: var(--ink);
       font-weight: 500;
+    }
+
+    .includes-list li div:last-child {
+      text-align: center;
+      width: 100%;
     }
 
     .includes-list li:last-child { border-bottom: none; }
@@ -712,7 +718,10 @@
       color: var(--gray);
       font-weight: 400;
       display: block;
-      margin-top: 2px;
+      margin-top: 6px;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .check-circle {
@@ -1311,7 +1320,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q">What will I actually have when I finish the guide?</div>
-        <div class="faq-a">By the end, you’ll have a complete preparedness plan for your household. Your emergency plan, go-bag checklist, cash reserve plan, essential documents list, and a clear understanding of what’s done and what still needs attention.</div>
+        <div class="faq-a">You’ll have a complete preparedness plan for your household. Your emergency plan, go-bag checklist, cash reserve plan, essential documents list, and a clear understanding of what’s done and what still needs attention.</div>
       </div>
     </div>
   </div>
