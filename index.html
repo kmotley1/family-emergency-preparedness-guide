@@ -391,6 +391,14 @@
       padding: 24px;
       position: relative;
       overflow: hidden;
+
+      box-shadow: 0 6px 24px rgba(0,0,0,0.04);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.08);
     }
 
     .stat-card::after {
@@ -627,6 +635,13 @@
       text-align: center;
     }
 
+    .pricing-section .section-headline,
+    .pricing-section .section-sub {
+      max-width: none;
+      margin-left: auto;
+      margin-right: auto;
+    } 
+
     .pricing-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
@@ -786,6 +801,10 @@
       align-items: center;
       gap: 12px;
       margin: 28px auto 36px;
+    }
+
+    .pricing-section .urgency-banner {
+      max-width: 520px;
     }
 
     .urgency-dot {
