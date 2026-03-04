@@ -715,15 +715,23 @@
 
     .includes-list li:last-child { border-bottom: none; }
 
+    .includes-list li > div:last-child {
+      justify-self: center;
+      width: 100%;
+      max-width: 460px;
+      line-height: 1.35;
+    }
+
     .includes-list li span {
       font-size: 13px;
       color: var(--gray);
       font-weight: 400;
       display: block;
-      margin-top: 4px;
+      margin-top: 3px;
       max-width: 420px;
       margin-left: auto;
       margin-right: auto;
+      line-height: 1.55; 
     }
 
     .check-circle {
