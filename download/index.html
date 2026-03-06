@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Your Download • Emergency Preparedness Guide</title>
+
+<style>
+
+body{
+font-family: Inter, system-ui, -apple-system, sans-serif;
+background:#f6f7fb;
+margin:0;
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:100vh;
+color:#111;
+}
+
+.container{
+max-width:620px;
+background:white;
+padding:50px 40px;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+text-align:center;
+}
+
+h1{
+font-size:28px;
+margin-bottom:10px;
+}
+
+p{
+color:#555;
+line-height:1.6;
+}
+
+.download-btn{
+display:inline-block;
+margin-top:28px;
+background:#2f5bea;
+color:white;
+padding:16px 28px;
+border-radius:10px;
+text-decoration:none;
+font-weight:600;
+font-size:16px;
+transition:.15s;
+}
+
+.download-btn:hover{
+background:#2347c7;
+}
+
+.note{
+margin-top:25px;
+font-size:14px;
+color:#777;
+}
+
+.lock{
+display:none;
+margin-top:25px;
+padding:20px;
+background:#fff4f4;
+border-radius:10px;
+font-size:15px;
+color:#b00020;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Your Emergency Preparedness Toolkit</h1>
+
+<p>
+Your download is ready.
+Click the button below to download the complete toolkit.
+</p>
+
+<a id="downloadBtn"
+class="download-btn"
+href="/downloads/Family_Emergency_Preparedness_Guide_2026.zip"
+download>
+
+Download the Toolkit
+
+</a>
+
+<p class="note">
+Save the file somewhere safe so you can access it anytime.
+</p>
+
+<div id="locked" class="lock">
+This page is available after purchase.<br>
+If you reached this page by mistake, please return to the main site.
+</div>
+
+</div>
+
+<script>
+
+/*
+Soft-gate protection
+Requires ?paid=1 in the URL
+Stripe will redirect users with this parameter
+*/
+
+const params = new URLSearchParams(window.location.search)
+
+if(!params.get("paid")){
+document.getElementById("downloadBtn").style.display="none"
+document.getElementById("locked").style.display="block"
+}
+
+</script>
+
+</body>
+</html>

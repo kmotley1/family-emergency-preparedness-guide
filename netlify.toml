@@ -1,0 +1,9 @@
+[[headers]]
+  for = "/download"
+  [headers.values]
+  X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/downloads/*"
+  [headers.values]
+  X-Robots-Tag = "noindex, nofollow"
