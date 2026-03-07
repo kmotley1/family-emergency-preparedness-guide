@@ -123,3 +123,217 @@
 
     .optin-card .card-sub {
       font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .optin-card input[type="email"],
+    .formkit-input {
+      width: 100% !important;
+      padding: 14px 16px !important;
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 15px !important;
+      border: 1.5px solid #D4C4A8 !important;
+      border-radius: 3px !important;
+      background: white !important;
+      color: var(--ink) !important;
+      margin-bottom: 12px !important;
+      outline: none !important;
+      transition: border-color 0.2s !important;
+    }
+
+    .optin-card input[type="email"]:focus,
+    .formkit-input:focus {
+      border-color: var(--cherry) !important;
+    }
+
+    .formkit-submit,
+    .optin-card button[type="submit"] {
+      width: 100% !important;
+      padding: 16px !important;
+      background: var(--cherry) !important;
+      color: white !important;
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      border: none !important;
+      border-radius: 3px !important;
+      cursor: pointer !important;
+      transition: all 0.2s !important;
+      letter-spacing: 0.02em !important;
+    }
+
+    .formkit-submit:hover,
+    .optin-card button[type="submit"]:hover {
+      background: var(--cherry-hover) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 8px 30px rgba(185, 28, 28, 0.4) !important;
+    }
+
+    .privacy-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 14px;
+    }
+
+    .bridge {
+      background: var(--deep-navy);
+      padding: 80px 40px;
+    }
+
+    .bridge-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .bridge .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--steel-blue);
+      margin-bottom: 16px;
+    }
+
+    .bridge h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 4vw, 52px);
+      color: white;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .bridge p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      max-width: 500px;
+    }
+
+    .bridge-action {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      min-width: 220px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--steel-blue);
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 18px 36px;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: all 0.2s;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover {
+      background: var(--steel-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(46, 109, 164, 0.5);
+    }
+
+    .price-note {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+    }
+
+    .guarantee {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--steel-blue);
+      text-align: center;
+    }
+
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 28px 40px;
+      text-align: center;
+    }
+
+    footer p { font-size: 13px; color: rgba(255,255,255,0.4); }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    footer a:hover { color: var(--sand); }
+
+    @media (max-width: 860px) {
+      nav { padding: 14px 20px; }
+      .hero-inner { padding: 40px 20px; }
+      .bridge-inner { grid-template-columns: 1fr; gap: 36px; }
+      .bridge-action { align-items: flex-start; }
+      .bridge { padding: 56px 24px; }
+      footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://emergencypreparednesschecklist.com" class="nav-logo"></a>
+    <a href="https://emergencypreparednesschecklist.com/#pricing" class="nav-cta">Get the Full Guide →</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="optin-card">
+        <div class="card-eyebrow">// Get instant access</div>
+        <h2 style="font-size:40px; line-height:1;">Send Me the<br>Free Checklist</h2>
+        <p class="card-sub">
+          Enter your email below, and the free PDF goes straight to your inbox.
+        </p>
+
+        <script async data-uid="729e43e239" src="https://emergency-preparedness-checklist.kit.com/729e43e239/index.js"></script>
+
+        <p class="privacy-note">No spam. Unsubscribe any time.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bridge">
+    <div class="bridge-inner">
+      <div>
+        <div class="eyebrow">// Want to go deeper</div>
+        <h2>The Full Guide<br>Covers Everything Else</h2>
+        <p>
+          This checklist is 3 of 12 sections. The full Family Emergency Preparedness Guide
+          covers go-bag equipment, home hardening, shelter-in-place planning, self-defense,
+          community networks, a skills development tracker, and a 30-day action plan.
+          Available in five formats: PDF, Word, Obsidian, Notion, and Excel.
+          <br><br>60-day money-back guarantee on the full guide.
+        </p>
+      </div>
+      <div class="bridge-action">
+        <a href="https://emergencypreparednesschecklist.com/#pricing" class="btn-primary">
+          Get the Full Guide →
+        </a>
+        <span class="price-note">$25 · One-time · Instant download</span>
+        <span class="guarantee">60-day money-back guarantee</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      <a href="https://emergencypreparednesschecklist.com">emergencypreparednesschecklist.com</a>
+      &nbsp;·&nbsp; Free resource. Share it.
+    </p>
+  </footer>
+
+</body>
+</html>
