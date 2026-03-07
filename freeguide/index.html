@@ -171,6 +171,27 @@
       box-shadow: 0 8px 30px rgba(185, 28, 28, 0.4) !important;
     }
 
+    /* Hide ConvertKit's default header/subtext/branding */
+    .formkit-header,
+    .formkit-subheader,
+    .formkit-guarantee,
+    [data-element="header"],
+    [data-element="subheader"] {
+      display: none !important;
+    }
+
+    .formkit-form {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .formkit-fields {
+      padding: 0 !important;
+    }
+
     .privacy-note {
       text-align: center;
       font-size: 12px;
