@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Emergency Plan Template: The 45-Minute Conversation — Emergency Preparedness Guide</title>
+  <meta name="description" content="Where do we go? Who makes the call? What are our triggers? A family emergency plan answers six questions. Here's how to get through all of them in one sitting.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white:    #FFFFFF;
+      --bg:       #F5F5F7;
+      --ink:      #1D1D1F;
+      --gray:     #6E6E73;
+      --gray-lt:  #E8E8ED;
+      --navy:     #1B4FBF;
+      --navy-dk:  #153D96;
+      --navy-lt:  #EEF2FB;
+      --green:    #2A7A4B;
+      --green-lt: #EAF5EE;
+      --amber:    #B45309;
+      --amber-lt: #FEF3C7;
+      --divider:  #D2D2D7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .reading-progress {
+      position: fixed;
+      top: 52px;
+      left: 0;
+      height: 2px;
+      background: var(--navy);
+      z-index: 199;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 0 40px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .nav-logo {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--navy); font-weight: 600; }
+
+    .nav-cta {
+      background: var(--navy) !important;
+      color: white !important;
+      padding: 8px 18px;
+      border-radius: 980px;
+      font-weight: 500 !important;
+      font-size: 13px !important;
+    }
+
+    .nav-cta:hover { background: var(--navy-dk) !important; }
+
+    .article-header {
+      padding: 100px 40px 64px;
+      background: var(--white);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .article-header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .article-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 28px;
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    .article-breadcrumb a { color: var(--navy); text-decoration: none; }
+    .article-breadcrumb a:hover { text-decoration: underline; }
+
+    .article-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--navy-lt);
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .article-header h1 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .article-deck {
+      font-size: 19px;
+      line-height: 1.65;
+      color: var(--gray);
+      margin-bottom: 28px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 12px;
+      color: var(--gray);
+      font-family: 'JetBrains Mono', monospace;
+      padding-top: 20px;
+      border-top: 1px solid var(--divider);
+    }
+
+    .meta-divider { color: var(--divider); }
+
+    .article-layout {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 60px 40px 100px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .article-body h2 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 48px 0 16px;
+      line-height: 1.2;
+    }
+
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: 32px 0 12px;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+
+    .article-body p strong { color: var(--ink); font-weight: 600; }
+
+    .article-body a {
+      color: var(--navy);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .callout {
+      background: var(--navy-lt);
+      border-left: 3px solid var(--navy);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+
+    .callout-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .callout p {
+      font-size: 15px;
+      color: var(--ink);
+      margin: 0;
+      line-height: 1.65;
+    }
+
+    .callout p strong { color: var(--navy-dk); }
+
+    .callout-warning {
+      background: var(--amber-lt);
+      border-left-color: var(--amber);
+    }
+
+    .callout-warning .callout-label { color: var(--amber); }
+    .callout-warning p { color: var(--ink); }
+
+    /* Question block */
+    .question-block {
+      border: 1px solid var(--divider);
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 32px 0;
+    }
+
+    .question-header {
+      background: var(--ink);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .question-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.4);
+      flex-shrink: 0;
+    }
+
+    .question-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      letter-spacing: -0.01em;
+    }
+
+    .question-body {
+      padding: 20px 24px;
+      background: var(--bg);
+    }
+
+    .question-body p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--gray);
+      margin-bottom: 12px;
+    }
+
+    .question-body p:last-child { margin-bottom: 0; }
+    .question-body p strong { color: var(--ink); font-weight: 600; }
+
+    .answer-prompt {
+      background: white;
+      border: 1px solid var(--gray-lt);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--gray);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .answer-prompt strong {
+      color: var(--navy);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .checklist {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 32px 0;
+    }
+
+    .checklist-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    .checklist ul { list-style: none; }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gray-lt);
+      font-size: 15px;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .checklist li:last-child { border-bottom: none; }
+
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--green-lt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .check-icon svg { width: 11px; height: 11px; stroke: var(--green); }
+
+    .checklist li span {
+      font-size: 13px;
+      color: var(--gray);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .tier-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .tier-1 { background: var(--navy-lt); color: var(--navy); }
+    .tier-2 { background: var(--green-lt); color: var(--green); }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 32px 0;
+    }
+
+    .stat-mini {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-mini-num {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-mini-label {
+      font-size: 12px;
+      color: var(--gray);
+      line-height: 1.4;
+    }
+
+    .mid-cta {
+      background: var(--ink);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 48px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .mid-cta-text {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      line-height: 1.4;
+    }
+
+    .mid-cta-text span {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      display: block;
+      margin-top: 4px;
+    }
+
+    .mid-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: white;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 980px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+
+    .mid-cta-btn:hover { background: var(--bg); }
+
+    .article-sidebar { position: sticky; top: 72px; }
+
+    .sidebar-card {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .sidebar-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    .toc-list { list-style: none; }
+
+    .toc-list li {
+      padding: 7px 0;
+      border-bottom: 1px solid var(--gray-lt);
+    }
+
+    .toc-list li:last-child { border-bottom: none; }
+
+    .toc-list a {
+      font-size: 13px;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-list a:hover { color: var(--navy); }
+
+    .toc-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--divider);
+      width: 16px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-guide {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .sidebar-guide-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 12px;
+    }
+
+    .sidebar-guide h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .sidebar-guide p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .sidebar-guide-btn {
+      display: block;
+      background: white;
+      color: var(--navy);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px;
+      border-radius: 980px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .sidebar-guide-btn:hover { background: var(--bg); }
+
+    .related-section {
+      background: var(--bg);
+      padding: 80px 40px;
+      border-top: 1px solid var(--divider);
+    }
+
+    .related-inner { max-width: 1080px; margin: 0 auto; }
+
+    .related-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .related-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .related-all {
+      font-size: 14px;
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .related-card {
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: 16px;
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: all 0.2s;
+    }
+
+    .related-card:hover {
+      border-color: var(--navy);
+      box-shadow: 0 4px 20px rgba(27,79,191,0.07);
+      transform: translateY(-2px);
+    }
+
+    .related-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .cat-planning { color: var(--navy); background: var(--navy-lt); }
+    .cat-gear { color: var(--green); background: var(--green-lt); }
+    .cat-skills { color: var(--amber); background: var(--amber-lt); }
+
+    .related-card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .related-card p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--divider);
+      padding: 32px 40px;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    footer p { font-size: 13px; color: var(--gray); }
+    footer a { color: var(--navy); text-decoration: none; }
+
+    .sticky-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(29,29,31,0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 150;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .sticky-bar.visible { transform: translateY(0); }
+    .sticky-left { font-size: 14px; color: rgba(255,255,255,0.65); font-weight: 500; }
+    .sticky-left span { color: white; font-weight: 600; }
+
+    .sticky-btn {
+      background: white;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 28px;
+      border-radius: 980px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; gap: 0; }
+      .article-sidebar { display: none; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+      .stat-row { grid-template-columns: 1fr 1fr; }
+      nav { padding: 0 20px; }
+      .nav-links li:not(:last-child) { display: none; }
+      .article-header, .article-layout, .related-section { padding-left: 20px; padding-right: 20px; }
+      .mid-cta { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 600px) {
+      .related-grid { grid-template-columns: 1fr; }
+      .stat-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Prepared. Not scared.</a>
+  <ul class="nav-links">
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#inside">What's Inside</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">
+        Get the Guide →
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-breadcrumb">
+      <a href="blog.html">Blog</a>
+      <span>›</span>
+      <span>Planning</span>
+    </div>
+    <span class="article-cat">Planning</span>
+    <h1>Family Emergency Plan Template: The 45-Minute Conversation</h1>
+    <p class="article-deck">Most families have been meaning to do this for years. The reason it never happens isn't lack of motivation — it's not knowing exactly what questions to answer. This covers all of them. One sitting, written down, done.</p>
+    <div class="article-meta">
+      <span>March 2026</span>
+      <span class="meta-divider">·</span>
+      <span>6 min read</span>
+      <span class="meta-divider">·</span>
+      <span>From the Emergency Preparedness Guide</span>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE LAYOUT -->
+<div class="article-layout">
+
+  <article class="article-body" id="articleBody">
+
+    <p>A family emergency plan is not a document. It is a set of agreements — answers to specific questions that every person in the household already knows before anything goes wrong. The document is just where those agreements live so they don't have to be reconstructed under pressure.</p>
+
+    <p>The conversation itself takes less time than most families expect. The reason it keeps getting deferred is that sitting down to "make an emergency plan" sounds like a project. Answering six concrete questions sounds like a Tuesday evening. What follows is the second version.</p>
+
+    <div class="stat-row">
+      <div class="stat-mini">
+        <div class="stat-mini-num">6</div>
+        <div class="stat-mini-label">questions a complete family emergency plan answers</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">45</div>
+        <div class="stat-mini-label">minutes to get through all of them with a family of four</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">72h</div>
+        <div class="stat-mini-label">the window FEMA defines as self-sufficiency minimum — this plan covers all of it</div>
+      </div>
+    </div>
+
+    <p>Go through the questions below in order. Write the answers somewhere your household can access without a phone — a printed sheet kept with your important documents is the right format. A notes app that requires a charged device and a cell signal is not.</p>
+
+    <h2 id="where-do-we-go">Question 1: Where Do We Go?</h2>
+
+    <div class="question-block">
+      <div class="question-header">
+        <span class="question-num">Q1</span>
+        <span class="question-title">Where do we go if we can't stay home?</span>
+      </div>
+      <div class="question-body">
+        <p>Every household needs two meeting points and two evacuation destinations. They serve different scenarios, and conflating them is the most common planning mistake.</p>
+        <p><strong>Meeting point 1 — near home:</strong> A specific location within walking distance for situations where the household is split and needs to reunite quickly. A neighbor's driveway, a school parking lot, a corner three blocks away. The address must be specific enough that a child can find it.</p>
+        <p><strong>Meeting point 2 — outside the neighborhood:</strong> For when the immediate area is not accessible. A library, a community center, a specific intersection. Farther out, but still local.</p>
+        <p><strong>Evacuation destination 1:</strong> A specific place you would go if you had to leave for 72 hours. A family member's house, a hotel that takes pets, a friend in a neighboring city. Named, with an address.</p>
+        <p><strong>Evacuation destination 2:</strong> A backup if destination 1 is not accessible. Different direction from home, different city if possible.</p>
+        <div class="answer-prompt"><strong>Write down:</strong> Address of meeting point 1 · Address of meeting point 2 · Name, address, and phone number of evacuation destination 1 · Same for destination 2</div>
+      </div>
+    </div>
+
+    <h2 id="who-makes-the-call">Question 2: Who Makes the Call?</h2>
+
+    <div class="question-block">
+      <div class="question-header">
+        <span class="question-num">Q2</span>
+        <span class="question-title">Who is in charge of deciding what the household does?</span>
+      </div>
+      <div class="question-body">
+        <p>Every emergency plan needs a designated decision-maker, and a backup if that person is unreachable. This is not about authority — it is about preventing the paralysis that happens when two adults are each waiting for the other to act.</p>
+        <p>The decision-maker is responsible for two things: assessing whether the situation requires action, and making the call to shelter in place or evacuate. Everyone else in the household follows that call unless the decision-maker is unreachable, in which case the backup takes over.</p>
+        <p><strong>Out-of-area contact:</strong> Designate one person outside your metro area — a sibling, a parent, a close friend — who all household members will check in with during a regional emergency. During localized disruptions, it is often easier to reach someone 500 miles away than someone two miles from home. This person becomes the information hub: if two family members cannot reach each other directly, they both check in with the out-of-area contact.</p>
+        <div class="answer-prompt"><strong>Write down:</strong> Name of primary decision-maker · Name of backup · Name, phone, and city of out-of-area contact</div>
+      </div>
+    </div>
+
+    <!-- MID-ARTICLE CTA -->
+    <div class="mid-cta">
+      <div class="mid-cta-text">
+        The Family Emergency Plan chapter includes a fillable template with all six questions pre-formatted.
+        <span>Print it, fill it in, keep one copy at home and one in each go-bag.</span>
+      </div>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="mid-cta-btn">Get the Guide · $25 →</a>
+    </div>
+
+    <h2 id="how-do-we-reach-each-other">Question 3: How Do We Reach Each Other?</h2>
+
+    <div class="question-block">
+      <div class="question-header">
+        <span class="question-num">Q3</span>
+        <span class="question-title">How does the household communicate if phones don't work?</span>
+      </div>
+      <div class="question-body">
+        <p>Cell networks fail during concentrated emergencies — either because towers are overloaded, damaged, or powered down. The plan needs a communication method that does not depend on cell service being available.</p>
+        <p><strong>Text before calls:</strong> During high-traffic network periods, texts often go through when voice calls cannot. Everyone in the household should know to send a text first, then attempt a call if the text shows as undelivered after several minutes.</p>
+        <p><strong>Printed contact list:</strong> Every household member old enough to use a phone should carry a written list of the five most important numbers. If a phone is dead, lost, or damaged, a person with a printed list can use any available phone to make a call. A contacts list that lives only inside a locked phone is not a communication plan.</p>
+        <p><strong>Check-in schedule:</strong> Agree on specific times — "we check in at 6pm and again at 9pm" — so that silence between those windows does not trigger panic, and absence at check-in time is a clear signal that something needs attention.</p>
+        <div class="answer-prompt"><strong>Write down:</strong> The five most important phone numbers for each household member · Agreed check-in times · Name and number of out-of-area contact (from Q2)</div>
+      </div>
+    </div>
+
+    <h2 id="trigger-criteria">Question 4: What Are Our Triggers?</h2>
+
+    <div class="question-block">
+      <div class="question-header">
+        <span class="question-num">Q4</span>
+        <span class="question-title">What conditions tell us it's time to act rather than wait?</span>
+      </div>
+      <div class="question-body">
+        <p>Trigger criteria are the pre-agreed conditions that activate the plan. They exist to remove decision-making from the moment of stress — when information is incomplete, emotions are running high, and the window for easy action is closing.</p>
+        <p>Triggers should be observable and specific, not interpretive. "If things look bad" is not a trigger. "If there is a mandatory evacuation order for our county" is a trigger. "If the power has been out for more than 48 hours in winter" is a trigger. The standard is that any household member should be able to look at the situation and know whether the trigger has been met.</p>
+        <p>Common triggers worth discussing: mandatory evacuation orders, extended power outages (define the threshold for your climate), curfews within a defined radius of home, cell and internet outages lasting beyond a defined window, confirmed natural disaster in the area.</p>
+        <div class="answer-prompt"><strong>Write down:</strong> 3 to 5 specific, observable conditions that activate the plan · What action each trigger calls for (shelter in place vs. evacuate)</div>
+      </div>
+    </div>
+
+    <h2 id="if-separated">Question 5: What If We're Separated?</h2>
+
+    <div class="question-block">
+      <div class="question-header">
+        <span class="question-num">Q5</span>
+        <span class="question-title">What does each person do if they can't reach the others?</span>
+      </div>
+      <div class="question-body">
+        <p>This is the question most plans skip, and the one that matters most in the scenarios where plans get tested. A family emergency plan that assumes everyone is home when something happens is not a real plan.</p>
+        <p>The answer has three parts. First, every person in the household — including children old enough to understand — knows which meeting point to go to and in what order. Second, everyone knows the out-of-area contact and how to reach them. Third, everyone has a default assumption about what other household members are doing if communication goes dark: "If I can't reach anyone by 6pm, I go to meeting point 1 and wait until 8pm, then go to evacuation destination 1."</p>
+        <p>Children need specific instructions that do not depend on adult judgment. "Go to the school parking lot and wait for a family member or call Grandma at this number" is a complete instruction for a ten-year-old. "Stay safe and find an adult" is not.</p>
+        <div class="answer-prompt"><strong>Write down:</strong> Default sequence for each household member if separated · What children are told to do specifically · How long to wait at each meeting point before moving to the next</div>
+      </div>
+    </div>
+
+    <h2 id="what-do-we-take">Question 6: What Do We Take?</h2>
+
+    <div class="question-block">
+      <div class="question-header">
+        <span class="question-num">Q6</span>
+        <span class="question-title">If we have 15 minutes to leave, what comes with us?</span>
+      </div>
+      <div class="question-body">
+        <p>The answer to this question should already be packed and ready — not a mental list of things to grab under pressure. The evacuation load has two tiers.</p>
+        <p><strong>Tier 1 — always in the go-bag:</strong> 72 hours of supplies per person. Water, food, first aid, medications, phone chargers, cash, copies of critical documents, a change of clothes. The bag is packed and stays packed. You do not need to think about it when a trigger fires.</p>
+        <p><strong>Tier 2 — grab if time allows:</strong> Items that cannot be replaced and are not already in the go-bag. Hard drives, heirlooms, medications that require refrigeration, pets and their supplies. This list should be written in advance and posted somewhere visible — not assembled on the fly from memory while under stress.</p>
+        <div class="answer-prompt"><strong>Write down:</strong> Location of go-bags for each household member · Tier 2 grab list, in priority order · Location of pet supplies and pet carriers if applicable</div>
+      </div>
+    </div>
+
+    <h2 id="after-the-conversation">After the Conversation</h2>
+
+    <p>The plan is not finished when the conversation ends. It is finished when the answers are written down, every household member has reviewed them, and the document is somewhere physically accessible — not only in a device.</p>
+
+    <div class="checklist">
+      <div class="checklist-title">Before you close this tab</div>
+      <ul>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Do now</span>
+            <strong>Write down all six answers</strong>
+            <span>One page. Plain language. Every household member named specifically.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Do now</span>
+            <strong>Print two copies</strong>
+            <span>One stays at home with your important documents. One goes in the go-bag. If your phone is dead and your house is inaccessible, the go-bag copy is the one you have.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Do now</span>
+            <strong>Call your out-of-area contact</strong>
+            <span>Tell them they are your designated check-in person and confirm they are willing. Give them your household members' names and what to do if someone checks in saying they can't reach the others.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">This week</span>
+            <strong>Walk the plan with every household member</strong>
+            <span>Go through it out loud. For children, walk the route to meeting point 1 in person. The plan that exists only on paper is better than no plan — the plan that everyone has practiced is better still.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Twice a year</span>
+            <strong>Review and update</strong>
+            <span>Phone numbers change. People move. Children get older and need updated instructions. January 1 and July 1 work well as review dates — the same schedule as go-bag maintenance.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">The one thing</div>
+      <p>If nothing else happens after reading this, make the out-of-area contact call today. It costs three minutes, requires no supplies, and closes the most common gap in household emergency plans. <strong>Most families have never designated one.</strong></p>
+    </div>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="article-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-label">In this guide</div>
+      <ul class="toc-list">
+        <li><a href="#where-do-we-go"><span class="toc-num">01</span> Where Do We Go?</a></li>
+        <li><a href="#who-makes-the-call"><span class="toc-num">02</span> Who Makes the Call?</a></li>
+        <li><a href="#how-do-we-reach-each-other"><span class="toc-num">03</span> How Do We Reach Each Other?</a></li>
+        <li><a href="#trigger-criteria"><span class="toc-num">04</span> Trigger Criteria</a></li>
+        <li><a href="#if-separated"><span class="toc-num">05</span> If We're Separated</a></li>
+        <li><a href="#what-do-we-take"><span class="toc-num">06</span> What Do We Take?</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-guide">
+      <div class="sidebar-guide-label">Family Emergency Preparedness Guide</div>
+      <h4>Fillable emergency plan template — plus six more chapters.</h4>
+      <p>Pre-formatted with all six questions. Print it, fill it out, keep a copy in every go-bag.</p>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sidebar-guide-btn">Get the Guide · $25 →</a>
+    </div>
+  </aside>
+
+</div>
+
+<!-- RELATED POSTS -->
+<div class="related-section">
+  <div class="related-inner">
+    <div class="related-header">
+      <div class="related-title">Related guides</div>
+      <a href="blog.html" class="related-all">View all →</a>
+    </div>
+    <div class="related-grid">
+      <a href="how-to-build-a-go-bag.html" class="related-card">
+        <span class="related-cat cat-gear">Gear</span>
+        <h4>How to Build a 72-Hour Go-Bag for Families</h4>
+        <p>The go-bag that actually gets used. A short, prioritized list you can build this weekend and maintain in 20 minutes a year.</p>
+      </a>
+      <a href="how-to-prepare-your-family-for-civil-unrest.html" class="related-card">
+        <span class="related-cat cat-planning">Planning</span>
+        <h4>How to Prepare Your Family for Civil Unrest</h4>
+        <p>Civil unrest disrupts supply chains within hours. The families that weather it have two things already in place before it starts.</p>
+      </a>
+      <a href="how-to-build-a-long-term-food-supply.html" class="related-card">
+        <span class="related-cat cat-skills">Skills</span>
+        <h4>How to Build a Long-Term Food Supply (Not Just a Stockpile)</h4>
+        <p>A two-month supply gets eaten through. Here's how to build a system that keeps regenerating instead.</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>
+    © 2026 Family Emergency Preparedness Guide. All rights reserved.
+    · <a href="privacy.html">Privacy Policy</a>
+    · <a href="terms.html">Terms</a>
+    · <a href="refunds.html">Refund Policy</a>
+    · <a href="mailto:support@emergencypreparednesschecklist.com">Contact</a>
+  </p>
+</footer>
+
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-left">Family Emergency Preparedness Guide <span>· All file formats for $25</span></div>
+  <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sticky-btn">Free in the link →</a>
+</div>
+
+<script>
+  const progress = document.getElementById('readingProgress');
+  const article = document.getElementById('articleBody');
+  window.addEventListener('scroll', () => {
+    const rect = article.getBoundingClientRect();
+    const articleTop = rect.top + window.scrollY;
+    const articleHeight = article.offsetHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = Math.min(100, Math.max(0, (scrolled / articleHeight) * 100));
+    progress.style.width = pct + '%';
+  });
+
+  const articleHeader = document.querySelector('.article-header');
+  const stickyBar = document.getElementById('stickyBar');
+  const observer = new IntersectionObserver(
+    ([e]) => stickyBar.classList.toggle('visible', !e.isIntersecting),
+    { threshold: 0.1 }
+  );
+  observer.observe(articleHeader);
+</script>
+</body>
+</html>
