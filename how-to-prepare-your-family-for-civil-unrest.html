@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Prepare Your Family for Civil Unrest — Emergency Preparedness Guide</title>
+  <meta name="description" content="Civil unrest disrupts supply chains, banking access, and emergency services within hours. Here's what to have in place before it starts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white:    #FFFFFF;
+      --bg:       #F5F5F7;
+      --ink:      #1D1D1F;
+      --gray:     #6E6E73;
+      --gray-lt:  #E8E8ED;
+      --navy:     #1B4FBF;
+      --navy-dk:  #153D96;
+      --navy-lt:  #EEF2FB;
+      --green:    #2A7A4B;
+      --green-lt: #EAF5EE;
+      --amber:    #B45309;
+      --amber-lt: #FEF3C7;
+      --divider:  #D2D2D7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── PROGRESS BAR ── */
+    .reading-progress {
+      position: fixed;
+      top: 52px;
+      left: 0;
+      height: 2px;
+      background: var(--navy);
+      z-index: 199;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 0 40px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .nav-logo {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    .nav-links a.active {
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    .nav-cta {
+      background: var(--navy) !important;
+      color: white !important;
+      padding: 8px 18px;
+      border-radius: 980px;
+      font-weight: 500 !important;
+      font-size: 13px !important;
+    }
+
+    .nav-cta:hover { background: var(--navy-dk) !important; }
+
+    /* ── ARTICLE HEADER ── */
+    .article-header {
+      padding: 100px 40px 64px;
+      background: var(--white);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .article-header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .article-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 28px;
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    .article-breadcrumb a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .article-breadcrumb a:hover { text-decoration: underline; }
+
+    .article-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--navy-lt);
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .article-header h1 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .article-deck {
+      font-size: 19px;
+      line-height: 1.65;
+      color: var(--gray);
+      margin-bottom: 28px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 12px;
+      color: var(--gray);
+      font-family: 'JetBrains Mono', monospace;
+      padding-top: 20px;
+      border-top: 1px solid var(--divider);
+    }
+
+    .meta-divider { color: var(--divider); }
+
+    /* ── ARTICLE LAYOUT ── */
+    .article-layout {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 60px 40px 100px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* ── ARTICLE BODY ── */
+    .article-body h2 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 48px 0 16px;
+      line-height: 1.2;
+    }
+
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: 32px 0 12px;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+
+    .article-body p strong { color: var(--ink); font-weight: 600; }
+
+    .article-body a {
+      color: var(--navy);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Callout box */
+    .callout {
+      background: var(--navy-lt);
+      border-left: 3px solid var(--navy);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+
+    .callout-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .callout p {
+      font-size: 15px;
+      color: var(--ink);
+      margin: 0;
+      line-height: 1.65;
+    }
+
+    .callout p strong { color: var(--navy-dk); }
+
+    /* Warning callout */
+    .callout-warning {
+      background: var(--amber-lt);
+      border-left-color: var(--amber);
+    }
+
+    .callout-warning .callout-label { color: var(--amber); }
+    .callout-warning p { color: var(--ink); }
+
+    /* Checklist */
+    .checklist {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 32px 0;
+    }
+
+    .checklist-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    .checklist ul {
+      list-style: none;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gray-lt);
+      font-size: 15px;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .checklist li:last-child { border-bottom: none; }
+
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--green-lt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .check-icon svg { width: 11px; height: 11px; stroke: var(--green); }
+
+    .checklist li span {
+      font-size: 13px;
+      color: var(--gray);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Tier badges */
+    .tier-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .tier-1 { background: var(--navy-lt); color: var(--navy); }
+    .tier-2 { background: var(--green-lt); color: var(--green); }
+
+    /* Stat row */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 32px 0;
+    }
+
+    .stat-mini {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-mini-num {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-mini-label {
+      font-size: 12px;
+      color: var(--gray);
+      line-height: 1.4;
+    }
+
+    /* Mid-article CTA */
+    .mid-cta {
+      background: var(--ink);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 48px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .mid-cta-text {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      line-height: 1.4;
+    }
+
+    .mid-cta-text span {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      display: block;
+      margin-top: 4px;
+    }
+
+    .mid-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: white;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 980px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+
+    .mid-cta-btn:hover { background: var(--bg); }
+
+    /* ── SIDEBAR ── */
+    .article-sidebar {
+      position: sticky;
+      top: 72px;
+    }
+
+    .sidebar-card {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .sidebar-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    .toc-list {
+      list-style: none;
+    }
+
+    .toc-list li {
+      padding: 7px 0;
+      border-bottom: 1px solid var(--gray-lt);
+    }
+
+    .toc-list li:last-child { border-bottom: none; }
+
+    .toc-list a {
+      font-size: 13px;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-list a:hover { color: var(--navy); }
+
+    .toc-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--divider);
+      width: 16px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-guide {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .sidebar-guide-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 12px;
+    }
+
+    .sidebar-guide h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .sidebar-guide p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .sidebar-guide-btn {
+      display: block;
+      background: white;
+      color: var(--navy);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px;
+      border-radius: 980px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .sidebar-guide-btn:hover { background: var(--bg); }
+
+    /* ── RELATED POSTS ── */
+    .related-section {
+      background: var(--bg);
+      padding: 80px 40px;
+      border-top: 1px solid var(--divider);
+    }
+
+    .related-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .related-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .related-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .related-all {
+      font-size: 14px;
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .related-card {
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: 16px;
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: all 0.2s;
+    }
+
+    .related-card:hover {
+      border-color: var(--navy);
+      box-shadow: 0 4px 20px rgba(27,79,191,0.07);
+      transform: translateY(-2px);
+    }
+
+    .related-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--navy-lt);
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .related-cat-skills {
+      color: var(--amber);
+      background: var(--amber-lt);
+    }
+
+    .related-card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .related-card p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--divider);
+      padding: 32px 40px;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    footer p { font-size: 13px; color: var(--gray); }
+    footer a { color: var(--navy); text-decoration: none; }
+
+    /* ── STICKY BAR ── */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(29,29,31,0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 150;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .sticky-bar.visible { transform: translateY(0); }
+    .sticky-left { font-size: 14px; color: rgba(255,255,255,0.65); font-weight: 500; }
+    .sticky-left span { color: white; font-weight: 600; }
+
+    .sticky-btn {
+      background: white;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 28px;
+      border-radius: 980px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; gap: 0; }
+      .article-sidebar { display: none; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+      .stat-row { grid-template-columns: 1fr 1fr; }
+      nav { padding: 0 20px; }
+      .nav-links li:not(:last-child) { display: none; }
+      .article-header, .article-layout, .related-section { padding-left: 20px; padding-right: 20px; }
+      .mid-cta { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 600px) {
+      .related-grid { grid-template-columns: 1fr; }
+      .stat-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Prepared. Not scared.</a>
+  <ul class="nav-links">
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#inside">What's Inside</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">
+        Get the Guide →
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-breadcrumb">
+      <a href="blog.html">Blog</a>
+      <span>›</span>
+      <span>Planning</span>
+    </div>
+    <span class="article-cat">Planning</span>
+    <h1>How to Prepare Your Family for Civil Unrest</h1>
+    <p class="article-deck">Civil unrest disrupts supply chains, banking access, and emergency services within hours of starting. The families that weather it best have two things already in place: a home that can support staying put, and a clear agreement about when it's time to leave.</p>
+    <div class="article-meta">
+      <span>March 2026</span>
+      <span class="meta-divider">·</span>
+      <span>10 min read</span>
+      <span class="meta-divider">·</span>
+      <span>From the Emergency Preparedness Guide</span>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE LAYOUT -->
+<div class="article-layout">
+
+  <!-- BODY -->
+  <article class="article-body" id="articleBody">
+
+    <p>During the 1992 Los Angeles riots, grocery stores in South Central closed within hours of the first night of unrest. ATMs in affected neighborhoods ran dry. Emergency calls went unanswered for days across the heaviest areas. The National Guard did not reach full operational strength until the third day. By that point, families who had not prepared ahead of time were managing a week-long disruption with whatever happened to be in the house.</p>
+
+    <p>The same pattern held in 2020. More than 140 US cities imposed curfews within 72 hours of the Minneapolis unrest beginning. Businesses across those cities closed or cut hours without warning. Pharmacies were among the first to restrict access. The disruption reached households that were nowhere near the conflict itself.</p>
+
+    <div class="stat-row">
+      <div class="stat-mini">
+        <div class="stat-mini-num">140+</div>
+        <div class="stat-mini-label">US cities under curfew within 72 hours, May–June 2020</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">6</div>
+        <div class="stat-mini-label">days the 1992 LA riots lasted — the longest urban unrest in modern US history</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">72h</div>
+        <div class="stat-mini-label">the window before National Guard reached full deployment in Minneapolis, 2020</div>
+      </div>
+    </div>
+
+    <p>The pattern is consistent: it is not the conflict itself that affects most families. It is the second-order effects. Stores that close preemptively. Supply chains that pause. Banking access that locks up. Emergency services that redirect toward conflict zones. Those effects arrive faster than most households expect, and they last longer.</p>
+
+    <h2 id="what-it-disrupts">What Civil Unrest Actually Disrupts — and How Fast</h2>
+
+    <p>The sequence is predictable. Unrest concentrates in a geographic area. Businesses in that area, and in a larger buffer zone around it, close as a precaution. That includes grocery stores, pharmacies, and gas stations. Emergency services get redirected toward the source of the conflict. Cell networks in the affected area degrade from volume. Then curfews extend the closures and restrict movement for everyone — including people well outside the conflict zone.</p>
+
+    <p>The families most affected are not the ones in the middle of it. They are the ones who ran low on food the week before, whose prescriptions needed refilling, whose cash reserve was $40 in a wallet. The disruption finds the gaps that were already there.</p>
+
+    <div class="callout callout-warning">
+      <div class="callout-label">Important</div>
+      <p>The worst time to stock up is after unrest has begun. Stores either close or empty within hours. <strong>Every preparedness action in this article assumes you are doing it before anything is happening.</strong> That is the only version that works.</p>
+    </div>
+
+    <p>The good news is that civil unrest is among the more foreseeable emergencies. Tensions escalate over days or weeks before situations reach a boiling point. There is usually a window. The question is whether you use it.</p>
+
+    <h2 id="cash">Cash and Financial Access</h2>
+
+    <p>Banks and ATMs stop working reliably during concentrated unrest. During the 2020 protests, multiple Chase and Wells Fargo branches in Minneapolis and Atlanta closed for several consecutive days. ATMs in those areas were shut down as a security measure or were vandalized. The same pattern played out in 1992, and in the UK during the 2011 London riots.</p>
+
+    <p>If your household runs primarily on card transactions, the gap between "things are fine" and "I cannot buy anything" can be a single afternoon. A closed branch, a drained ATM, and a store that stopped accepting cards due to network issues are all common during sustained unrest. They often happen simultaneously.</p>
+
+    <p>The guide recommends keeping a cash reserve of $500 to $1,000 per household, stored at home and accessible within one minute. The calculation is simple: enough to cover food, fuel, and medication for a week without touching a bank or using a card. Most families who have not done this find the number more manageable than they expected once they actually price it out.</p>
+
+    <div class="callout">
+      <div class="callout-label">The detail most people miss</div>
+      <p>Small bills matter as much as the total amount. A $100 bill is useless if a gas station cannot make change, or if a small retailer has stopped accepting large denominations. <strong>Keep the reserve in $20s, $10s, and $5s.</strong> Nothing larger than $20 for at least half the total.</p>
+    </div>
+
+    <p>Building the reserve gradually works. Adding $50 to $100 in cash per paycheck until you reach the target is more sustainable than one large withdrawal. The important thing is that the money lives at home — not in a bank account that requires infrastructure to access.</p>
+
+    <h2 id="shelter-in-place">Home Shelter-in-Place Basics</h2>
+
+    <p>For most families in most civil unrest situations, staying home is the right call. Going out into an area under curfew creates legal exposure and physical risk. The question is whether your home is actually set up to support that decision for several consecutive days.</p>
+
+    <p>The minimum threshold is specific: 72 hours of food and water per person, medications current and not about to run out, and a working way to receive information that does not depend on cell networks. Below that threshold, shelter-in-place is aspirational rather than real. The household will need to go out before the situation is over.</p>
+
+    <div class="checklist">
+      <div class="checklist-title">Shelter-in-place baseline</div>
+      <ul>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>72 hours of food per person</strong>
+            <span>Non-perishables that require minimal or no cooking. Calculate per person, not per household.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>One gallon of water per person per day, minimum</strong>
+            <span>That is the floor, not the target. In hot weather or with physical exertion, the actual need is higher.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>30-day supply of all prescription medications</strong>
+            <span>Most prescriptions can be filled early. Ask the pharmacy. If your current supply runs out mid-event, staying home stops being an option.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Battery-powered or hand-crank NOAA weather radio</strong>
+            <span>Emergency broadcasts function when cell networks are degraded. Often the only way to receive accurate local information during an extended disruption.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Charged power banks for all household phones</strong>
+            <span>Cell service is unreliable but not impossible. Keep devices charged so they work during windows of connectivity.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Two-week food supply</strong>
+            <span>Serious unrest rarely resolves in 72 hours. The 1992 LA riots lasted six days. A two-week supply removes the pressure entirely.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Full tank of gas maintained week-over-week</strong>
+            <span>If shelter-in-place stops being viable, a full tank at the start of an event changes the options significantly.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- MID-ARTICLE CTA -->
+    <div class="mid-cta">
+      <div class="mid-cta-text">
+        The Home Hardening chapter includes a room-by-room shelter-in-place assessment.
+        <span>It covers security, supply thresholds, and how to determine whether your home is a defensible position or whether you need a backup plan.</span>
+      </div>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="mid-cta-btn">Get the Guide · $25 →</a>
+    </div>
+
+    <h2 id="information">Information and Communication When Networks Are Unreliable</h2>
+
+    <p>Cell networks degrade during concentrated civil unrest because usage spikes sharply in a limited area and towers get overwhelmed. During the 2020 Minneapolis unrest, several major carriers reported degraded service in the metro area during peak days. Texts sometimes went through when calls did not. Neither was reliable.</p>
+
+    <p>Two things work when cell does not. A battery-powered or hand-crank NOAA radio picks up emergency broadcasts without any network dependency. A pre-agreed check-in protocol with family members outside the immediate area — "if I have not contacted you by 6pm, here is what to do" — removes the need for real-time communication during windows of service outage.</p>
+
+    <p>The most overlooked communication preparation has nothing to do with devices. It is a written contact list with physical addresses, kept in the house rather than only in a phone. If your phone is dead or unavailable, the contacts in it are inaccessible. A printed list of the ten most important contacts — family members, a neighbor you trust, a doctor, your employer's main line — costs nothing and solves a real problem.</p>
+
+    <div class="callout">
+      <div class="callout-label">The version that actually works</div>
+      <p>Agree on a specific out-of-area contact that everyone in the household will check in with. During local disruptions, it is often easier to reach someone 500 miles away than someone two miles away. <strong>Pick the person before you need them, and make sure everyone in the household has their number written down.</strong></p>
+    </div>
+
+    <h2 id="trigger-criteria">Your Family's Trigger Criteria — When to Act, Not Just Watch</h2>
+
+    <p>The hardest part of managing civil unrest as a family is not logistics. It is timing. Most households underestimate how quickly situations escalate and delay making a decision until the easy options are already gone. The window between "this is starting to look serious" and "I wish we had acted two days ago" is often measured in hours.</p>
+
+    <p>Trigger criteria are a set of pre-agreed conditions that tell your household: when this happens, we do that. They are written down, agreed upon when nothing is happening, and not subject to negotiation in the moment when emotions are running high and information is incomplete.</p>
+
+    <p>The specific thresholds depend on your household's situation — your geography, your family's mobility, your work obligations — but the structure is consistent. A condition, then an action, stated plainly. "If there is a curfew within five miles of our home, no one leaves for non-emergency reasons." "If the interstate is closed, we take this alternate route to this meeting point." "If we have not heard from each other by this time, here is the default assumption."</p>
+
+    <div class="callout">
+      <div class="callout-label">Why this matters</div>
+      <p>Trigger criteria do not require you to predict what will happen. They require you to decide in advance how you will respond to a range of conditions. <strong>A family that has already agreed on the threshold moves faster and more clearly than one figuring it out in the middle of an event.</strong></p>
+    </div>
+
+    <p>The guide's planning chapter walks through how to build a trigger criteria framework specific to your household, including the questions that most families forget to answer until they need them.</p>
+
+    <h2 id="timing">The One Week Before vs. the Night Before</h2>
+
+    <p>Civil unrest usually escalates over days before it peaks. That means there is often a window when you have warning and the ability to act. How you use that window matters as much as whether you use it.</p>
+
+    <p>When the situation is escalating and you have time, the priority order is: cash first, then food and water to the 72-hour threshold per person, then medications, then fuel. In that sequence, for a specific reason. Fuel lines form fast during perceived emergencies and gas stations are frequent targets during unrest. Cash and food are easier to acquire quietly and early. Starting with fuel is a common mistake that costs time and sometimes puts people in proximity to the conflict before they need to be.</p>
+
+    <p>The night-before situation — meaning unrest has reached curfew and you are sheltering in place — calls for a different set of actions. The priority becomes information, communication, and an honest inventory of what you have. Locate the first aid kit. Confirm your communication plan with anyone outside the household. Keep phones on a charger. Write down anything time-sensitive: medication schedules, upcoming appointments that may need rescheduling, contacts you may need to reach.</p>
+
+    <p>Families that confuse the week-before and night-before situations tend to skip the week-before work entirely — either because they are waiting to see how bad it gets, or because the night-before urgency makes better sense as a mental model. The week-before is less dramatic. It is also where most of the leverage is.</p>
+
+    <h2 id="next-step">The Starting Point</h2>
+
+    <p>Look at what your household currently has: cash on hand, days of food and water, medication supply. Write down where each falls short against the 72-hour threshold. That list — not a general resolution to get more prepared, but a specific inventory of actual gaps — is the starting point. Work through it in priority order, one item at a time, before anything is happening.</p>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="article-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-label">In this guide</div>
+      <ul class="toc-list">
+        <li><a href="#what-it-disrupts"><span class="toc-num">01</span> What Gets Disrupted</a></li>
+        <li><a href="#cash"><span class="toc-num">02</span> Cash and Financial Access</a></li>
+        <li><a href="#shelter-in-place"><span class="toc-num">03</span> Shelter-in-Place Basics</a></li>
+        <li><a href="#information"><span class="toc-num">04</span> Information and Communication</a></li>
+        <li><a href="#trigger-criteria"><span class="toc-num">05</span> Trigger Criteria</a></li>
+        <li><a href="#timing"><span class="toc-num">06</span> Week Before vs. Night Before</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-guide">
+      <div class="sidebar-guide-label">Family Emergency Preparedness Guide</div>
+      <h4>The full planning framework — trigger criteria, home hardening, and the communication chapter.</h4>
+      <p>Every checklist and tracker included. All file formats — PDF, DOCX, Obsidian, Notion, Excel.</p>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sidebar-guide-btn">Get the Guide · $25 →</a>
+    </div>
+  </aside>
+
+</div>
+
+<!-- RELATED POSTS -->
+<div class="related-section">
+  <div class="related-inner">
+    <div class="related-header">
+      <div class="related-title">Related guides</div>
+      <a href="blog.html" class="related-all">View all →</a>
+    </div>
+    <div class="related-grid">
+      <a href="how-to-build-a-go-bag.html" class="related-card">
+        <span class="related-cat">Gear</span>
+        <h4>How to Build a 72-Hour Go-Bag for Families</h4>
+        <p>The go-bag that actually gets used isn't the one with 200 items. Here's what to pack, what weight limit to hold, and how to maintain it.</p>
+      </a>
+      <a href="how-to-financially-prepare-for-ai-job-displacement.html" class="related-card">
+        <span class="related-cat">Planning</span>
+        <h4>How to Financially Prepare for AI Job Displacement</h4>
+        <p>What income disruption actually looks like, and the financial foundation that gives a household runway when the employment picture shifts.</p>
+      </a>
+      <a href="family-emergency-communication-plan.html" class="related-card">
+        <span class="related-cat">Planning</span>
+        <h4>Family Emergency Communication Plan: What to Decide Before You Need It</h4>
+        <p>The questions — out-of-area contact, meeting points, trigger criteria — that every household needs answered before something happens.</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>
+    © 2026 Family Emergency Preparedness Guide. All rights reserved.
+    · <a href="privacy.html">Privacy Policy</a>
+    · <a href="terms.html">Terms</a>
+    · <a href="refunds.html">Refund Policy</a>
+    · <a href="mailto:support@emergencypreparednesschecklist.com">Contact</a>
+  </p>
+</footer>
+
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-left">Family Emergency Preparedness Guide <span>· All file formats for $25</span></div>
+  <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sticky-btn">Get the Guide · $25 →</a>
+</div>
+
+<script>
+  // Reading progress bar
+  const progress = document.getElementById('readingProgress');
+  const article = document.getElementById('articleBody');
+  window.addEventListener('scroll', () => {
+    const rect = article.getBoundingClientRect();
+    const articleTop = rect.top + window.scrollY;
+    const articleHeight = article.offsetHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = Math.min(100, Math.max(0, (scrolled / articleHeight) * 100));
+    progress.style.width = pct + '%';
+  });
+
+  // Sticky bar
+  const articleHeader = document.querySelector('.article-header');
+  const stickyBar = document.getElementById('stickyBar');
+  const observer = new IntersectionObserver(
+    ([e]) => stickyBar.classList.toggle('visible', !e.isIntersecting),
+    { threshold: 0.1 }
+  );
+  observer.observe(articleHeader);
+</script>
+</body>
+</html>

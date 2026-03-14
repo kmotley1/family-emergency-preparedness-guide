@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency Preparedness Blog — Practical Guides for Families</title>
+  <meta name="description" content="Practical, no-nonsense emergency preparedness guides. Go-bag checklists, family emergency plans, apartment prep, water storage, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white:    #FFFFFF;
+      --bg:       #F5F5F7;
+      --bg-warm:  #F9F6F1;
+      --ink:      #1D1D1F;
+      --gray:     #6E6E73;
+      --gray-lt:  #E8E8ED;
+      --navy:     #1B4FBF;
+      --navy-dk:  #153D96;
+      --navy-lt:  #EEF2FB;
+      --green:    #2A7A4B;
+      --green-lt: #EAF5EE;
+      --amber:    #B45309;
+      --amber-lt: #FEF3C7;
+      --divider:  #D2D2D7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 0 40px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .nav-logo {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--navy); font-weight: 500; }
+
+    .nav-cta {
+      background: var(--navy) !important;
+      color: white !important;
+      padding: 8px 18px;
+      border-radius: 980px;
+      font-weight: 500 !important;
+      font-size: 13px !important;
+    }
+
+    .nav-cta:hover { background: var(--navy-dk) !important; }
+
+    /* ── BLOG HEADER ── */
+    .blog-header {
+      padding: 120px 40px 64px;
+      background: var(--white);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .blog-header-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .blog-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .blog-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+    }
+
+    .blog-header h1 {
+      font-size: clamp(36px, 4.5vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    .blog-header h1 .light { font-weight: 300; color: var(--gray); }
+
+    .blog-header-sub {
+      font-size: 17px;
+      color: var(--gray);
+      max-width: 520px;
+      line-height: 1.65;
+    }
+
+    /* ── FILTER PILLS ── */
+    .filter-bar {
+      background: var(--white);
+      padding: 20px 40px;
+      border-bottom: 1px solid var(--divider);
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .filter-bar-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .filter-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 980px;
+      border: 1px solid var(--divider);
+      color: var(--gray);
+      background: var(--white);
+      cursor: pointer;
+      transition: all 0.15s;
+      text-decoration: none;
+    }
+
+    .filter-pill:hover {
+      border-color: var(--navy);
+      color: var(--navy);
+    }
+
+    .filter-pill.active {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: white;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .blog-main {
+      padding: 60px 40px 100px;
+      background: var(--bg);
+    }
+
+    .blog-main-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    /* ── FEATURED POST ── */
+    .featured-post {
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      transition: all 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .featured-post:hover {
+      border-color: var(--navy);
+      box-shadow: 0 12px 48px rgba(27,79,191,0.1);
+      transform: translateY(-2px);
+    }
+
+    .featured-visual {
+      background: var(--navy);
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 320px;
+    }
+
+    .featured-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.1);
+      padding: 5px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      align-self: flex-start;
+    }
+
+    .featured-number {
+      font-size: 120px;
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      color: rgba(255,255,255,0.08);
+      line-height: 1;
+    }
+
+    .featured-content {
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .featured-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .featured-title {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    .featured-excerpt {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 28px;
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--gray);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .post-meta-dot { color: var(--divider); }
+
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+      transition: gap 0.15s;
+    }
+
+    .featured-post:hover .read-more { gap: 10px; }
+
+    /* ── POSTS GRID ── */
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .post-card {
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: 16px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s;
+    }
+
+    .post-card:hover {
+      border-color: var(--navy);
+      box-shadow: 0 8px 32px rgba(27,79,191,0.08);
+      transform: translateY(-2px);
+    }
+
+    .post-card-header {
+      padding: 24px 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .post-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .cat-planning { background: var(--navy-lt); color: var(--navy); }
+    .cat-gear { background: var(--green-lt); color: var(--green); }
+    .cat-skills { background: var(--amber-lt); color: var(--amber); }
+    .cat-home { background: #F3E8FF; color: #6B21A8; }
+    .cat-community { background: #FFF1F2; color: #BE123C; }
+
+    .post-read-time {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--gray);
+    }
+
+    .post-card-body {
+      padding: 0 24px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .post-title {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .post-excerpt {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+
+    .post-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--gray-lt);
+    }
+
+    .post-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--gray);
+    }
+
+    .post-arrow {
+      font-size: 16px;
+      color: var(--navy);
+      transition: transform 0.15s;
+    }
+
+    .post-card:hover .post-arrow { transform: translateX(4px); }
+
+    /* ── CTA BANNER ── */
+    .blog-cta {
+      background: var(--navy);
+      border-radius: 20px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .blog-cta-left h3 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .blog-cta-left p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+
+    .blog-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 980px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .blog-cta-btn:hover {
+      background: var(--bg);
+      transform: scale(1.02);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--divider);
+      padding: 32px 40px;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    footer p { font-size: 13px; color: var(--gray); }
+    footer a { color: var(--navy); text-decoration: none; }
+
+    /* ── STICKY BAR ── */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(29,29,31,0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 150;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .sticky-bar.visible { transform: translateY(0); }
+    .sticky-left { font-size: 14px; color: rgba(255,255,255,0.65); font-weight: 500; }
+    .sticky-left span { color: white; font-weight: 600; }
+
+    .sticky-btn {
+      background: white;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 28px;
+      border-radius: 980px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+
+    .sticky-btn:hover { background: var(--bg); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .featured-post { grid-template-columns: 1fr; }
+      .featured-visual { min-height: 180px; padding: 32px; }
+      .featured-number { font-size: 80px; }
+      .posts-grid { grid-template-columns: 1fr 1fr; }
+      .blog-cta { grid-template-columns: 1fr; }
+      nav { padding: 0 20px; }
+      .nav-links li:not(:last-child) { display: none; }
+      .blog-header, .blog-main { padding-left: 20px; padding-right: 20px; }
+      .filter-bar { padding-left: 20px; padding-right: 20px; }
+    }
+
+    @media (max-width: 600px) {
+      .posts-grid { grid-template-columns: 1fr; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .blog-eyebrow { animation: fadeUp 0.5s ease 0.1s both; }
+    .blog-header h1 { animation: fadeUp 0.6s ease 0.2s both; }
+    .blog-header-sub { animation: fadeUp 0.6s ease 0.3s both; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Prepared. Not scared.</a>
+  <ul class="nav-links">
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#inside">What's Inside</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">
+        Get the Guide →
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- BLOG HEADER -->
+<div class="blog-header">
+  <div class="blog-header-inner">
+    <div class="blog-eyebrow">Emergency Preparedness · Resources</div>
+    <h1>Practical guides.<br><span class="light">No survival fantasy.</span></h1>
+    <p class="blog-header-sub">Concrete information for families who want a real plan — not gear reviews or doomsday scenarios.</p>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-bar-inner">
+    <a href="#" class="filter-pill active">All</a>
+    <a href="#" class="filter-pill">Planning</a>
+    <a href="#" class="filter-pill">Gear</a>
+    <a href="#" class="filter-pill">Skills</a>
+    <a href="#" class="filter-pill">Home</a>
+    <a href="#" class="filter-pill">Community</a>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="blog-main">
+  <div class="blog-main-inner">
+
+    <!-- FEATURED -->
+    <a href="how-to-build-a-go-bag.html" class="featured-post">
+      <div class="featured-visual">
+        <span class="featured-tag">Featured Guide</span>
+        <div class="featured-number">72h</div>
+      </div>
+      <div class="featured-content">
+        <div>
+          <div class="featured-label">Gear · 8 min read</div>
+          <div class="featured-title">How to Build a 72-Hour Go-Bag for Families</div>
+          <p class="featured-excerpt">The go-bag that actually gets used isn't the one with 200 items. It's the one that fits, that your family can carry, and that gets out the door in under five minutes. Here's exactly what goes in it and what to leave out.</p>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:space-between;">
+          <div class="post-meta">
+            <span>March 2026</span>
+            <span class="post-meta-dot">·</span>
+            <span>8 min read</span>
+          </div>
+          <span class="read-more">Read guide →</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- GRID -->
+    <div class="posts-grid">
+
+      <a href="family-emergency-plan-template.html" class="post-card">
+        <div class="post-card-header">
+          <span class="post-cat cat-planning">Planning</span>
+          <span class="post-read-time">6 min</span>
+        </div>
+        <div class="post-card-body">
+          <div class="post-title">Family Emergency Plan Template: The 45-Minute Conversation</div>
+          <p class="post-excerpt">Most families have been meaning to do this for years. This template makes it a one-sitting task. Where do we go? Who makes the call? What are our triggers? Answered, written down, done.</p>
+          <div class="post-footer">
+            <span class="post-date">March 2026</span>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="emergency-preparedness-for-apartments.html" class="post-card">
+        <div class="post-card-header">
+          <span class="post-cat cat-home">Home</span>
+          <span class="post-read-time">5 min</span>
+        </div>
+        <div class="post-card-body">
+          <div class="post-title">Emergency Preparedness for Apartment Dwellers</div>
+          <p class="post-excerpt">No yard. No basement. No room for 200 gallons of water. This guide covers everything that applies to renters and apartment residents — and skips everything that doesn't.</p>
+          <div class="post-footer">
+            <span class="post-date">March 2026</span>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="how-much-water-to-store.html" class="post-card">
+        <div class="post-card-header">
+          <span class="post-cat cat-skills">Skills</span>
+          <span class="post-read-time">4 min</span>
+        </div>
+        <div class="post-card-body">
+          <div class="post-title">How Much Water to Store for Emergencies</div>
+          <p class="post-excerpt">One gallon per person per day is the floor, not the target. Here's how to calculate what your household actually needs, how to store it, and how to purify more when you run out.</p>
+          <div class="post-footer">
+            <span class="post-date">March 2026</span>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="go-bag-checklist.html" class="post-card">
+        <div class="post-card-header">
+          <span class="post-cat cat-gear">Gear</span>
+          <span class="post-read-time">7 min</span>
+        </div>
+        <div class="post-card-body">
+          <div class="post-title">Go-Bag Checklist: What Actually Goes In It</div>
+          <p class="post-excerpt">A printable, prioritized checklist sorted by category. Tier 1 items you need before anything else. Tier 2 additions once the foundation is covered. What to skip entirely.</p>
+          <div class="post-footer">
+            <span class="post-date">March 2026</span>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="home-emergency-preparedness-room-by-room.html" class="post-card">
+        <div class="post-card-header">
+          <span class="post-cat cat-home">Home</span>
+          <span class="post-read-time">6 min</span>
+        </div>
+        <div class="post-card-body">
+          <div class="post-title">Home Emergency Preparedness: Room by Room</div>
+          <p class="post-excerpt">Kitchen, bedroom, garage, utility room. Where to store what, what to keep accessible versus stashed, and the two upgrades under $20 that most homeowners skip.</p>
+          <div class="post-footer">
+            <span class="post-date">March 2026</span>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="building-a-neighborhood-emergency-network.html" class="post-card">
+        <div class="post-card-header">
+          <span class="post-cat cat-community">Community</span>
+          <span class="post-read-time">5 min</span>
+        </div>
+        <div class="post-card-body">
+          <div class="post-title">Building a Neighborhood Emergency Network</div>
+          <p class="post-excerpt">The most useful resource in a crisis isn't in your go-bag. It's the neighbor with medical training two doors down. Here's how to find out what your block actually has — before you need it.</p>
+          <div class="post-footer">
+            <span class="post-date">March 2026</span>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- CTA BANNER -->
+    <div class="blog-cta">
+      <div class="blog-cta-left">
+        <h3>Ready to stop reading and start building?</h3>
+        <p>The guide has all of this organized into checklists you can work through in one sitting — or one week, at your own pace.</p>
+      </div>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="blog-cta-btn">Get the Guide · $25 →</a>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>
+    © 2026 Family Emergency Preparedness Guide. All rights reserved.
+    · <a href="privacy.html">Privacy Policy</a>
+    · <a href="terms.html">Terms</a>
+    · <a href="refunds.html">Refund Policy</a>
+    · <a href="mailto:support@emergencypreparednesschecklist.com">Contact</a>
+  </p>
+</footer>
+
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-left">Emergency Preparedness Guide <span>· All file formats for $25</span></div>
+  <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sticky-btn">Get the Guide Today →</a>
+</div>
+
+<script>
+  // Filter pills (visual only — swap to real filtering when posts are in a CMS)
+  document.querySelectorAll('.filter-pill').forEach(pill => {
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    });
+  });
+
+  // Sticky bar
+  const blogHeader = document.querySelector('.blog-header');
+  const stickyBar = document.getElementById('stickyBar');
+  const observer = new IntersectionObserver(
+    ([e]) => stickyBar.classList.toggle('visible', !e.isIntersecting),
+    { threshold: 0.1 }
+  );
+  observer.observe(blogHeader);
+</script>
+</body>
+</html>

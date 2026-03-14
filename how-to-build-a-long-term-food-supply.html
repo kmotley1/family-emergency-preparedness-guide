@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Build a Long-Term Food Supply (Not Just a Stockpile) — Emergency Preparedness Guide</title>
+  <meta name="description" content="A two-month stockpile gets eaten through. A food system keeps regenerating. Here's how to build one — rotating pantry, preservation, and local sourcing.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white:    #FFFFFF;
+      --bg:       #F5F5F7;
+      --ink:      #1D1D1F;
+      --gray:     #6E6E73;
+      --gray-lt:  #E8E8ED;
+      --navy:     #1B4FBF;
+      --navy-dk:  #153D96;
+      --navy-lt:  #EEF2FB;
+      --green:    #2A7A4B;
+      --green-lt: #EAF5EE;
+      --amber:    #B45309;
+      --amber-lt: #FEF3C7;
+      --divider:  #D2D2D7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .reading-progress {
+      position: fixed;
+      top: 52px;
+      left: 0;
+      height: 2px;
+      background: var(--navy);
+      z-index: 199;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 0 40px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .nav-logo {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    .nav-links a.active {
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    .nav-cta {
+      background: var(--navy) !important;
+      color: white !important;
+      padding: 8px 18px;
+      border-radius: 980px;
+      font-weight: 500 !important;
+      font-size: 13px !important;
+    }
+
+    .nav-cta:hover { background: var(--navy-dk) !important; }
+
+    .article-header {
+      padding: 100px 40px 64px;
+      background: var(--white);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .article-header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .article-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 28px;
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    .article-breadcrumb a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .article-breadcrumb a:hover { text-decoration: underline; }
+
+    .article-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      background: var(--amber-lt);
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .article-header h1 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .article-deck {
+      font-size: 19px;
+      line-height: 1.65;
+      color: var(--gray);
+      margin-bottom: 28px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 12px;
+      color: var(--gray);
+      font-family: 'JetBrains Mono', monospace;
+      padding-top: 20px;
+      border-top: 1px solid var(--divider);
+    }
+
+    .meta-divider { color: var(--divider); }
+
+    .article-layout {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 60px 40px 100px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .article-body h2 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 48px 0 16px;
+      line-height: 1.2;
+    }
+
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: 32px 0 12px;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+
+    .article-body p strong { color: var(--ink); font-weight: 600; }
+
+    .article-body a {
+      color: var(--navy);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .callout {
+      background: var(--navy-lt);
+      border-left: 3px solid var(--navy);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+
+    .callout-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .callout p {
+      font-size: 15px;
+      color: var(--ink);
+      margin: 0;
+      line-height: 1.65;
+    }
+
+    .callout p strong { color: var(--navy-dk); }
+
+    .callout-warning {
+      background: var(--amber-lt);
+      border-left-color: var(--amber);
+    }
+
+    .callout-warning .callout-label { color: var(--amber); }
+    .callout-warning p { color: var(--ink); }
+
+    .checklist {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 32px 0;
+    }
+
+    .checklist-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    .checklist ul { list-style: none; }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gray-lt);
+      font-size: 15px;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .checklist li:last-child { border-bottom: none; }
+
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--green-lt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .check-icon svg { width: 11px; height: 11px; stroke: var(--green); }
+
+    .checklist li span {
+      font-size: 13px;
+      color: var(--gray);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .tier-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .tier-1 { background: var(--navy-lt); color: var(--navy); }
+    .tier-2 { background: var(--green-lt); color: var(--green); }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 32px 0;
+    }
+
+    .stat-mini {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-mini-num {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-mini-label {
+      font-size: 12px;
+      color: var(--gray);
+      line-height: 1.4;
+    }
+
+    .mid-cta {
+      background: var(--ink);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 48px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .mid-cta-text {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      line-height: 1.4;
+    }
+
+    .mid-cta-text span {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      display: block;
+      margin-top: 4px;
+    }
+
+    .mid-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: white;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 980px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+
+    .mid-cta-btn:hover { background: var(--bg); }
+
+    .shelf-life-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 32px 0;
+      font-size: 15px;
+    }
+
+    .shelf-life-table thead th {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray);
+      padding: 10px 16px;
+      text-align: left;
+      border-bottom: 2px solid var(--divider);
+    }
+
+    .shelf-life-table tbody td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--gray-lt);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .shelf-life-table tbody tr:last-child td { border-bottom: none; }
+
+    .shelf-life-table tbody tr:nth-child(even) td {
+      background: var(--bg);
+    }
+
+    .shelf-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 13px;
+    }
+
+    .article-sidebar {
+      position: sticky;
+      top: 72px;
+    }
+
+    .sidebar-card {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .sidebar-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    .toc-list { list-style: none; }
+
+    .toc-list li {
+      padding: 7px 0;
+      border-bottom: 1px solid var(--gray-lt);
+    }
+
+    .toc-list li:last-child { border-bottom: none; }
+
+    .toc-list a {
+      font-size: 13px;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-list a:hover { color: var(--navy); }
+
+    .toc-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--divider);
+      width: 16px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-guide {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .sidebar-guide-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 12px;
+    }
+
+    .sidebar-guide h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .sidebar-guide p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .sidebar-guide-btn {
+      display: block;
+      background: white;
+      color: var(--navy);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px;
+      border-radius: 980px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .sidebar-guide-btn:hover { background: var(--bg); }
+
+    .related-section {
+      background: var(--bg);
+      padding: 80px 40px;
+      border-top: 1px solid var(--divider);
+    }
+
+    .related-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .related-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .related-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .related-all {
+      font-size: 14px;
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .related-card {
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: 16px;
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: all 0.2s;
+    }
+
+    .related-card:hover {
+      border-color: var(--navy);
+      box-shadow: 0 4px 20px rgba(27,79,191,0.07);
+      transform: translateY(-2px);
+    }
+
+    .related-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .related-cat-planning { color: var(--navy); background: var(--navy-lt); }
+    .related-cat-skills { color: var(--amber); background: var(--amber-lt); }
+    .related-cat-gear { color: var(--green); background: var(--green-lt); }
+
+    .related-card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .related-card p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--divider);
+      padding: 32px 40px;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    footer p { font-size: 13px; color: var(--gray); }
+    footer a { color: var(--navy); text-decoration: none; }
+
+    .sticky-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(29,29,31,0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 150;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .sticky-bar.visible { transform: translateY(0); }
+    .sticky-left { font-size: 14px; color: rgba(255,255,255,0.65); font-weight: 500; }
+    .sticky-left span { color: white; font-weight: 600; }
+
+    .sticky-btn {
+      background: white;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 28px;
+      border-radius: 980px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; gap: 0; }
+      .article-sidebar { display: none; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+      .stat-row { grid-template-columns: 1fr 1fr; }
+      nav { padding: 0 20px; }
+      .nav-links li:not(:last-child) { display: none; }
+      .article-header, .article-layout, .related-section { padding-left: 20px; padding-right: 20px; }
+      .mid-cta { flex-direction: column; align-items: flex-start; }
+      .shelf-life-table { font-size: 13px; }
+    }
+
+    @media (max-width: 600px) {
+      .related-grid { grid-template-columns: 1fr; }
+      .stat-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Prepared. Not scared.</a>
+  <ul class="nav-links">
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#inside">What's Inside</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">
+        Get the Guide →
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-breadcrumb">
+      <a href="blog.html">Blog</a>
+      <span>›</span>
+      <span>Skills</span>
+    </div>
+    <span class="article-cat">Skills</span>
+    <h1>How to Build a Long-Term Food Supply (Not Just a Stockpile)</h1>
+    <p class="article-deck">A two-month supply of canned goods gets eaten through. Prices stay high. Then what? The families that weather extended food price inflation aren't the ones who panic-bought — they're the ones who built a system that keeps regenerating.</p>
+    <div class="article-meta">
+      <span>March 2026</span>
+      <span class="meta-divider">·</span>
+      <span>11 min read</span>
+      <span class="meta-divider">·</span>
+      <span>From the Emergency Preparedness Guide</span>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE LAYOUT -->
+<div class="article-layout">
+
+  <article class="article-body" id="articleBody">
+
+    <p>After Russia invaded Ukraine in February 2022, global food prices rose for 12 consecutive months. Wheat prices peaked at 80% above their pre-war level. Cooking oils nearly doubled. The households that had bought an extra 60 cans of food in March 2022 ran through that supply by May — and then bought groceries at the higher prices for the next year alongside everyone else.</p>
+
+    <p>The same dynamic is already playing out in 2026. Urea fertilizer prices have risen 35% since February 28. Diesel — which moves nearly everything that reaches a grocery shelf — is climbing off the back of oil above $98 a barrel. Food economists at Michigan State estimate a 4 to 6-week lag before oil price spikes register at the supermarket. That lag is almost up.</p>
+
+    <div class="stat-row">
+      <div class="stat-mini">
+        <div class="stat-mini-num">12</div>
+        <div class="stat-mini-label">consecutive months food prices rose after the 2022 Ukraine invasion</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">35%</div>
+        <div class="stat-mini-label">rise in urea fertilizer prices since Feb. 28, 2026</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">4–6</div>
+        <div class="stat-mini-label">weeks before oil price spikes show up on grocery shelves</div>
+      </div>
+    </div>
+
+    <p>Stockpiling is a short answer to what is often a long problem. A food supply — a system that continuously replenishes itself through rotation, preservation, local sourcing, and selective growing — is a different thing entirely. It does not run out. It does not require you to predict how long a disruption will last before you know how much to buy.</p>
+
+    <h2 id="stockpile-problem">Why a Stockpile Is Not a Food Strategy</h2>
+
+    <p>A stockpile has a hard floor. You buy it once, you eat through it, and at some point the shelf is empty. If the underlying problem — high prices, supply chain disruption, a paycheck that doesn't stretch as far as it used to — is still present when that floor arrives, you are exactly where you started except with less money and less time to prepare.</p>
+
+    <p>The problem is compounded by waste. Most households that bulk-buy in response to a crisis overbuy on things their family actually dislikes eating, underbuy on staples they use every week, and never put a rotation system in place. Within a year, a meaningful portion of that purchase has expired or been silently moved to the back of a shelf and forgotten.</p>
+
+    <div class="callout callout-warning">
+      <div class="callout-label">The most common mistake</div>
+      <p>Buying foods specifically for storage that your household does not normally eat. Under stress, people revert to comfort and habit. <strong>A food supply built around foods your family already eats is the only version that actually gets used.</strong></p>
+    </div>
+
+    <p>A food system solves this differently. Instead of a fixed quantity of goods sitting in a closet, it is a set of habits and infrastructure that keeps food flowing into the household in ways that are partially independent of supply chain pricing and availability. The goal is not to be immune to food inflation — it is to reduce how much of your food budget is fully exposed to it at any given time.</p>
+
+    <h2 id="rotating-pantry">The Rotating Pantry: Buying at Today's Prices, Eating Through It Continuously</h2>
+
+    <p>The rotating pantry is the foundation of the system, and it is simpler than most people expect. The principle is first-in, first-out: the oldest items in storage are always the first ones used, and everything purchased today goes to the back. Grocery stores have run on this logic for a century. The difference for a household is doing it deliberately rather than accidentally.</p>
+
+    <p>In practical terms, this means maintaining a deeper supply of the specific shelf-stable items your household already uses — not specialty survival foods, but the actual things that show up on your grocery list every week. Rice, dried beans, canned tomatoes, pasta, olive oil, canned fish, oats, coffee, salt. Whatever your household actually eats. You buy more of those items when prices are lower and draw from the reserve when prices are higher or availability is spotty.</p>
+
+    <p><strong>The target depth is 3 months of the items that make up the foundation of your household's diet.</strong> Not 3 months of every food you eat — perishables are outside this system. Three months of the shelf-stable core. For most households, that list is shorter than they expect once they write it down.</p>
+
+    <div class="callout">
+      <div class="callout-label">How to start</div>
+      <p>Write down the 10 shelf-stable items your household uses most frequently. Buy two extra units of each on your next grocery run. That is the beginning. Add to the depth of those items over the following months before expanding the list. <strong>Ten items with real depth beat 100 items with one unit each.</strong></p>
+    </div>
+
+    <p>Shelf life determines how often each category needs to rotate. The table below covers the staples most households build around:</p>
+
+    <table class="shelf-life-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Stored shelf life</th>
+          <th>Rotation frequency</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>White rice (sealed)</strong></td>
+          <td><span class="shelf-num">25–30 yrs</span></td>
+          <td>Buy more when you open a bag</td>
+        </tr>
+        <tr>
+          <td><strong>Dried beans and lentils</strong></td>
+          <td><span class="shelf-num">8–10 yrs</span></td>
+          <td>Annually — taste degrades before safety does</td>
+        </tr>
+        <tr>
+          <td><strong>Rolled oats (sealed)</strong></td>
+          <td><span class="shelf-num">30 yrs</span></td>
+          <td>Buy more when you open a container</td>
+        </tr>
+        <tr>
+          <td><strong>Canned vegetables and fruit</strong></td>
+          <td><span class="shelf-num">3–5 yrs</span></td>
+          <td>Every 2 years — pull forward regularly</td>
+        </tr>
+        <tr>
+          <td><strong>Canned fish (tuna, salmon)</strong></td>
+          <td><span class="shelf-num">3–5 yrs</span></td>
+          <td>Every 2 years</td>
+        </tr>
+        <tr>
+          <td><strong>Olive oil</strong></td>
+          <td><span class="shelf-num">2 yrs</span></td>
+          <td>Every 18 months — buy in quantity when on sale</td>
+        </tr>
+        <tr>
+          <td><strong>Honey</strong></td>
+          <td><span class="shelf-num">Indefinite</span></td>
+          <td>No rotation needed</td>
+        </tr>
+        <tr>
+          <td><strong>Salt</strong></td>
+          <td><span class="shelf-num">Indefinite</span></td>
+          <td>No rotation needed</td>
+        </tr>
+        <tr>
+          <td><strong>Pasta (sealed)</strong></td>
+          <td><span class="shelf-num">8–10 yrs</span></td>
+          <td>Every 3–4 years</td>
+        </tr>
+        <tr>
+          <td><strong>All-purpose flour</strong></td>
+          <td><span class="shelf-num">1 yr</span></td>
+          <td>Every 8–10 months — buy smaller quantities more often</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Notice that most staples have shelf lives measured in years. The rotation cycle is not onerous — it is mostly a matter of buying a bag of rice when you open the last one rather than when you run out. The inventory manages itself once the initial depth is established.</p>
+
+    <!-- MID-ARTICLE CTA -->
+    <div class="mid-cta">
+      <div class="mid-cta-text">
+        The Food and Water Storage chapter includes a 6-month rotating pantry calculator and a category-by-category target depth guide.
+        <span>All formatted for Notion, Excel, and print — so the system lives wherever you track things.</span>
+      </div>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="mid-cta-btn">Get the Guide · $25 →</a>
+    </div>
+
+    <h2 id="preservation">Preservation as a Force Multiplier</h2>
+
+    <p>Preservation is the skill that turns a seasonal surplus into a year-round supply. A flat of tomatoes bought at peak summer prices — or grown in a backyard garden — becomes 18 months of canned tomatoes if you have the equipment and the hour it takes to process them. The same logic applies to dried herbs, fruit preserves, fermented vegetables, and frozen meat bought in quantity when prices are lower.</p>
+
+    <p>Not all preservation methods are worth learning at the same stage. Water-bath canning is the highest-return starting point for most households: it requires a single pot, mason jars, and an afternoon to learn. It handles high-acid foods well — tomatoes, fruit, pickles, jams. Pressure canning extends to low-acid foods including beans and vegetables, but requires a pressure canner and more attention to safety protocols. Both are documented thoroughly by the USDA and the National Center for Home Food Preservation, which publish tested recipes with validated processing times.</p>
+
+    <div class="checklist">
+      <div class="checklist-title">Preservation methods by entry point</div>
+      <ul>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Start here</span>
+            <strong>Water-bath canning</strong>
+            <span>High-acid foods: tomatoes, pickles, fruit, jam. One pot, mason jars, one afternoon to learn. The USDA Ball Blue Book is the standard reference — use tested recipes only.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Start here</span>
+            <strong>Freezer bulk buying</strong>
+            <span>Buy meat, butter, and cheese in quantity when on sale. A chest freezer ($150–200 used) pays for itself in under a year if used consistently. Label everything with the date.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Start here</span>
+            <strong>Dehydrating</strong>
+            <span>Herbs, fruit slices, mushrooms, jerky. An entry-level dehydrator runs $40–60. Dried herbs from a backyard plant represent months of supply from a single afternoon of work.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Add after foundation</span>
+            <strong>Pressure canning</strong>
+            <span>Low-acid foods: beans, vegetables, broth, meat. Requires a pressure canner and tested recipes. Higher skill ceiling but dramatically expands what you can preserve.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Add after foundation</span>
+            <strong>Fermentation</strong>
+            <span>Sauerkraut, kimchi, lacto-fermented vegetables, sourdough starter. No equipment required for basic ferments. Adds probiotic-rich foods to the supply and extends vegetable shelf life significantly.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <p>The return on preservation skills compounds over time. The first year you water-bath can tomatoes, it takes an afternoon and feels unfamiliar. By the third year, it is a 90-minute late-August routine that produces 18 to 24 jars of crushed tomatoes at roughly a third of what those jars would cost at the store — and at prices locked in from the summer regardless of what happens in February.</p>
+
+    <h2 id="growing">Growing Food at Home: Realistic Yields, Realistic Time</h2>
+
+    <p>Home growing is worth doing, but not for the reasons most people expect. A backyard garden will not feed a family of four. It will not meaningfully replace grocery spending in the first year. What it will do is produce a reliable supply of specific high-value crops — herbs, salad greens, tomatoes, peppers, zucchini — at near-zero cost once the infrastructure is in place, and it builds skills that matter more as the system scales.</p>
+
+    <p>The highest-return starting point for most households is herbs and greens. A 4x4 raised bed or a set of containers on a patio can produce continuous salad greens through the spring and fall, and herbs year-round in most climates. The dollar value of fresh herbs at grocery store prices is disproportionate to their growing difficulty — a single basil plant in a sunny window produces $30 to $40 worth of basil over a season.</p>
+
+    <p>Tomatoes and zucchini are the next step for anyone with outdoor space. Both are high-yield, low-maintenance, and produce in quantities that make preservation worthwhile — a single zucchini plant produces more than a household can eat fresh, which is the forcing function for learning to preserve. The surplus is the point.</p>
+
+    <div class="callout">
+      <div class="callout-label">For renters and small spaces</div>
+      <p>Container growing on a balcony or windowsill is a viable starting point. Five-gallon buckets grow tomatoes, peppers, and herbs adequately. A grow light extends the season in any climate and costs less than a month of grocery herbs. <strong>The skill you are building matters more than the yield in year one.</strong></p>
+    </div>
+
+    <h2 id="local-sourcing">Local Sourcing: Removing Yourself from the Supply Chain for Specific Categories</h2>
+
+    <p>The global supply chain sets the price you pay for most food. Local sourcing removes specific categories from that equation. A CSA share, a relationship with a local egg farmer, buying a quarter of a beef cow from a rancher two counties away — each of these creates a fixed price for a category of food that is independent of what happens at the commodity level in a given month.</p>
+
+    <p>CSAs (community supported agriculture) are the most accessible entry point. For a flat fee paid at the start of the season — typically $400 to $700 for a 20-week share — a household receives a weekly box of whatever the farm produces. The price is fixed regardless of what happens to vegetable prices during the season. In a year when drought or fuel costs push grocery vegetable prices up 25%, a CSA member pays exactly what they agreed to in April.</p>
+
+    <p>Bulk meat buying from a local rancher works similarly. A quarter beef — roughly 100 to 130 pounds of finished cuts — typically runs $4 to $6 per pound hanging weight, which translates to most cuts landing below the equivalent retail price. It requires freezer capacity, an upfront payment of $500 to $800, and the knowledge of where to find a rancher willing to sell direct. The last part is easier than it sounds — farmers' markets, LocalHarvest, and direct Google searches for ranches in your county are all viable starting points.</p>
+
+    <h2 id="stages">Building the System in Stages</h2>
+
+    <p>The system does not have to be built at once. Most households that try to do everything simultaneously — rotating pantry plus canning plus garden plus CSA — do none of it well. The sequence below reflects what compounds fastest:</p>
+
+    <div class="checklist">
+      <div class="checklist-title">Build sequence — in order</div>
+      <ul>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Month 1–2</span>
+            <strong>Establish the rotating pantry</strong>
+            <span>Write your household's 10 core shelf-stable items. Bring each to 4–6 weeks of depth. Label everything with purchase dates. Put oldest items in front.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Month 2–3</span>
+            <strong>Add a chest freezer if you don't have one</strong>
+            <span>Buy used if budget is tight. Start buying meat and butter in bulk when on sale. This alone changes your exposure to protein price spikes significantly.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Month 3–4</span>
+            <strong>Learn water-bath canning</strong>
+            <span>One weekend, one project. Start with a tested jam or pickle recipe. The skill is the asset — the jars are the byproduct.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Month 4–6</span>
+            <strong>Start growing herbs and greens</strong>
+            <span>Whatever space you have. Containers on a porch, a raised bed, a windowsill. Start before the season, not when you think about it in July.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Month 6+</span>
+            <strong>Add a CSA share or local bulk meat source</strong>
+            <span>Find one local source for one food category. Lock in a price. Build the relationship. Add more sources as bandwidth allows.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <p>Six months of steady work, one stage at a time, produces a household that is meaningfully less exposed to food price volatility than it was before — and that exposure decreases every year as the system matures. The rotating pantry alone covers most of the near-term risk. Everything that comes after it makes the system more resilient and less dependent on any single input price.</p>
+
+    <p>Start with the list of 10 items. The rest follows from there.</p>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="article-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-label">In this guide</div>
+      <ul class="toc-list">
+        <li><a href="#stockpile-problem"><span class="toc-num">01</span> Why Stockpiling Falls Short</a></li>
+        <li><a href="#rotating-pantry"><span class="toc-num">02</span> The Rotating Pantry</a></li>
+        <li><a href="#preservation"><span class="toc-num">03</span> Preservation Skills</a></li>
+        <li><a href="#growing"><span class="toc-num">04</span> Growing at Home</a></li>
+        <li><a href="#local-sourcing"><span class="toc-num">05</span> Local Sourcing</a></li>
+        <li><a href="#stages"><span class="toc-num">06</span> Building in Stages</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-guide">
+      <div class="sidebar-guide-label">Family Emergency Preparedness Guide</div>
+      <h4>Food, water, and self-sufficiency — the complete chapter.</h4>
+      <p>Rotating pantry calculator, skills tracker, and a 6-month build sequence. All file formats included.</p>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sidebar-guide-btn">Get the Guide · $25 →</a>
+    </div>
+  </aside>
+
+</div>
+
+<!-- RELATED POSTS -->
+<div class="related-section">
+  <div class="related-inner">
+    <div class="related-header">
+      <div class="related-title">Related guides</div>
+      <a href="blog.html" class="related-all">View all →</a>
+    </div>
+    <div class="related-grid">
+      <a href="how-to-prepare-your-family-for-civil-unrest.html" class="related-card">
+        <span class="related-cat related-cat-planning">Planning</span>
+        <h4>How to Prepare Your Family for Civil Unrest</h4>
+        <p>Civil unrest disrupts supply chains within hours. Here's the specific preparation that determines how a household weathers it.</p>
+      </a>
+      <a href="how-to-build-a-go-bag.html" class="related-card">
+        <span class="related-cat related-cat-gear">Gear</span>
+        <h4>How to Build a 72-Hour Go-Bag for Families</h4>
+        <p>The go-bag that actually gets used isn't the one with 200 items. Here's what to pack and how to maintain it.</p>
+      </a>
+      <a href="how-to-financially-prepare-for-ai-job-displacement.html" class="related-card">
+        <span class="related-cat related-cat-planning">Planning</span>
+        <h4>How to Financially Prepare for AI Job Displacement</h4>
+        <p>What income disruption actually looks like and the financial foundation that gives a household real runway.</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>
+    © 2026 Family Emergency Preparedness Guide. All rights reserved.
+    · <a href="privacy.html">Privacy Policy</a>
+    · <a href="terms.html">Terms</a>
+    · <a href="refunds.html">Refund Policy</a>
+    · <a href="mailto:support@emergencypreparednesschecklist.com">Contact</a>
+  </p>
+</footer>
+
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-left">Family Emergency Preparedness Guide <span>· All file formats for $25</span></div>
+  <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sticky-btn">Get the Guide · $25 →</a>
+</div>
+
+<script>
+  const progress = document.getElementById('readingProgress');
+  const article = document.getElementById('articleBody');
+  window.addEventListener('scroll', () => {
+    const rect = article.getBoundingClientRect();
+    const articleTop = rect.top + window.scrollY;
+    const articleHeight = article.offsetHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = Math.min(100, Math.max(0, (scrolled / articleHeight) * 100));
+    progress.style.width = pct + '%';
+  });
+
+  const articleHeader = document.querySelector('.article-header');
+  const stickyBar = document.getElementById('stickyBar');
+  const observer = new IntersectionObserver(
+    ([e]) => stickyBar.classList.toggle('visible', !e.isIntersecting),
+    { threshold: 0.1 }
+  );
+  observer.observe(articleHeader);
+</script>
+</body>
+</html>
