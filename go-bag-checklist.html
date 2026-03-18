@@ -1,372 +1,1082 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go-Bag Checklist: What Actually Goes In It — Emergency Preparedness Guide</title>
+  <meta name="description" content="A complete, printable go-bag checklist sorted by category. Tier 1 items first — the non-negotiables. Tier 2 after the foundation is covered.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white:    #FFFFFF;
+      --bg:       #F5F5F7;
+      --ink:      #1D1D1F;
+      --gray:     #6E6E73;
+      --gray-lt:  #E8E8ED;
+      --navy:     #1B4FBF;
+      --navy-dk:  #153D96;
+      --navy-lt:  #EEF2FB;
+      --green:    #2A7A4B;
+      --green-lt: #EAF5EE;
+      --amber:    #B45309;
+      --amber-lt: #FEF3C7;
+      --divider:  #D2D2D7;
+    }
 
-<title>Go-Bag Checklist: What Actually Goes In It — Emergency Preparedness Guide</title>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
-<meta name="description" content="A practical go-bag checklist for families. Tier 1 items you must pack first, Tier 2 upgrades once the basics are covered, and what you can skip entirely.">
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    .reading-progress {
+      position: fixed;
+      top: 52px;
+      left: 0;
+      height: 2px;
+      background: var(--navy);
+      z-index: 199;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
 
-<style>
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 0 40px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
 
-:root {
---white:#FFFFFF;
---bg:#F5F5F7;
---ink:#1D1D1F;
---gray:#6E6E73;
---gray-lt:#E8E8ED;
---navy:#1B4FBF;
---navy-dk:#153D96;
---navy-lt:#EEF2FB;
---green:#2A7A4B;
---green-lt:#EAF5EE;
---amber:#B45309;
---amber-lt:#FEF3C7;
---divider:#D2D2D7;
-}
+    .nav-logo {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
 
-*,
-*::before,
-*::after { box-sizing:border-box; margin:0; padding:0; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
 
-body{
-font-family:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-background:var(--white);
-color:var(--ink);
-line-height:1.6;
-}
+    .nav-links a {
+      font-size: 13px;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
 
-nav{
-position:fixed;
-top:0;
-left:0;
-right:0;
-height:52px;
-padding:0 40px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-background:rgba(255,255,255,0.9);
-border-bottom:1px solid rgba(0,0,0,0.08);
-z-index:200;
-}
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--navy); font-weight: 600; }
 
-.nav-logo{
-font-weight:600;
-font-size:14px;
-text-decoration:none;
-color:var(--ink);
-}
+    .nav-cta {
+      background: var(--navy) !important;
+      color: white !important;
+      padding: 8px 18px;
+      border-radius: 980px;
+      font-weight: 500 !important;
+      font-size: 13px !important;
+    }
 
-.nav-links{
-display:flex;
-gap:28px;
-list-style:none;
-}
+    .nav-cta:hover { background: var(--navy-dk) !important; }
 
-.nav-links a{
-font-size:13px;
-text-decoration:none;
-color:var(--gray);
-}
+    .article-header {
+      padding: 100px 40px 64px;
+      background: var(--white);
+      border-bottom: 1px solid var(--divider);
+    }
 
-.nav-links a:hover{ color:var(--ink); }
+    .article-header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
 
-.nav-cta{
-background:var(--navy);
-color:white !important;
-padding:8px 18px;
-border-radius:999px;
-font-weight:500;
-}
+    .article-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 28px;
+      font-size: 13px;
+      color: var(--gray);
+    }
 
-.article-header{
-padding:110px 40px 60px;
-border-bottom:1px solid var(--divider);
-}
+    .article-breadcrumb a { color: var(--navy); text-decoration: none; }
+    .article-breadcrumb a:hover { text-decoration: underline; }
 
-.article-header-inner{
-max-width:720px;
-margin:auto;
-}
+    .article-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      background: var(--green-lt);
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
 
-.article-cat{
-font-family:'JetBrains Mono', monospace;
-font-size:10px;
-letter-spacing:0.12em;
-text-transform:uppercase;
-color:var(--green);
-background:var(--green-lt);
-padding:4px 10px;
-border-radius:4px;
-display:inline-block;
-margin-bottom:20px;
-}
+    .article-header h1 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
 
-.article-header h1{
-font-size:42px;
-font-weight:700;
-line-height:1.2;
-margin-bottom:18px;
-}
+    .article-deck {
+      font-size: 19px;
+      line-height: 1.65;
+      color: var(--gray);
+      margin-bottom: 28px;
+    }
 
-.article-header p{
-font-size:18px;
-color:var(--gray);
-}
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 12px;
+      color: var(--gray);
+      font-family: 'JetBrains Mono', monospace;
+      padding-top: 20px;
+      border-top: 1px solid var(--divider);
+    }
 
-.article-body{
-max-width:720px;
-margin:60px auto;
-padding:0 40px;
-}
+    .meta-divider { color: var(--divider); }
 
-.article-body h2{
-font-size:26px;
-margin-top:48px;
-margin-bottom:16px;
-}
+    .article-layout {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 60px 40px 100px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 80px;
+      align-items: start;
+    }
 
-.article-body p{
-margin-bottom:20px;
-color:#333;
-}
+    .article-body h2 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 48px 0 16px;
+      line-height: 1.2;
+    }
 
-.article-body ul{
-margin:20px 0 30px 22px;
-}
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
 
-.article-body li{
-margin-bottom:10px;
-}
+    .article-body p strong { color: var(--ink); font-weight: 600; }
 
-.callout{
-background:var(--navy-lt);
-border-left:4px solid var(--navy);
-padding:18px 22px;
-border-radius:4px;
-margin:30px 0;
-font-size:15px;
-}
+    .article-body a {
+      color: var(--navy);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
 
-.footer{
-margin-top:80px;
-padding:40px;
-border-top:1px solid var(--divider);
-font-size:13px;
-color:var(--gray);
-text-align:center;
-}
+    .callout {
+      background: var(--navy-lt);
+      border-left: 3px solid var(--navy);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
 
-</style>
+    .callout-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .callout p {
+      font-size: 15px;
+      color: var(--ink);
+      margin: 0;
+      line-height: 1.65;
+    }
+
+    .callout p strong { color: var(--navy-dk); }
+
+    .callout-warning {
+      background: var(--amber-lt);
+      border-left-color: var(--amber);
+    }
+
+    .callout-warning .callout-label { color: var(--amber); }
+    .callout-warning p { color: var(--ink); }
+
+    /* Checklist */
+    .checklist {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 32px 0;
+    }
+
+    .checklist-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 4px;
+    }
+
+    .checklist-subtitle {
+      font-size: 13px;
+      color: var(--gray);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .checklist ul { list-style: none; }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gray-lt);
+      font-size: 15px;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .checklist li:last-child { border-bottom: none; }
+
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--green-lt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .check-icon svg { width: 11px; height: 11px; stroke: var(--green); }
+
+    .checklist li span {
+      font-size: 13px;
+      color: var(--gray);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .tier-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .tier-1 { background: var(--navy-lt); color: var(--navy); }
+    .tier-2 { background: var(--green-lt); color: var(--green); }
+
+    /* Category header within checklist */
+    .cat-header {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--navy-lt);
+      padding: 6px 12px;
+      border-radius: 6px;
+      margin: 20px 0 4px;
+      display: inline-block;
+    }
+
+    .mid-cta {
+      background: var(--ink);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 48px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .mid-cta-text {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      line-height: 1.4;
+    }
+
+    .mid-cta-text span {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      display: block;
+      margin-top: 4px;
+    }
+
+    .mid-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: white;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 980px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+
+    .mid-cta-btn:hover { background: var(--bg); }
+
+    .article-sidebar { position: sticky; top: 72px; }
+
+    .sidebar-card {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .sidebar-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    .toc-list { list-style: none; }
+
+    .toc-list li {
+      padding: 7px 0;
+      border-bottom: 1px solid var(--gray-lt);
+    }
+
+    .toc-list li:last-child { border-bottom: none; }
+
+    .toc-list a {
+      font-size: 13px;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-list a:hover { color: var(--navy); }
+
+    .toc-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--divider);
+      width: 16px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-guide {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .sidebar-guide-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 12px;
+    }
+
+    .sidebar-guide h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .sidebar-guide p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .sidebar-guide-btn {
+      display: block;
+      background: white;
+      color: var(--navy);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px;
+      border-radius: 980px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .sidebar-guide-btn:hover { background: var(--bg); }
+
+    .related-section {
+      background: var(--bg);
+      padding: 80px 40px;
+      border-top: 1px solid var(--divider);
+    }
+
+    .related-inner { max-width: 1080px; margin: 0 auto; }
+
+    .related-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .related-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .related-all {
+      font-size: 14px;
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .related-card {
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: 16px;
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: all 0.2s;
+    }
+
+    .related-card:hover {
+      border-color: var(--navy);
+      box-shadow: 0 4px 20px rgba(27,79,191,0.07);
+      transform: translateY(-2px);
+    }
+
+    .related-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .cat-planning { color: var(--navy); background: var(--navy-lt); }
+    .cat-gear { color: var(--green); background: var(--green-lt); }
+    .cat-skills { color: var(--amber); background: var(--amber-lt); }
+
+    .related-card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .related-card p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--divider);
+      padding: 32px 40px;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    footer p { font-size: 13px; color: var(--gray); }
+    footer a { color: var(--navy); text-decoration: none; }
+
+    .sticky-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(29,29,31,0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 150;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .sticky-bar.visible { transform: translateY(0); }
+    .sticky-left { font-size: 14px; color: rgba(255,255,255,0.65); font-weight: 500; }
+    .sticky-left span { color: white; font-weight: 600; }
+
+    .sticky-btn {
+      background: white;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 28px;
+      border-radius: 980px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; gap: 0; }
+      .article-sidebar { display: none; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+      nav { padding: 0 20px; }
+      .nav-links li:not(:last-child) { display: none; }
+      .article-header, .article-layout, .related-section { padding-left: 20px; padding-right: 20px; }
+      .mid-cta { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 600px) {
+      .related-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-
 <body>
 
+<div class="reading-progress" id="readingProgress"></div>
+
 <nav>
-<a class="nav-logo" href="/">Emergency Preparedness Guide</a>
-<ul class="nav-links">
-<li><a href="/blog">Blog</a></li>
-<li><a href="/about">About</a></li>
-<li><a href="/free">Free Checklist</a></li>
-<li><a class="nav-cta" href="/">Get the Guide</a></li>
-</ul>
+  <a href="index.html" class="nav-logo">Prepared. Not scared.</a>
+  <ul class="nav-links">
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#inside">What's Inside</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">
+        Get the Guide →
+      </a>
+    </li>
+  </ul>
 </nav>
 
-<header class="article-header">
-<div class="article-header-inner">
-
-<div class="article-cat">GEAR</div>
-
-<h1>Go-Bag Checklist: What Actually Goes In It</h1>
-
-<p>
-A printable, prioritized checklist sorted by category. Tier 1 items you need before anything else. Tier 2 additions once the foundation is covered. What to skip entirely.
-</p>
-
-</div>
-</header>
-
-<article class="article-body">
-
-<p>
-A go-bag is not a camping pack. It is not a survival fantasy kit. It is simply a small backpack that lets you leave your home quickly and function independently for about 72 hours.
-</p>
-
-<p>
-Most families either under-prepare (a flashlight and a granola bar) or over-prepare (40 pounds of gear they will never carry). The goal is something in the middle: a bag that is practical, portable, and ready at a moment’s notice.
-</p>
-
-<div class="callout">
-A good rule: if you had to leave your home in five minutes, could you grab one bag and survive three days without returning?
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-breadcrumb">
+      <a href="blog.html">Blog</a>
+      <span>›</span>
+      <span>Gear</span>
+    </div>
+    <span class="article-cat">Gear</span>
+    <h1>Go-Bag Checklist: What Actually Goes In It</h1>
+    <p class="article-deck">A complete, printable checklist sorted by category. Tier 1 items are the non-negotiables — pack these before anything else. Tier 2 fills in after the foundation is covered. Nothing on this list requires a survival course to use.</p>
+    <div class="article-meta">
+      <span>March 2026</span>
+      <span class="meta-divider">·</span>
+      <span>5 min read</span>
+      <span class="meta-divider">·</span>
+      <span>From the Emergency Preparedness Guide</span>
+    </div>
+  </div>
 </div>
 
-<h2>Tier 1 — The Non-Negotiables</h2>
+<!-- ARTICLE LAYOUT -->
+<div class="article-layout">
 
-<p>
-These items cover the four survival priorities: water, warmth, medical care, and information. Build this layer first.
-</p>
+  <article class="article-body" id="articleBody">
 
-<ul>
+    <p>This checklist is built around one constraint: the bag has to be something a real person in a real family will actually carry. That means weight limits matter. It means Tier 1 items — the things you genuinely cannot go 72 hours without — come first, and nothing gets added until those are covered.</p>
 
-<li><strong>Water (1–2 liters per person)</strong></li>
-<li><strong>Water filter or purification tablets</strong></li>
-<li><strong>Non-perishable food (3 days)</strong></li>
-<li>Energy bars, canned meals, or ready-to-eat rations</li>
+    <p>The full go-bag article covers the reasoning behind these choices. This page is the list itself — organized by category, tiered by priority, with notes on what each item actually does so nothing gets packed blindly.</p>
 
-<li><strong>First aid kit</strong></li>
-<li>Bandages, antiseptic wipes, pain medication</li>
+    <div class="callout">
+      <div class="callout-label">Weight rule before you start</div>
+      <p>A loaded bag should not exceed 20% of the lightest adult carrier's body weight. For a 150-pound adult, that is 30 pounds maximum — ideally less. <strong>Weigh the finished bag before you call it done.</strong> If it's too heavy to carry a mile, it won't get carried when it matters.</p>
+    </div>
 
-<li><strong>Flashlight or headlamp</strong></li>
-<li>Extra batteries</li>
+    <h2 id="water-food">Water and Food</h2>
 
-<li><strong>Emergency blanket or compact sleeping bag</strong></li>
+    <div class="checklist">
+      <div class="checklist-title">Water and Food</div>
+      <div class="checklist-subtitle">The bag carries enough to get you to your destination. Your stored supply at home covers the rest.</div>
+      <ul>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Water — 1 liter per person minimum</strong>
+            <span>Enough for the first few hours. A Nalgene or collapsible bottle. Do not carry 3 gallons in the bag — store it at home, carry what you need to reach your destination.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Water filter — Sawyer Squeeze or equivalent</strong>
+            <span>Removes bacteria and protozoa from any natural water source. Weighs 3 oz. Pair with purification tablets for full-spectrum coverage including viruses.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Food — 72 hours per person, no-cook</strong>
+            <span>Dense caloric options: nut butter packets, bars, jerky, crackers, dried fruit. Nothing that requires boiling water as a first step. Calculate 1,500 to 2,000 calories per adult per day.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Water purification tablets</strong>
+            <span>Backup to the filter. Treats 1 liter per tablet. Kills viruses that filtration misses. Expires — check dates twice a year.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Collapsible water container — 2 to 4 liters</strong>
+            <span>Lets you carry more water once you refill from a filtered source. Stores flat in the bag until needed.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Electrolyte packets — 6 to 12 per person</strong>
+            <span>Dehydration affects decision-making before it registers as thirst. Especially important in hot weather or if evacuating on foot.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
 
-<li><strong>Phone charger + battery pack</strong></li>
+    <h2 id="documents-cash">Documents and Cash</h2>
 
-<li><strong>Copies of important documents</strong></li>
-<li>ID, insurance, emergency contacts</li>
+    <div class="checklist">
+      <div class="checklist-title">Documents and Cash</div>
+      <div class="checklist-subtitle">Keep originals at home in a known location. Copies travel in the bag in a waterproof sleeve.</div>
+      <ul>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Cash — $200 to $500 in small bills</strong>
+            <span>When ATMs are offline and cards don't work, cash is what functions. Nothing larger than $20. Half the total in $10s and $5s.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Photo ID copy — driver's license or passport</strong>
+            <span>Photocopy in a waterproof sleeve. Essential for shelter registration, FEMA assistance applications, and hotel check-in when systems are slow.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Insurance card copies — health and auto</strong>
+            <span>Medical treatment and roadside situations both require these. The originals stay in your wallet; these are backups.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Printed contact list and emergency plan</strong>
+            <span>The five most important phone numbers. Meeting points and evacuation destinations. Does not require a charged device. One page, laminated or in a waterproof sleeve.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Bank account page copy — one account</strong>
+            <span>Account number and routing number. Useful for wiring money or proving ownership when digital access is unavailable.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>USB drive with scanned documents</strong>
+            <span>Encrypted. Copies of all critical documents in digital form. Works anywhere there's a computer, even if your phone is dead.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
 
-<li><strong>Cash in small bills ($100–$300)</strong></li>
+    <!-- MID-ARTICLE CTA -->
+    <div class="mid-cta">
+      <div class="mid-cta-text">
+        The guide includes a printable go-bag master checklist with weight tracking for each item.
+        <span>Also available as a fillable Excel tracker — check off items as you pack them, track expiration dates, and set maintenance reminders.</span>
+      </div>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="mid-cta-btn">Get the Guide · $25 →</a>
+    </div>
 
-</ul>
+    <h2 id="medical">Medical and Medications</h2>
 
-<p>
-With just these items, you can leave your home and operate for several days without relying on outside systems.
-</p>
+    <div class="checklist">
+      <div class="checklist-title">Medical and Medications</div>
+      <div class="checklist-subtitle">Pack only what you know how to use. An unfamiliar tool under stress is a liability.</div>
+      <ul>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Prescription medications — 3 to 7-day supply</strong>
+            <span>Any medication that cannot be missed. Rotate the supply every 3 months so it stays within expiration. Ask your pharmacy about early refills for emergency preparedness.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Basic first aid kit</strong>
+            <span>Adhesive bandages in multiple sizes, sterile gauze pads, medical tape, antiseptic wipes, antibiotic ointment, elastic bandage, scissors, tweezers. Pre-assembled kits from Adventure Medical work well — check dates twice a year.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Pain reliever and anti-inflammatory</strong>
+            <span>Ibuprofen and acetaminophen. Both — they work differently and have different contraindications. Small travel quantities.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Nitrile gloves — 4 pairs minimum</strong>
+            <span>For treating injuries in others. Barrier protection during any medical situation. Dispose after each use.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>SAM splint and triangle bandage</strong>
+            <span>Immobilizes a limb until professional care is available. Lightweight and packs flat. Worth having if you've had basic first aid training.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Blister treatment — moleskin or blister bandages</strong>
+            <span>If evacuation involves extended walking, blisters become a real problem within a few miles. Cheap insurance against a disabling situation.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
 
-<h2>Tier 2 — Practical Upgrades</h2>
+    <h2 id="power-comms">Power and Communication</h2>
 
-<p>
-Once the essentials are covered, these additions improve comfort and resilience.
-</p>
+    <div class="checklist">
+      <div class="checklist-title">Power and Communication</div>
+      <ul>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Power bank — 20,000 mAh minimum</strong>
+            <span>Fully charged and kept that way. Charges a smartphone 4 to 6 times. Check the charge monthly — power banks self-discharge over time.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Charging cables for all household devices</strong>
+            <span>USB-C and Lightning if your household uses both. Include a multi-port adapter.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Headlamp with extra batteries</strong>
+            <span>Keeps hands free — critical for stairwells, field first aid, or any task in the dark. LED, 200+ lumens. AA or AAA batteries — keep extras.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Hand-crank NOAA weather radio</strong>
+            <span>Receives emergency broadcasts without cell service or charged batteries. Often the only reliable information source during extended outages.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Whistle — pealess design</strong>
+            <span>Audible up to a mile. Works wet and cold. For signaling location if trapped or separated. Attach to the bag's exterior.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
 
-<ul>
+    <h2 id="clothing-shelter">Clothing and Shelter</h2>
 
-<li>Multi-tool or small knife</li>
-<li>Hand-crank or battery radio</li>
-<li>Portable phone charger</li>
-<li>Work gloves</li>
-<li>Dust masks</li>
-<li>Change of clothes</li>
-<li>Basic hygiene kit (toothbrush, wipes, sanitizer)</li>
-<li>Notebook and pen</li>
+    <div class="checklist">
+      <div class="checklist-title">Clothing and Shelter</div>
+      <ul>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Change of clothes — one set per person</strong>
+            <span>Wool or synthetic only — no cotton. Cotton holds moisture and causes hypothermia in cold and wet conditions. Includes socks and underwear.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Sturdy closed-toe shoes</strong>
+            <span>If you evacuate in flip-flops or dress shoes, walking on debris or rough terrain becomes dangerous fast. Keep a pair tied to the bag if space is limited.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Emergency mylar blankets — one per person</strong>
+            <span>Reflect body heat in cold conditions. Weigh less than 2 oz each. Pack flat. Replace if removed from packaging.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Rain poncho — one per person</strong>
+            <span>Lightweight, packs small, covers both you and the bag. Hypothermia risk is significantly higher when wet. Cheap insurance.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Work gloves — one pair per adult</strong>
+            <span>Moving debris after a structural event damages hands quickly. Also functions as cold-weather hand protection.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
 
-</ul>
+    <h2 id="tools">Tools and Miscellaneous</h2>
 
-<p>
-None of these items are strictly necessary — but they make stressful situations significantly easier to manage.
-</p>
+    <div class="checklist">
+      <div class="checklist-title">Tools and Miscellaneous</div>
+      <ul>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Multi-tool</strong>
+            <span>Leatherman Wave or equivalent. Pliers, knife, scissors, screwdrivers. Keep it in an accessible pocket, not buried at the bottom.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Duct tape — small roll or flat-pack</strong>
+            <span>Repairs, sealing, improvised splints, blister padding, gear fixes. Wrap a flat-pack around a water bottle to save space.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Lighter and waterproof matches</strong>
+            <span>Both. Lighters fail in cold and wet. Matches fail when wet. Carry both, store the matches in a waterproof case.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>50 feet of paracord — 550 lb rated</strong>
+            <span>Shelter rigging, clothesline, lashing, improvised carry straps. Weighs under 4 oz for 50 feet.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Dust masks — N95 or equivalent, 2 per person</strong>
+            <span>Essential in structural collapse situations or wildfire smoke. A standard surgical mask does not provide adequate filtration for particulates.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Pen and waterproof notepad</strong>
+            <span>For writing information that needs to survive in any conditions. Rite in the Rain pads work wet. Useful for leaving notes, documenting damage, or recording information when a device is unavailable.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
 
-<h2>Tier 3 — Situation-Specific Items</h2>
+    <div class="callout callout-warning">
+      <div class="callout-label">Maintenance schedule</div>
+      <p>Pack the bag once, then review it on January 1 and July 1 every year. At each review: rotate food and water, check medication expiration dates, test batteries, confirm the bag still fits whoever is carrying it. <strong>A bag packed three years ago and never opened is not a go-bag.</strong></p>
+    </div>
 
-<p>
-These depend on your household.
-</p>
+  </article>
 
-<ul>
+  <!-- SIDEBAR -->
+  <aside class="article-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-label">In this guide</div>
+      <ul class="toc-list">
+        <li><a href="#water-food"><span class="toc-num">01</span> Water and Food</a></li>
+        <li><a href="#documents-cash"><span class="toc-num">02</span> Documents and Cash</a></li>
+        <li><a href="#medical"><span class="toc-num">03</span> Medical and Medications</a></li>
+        <li><a href="#power-comms"><span class="toc-num">04</span> Power and Communication</a></li>
+        <li><a href="#clothing-shelter"><span class="toc-num">05</span> Clothing and Shelter</a></li>
+        <li><a href="#tools"><span class="toc-num">06</span> Tools and Miscellaneous</a></li>
+      </ul>
+    </div>
 
-<li>Prescription medications</li>
-<li>Infant supplies</li>
-<li>Pet food and leash</li>
-<li>Glasses or contact lenses</li>
-<li>Seasonal clothing</li>
+    <div class="sidebar-guide">
+      <div class="sidebar-guide-label">Family Emergency Preparedness Guide</div>
+      <h4>Printable go-bag checklist with weight tracking — inside the guide.</h4>
+      <p>Also available as a fillable Excel tracker with expiration date columns and maintenance reminders.</p>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sidebar-guide-btn">Get the Guide · $25 →</a>
+    </div>
+  </aside>
 
-</ul>
-
-<h2>What You Can Skip</h2>
-
-<p>
-The internet is full of extreme gear lists. Most of them assume wilderness survival scenarios that are extremely unlikely.
-</p>
-
-<p>
-In real emergencies, the biggest problems are usually infrastructure failure — power outages, evacuation orders, supply disruptions — not wilderness survival.
-</p>
-
-<p>
-You probably do not need:
-</p>
-
-<ul>
-
-<li>Large survival knives</li>
-<li>Military-grade gear</li>
-<li>Cooking stoves</li>
-<li>Huge food stockpiles</li>
-<li>Heavy tools</li>
-
-</ul>
-
-<p>
-If the bag becomes too heavy, you will leave it behind — which defeats the purpose entirely.
-</p>
-
-<h2>Where Your Go-Bag Should Live</h2>
-
-<p>
-A go-bag only works if it is immediately accessible.
-</p>
-
-<ul>
-<li>Near your home exit</li>
-<li>In a hall closet</li>
-<li>Under the bed</li>
-<li>In your vehicle (optional second bag)</li>
-</ul>
-
-<p>
-Avoid storing it in attics, basements, or deep storage areas.
-</p>
-
-<div class="callout">
-Every adult in the household should have their own go-bag. Children should have smaller versions with age-appropriate supplies.
 </div>
 
-<h2>Maintenance: The Step Everyone Forgets</h2>
+<!-- RELATED POSTS -->
+<div class="related-section">
+  <div class="related-inner">
+    <div class="related-header">
+      <div class="related-title">Related guides</div>
+      <a href="blog.html" class="related-all">View all →</a>
+    </div>
+    <div class="related-grid">
+      <a href="how-to-build-a-go-bag.html" class="related-card">
+        <span class="related-cat cat-gear">Gear</span>
+        <h4>How to Build a 72-Hour Go-Bag for Families</h4>
+        <p>The reasoning behind the list — weight limits, what to skip, and how to maintain the bag so it stays current.</p>
+      </a>
+      <a href="how-much-water-to-store.html" class="related-card">
+        <span class="related-cat cat-skills">Skills</span>
+        <h4>How Much Water to Store for Emergencies</h4>
+        <p>One gallon per person per day is the floor. How to calculate your household's actual number and how to purify more.</p>
+      </a>
+      <a href="family-emergency-plan-template.html" class="related-card">
+        <span class="related-cat cat-planning">Planning</span>
+        <h4>Family Emergency Plan Template: The 45-Minute Conversation</h4>
+        <p>The bag is packed. Now the plan — where to go, who decides, how to reach each other if separated.</p>
+      </a>
+    </div>
+  </div>
+</div>
 
-<p>
-Preparedness systems fail when they are never updated.
-</p>
-
-<ul>
-<li>Check food and water every 6 months</li>
-<li>Replace expired medications</li>
-<li>Update documents</li>
-<li>Swap seasonal clothing</li>
-</ul>
-
-<p>
-A 10-minute review twice a year keeps your bag ready indefinitely.
-</p>
-
-<h2>The Goal Is Simplicity</h2>
-
-<p>
-The purpose of preparedness is not fear. It is reducing decision-making when stress is high.
-</p>
-
-<p>
-A simple go-bag turns chaos into a checklist.
-</p>
-
-<p>
-And once you have one, you will probably never need it.
-</p>
-
-<p>
-But if you ever do, you will be very glad it exists.
-</p>
-
-</article>
-
-<footer class="footer">
-© 2026 Emergency Preparedness Guide
+<footer>
+  <p>
+    © 2026 Family Emergency Preparedness Guide. All rights reserved.
+    · <a href="privacy.html">Privacy Policy</a>
+    · <a href="terms.html">Terms</a>
+    · <a href="refunds.html">Refund Policy</a>
+    · <a href="mailto:support@emergencypreparednesschecklist.com">Contact</a>
+  </p>
 </footer>
 
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-left">Family Emergency Preparedness Guide <span>· All file formats for $25</span></div>
+  <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sticky-btn">Get the Guide →</a>
+</div>
+
+<script>
+  const progress = document.getElementById('readingProgress');
+  const article = document.getElementById('articleBody');
+  window.addEventListener('scroll', () => {
+    const rect = article.getBoundingClientRect();
+    const articleTop = rect.top + window.scrollY;
+    const articleHeight = article.offsetHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = Math.min(100, Math.max(0, (scrolled / articleHeight) * 100));
+    progress.style.width = pct + '%';
+  });
+
+  const articleHeader = document.querySelector('.article-header');
+  const stickyBar = document.getElementById('stickyBar');
+  const observer = new IntersectionObserver(
+    ([e]) => stickyBar.classList.toggle('visible', !e.isIntersecting),
+    { threshold: 0.1 }
+  );
+  observer.observe(articleHeader);
+</script>
 </body>
 </html>
