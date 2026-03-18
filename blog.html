@@ -307,6 +307,33 @@
 
     .featured-post:hover .read-more { gap: 10px; }
 
+    /* ── GRID SECTION LABEL (full-width row inside the single grid) ── */
+    .grid-label {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0 8px;
+    }
+
+    .grid-label:first-child { padding-top: 0; }
+
+    .section-divider-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      white-space: nowrap;
+    }
+
+    .section-divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
     /* ── POSTS GRID ── */
     .posts-grid {
       display: grid;
@@ -350,16 +377,35 @@
       border-radius: 4px;
     }
 
-    .cat-planning { background: var(--navy-lt); color: var(--navy); }
-    .cat-gear { background: var(--green-lt); color: var(--green); }
-    .cat-skills { background: var(--amber-lt); color: var(--amber); }
-    .cat-home { background: #F3E8FF; color: #6B21A8; }
-    .cat-community { background: #FFF1F2; color: #BE123C; }
+    .cat-planning  { background: var(--navy-lt);  color: var(--navy); }
+    .cat-gear      { background: var(--green-lt);  color: var(--green); }
+    .cat-skills    { background: var(--amber-lt);  color: var(--amber); }
+    .cat-home      { background: #F3E8FF;           color: #6B21A8; }
+    .cat-community { background: #FFF1F2;           color: #BE123C; }
 
     .post-read-time {
       font-family: 'JetBrains Mono', monospace;
       font-size: 10px;
       color: var(--gray);
+    }
+
+    /* NEW badge */
+    .post-new-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--navy);
+      color: white;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    .post-card-header-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .post-card-body {
@@ -555,12 +601,12 @@
 <!-- FILTER BAR -->
 <div class="filter-bar">
   <div class="filter-bar-inner">
-    <a href="#" class="filter-pill active">All</a>
-    <a href="#" class="filter-pill">Planning</a>
-    <a href="#" class="filter-pill">Gear</a>
-    <a href="#" class="filter-pill">Skills</a>
-    <a href="#" class="filter-pill">Home</a>
-    <a href="#" class="filter-pill">Community</a>
+    <a href="#" class="filter-pill active" data-filter="all">All</a>
+    <a href="#" class="filter-pill" data-filter="planning">Planning</a>
+    <a href="#" class="filter-pill" data-filter="gear">Gear</a>
+    <a href="#" class="filter-pill" data-filter="skills">Skills</a>
+    <a href="#" class="filter-pill" data-filter="home">Home</a>
+    <a href="#" class="filter-pill" data-filter="community">Community</a>
   </div>
 </div>
 
@@ -569,7 +615,7 @@
   <div class="blog-main-inner">
 
     <!-- FEATURED -->
-    <a href="how-to-build-a-go-bag.html" class="featured-post">
+    <a href="how-to-build-a-go-bag.html" class="featured-post" data-category="gear">
       <div class="featured-visual">
         <span class="featured-tag">Featured Guide</span>
         <div class="featured-number">72h</div>
@@ -591,10 +637,112 @@
       </div>
     </a>
 
-    <!-- GRID -->
-    <div class="posts-grid">
+    <!-- SINGLE UNIFIED GRID — section labels span all columns -->
+    <div class="posts-grid" id="mainGrid">
 
-            <a href="how-to-build-a-long-term-food-supply.html" class="post-card">
+      <!-- ── RECENTLY PUBLISHED ── -->
+      <div class="grid-label">
+        <span class="section-divider-label">Recently published</span>
+        <div class="section-divider-line"></div>
+      </div>
+
+      <a href="what-happens-when-fema-cant-help-you.html" class="post-card" data-category="planning">
+        <div class="post-card-header">
+          <span class="post-cat cat-planning">Planning</span>
+          <div class="post-card-header-right">
+            <span class="post-new-badge">New</span>
+            <span class="post-read-time">8 min</span>
+          </div>
+        </div>
+        <div class="post-card-body">
+          <div class="post-title">What Happens When FEMA Can't Help You</div>
+          <p class="post-excerpt">Federal disaster assistance is conditional, capped, and slow to arrive. Understanding what it actually covers — and the three conditions that have to line up — changes how you think about household preparedness.</p>
+          <div class="post-footer">
+            <span class="post-date">March 2026</span>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="how-tariffs-affect-emergency-supply-prices.html" class="post-card" data-category="gear">
+        <div class="post-card-header">
+          <span class="post-cat cat-gear">Gear</span>
+          <div class="post-card-header-right">
+            <span class="post-new-badge">New</span>
+            <span class="post-read-time">7 min</span>
+          </div>
+        </div>
+        <div class="post-card-body">
+          <div class="post-title">How Tariffs Are Affecting Emergency Supply Prices</div>
+          <p class="post-excerpt">The effective US tariff rate rose sharply in 2025 and is staying elevated. Flashlights, radios, water filters, power banks — most emergency gear is manufactured overseas. Here's what's gotten more expensive and what to buy first.</p>
+          <div class="post-footer">
+            <span class="post-date">March 2026</span>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="how-to-financially-prepare-for-job-loss.html" class="post-card" data-category="planning">
+        <div class="post-card-header">
+          <span class="post-cat cat-planning">Planning</span>
+          <div class="post-card-header-right">
+            <span class="post-new-badge">New</span>
+            <span class="post-read-time">8 min</span>
+          </div>
+        </div>
+        <div class="post-card-body">
+          <div class="post-title">How to Financially Prepare for a Job Loss Before It Happens</div>
+          <p class="post-excerpt">The emergency most households aren't ready for isn't a hurricane — it's a paycheck stopping. The runway to build, the expense audit to run, and the household layer that belongs alongside your emergency fund.</p>
+          <div class="post-footer">
+            <span class="post-date">March 2026</span>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="what-to-have-at-home-during-a-disease-outbreak.html" class="post-card" data-category="home">
+        <div class="post-card-header">
+          <span class="post-cat cat-home">Home</span>
+          <div class="post-card-header-right">
+            <span class="post-new-badge">New</span>
+            <span class="post-read-time">7 min</span>
+          </div>
+        </div>
+        <div class="post-card-body">
+          <div class="post-title">What to Have at Home During a Disease Outbreak</div>
+          <p class="post-excerpt">A disease outbreak is a different preparedness problem than a storm. The go-bag doesn't help here. What does: a specific medical supply list, a workable isolation setup, and two weeks of supplies to stay home without a pharmacy run.</p>
+          <div class="post-footer">
+            <span class="post-date">March 2026</span>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="why-you-cant-rely-on-emergency-alerts-alone.html" class="post-card" data-category="planning">
+        <div class="post-card-header">
+          <span class="post-cat cat-planning">Planning</span>
+          <div class="post-card-header-right">
+            <span class="post-new-badge">New</span>
+            <span class="post-read-time">7 min</span>
+          </div>
+        </div>
+        <div class="post-card-body">
+          <div class="post-title">Why You Can't Rely on Emergency Alerts Alone</div>
+          <p class="post-excerpt">Cell networks get congested. Towers lose power. In 2026, an AI system sent false emergency alerts in Colorado. Each failure mode is predictable — and each one tells you exactly what to build alongside the official alert system.</p>
+          <div class="post-footer">
+            <span class="post-date">March 2026</span>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ── ALL GUIDES ── -->
+      <div class="grid-label" style="padding-top: 32px;">
+        <span class="section-divider-label">All guides</span>
+        <div class="section-divider-line"></div>
+      </div>
+
+      <a href="how-to-build-a-long-term-food-supply.html" class="post-card" data-category="home">
         <div class="post-card-header">
           <span class="post-cat cat-home">Home</span>
           <span class="post-read-time">6 min</span>
@@ -609,14 +757,14 @@
         </div>
       </a>
 
-      <a href="how-to-financially-prepare-for-ai-job-displacement.html" class="post-card">
+      <a href="how-to-financially-prepare-for-ai-job-displacement.html" class="post-card" data-category="planning">
         <div class="post-card-header">
           <span class="post-cat cat-planning">Planning</span>
           <span class="post-read-time">5 min</span>
         </div>
         <div class="post-card-body">
           <div class="post-title">How to Financially Prepare for AI Job Displacement</div>
-          <p class="post-excerpt">Automation and AI are changing the job market faster than most people realize. Preparing financially now can turn a potential disruption into a manageable transition instead of a crisis.</p>
+          <p class="post-excerpt">Automation and AI are reshaping which roles are stable and which aren't. The financial preparation logic that applies now — before the disruption happens — not after.</p>
           <div class="post-footer">
             <span class="post-date">March 2026</span>
             <span class="post-arrow">→</span>
@@ -624,14 +772,14 @@
         </div>
       </a>
 
-      <a href="how-to-prepare-your-family-for-civil-unrest.html" class="post-card">
+      <a href="how-to-prepare-your-family-for-civil-unrest.html" class="post-card" data-category="planning">
         <div class="post-card-header">
           <span class="post-cat cat-planning">Planning</span>
           <span class="post-read-time">8 min</span>
         </div>
         <div class="post-card-body">
           <div class="post-title">How to Prepare Your Family for Civil Unrest</div>
-          <p class="post-excerpt">Civil unrest can disrupt normal life faster than most families expect. Let's cover the practical steps families can take ahead of time.</p>
+          <p class="post-excerpt">Civil unrest disrupts normal life faster than most families expect. The practical steps to take before a situation develops — shelter-in-place protocols, communication plans, and what to avoid.</p>
           <div class="post-footer">
             <span class="post-date">March 2026</span>
             <span class="post-arrow">→</span>
@@ -639,7 +787,7 @@
         </div>
       </a>
 
-      <a href="family-emergency-plan-template.html" class="post-card">
+      <a href="family-emergency-plan-template.html" class="post-card" data-category="planning">
         <div class="post-card-header">
           <span class="post-cat cat-planning">Planning</span>
           <span class="post-read-time">6 min</span>
@@ -654,7 +802,7 @@
         </div>
       </a>
 
-      <a href="emergency-preparedness-for-apartment-dwellers.html" class="post-card">
+      <a href="emergency-preparedness-for-apartment-dwellers.html" class="post-card" data-category="home">
         <div class="post-card-header">
           <span class="post-cat cat-home">Home</span>
           <span class="post-read-time">5 min</span>
@@ -669,7 +817,7 @@
         </div>
       </a>
 
-      <a href="how-much-water-to-store.html" class="post-card">
+      <a href="how-much-water-to-store.html" class="post-card" data-category="skills">
         <div class="post-card-header">
           <span class="post-cat cat-skills">Skills</span>
           <span class="post-read-time">4 min</span>
@@ -684,7 +832,7 @@
         </div>
       </a>
 
-      <a href="go-bag-checklist.html" class="post-card">
+      <a href="go-bag-checklist.html" class="post-card" data-category="gear">
         <div class="post-card-header">
           <span class="post-cat cat-gear">Gear</span>
           <span class="post-read-time">7 min</span>
@@ -699,7 +847,7 @@
         </div>
       </a>
 
-      <a href="home-emergency-preparedness-room-by-room.html" class="post-card">
+      <a href="home-emergency-preparedness-room-by-room.html" class="post-card" data-category="home">
         <div class="post-card-header">
           <span class="post-cat cat-home">Home</span>
           <span class="post-read-time">6 min</span>
@@ -714,7 +862,7 @@
         </div>
       </a>
 
-      <a href="building-a-neighborhood-emergency-network.html" class="post-card">
+      <a href="building-a-neighborhood-emergency-network.html" class="post-card" data-category="community">
         <div class="post-card-header">
           <span class="post-cat cat-community">Community</span>
           <span class="post-read-time">5 min</span>
@@ -759,19 +907,38 @@
 </div>
 
 <script>
-  // Filter pills (visual only — swap to real filtering when posts are in a CMS)
-  document.querySelectorAll('.filter-pill').forEach(pill => {
+  // ── REAL CATEGORY FILTER ──
+  const pills    = document.querySelectorAll('.filter-pill');
+  const cards    = document.querySelectorAll('.post-card, .featured-post');
+  const labels   = document.querySelectorAll('.grid-label');
+
+  pills.forEach(pill => {
     pill.addEventListener('click', e => {
       e.preventDefault();
-      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+
+      pills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
+
+      const filter = pill.dataset.filter;
+
+      if (filter === 'all') {
+        cards.forEach(c  => { c.style.display = ''; });
+        labels.forEach(l => { l.style.display = ''; });
+      } else {
+        // Hide section labels — flat view when filtering
+        labels.forEach(l => { l.style.display = 'none'; });
+        // Show only matching cards
+        cards.forEach(c => {
+          c.style.display = c.dataset.category === filter ? '' : 'none';
+        });
+      }
     });
   });
 
-  // Sticky bar
+  // ── STICKY BAR ──
   const blogHeader = document.querySelector('.blog-header');
-  const stickyBar = document.getElementById('stickyBar');
-  const observer = new IntersectionObserver(
+  const stickyBar  = document.getElementById('stickyBar');
+  const observer   = new IntersectionObserver(
     ([e]) => stickyBar.classList.toggle('visible', !e.isIntersecting),
     { threshold: 0.1 }
   );
