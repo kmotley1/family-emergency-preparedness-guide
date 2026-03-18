@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why You Can't Rely on Emergency Alerts Alone — Emergency Preparedness Guide</title>
+  <meta name="description" content="Emergency alert systems fail — and 2026 has already demonstrated it. What your backup communication plan needs to cover and how to build one before you need it.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white:    #FFFFFF;
+      --bg:       #F5F5F7;
+      --ink:      #1D1D1F;
+      --gray:     #6E6E73;
+      --gray-lt:  #E8E8ED;
+      --navy:     #1B4FBF;
+      --navy-dk:  #153D96;
+      --navy-lt:  #EEF2FB;
+      --green:    #2A7A4B;
+      --green-lt: #EAF5EE;
+      --amber:    #B45309;
+      --amber-lt: #FEF3C7;
+      --divider:  #D2D2D7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .reading-progress {
+      position: fixed;
+      top: 52px; left: 0;
+      height: 2px;
+      background: var(--navy);
+      z-index: 199;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 0 40px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .nav-logo { font-size: 14px; font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--gray); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--navy); font-weight: 500; }
+
+    .nav-cta {
+      background: var(--navy) !important;
+      color: white !important;
+      padding: 8px 18px;
+      border-radius: 980px;
+      font-weight: 500 !important;
+      font-size: 13px !important;
+    }
+    .nav-cta:hover { background: var(--navy-dk) !important; }
+
+    .article-header {
+      padding: 100px 40px 64px;
+      background: var(--white);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .article-header-inner { max-width: 720px; margin: 0 auto; }
+
+    .article-breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 28px; font-size: 13px; color: var(--gray);
+    }
+    .article-breadcrumb a { color: var(--navy); text-decoration: none; }
+    .article-breadcrumb a:hover { text-decoration: underline; }
+
+    .article-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--navy); background: var(--navy-lt);
+      padding: 4px 10px; border-radius: 4px;
+      display: inline-block; margin-bottom: 20px;
+    }
+
+    .article-header h1 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700; letter-spacing: -0.03em;
+      line-height: 1.1; color: var(--ink); margin-bottom: 20px;
+    }
+
+    .article-deck { font-size: 19px; line-height: 1.65; color: var(--gray); margin-bottom: 28px; }
+
+    .article-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 12px; color: var(--gray);
+      font-family: 'JetBrains Mono', monospace;
+      padding-top: 20px; border-top: 1px solid var(--divider);
+    }
+    .meta-divider { color: var(--divider); }
+
+    .article-layout {
+      max-width: 1080px; margin: 0 auto;
+      padding: 60px 40px 100px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 80px; align-items: start;
+    }
+
+    .article-body h2 {
+      font-size: 26px; font-weight: 700;
+      letter-spacing: -0.02em; color: var(--ink);
+      margin: 48px 0 16px; line-height: 1.2;
+    }
+
+    .article-body h3 {
+      font-size: 18px; font-weight: 600;
+      letter-spacing: -0.01em; color: var(--ink);
+      margin: 32px 0 12px;
+    }
+
+    .article-body p {
+      font-size: 17px; line-height: 1.8;
+      color: var(--gray); margin-bottom: 20px;
+    }
+
+    .article-body p strong { color: var(--ink); font-weight: 600; }
+    .article-body a { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
+
+    .callout {
+      background: var(--navy-lt);
+      border-left: 3px solid var(--navy);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px; margin: 32px 0;
+    }
+
+    .callout-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--navy); margin-bottom: 8px;
+    }
+
+    .callout p { font-size: 15px; color: var(--ink); margin: 0; line-height: 1.65; }
+    .callout p strong { color: var(--navy-dk); }
+
+    .callout-warning { background: var(--amber-lt); border-left-color: var(--amber); }
+    .callout-warning .callout-label { color: var(--amber); }
+    .callout-warning p { color: var(--ink); }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px; margin: 32px 0;
+    }
+
+    .stat-mini {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 20px; text-align: center;
+    }
+
+    .stat-mini-num {
+      font-size: 32px; font-weight: 700;
+      letter-spacing: -0.04em; color: var(--navy);
+      line-height: 1; margin-bottom: 6px;
+    }
+
+    .stat-mini-label { font-size: 12px; color: var(--gray); line-height: 1.4; }
+
+    .checklist {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 28px; margin: 32px 0;
+    }
+
+    .checklist-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 16px;
+    }
+
+    .checklist ul { list-style: none; }
+
+    .checklist li {
+      display: flex; align-items: flex-start;
+      gap: 12px; padding: 10px 0;
+      border-bottom: 1px solid var(--gray-lt);
+      font-size: 15px; color: var(--ink); line-height: 1.5;
+    }
+
+    .checklist li:last-child { border-bottom: none; }
+
+    .check-icon {
+      width: 20px; height: 20px;
+      border-radius: 50%; background: var(--green-lt);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+    }
+
+    .check-icon svg { width: 11px; height: 11px; stroke: var(--green); }
+    .checklist li span { font-size: 13px; color: var(--gray); display: block; margin-top: 2px; }
+
+    .tier-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 4px; margin-right: 6px;
+    }
+
+    .tier-1 { background: var(--navy-lt); color: var(--navy); }
+    .tier-2 { background: var(--green-lt); color: var(--green); }
+
+    /* Failure mode grid */
+    .failure-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 32px 0;
+    }
+
+    .failure-card {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .failure-card-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 8px;
+    }
+
+    .failure-card h4 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+    .failure-card p { font-size: 13px; color: var(--gray); line-height: 1.55; margin: 0; }
+
+    .mid-cta {
+      background: var(--ink);
+      border-radius: 16px;
+      padding: 32px; margin: 48px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .mid-cta-text {
+      font-size: 16px; font-weight: 600;
+      color: white; line-height: 1.4;
+    }
+
+    .mid-cta-text span {
+      font-size: 14px; font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      display: block; margin-top: 4px;
+    }
+
+    .mid-cta-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: white; color: var(--navy);
+      font-size: 14px; font-weight: 600;
+      padding: 12px 24px; border-radius: 980px;
+      text-decoration: none; white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .mid-cta-btn:hover { background: var(--bg); }
+
+    .article-sidebar { position: sticky; top: 72px; }
+
+    .sidebar-card {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 24px; margin-bottom: 16px;
+    }
+
+    .sidebar-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 16px;
+    }
+
+    .toc-list { list-style: none; }
+    .toc-list li { padding: 7px 0; border-bottom: 1px solid var(--gray-lt); }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { font-size: 13px; color: var(--gray); text-decoration: none; transition: color 0.15s; display: flex; align-items: center; gap: 8px; }
+    .toc-list a:hover { color: var(--navy); }
+    .toc-num { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--divider); width: 16px; flex-shrink: 0; }
+
+    .sidebar-guide { background: var(--navy); border-radius: 16px; padding: 24px; }
+
+    .sidebar-guide-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45); margin-bottom: 12px;
+    }
+
+    .sidebar-guide h4 { font-size: 16px; font-weight: 600; color: white; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .sidebar-guide p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 16px; }
+
+    .sidebar-guide-btn {
+      display: block; background: white; color: var(--navy);
+      text-align: center; font-size: 13px; font-weight: 600;
+      padding: 10px; border-radius: 980px;
+      text-decoration: none; transition: background 0.15s;
+    }
+    .sidebar-guide-btn:hover { background: var(--bg); }
+
+    .related-section { background: var(--bg); padding: 80px 40px; border-top: 1px solid var(--divider); }
+    .related-inner { max-width: 1080px; margin: 0 auto; }
+    .related-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 32px; }
+    .related-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+    .related-all { font-size: 14px; color: var(--navy); text-decoration: none; font-weight: 500; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+    .related-card {
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: 16px; padding: 24px;
+      text-decoration: none; color: inherit;
+      display: block; transition: all 0.2s;
+    }
+    .related-card:hover { border-color: var(--navy); transform: translateY(-2px); }
+
+    .related-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--navy); display: block; margin-bottom: 10px;
+    }
+
+    .related-card h4 { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.35; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .related-card p { font-size: 13px; color: var(--gray); line-height: 1.55; }
+
+    footer { background: var(--bg); border-top: 1px solid var(--divider); padding: 32px 40px; text-align: center; margin-bottom: 80px; }
+    footer p { font-size: 13px; color: var(--gray); }
+    footer a { color: var(--navy); text-decoration: none; }
+
+    .sticky-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: rgba(29,29,31,0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 14px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      z-index: 150;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .sticky-bar.visible { transform: translateY(0); }
+    .sticky-left { font-size: 14px; color: rgba(255,255,255,0.65); font-weight: 500; }
+    .sticky-left span { color: white; font-weight: 600; }
+
+    .sticky-btn {
+      background: white; color: var(--navy);
+      font-size: 14px; font-weight: 600;
+      padding: 10px 28px; border-radius: 980px;
+      text-decoration: none; white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .sticky-btn:hover { background: var(--bg); }
+
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; gap: 40px; }
+      .article-sidebar { position: static; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+      nav { padding: 0 20px; }
+      .nav-links li:not(:last-child) { display: none; }
+      .article-header { padding: 80px 20px 48px; }
+      .article-layout { padding: 40px 20px 80px; }
+      .failure-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .related-grid { grid-template-columns: 1fr; }
+      .stat-row { grid-template-columns: 1fr; }
+      .mid-cta { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Prepared. Not scared.</a>
+  <ul class="nav-links">
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#inside">What's Inside</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">
+        Get the Guide →
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-breadcrumb">
+      <a href="blog.html">Blog</a>
+      <span>›</span>
+      <span>Planning</span>
+    </div>
+    <div class="article-cat">Planning</div>
+    <h1>Why You Can't Rely on Emergency Alerts Alone</h1>
+    <p class="article-deck">Emergency alert systems fail in predictable ways. 2026 has already produced a documented AI-driven false alert. Understanding how alerts break down tells you exactly what to build alongside them.</p>
+    <div class="article-meta">
+      <span>March 2026</span>
+      <span class="meta-divider">·</span>
+      <span>7 min read</span>
+      <span class="meta-divider">·</span>
+      <span>From the Emergency Preparedness Guide</span>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE LAYOUT -->
+<div class="article-layout">
+
+  <article class="article-body" id="articleBody">
+
+    <p>In early 2026, an AI-powered application sent false emergency alerts to residents in Boulder County, Colorado. The system that was supposed to improve upon human-operated alert infrastructure delivered inaccurate information to people who had no way of knowing, in the moment, whether the threat was real.</p>
+
+    <p>The incident is one example of a much longer pattern. Emergency alert systems in the US have identifiable failure modes that have been documented across multiple disasters. None of these failure modes are secret, but households rarely plan around them — because the default assumption is that the alerts will work when they're needed most.</p>
+
+    <p>That assumption needs a backup plan.</p>
+
+    <div class="stat-row">
+      <div class="stat-mini">
+        <div class="stat-mini-num">1.4M</div>
+        <div class="stat-mini-label">Households that received a false ballistic missile alert in Hawaii (2018), demonstrating false-alert risk at scale</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">2026</div>
+        <div class="stat-mini-label">Year an AI alert system sent incorrect emergency notifications in Boulder County, Colorado</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">1</div>
+        <div class="stat-mini-label">Emergency alert channel that works without cell service or internet: NOAA All-Hazards radio</div>
+      </div>
+    </div>
+
+    <h2 id="what-alerts-do">What Emergency Alerts Actually Do</h2>
+
+    <p>The Wireless Emergency Alert system pushes alerts to cell phones within a geographic area. It doesn't require opt-in — the alert reaches every compatible phone connected to a cell tower in the target area. The system is designed to be fast, broad, and difficult to miss.</p>
+
+    <p>What it can't do is reach a phone that has no cell signal. It can't correct a false alert faster than the alert spreads. It can't penetrate a building that blocks cellular frequencies. And it can't function when the cell towers serving an area are damaged, overloaded, or without power — which is precisely the situation most likely to exist during the disaster the alert is trying to address.</p>
+
+    <div class="callout">
+      <div class="callout-label">The core limitation</div>
+      <p>WEA uses the same infrastructure that becomes unreliable in a disaster. <strong>Cell networks are typically built for 4–10% simultaneous usage; a major local emergency can push simultaneous demand toward 100%.</strong> The alert system is most likely to fail when the situation is most severe.</p>
+    </div>
+
+    <h2 id="failure-modes">The Ways Alert Systems Fail</h2>
+
+    <p>Each failure mode requires a different backup. Understanding them helps you build the right combination.</p>
+
+    <div class="failure-grid">
+      <div class="failure-card">
+        <div class="failure-card-label">Failure mode 1</div>
+        <h4>Cell network congestion</h4>
+        <p>During a major event, simultaneous call volume can overwhelm local cell infrastructure. Alerts may be delayed, dropped, or never received while the disaster is actively unfolding.</p>
+      </div>
+      <div class="failure-card">
+        <div class="failure-card-label">Failure mode 2</div>
+        <h4>Tower damage or power loss</h4>
+        <p>High winds, flooding, and structural damage knock out cell towers. Towers have battery backup that typically runs 4–8 hours. After that, coverage gaps appear in exactly the areas that need communication most.</p>
+      </div>
+      <div class="failure-card">
+        <div class="failure-card-label">Failure mode 3</div>
+        <h4>False alerts</h4>
+        <p>Human error (Hawaii 2018) and increasingly, AI system error (Colorado 2026) can produce false alerts. A household with no other information source has no way to verify or disconfirm in real time.</p>
+      </div>
+      <div class="failure-card">
+        <div class="failure-card-label">Failure mode 4</div>
+        <h4>Geographic gaps</h4>
+        <p>WEA targets geographic areas, but cell coverage is uneven. Rural and semi-rural areas have coverage gaps that mean WEA alerts may not reach every household in an affected zone.</p>
+      </div>
+    </div>
+
+    <h2 id="colorado">What the Colorado Incident Demonstrates</h2>
+
+    <p>The Boulder County false alert in 2026 illustrates a newer failure mode that's likely to become more common, not less, as emergency management systems adopt AI-assisted alerting. The technology can improve alert speed and targeting — and it can produce inaccurate outputs at the same scale and speed.</p>
+
+    <p>The relevant question for households is not whether AI alerting is good or bad. It's what to do in the moment when an alert arrives and you have no independent information source to check against. A household with a NOAA weather radio, with neighbors in a communication network, and with a written plan that specifies where to go and who to call has more options than one that is entirely dependent on the alert they received.</p>
+
+    <div class="callout callout-warning">
+      <div class="callout-label">The false alert problem</div>
+      <p>A false alert that causes a household to evacuate unnecessarily creates real risk — traffic accidents, injuries, exposure. <strong>Having a second information source isn't about ignoring alerts. It's about being able to make a better decision when the alert arrives.</strong></p>
+    </div>
+
+    <!-- MID-ARTICLE CTA -->
+    <div class="mid-cta">
+      <div class="mid-cta-text">
+        The guide's communications chapter covers backup information sources, the household communication tree, and how to structure your family's decision protocol for both evacuation and shelter-in-place scenarios.
+        <span>Including what to do when you can't reach household members and the alert system is the only information you have.</span>
+      </div>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="mid-cta-btn">Get the Guide · $25 →</a>
+    </div>
+
+    <h2 id="backup-sources">Information Sources That Work Without Cell Service</h2>
+
+    <p>The backup layer is about diversifying your information sources so that a failure in one doesn't leave you with nothing. Two specific tools deserve priority because they work independently of cell and internet infrastructure.</p>
+
+    <p><strong>NOAA All-Hazards Weather Radio.</strong> This is a nationwide network of radio stations that broadcast continuous weather and emergency information 24 hours a day. Hand-crank or battery-powered receivers cost $25 to $50 and require no subscription, no cell service, and no internet connection. FEMA lists it as the primary backup alert system for households. If one tool belongs in every preparedness kit, this is it.</p>
+
+    <p><strong>Battery or hand-crank AM/FM radio.</strong> Local radio stations continue broadcasting during most disasters. Many have emergency management relationships that make them the first to carry official guidance when other systems are overwhelmed. An AM/FM radio that doesn't depend on power or cell service gives you access to local broadcast coverage independent of everything else.</p>
+
+    <div class="checklist">
+      <div class="checklist-title">Backup communication layer — build before you need it</div>
+      <ul>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Hand-crank NOAA weather radio</strong>
+            <span>Receives NOAA All-Hazards broadcasts without power or cell service. Some models also include AM/FM. The single highest-value backup communication tool for a household.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Written household communication plan</strong>
+            <span>Where household members go if they can't reach home. Who picks up children from school. A designated out-of-area contact person that everyone checks in with. Written and memorized — not stored only on a phone.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Key phone numbers memorized or written down</strong>
+            <span>When your phone dies or is lost, you need to know how to reach your household members and your out-of-area contact. Most people know zero phone numbers by memory.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Identified local radio station for emergency broadcasts</strong>
+            <span>Know which local AM stations in your area are designated emergency broadcast stations. Write it down. Tune there first if alerts arrive and you want to verify.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Neighborhood contact network</strong>
+            <span>At least two neighbors whose addresses and phone numbers you have. People who know your household and would notice if something was wrong. The neighborhood layer is often faster and more reliable than official channels in a local event.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Battery-powered or hand-crank backup phone charger</strong>
+            <span>Keeps your cell phone usable longer, which extends the window before you have to rely entirely on analog information sources.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <h2 id="communication-tree">The Communication Tree</h2>
+
+    <p>A communication tree is a decision sequence that your household agrees on before any emergency. It answers the questions that are hardest to answer under stress: where do we meet if we can't reach home, who picks up the kids, who do we call first, and what does "I'm safe" look like so that everyone knows not to keep searching.</p>
+
+    <p>The specific structure matters less than the fact that it exists and that everyone in the household knows it. Write it down. Put a copy in each go-bag, in each car, and with the designated out-of-area contact. Test it once a year by actually trying to make the calls.</p>
+
+    <p>Most households assume they'll figure this out in the moment. The moment is the worst time to figure it out — because cell networks are likely congested, because people are scared, and because the pressure to act creates pressure to act on incomplete information. A written plan made in advance removes those variables from an already difficult situation.</p>
+
+    <p>The alert system is a starting point. The plan is what you do with it.</p>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="article-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-label">In this article</div>
+      <ul class="toc-list">
+        <li><a href="#what-alerts-do"><span class="toc-num">01</span> What Alerts Do</a></li>
+        <li><a href="#failure-modes"><span class="toc-num">02</span> Failure Modes</a></li>
+        <li><a href="#colorado"><span class="toc-num">03</span> The Colorado Case</a></li>
+        <li><a href="#backup-sources"><span class="toc-num">04</span> Backup Sources</a></li>
+        <li><a href="#backup-sources"><span class="toc-num">05</span> Build the Layer</a></li>
+        <li><a href="#communication-tree"><span class="toc-num">06</span> Communication Tree</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-guide">
+      <div class="sidebar-guide-label">Family Emergency Preparedness Guide</div>
+      <h4>Communication chapter, household plan templates, and more.</h4>
+      <p>Full communication tree framework, backup source recommendations, and the family emergency plan your household can complete in one sitting.</p>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sidebar-guide-btn">Get the Guide · $25 →</a>
+    </div>
+  </aside>
+
+</div>
+
+<!-- RELATED POSTS -->
+<div class="related-section">
+  <div class="related-inner">
+    <div class="related-header">
+      <div class="related-title">Related guides</div>
+      <a href="blog.html" class="related-all">View all →</a>
+    </div>
+    <div class="related-grid">
+      <a href="family-emergency-plan-template.html" class="related-card">
+        <span class="related-cat">Planning</span>
+        <h4>Family Emergency Plan Template: The 45-Minute Conversation</h4>
+        <p>Where do we go? Who makes the call? The decisions that are much easier to make before you need them.</p>
+      </a>
+      <a href="building-a-neighborhood-emergency-network.html" class="related-card">
+        <span class="related-cat">Community</span>
+        <h4>Building a Neighborhood Emergency Network</h4>
+        <p>The most useful resource in a crisis isn't in your go-bag. It's the neighbor with medical training two doors down.</p>
+      </a>
+      <a href="what-happens-when-fema-cant-help-you.html" class="related-card">
+        <span class="related-cat">Planning</span>
+        <h4>What Happens When FEMA Can't Help You</h4>
+        <p>Federal disaster assistance is conditional, capped, and slow. Understanding what it actually covers changes how you plan.</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>
+    © 2026 Family Emergency Preparedness Guide. All rights reserved.
+    · <a href="privacy.html">Privacy Policy</a>
+    · <a href="terms.html">Terms</a>
+    · <a href="refunds.html">Refund Policy</a>
+    · <a href="mailto:support@emergencypreparednesschecklist.com">Contact</a>
+  </p>
+</footer>
+
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-left">Emergency Preparedness Guide <span>· All file formats for $25</span></div>
+  <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sticky-btn">Get the Guide Today →</a>
+</div>
+
+<script>
+  const progress = document.getElementById('readingProgress');
+  const article = document.getElementById('articleBody');
+  window.addEventListener('scroll', () => {
+    const rect = article.getBoundingClientRect();
+    const articleTop = rect.top + window.scrollY;
+    const articleHeight = article.offsetHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = Math.min(100, Math.max(0, (scrolled / articleHeight) * 100));
+    progress.style.width = pct + '%';
+  });
+
+  const articleHeader = document.querySelector('.article-header');
+  const stickyBar = document.getElementById('stickyBar');
+  const observer = new IntersectionObserver(
+    ([e]) => stickyBar.classList.toggle('visible', !e.isIntersecting),
+    { threshold: 0.1 }
+  );
+  observer.observe(articleHeader);
+</script>
+</body>
+</html>

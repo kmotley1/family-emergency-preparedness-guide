@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Happens When FEMA Can't Help You — Emergency Preparedness Guide</title>
+  <meta name="description" content="FEMA individual assistance is conditional, capped, and slow. Here's what it covers, what it doesn't, and what that means for your household.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white:    #FFFFFF;
+      --bg:       #F5F5F7;
+      --ink:      #1D1D1F;
+      --gray:     #6E6E73;
+      --gray-lt:  #E8E8ED;
+      --navy:     #1B4FBF;
+      --navy-dk:  #153D96;
+      --navy-lt:  #EEF2FB;
+      --green:    #2A7A4B;
+      --green-lt: #EAF5EE;
+      --amber:    #B45309;
+      --amber-lt: #FEF3C7;
+      --divider:  #D2D2D7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── PROGRESS BAR ── */
+    .reading-progress {
+      position: fixed;
+      top: 52px;
+      left: 0;
+      height: 2px;
+      background: var(--navy);
+      z-index: 199;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 0 40px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .nav-logo {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--navy); font-weight: 500; }
+
+    .nav-cta {
+      background: var(--navy) !important;
+      color: white !important;
+      padding: 8px 18px;
+      border-radius: 980px;
+      font-weight: 500 !important;
+      font-size: 13px !important;
+    }
+
+    .nav-cta:hover { background: var(--navy-dk) !important; }
+
+    /* ── ARTICLE HEADER ── */
+    .article-header {
+      padding: 100px 40px 64px;
+      background: var(--white);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .article-header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .article-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 28px;
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    .article-breadcrumb a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .article-breadcrumb a:hover { text-decoration: underline; }
+
+    .article-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--navy-lt);
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .article-header h1 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .article-deck {
+      font-size: 19px;
+      line-height: 1.65;
+      color: var(--gray);
+      margin-bottom: 28px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 12px;
+      color: var(--gray);
+      font-family: 'JetBrains Mono', monospace;
+      padding-top: 20px;
+      border-top: 1px solid var(--divider);
+    }
+
+    .meta-divider { color: var(--divider); }
+
+    /* ── ARTICLE LAYOUT ── */
+    .article-layout {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 60px 40px 100px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* ── ARTICLE BODY ── */
+    .article-body h2 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 48px 0 16px;
+      line-height: 1.2;
+    }
+
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: 32px 0 12px;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+
+    .article-body p strong { color: var(--ink); font-weight: 600; }
+
+    .article-body a {
+      color: var(--navy);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Callout box */
+    .callout {
+      background: var(--navy-lt);
+      border-left: 3px solid var(--navy);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+
+    .callout-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .callout p {
+      font-size: 15px;
+      color: var(--ink);
+      margin: 0;
+      line-height: 1.65;
+    }
+
+    .callout p strong { color: var(--navy-dk); }
+
+    .callout-warning {
+      background: var(--amber-lt);
+      border-left-color: var(--amber);
+    }
+
+    .callout-warning .callout-label { color: var(--amber); }
+    .callout-warning p { color: var(--ink); }
+
+    /* Stat row */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 32px 0;
+    }
+
+    .stat-mini {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-mini-num {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-mini-label {
+      font-size: 12px;
+      color: var(--gray);
+      line-height: 1.4;
+    }
+
+    /* Checklist */
+    .checklist {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 32px 0;
+    }
+
+    .checklist-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    .checklist ul { list-style: none; }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gray-lt);
+      font-size: 15px;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .checklist li:last-child { border-bottom: none; }
+
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--green-lt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .check-icon svg { width: 11px; height: 11px; stroke: var(--green); }
+
+    .checklist li span {
+      font-size: 13px;
+      color: var(--gray);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .tier-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-right: 6px;
+    }
+
+    .tier-1 { background: var(--navy-lt); color: var(--navy); }
+    .tier-2 { background: var(--green-lt); color: var(--green); }
+
+    /* Mid-article CTA */
+    .mid-cta {
+      background: var(--ink);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 48px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .mid-cta-text {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      line-height: 1.4;
+    }
+
+    .mid-cta-text span {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      display: block;
+      margin-top: 4px;
+    }
+
+    .mid-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: white;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 980px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+
+    .mid-cta-btn:hover { background: var(--bg); }
+
+    /* ── SIDEBAR ── */
+    .article-sidebar {
+      position: sticky;
+      top: 72px;
+    }
+
+    .sidebar-card {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .sidebar-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    .toc-list { list-style: none; }
+
+    .toc-list li {
+      padding: 7px 0;
+      border-bottom: 1px solid var(--gray-lt);
+    }
+
+    .toc-list li:last-child { border-bottom: none; }
+
+    .toc-list a {
+      font-size: 13px;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-list a:hover { color: var(--navy); }
+
+    .toc-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--divider);
+      width: 16px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-guide {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .sidebar-guide-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 12px;
+    }
+
+    .sidebar-guide h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .sidebar-guide p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .sidebar-guide-btn {
+      display: block;
+      background: white;
+      color: var(--navy);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px;
+      border-radius: 980px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .sidebar-guide-btn:hover { background: var(--bg); }
+
+    /* ── RELATED POSTS ── */
+    .related-section {
+      background: var(--bg);
+      padding: 80px 40px;
+      border-top: 1px solid var(--divider);
+    }
+
+    .related-inner { max-width: 1080px; margin: 0 auto; }
+
+    .related-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .related-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .related-all {
+      font-size: 14px;
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .related-card {
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: 16px;
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: all 0.2s;
+    }
+
+    .related-card:hover { border-color: var(--navy); transform: translateY(-2px); }
+
+    .related-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .related-card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.35;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .related-card p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.55;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--divider);
+      padding: 32px 40px;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    footer p { font-size: 13px; color: var(--gray); }
+    footer a { color: var(--navy); text-decoration: none; }
+
+    /* ── STICKY BAR ── */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(29,29,31,0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 150;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .sticky-bar.visible { transform: translateY(0); }
+    .sticky-left { font-size: 14px; color: rgba(255,255,255,0.65); font-weight: 500; }
+    .sticky-left span { color: white; font-weight: 600; }
+
+    .sticky-btn {
+      background: white;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 28px;
+      border-radius: 980px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+
+    .sticky-btn:hover { background: var(--bg); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; gap: 40px; }
+      .article-sidebar { position: static; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+      nav { padding: 0 20px; }
+      .nav-links li:not(:last-child) { display: none; }
+      .article-header { padding: 80px 20px 48px; }
+      .article-layout { padding: 40px 20px 80px; }
+    }
+
+    @media (max-width: 600px) {
+      .related-grid { grid-template-columns: 1fr; }
+      .stat-row { grid-template-columns: 1fr; }
+      .mid-cta { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Prepared. Not scared.</a>
+  <ul class="nav-links">
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#inside">What's Inside</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">
+        Get the Guide →
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-breadcrumb">
+      <a href="blog.html">Blog</a>
+      <span>›</span>
+      <span>Planning</span>
+    </div>
+    <div class="article-cat">Planning</div>
+    <h1>What Happens When FEMA Can't Help You</h1>
+    <p class="article-deck">Federal disaster assistance is conditional, capped, and slow. Understanding what it actually covers — and what it doesn't — changes how you think about household preparedness.</p>
+    <div class="article-meta">
+      <span>March 2026</span>
+      <span class="meta-divider">·</span>
+      <span>8 min read</span>
+      <span class="meta-divider">·</span>
+      <span>From the Emergency Preparedness Guide</span>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE LAYOUT -->
+<div class="article-layout">
+
+  <article class="article-body" id="articleBody">
+
+    <p>FEMA's Individual Household Program exists to help people recover from federally declared disasters. It is not a household safety net. The distinction matters more than most people realize, because the conditions required to receive that help are specific enough that millions of households affected by any given disaster receive nothing.</p>
+
+    <p>Understanding the actual mechanics of federal disaster assistance is one of the more useful things a family can do. Not to critique the system, but to plan around its real limitations rather than its assumed ones.</p>
+
+    <div class="stat-row">
+      <div class="stat-mini">
+        <div class="stat-mini-num">2 wks</div>
+        <div class="stat-mini-label">FEMA's minimum recommended household self-sufficiency period</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">$43,900</div>
+        <div class="stat-mini-label">Maximum FEMA individual household assistance per disaster event (2024)</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">$0</div>
+        <div class="stat-mini-label">Available through IHP if your county isn't included in the disaster declaration</div>
+      </div>
+    </div>
+
+    <h2 id="what-fema-covers">What FEMA's Individual Assistance Actually Is</h2>
+
+    <p>The Individual Household Program provides two main types of assistance: housing assistance and other needs assistance. Housing assistance covers temporary lodging, home repair, and in some cases home replacement up to a set limit. Other needs assistance covers personal property, medical expenses, and certain other recovery costs that your insurance doesn't cover.</p>
+
+    <p>The program is explicitly designed as a supplement. FEMA's own documentation describes it as assistance for "basic needs" when insurance and other resources are insufficient. It was never structured to cover full replacement cost, lost income, or the extended period it takes most families to actually rebuild.</p>
+
+    <div class="callout">
+      <div class="callout-label">Key rule</div>
+      <p>FEMA individual assistance is a bridge, not a safety net. <strong>It helps you get through the immediate aftermath — not through full recovery.</strong> The average payout in most declared disasters lands well below what full household recovery costs.</p>
+    </div>
+
+    <h2 id="three-conditions">The Three Conditions That Have to Line Up</h2>
+
+    <p>Before a household can receive a dollar of IHP assistance, three separate things have to happen — and all three are outside your control.</p>
+
+    <p><strong>First, the president must declare a major disaster.</strong> Governors request federal declarations after state resources are exhausted, but not every significant disaster rises to the threshold required for a presidential declaration. Many events that cause serious household-level damage never receive one.</p>
+
+    <p><strong>Second, individual assistance must be authorized.</strong> Not all federal disaster declarations include individual assistance. Some are limited to public infrastructure repair only. A declaration exists, but households cannot apply through IHP.</p>
+
+    <p><strong>Third, your county must be included.</strong> Even when a declaration with individual assistance is in place, it applies to specific counties. If the disaster affected your county but the declaration didn't designate it, IHP is not available to you regardless of the damage you sustained.</p>
+
+    <div class="callout callout-warning">
+      <div class="callout-label">Common assumption</div>
+      <p>Most people assume that if a disaster affects their area and makes the news, federal assistance will be available. <strong>The eligibility chain has three separate gates. Any one of them can close you out.</strong></p>
+    </div>
+
+    <h2 id="the-cap">The Cap That Won't Cover Your Losses</h2>
+
+    <p>Assume all three conditions line up and you qualify. The maximum IHP payout per household for a single disaster is $43,900 (2024 figure, adjusted annually by FEMA). That number covers housing assistance and other needs combined.</p>
+
+    <p>The median payout in recent declared disasters runs substantially lower than the cap. The program prioritizes immediate basic needs and temporary housing. It is not structured to fund full home replacement or cover months of displacement costs.</p>
+
+    <p>A family that loses their home in a declared disaster, owns no flood insurance because the property wasn't in a mapped flood zone, and qualifies for maximum IHP assistance is looking at $43,900 toward what may be hundreds of thousands of dollars in losses. The program fills a gap — it doesn't close it.</p>
+
+    <!-- MID-ARTICLE CTA -->
+    <div class="mid-cta">
+      <div class="mid-cta-text">
+        The guide's cash reserve chapter covers how much to hold, where to store it, and what denominations actually matter when digital payments fail.
+        <span>The documents chapter has a complete list of what to copy, where to keep it, and what you'll need for any insurance or aid claim.</span>
+      </div>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="mid-cta-btn">Get the Guide · $25 →</a>
+    </div>
+
+    <h2 id="the-timeline">The Timeline You're Not Accounting For</h2>
+
+    <p>The process of receiving IHP assistance requires registration, a home inspection, and processing. In large-scale disasters, that process takes weeks. In complex ones, it can take months.</p>
+
+    <p>In the meantime, your family still needs a place to stay, food, clothing, and transportation. FEMA's recommended minimum preparedness period for self-sufficiency is two weeks. That guidance exists because the agency understands its own response timelines. Two weeks is the floor for a household to bridge the gap before any outside assistance realistically arrives.</p>
+
+    <p>Most households don't have two weeks of supplies and resources set aside. A recent survey by FEMA found that fewer than half of American adults have a household emergency plan at all. The preparedness gap isn't a gap between what people need and what FEMA provides. It's a gap between what households have on hand and what they'd need to stay stable for 14 days without outside help.</p>
+
+    <h2 id="the-shift">The Shift Already Underway</h2>
+
+    <p>In early 2026, FEMA's Disaster Relief Fund was reported as dwindling amid an extended federal government partial shutdown. That's not an isolated event — it's a pressure point that's been building for years as disaster frequency and cost outpace the fund's replenishment cycles.</p>
+
+    <p>Researchers at RAND noted recently that as federal disaster aid recedes, the responsibility for preparedness is shifting toward communities and households. That shift is structural, not situational. Federal budgets face competing priorities, disaster declarations require political as well as logistical alignment, and the fund itself has finite capacity in any given fiscal year.</p>
+
+    <p>The practical implication is straightforward. Households that wait for federal assistance to bridge the gap between a disaster and stability are building a plan around a system that may not be available, may not apply to them, and may not arrive in time even when both of those conditions are met.</p>
+
+    <h2 id="what-you-control">What Your Household Controls</h2>
+
+    <p>The household layer is the only layer you control. That layer includes what you have on hand, what you can access without power or internet, and what decisions you've already made before a crisis requires them.</p>
+
+    <p>Three specific areas are worth building before anything else.</p>
+
+    <div class="checklist">
+      <div class="checklist-title">Household foundation — build before you need it</div>
+      <ul>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Cash reserve, stored at home</strong>
+            <span>Digital payments fail in power outages and network disruptions. Cash doesn't. Keep a minimum of $500 in mixed denominations; $1,000 to $2,000 if your household can build to it. Small bills matter more than large ones.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Document copies, physically stored</strong>
+            <span>Insurance policies, ID documents, property records, medical records for every household member. Paper copies in a waterproof container. Digital copies on a USB drive stored separately. You will need these to file any FEMA, insurance, or bank claim.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Two-week supply baseline</strong>
+            <span>Water (one gallon per person per day), shelf-stable food, medications, and basic first aid. FEMA's own guidance sets two weeks as the minimum because that's how long it takes for outside assistance to reach most affected households.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Homeowner's and flood insurance review</strong>
+            <span>IHP explicitly does not replace insurance. If your home is in a flood-adjacent zone but not in a mapped flood zone, you may be uninsured for the most likely local risk. Review your policy annually.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Written household emergency plan</strong>
+            <span>Where your family meets if you can't reach home. Who picks up the kids. When evacuation is triggered versus shelter in place. These decisions are much harder to make under stress than they are to make on a Tuesday evening.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <p>The purpose of building these things is not to eliminate the need for federal assistance in a major disaster. It's to reduce dependence on the part of that system that's most likely to fail you in the critical first two weeks — and to ensure that if assistance does arrive, you're in a position to use it rather than in a position where you needed it ten days ago.</p>
+
+    <p>FEMA exists, and when it works, it helps. Building your household layer doesn't compete with that. It just means you're not counting on it to do something it was never designed to do.</p>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="article-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-label">In this article</div>
+      <ul class="toc-list">
+        <li><a href="#what-fema-covers"><span class="toc-num">01</span> What FEMA Covers</a></li>
+        <li><a href="#three-conditions"><span class="toc-num">02</span> The Three Conditions</a></li>
+        <li><a href="#the-cap"><span class="toc-num">03</span> The Cap Problem</a></li>
+        <li><a href="#the-timeline"><span class="toc-num">04</span> The Timeline</a></li>
+        <li><a href="#the-shift"><span class="toc-num">05</span> The Shift Underway</a></li>
+        <li><a href="#what-you-control"><span class="toc-num">06</span> What You Control</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-guide">
+      <div class="sidebar-guide-label">Family Emergency Preparedness Guide</div>
+      <h4>The household layer, fully built out.</h4>
+      <p>Cash reserves, document checklists, two-week supply planning, and the 30-day action sequence. All formats included.</p>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sidebar-guide-btn">Get the Guide · $25 →</a>
+    </div>
+  </aside>
+
+</div>
+
+<!-- RELATED POSTS -->
+<div class="related-section">
+  <div class="related-inner">
+    <div class="related-header">
+      <div class="related-title">Related guides</div>
+      <a href="blog.html" class="related-all">View all →</a>
+    </div>
+    <div class="related-grid">
+      <a href="family-emergency-plan-template.html" class="related-card">
+        <span class="related-cat">Planning</span>
+        <h4>Family Emergency Plan Template: The 45-Minute Conversation</h4>
+        <p>Where do we go? Who makes the call? The decisions that are much easier to make before you need them.</p>
+      </a>
+      <a href="how-to-financially-prepare-for-job-loss.html" class="related-card">
+        <span class="related-cat">Planning</span>
+        <h4>How to Financially Prepare for a Job Loss Before It Happens</h4>
+        <p>The financial emergency most households are least prepared for isn't a flood. Here's the layer that covers it.</p>
+      </a>
+      <a href="building-a-neighborhood-emergency-network.html" class="related-card">
+        <span class="related-cat">Community</span>
+        <h4>Building a Neighborhood Emergency Network</h4>
+        <p>The most useful resource in a crisis isn't in your go-bag. It's the neighbor with medical training two doors down.</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>
+    © 2026 Family Emergency Preparedness Guide. All rights reserved.
+    · <a href="privacy.html">Privacy Policy</a>
+    · <a href="terms.html">Terms</a>
+    · <a href="refunds.html">Refund Policy</a>
+    · <a href="mailto:support@emergencypreparednesschecklist.com">Contact</a>
+  </p>
+</footer>
+
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-left">Emergency Preparedness Guide <span>· All file formats for $25</span></div>
+  <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sticky-btn">Get the Guide Today →</a>
+</div>
+
+<script>
+  const progress = document.getElementById('readingProgress');
+  const article = document.getElementById('articleBody');
+  window.addEventListener('scroll', () => {
+    const rect = article.getBoundingClientRect();
+    const articleTop = rect.top + window.scrollY;
+    const articleHeight = article.offsetHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = Math.min(100, Math.max(0, (scrolled / articleHeight) * 100));
+    progress.style.width = pct + '%';
+  });
+
+  const articleHeader = document.querySelector('.article-header');
+  const stickyBar = document.getElementById('stickyBar');
+  const observer = new IntersectionObserver(
+    ([e]) => stickyBar.classList.toggle('visible', !e.isIntersecting),
+    { threshold: 0.1 }
+  );
+  observer.observe(articleHeader);
+</script>
+</body>
+</html>

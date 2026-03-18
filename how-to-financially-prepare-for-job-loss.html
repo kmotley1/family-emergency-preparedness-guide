@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Financially Prepare for a Job Loss Before It Happens — Emergency Preparedness Guide</title>
+  <meta name="description" content="Job loss is the financial emergency most households aren't prepared for. The runway to build, the audit to run, and the household layer that belongs alongside your emergency fund.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white:    #FFFFFF;
+      --bg:       #F5F5F7;
+      --ink:      #1D1D1F;
+      --gray:     #6E6E73;
+      --gray-lt:  #E8E8ED;
+      --navy:     #1B4FBF;
+      --navy-dk:  #153D96;
+      --navy-lt:  #EEF2FB;
+      --green:    #2A7A4B;
+      --green-lt: #EAF5EE;
+      --amber:    #B45309;
+      --amber-lt: #FEF3C7;
+      --divider:  #D2D2D7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .reading-progress {
+      position: fixed;
+      top: 52px; left: 0;
+      height: 2px;
+      background: var(--navy);
+      z-index: 199;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 0 40px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .nav-logo { font-size: 14px; font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--gray); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--navy); font-weight: 500; }
+
+    .nav-cta {
+      background: var(--navy) !important;
+      color: white !important;
+      padding: 8px 18px;
+      border-radius: 980px;
+      font-weight: 500 !important;
+      font-size: 13px !important;
+    }
+    .nav-cta:hover { background: var(--navy-dk) !important; }
+
+    .article-header {
+      padding: 100px 40px 64px;
+      background: var(--white);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .article-header-inner { max-width: 720px; margin: 0 auto; }
+
+    .article-breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 28px; font-size: 13px; color: var(--gray);
+    }
+    .article-breadcrumb a { color: var(--navy); text-decoration: none; }
+    .article-breadcrumb a:hover { text-decoration: underline; }
+
+    .article-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--navy); background: var(--navy-lt);
+      padding: 4px 10px; border-radius: 4px;
+      display: inline-block; margin-bottom: 20px;
+    }
+
+    .article-header h1 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700; letter-spacing: -0.03em;
+      line-height: 1.1; color: var(--ink); margin-bottom: 20px;
+    }
+
+    .article-deck { font-size: 19px; line-height: 1.65; color: var(--gray); margin-bottom: 28px; }
+
+    .article-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 12px; color: var(--gray);
+      font-family: 'JetBrains Mono', monospace;
+      padding-top: 20px; border-top: 1px solid var(--divider);
+    }
+    .meta-divider { color: var(--divider); }
+
+    .article-layout {
+      max-width: 1080px; margin: 0 auto;
+      padding: 60px 40px 100px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 80px; align-items: start;
+    }
+
+    .article-body h2 {
+      font-size: 26px; font-weight: 700;
+      letter-spacing: -0.02em; color: var(--ink);
+      margin: 48px 0 16px; line-height: 1.2;
+    }
+
+    .article-body h3 {
+      font-size: 18px; font-weight: 600;
+      letter-spacing: -0.01em; color: var(--ink);
+      margin: 32px 0 12px;
+    }
+
+    .article-body p {
+      font-size: 17px; line-height: 1.8;
+      color: var(--gray); margin-bottom: 20px;
+    }
+
+    .article-body p strong { color: var(--ink); font-weight: 600; }
+    .article-body a { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
+
+    .callout {
+      background: var(--navy-lt);
+      border-left: 3px solid var(--navy);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px; margin: 32px 0;
+    }
+
+    .callout-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--navy); margin-bottom: 8px;
+    }
+
+    .callout p { font-size: 15px; color: var(--ink); margin: 0; line-height: 1.65; }
+    .callout p strong { color: var(--navy-dk); }
+
+    .callout-warning { background: var(--amber-lt); border-left-color: var(--amber); }
+    .callout-warning .callout-label { color: var(--amber); }
+    .callout-warning p { color: var(--ink); }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px; margin: 32px 0;
+    }
+
+    .stat-mini {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 20px; text-align: center;
+    }
+
+    .stat-mini-num {
+      font-size: 32px; font-weight: 700;
+      letter-spacing: -0.04em; color: var(--navy);
+      line-height: 1; margin-bottom: 6px;
+    }
+
+    .stat-mini-label { font-size: 12px; color: var(--gray); line-height: 1.4; }
+
+    .checklist {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 28px; margin: 32px 0;
+    }
+
+    .checklist-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 16px;
+    }
+
+    .checklist ul { list-style: none; }
+
+    .checklist li {
+      display: flex; align-items: flex-start;
+      gap: 12px; padding: 10px 0;
+      border-bottom: 1px solid var(--gray-lt);
+      font-size: 15px; color: var(--ink); line-height: 1.5;
+    }
+
+    .checklist li:last-child { border-bottom: none; }
+
+    .check-icon {
+      width: 20px; height: 20px;
+      border-radius: 50%; background: var(--green-lt);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+    }
+
+    .check-icon svg { width: 11px; height: 11px; stroke: var(--green); }
+    .checklist li span { font-size: 13px; color: var(--gray); display: block; margin-top: 2px; }
+
+    .tier-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 4px; margin-right: 6px;
+    }
+
+    .tier-1 { background: var(--navy-lt); color: var(--navy); }
+    .tier-2 { background: var(--green-lt); color: var(--green); }
+
+    /* Expense audit box */
+    .audit-box {
+      border: 1px solid var(--divider);
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 32px 0;
+    }
+
+    .audit-box-header {
+      background: var(--ink);
+      padding: 16px 24px;
+    }
+
+    .audit-box-header span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .audit-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--divider);
+      font-size: 14px;
+    }
+
+    .audit-row:last-child { border-bottom: none; }
+    .audit-row:nth-child(even) { background: var(--bg); }
+
+    .audit-row .label { color: var(--ink); font-weight: 500; }
+    .audit-row .note { font-size: 12px; color: var(--gray); }
+    .tag-keep { color: var(--green); font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; }
+    .tag-pause { color: var(--amber); font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; }
+    .tag-cut { color: #BE123C; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; }
+
+    .mid-cta {
+      background: var(--ink);
+      border-radius: 16px;
+      padding: 32px; margin: 48px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .mid-cta-text {
+      font-size: 16px; font-weight: 600;
+      color: white; line-height: 1.4;
+    }
+
+    .mid-cta-text span {
+      font-size: 14px; font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      display: block; margin-top: 4px;
+    }
+
+    .mid-cta-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: white; color: var(--navy);
+      font-size: 14px; font-weight: 600;
+      padding: 12px 24px; border-radius: 980px;
+      text-decoration: none; white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .mid-cta-btn:hover { background: var(--bg); }
+
+    .article-sidebar { position: sticky; top: 72px; }
+
+    .sidebar-card {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 24px; margin-bottom: 16px;
+    }
+
+    .sidebar-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 16px;
+    }
+
+    .toc-list { list-style: none; }
+    .toc-list li { padding: 7px 0; border-bottom: 1px solid var(--gray-lt); }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { font-size: 13px; color: var(--gray); text-decoration: none; transition: color 0.15s; display: flex; align-items: center; gap: 8px; }
+    .toc-list a:hover { color: var(--navy); }
+    .toc-num { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--divider); width: 16px; flex-shrink: 0; }
+
+    .sidebar-guide { background: var(--navy); border-radius: 16px; padding: 24px; }
+
+    .sidebar-guide-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45); margin-bottom: 12px;
+    }
+
+    .sidebar-guide h4 { font-size: 16px; font-weight: 600; color: white; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .sidebar-guide p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 16px; }
+
+    .sidebar-guide-btn {
+      display: block; background: white; color: var(--navy);
+      text-align: center; font-size: 13px; font-weight: 600;
+      padding: 10px; border-radius: 980px;
+      text-decoration: none; transition: background 0.15s;
+    }
+    .sidebar-guide-btn:hover { background: var(--bg); }
+
+    .related-section { background: var(--bg); padding: 80px 40px; border-top: 1px solid var(--divider); }
+    .related-inner { max-width: 1080px; margin: 0 auto; }
+    .related-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 32px; }
+    .related-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+    .related-all { font-size: 14px; color: var(--navy); text-decoration: none; font-weight: 500; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+    .related-card {
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: 16px; padding: 24px;
+      text-decoration: none; color: inherit;
+      display: block; transition: all 0.2s;
+    }
+    .related-card:hover { border-color: var(--navy); transform: translateY(-2px); }
+
+    .related-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--navy); display: block; margin-bottom: 10px;
+    }
+
+    .related-card h4 { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.35; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .related-card p { font-size: 13px; color: var(--gray); line-height: 1.55; }
+
+    footer { background: var(--bg); border-top: 1px solid var(--divider); padding: 32px 40px; text-align: center; margin-bottom: 80px; }
+    footer p { font-size: 13px; color: var(--gray); }
+    footer a { color: var(--navy); text-decoration: none; }
+
+    .sticky-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: rgba(29,29,31,0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 14px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      z-index: 150;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .sticky-bar.visible { transform: translateY(0); }
+    .sticky-left { font-size: 14px; color: rgba(255,255,255,0.65); font-weight: 500; }
+    .sticky-left span { color: white; font-weight: 600; }
+
+    .sticky-btn {
+      background: white; color: var(--navy);
+      font-size: 14px; font-weight: 600;
+      padding: 10px 28px; border-radius: 980px;
+      text-decoration: none; white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .sticky-btn:hover { background: var(--bg); }
+
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; gap: 40px; }
+      .article-sidebar { position: static; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+      nav { padding: 0 20px; }
+      .nav-links li:not(:last-child) { display: none; }
+      .article-header { padding: 80px 20px 48px; }
+      .article-layout { padding: 40px 20px 80px; }
+    }
+
+    @media (max-width: 600px) {
+      .related-grid { grid-template-columns: 1fr; }
+      .stat-row { grid-template-columns: 1fr; }
+      .mid-cta { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Prepared. Not scared.</a>
+  <ul class="nav-links">
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#inside">What's Inside</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">
+        Get the Guide →
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-breadcrumb">
+      <a href="blog.html">Blog</a>
+      <span>›</span>
+      <span>Planning</span>
+    </div>
+    <div class="article-cat">Planning</div>
+    <h1>How to Financially Prepare for a Job Loss Before It Happens</h1>
+    <p class="article-deck">The emergency most households aren't actually ready for isn't a hurricane or a power outage — it's a paycheck stopping. Here's the financial layer to build while you still have income, and the household layer that belongs alongside it.</p>
+    <div class="article-meta">
+      <span>March 2026</span>
+      <span class="meta-divider">·</span>
+      <span>8 min read</span>
+      <span class="meta-divider">·</span>
+      <span>From the Emergency Preparedness Guide</span>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE LAYOUT -->
+<div class="article-layout">
+
+  <article class="article-body" id="articleBody">
+
+    <p>Job loss is the financial emergency that most households experience at some point — and for which most households are materially underprepared. The average US job search takes three to six months. Unemployment insurance replaces roughly 40–45% of prior wages in most states, with caps that make it proportionally lower for higher earners. And the costs that hit immediately — rent, mortgage, insurance, utilities, debt service — don't reduce while you search.</p>
+
+    <p>The math is uncomfortable, and the discomfort is precisely why most people defer the planning. That deferral is expensive. The financial position you can build before job loss is structurally better than anything available after it happens.</p>
+
+    <div class="stat-row">
+      <div class="stat-mini">
+        <div class="stat-mini-num">30%</div>
+        <div class="stat-mini-label">Probability of US recession in the next 12 months, per RSM economics (early 2026)</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">0.3 pts</div>
+        <div class="stat-mini-label">Projected unemployment rate increase from current tariff regime by end of 2026 (Yale Budget Lab)</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">40–45%</div>
+        <div class="stat-mini-label">Share of prior wages replaced by unemployment insurance in most US states</div>
+      </div>
+    </div>
+
+    <h2 id="the-gap">The Emergency People Picture vs. the One That Happens</h2>
+
+    <p>There's a version of emergency preparedness that looks like floods, wildfires, and extended power outages. Those are real risks and worth preparing for. But statistically, far more households will experience a job loss in any given decade than a natural disaster severe enough to require evacuation.</p>
+
+    <p>The financial consequences are structurally similar: income disruption, increased out-of-pocket costs, pressure on reserves, and a timeline mismatch between when you need resources and when they arrive. The preparation logic is the same. What you can build now determines how stable you are when it hits.</p>
+
+    <p>What follows is the financial foundation to build — and a separate, distinct layer that concerns your household's physical preparedness. Both matter. They solve different problems.</p>
+
+    <h2 id="the-runway">The Runway Number</h2>
+
+    <p>The standard advice is a three-month emergency fund. Three months is a floor in a normal job market, and 2026 is not a normal job market. Tech sector layoffs have continued; the labor market has softened materially from its 2022–2023 peaks; and higher-than-expected tariff-related unemployment is now a forecasted, not speculative, outcome.</p>
+
+    <p><strong>Six months of essential expenses is the realistic minimum for 2026.</strong> For households with a single income, specialized roles, or industries with longer hiring cycles, nine months is a more honest target.</p>
+
+    <p>The number to build toward is your essential monthly expense total — not your current monthly spending. That distinction matters because the first thing you do in a job loss scenario is identify every expense that can be paused or cut, and build your runway estimate on what's left. The exercise of running that audit before a crisis tells you both your true runway and which expenses you actually value enough to protect.</p>
+
+    <div class="callout">
+      <div class="callout-label">Where to keep it</div>
+      <p>A high-yield savings account, separate from your checking account. <strong>Not invested in the market</strong> — emergency funds that require selling at a market bottom to access are not emergency funds. Liquidity is the point.</p>
+    </div>
+
+    <h2 id="the-audit">Fixed Expenses: The Audit That Reveals the Real Number</h2>
+
+    <p>Pull up the last three months of bank and credit card statements. Categorize every recurring expense by whether it's fixed (mortgage/rent, insurance, debt minimums), semi-fixed (utilities, groceries, medications), or discretionary (streaming, dining, subscriptions, gym).</p>
+
+    <p>The goal is to establish your essential monthly number — what you need to keep the household stable at minimum — versus your current monthly spending. The gap between those two numbers is your buffer for how aggressively you can build runway.</p>
+
+    <div class="audit-box">
+      <div class="audit-box-header">
+        <span>Expense category audit — what happens each on day one of job loss</span>
+      </div>
+      <div class="audit-row">
+        <div>
+          <div class="label">Rent or mortgage</div>
+          <div class="note">Non-negotiable; missing it starts a clock</div>
+        </div>
+        <span class="tag-keep">Keep</span>
+      </div>
+      <div class="audit-row">
+        <div>
+          <div class="label">Health insurance</div>
+          <div class="note">COBRA or marketplace; uninsured gap is a financial risk multiplier</div>
+        </div>
+        <span class="tag-keep">Keep</span>
+      </div>
+      <div class="audit-row">
+        <div>
+          <div class="label">Debt minimums (cards, loans)</div>
+          <div class="note">Missing minimums starts interest and credit damage</div>
+        </div>
+        <span class="tag-keep">Keep</span>
+      </div>
+      <div class="audit-row">
+        <div>
+          <div class="label">Utilities and phone</div>
+          <div class="note">Negotiate if needed; avoid shutoff</div>
+        </div>
+        <span class="tag-keep">Keep</span>
+      </div>
+      <div class="audit-row">
+        <div>
+          <div class="label">Subscriptions (streaming, apps)</div>
+          <div class="note">Pause immediately; reinstate when employed</div>
+        </div>
+        <span class="tag-pause">Pause</span>
+      </div>
+      <div class="audit-row">
+        <div>
+          <div class="label">Gym, memberships</div>
+          <div class="note">Most allow pause or cancellation</div>
+        </div>
+        <span class="tag-pause">Pause</span>
+      </div>
+      <div class="audit-row">
+        <div>
+          <div class="label">Dining out, discretionary retail</div>
+          <div class="note">Reduce substantially; not eliminate</div>
+        </div>
+        <span class="tag-cut">Reduce</span>
+      </div>
+      <div class="audit-row">
+        <div>
+          <div class="label">Accelerated debt paydown above minimums</div>
+          <div class="note">Stop immediately; redirect to reserves</div>
+        </div>
+        <span class="tag-cut">Stop</span>
+      </div>
+    </div>
+
+    <p>Running this audit now, before a crisis, tells you two things: your true essential monthly number, and which expenses can come off the table quickly. That knowledge is worth having before you need it.</p>
+
+    <!-- MID-ARTICLE CTA -->
+    <div class="mid-cta">
+      <div class="mid-cta-text">
+        The guide's cash reserve chapter covers the physical household layer — accessible cash at home when digital payments fail.
+        <span>That's a separate problem from your emergency fund, and it's one that job loss doesn't solve. Both layers belong in a complete household plan.</span>
+      </div>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="mid-cta-btn">Get the Guide · $25 →</a>
+    </div>
+
+    <h2 id="cash-positioning">Cash Positioning: What Actually Matters in Week One</h2>
+
+    <p>Bank transfers take one to three business days. ATMs have daily withdrawal limits. If a job loss coincides with a period of broader economic disruption — as layoffs frequently do, since companies cut during downturns — you may find financial system access more constrained than expected.</p>
+
+    <p>This is the argument for physical cash as a household layer, separate from your bank emergency fund. Not as a replacement for it, but as the portion you can access immediately, without a transfer, without a working debit card, without a functioning ATM network.</p>
+
+    <div class="callout callout-warning">
+      <div class="callout-label">Two separate problems</div>
+      <p>A six-month emergency fund in a high-yield savings account solves the runway problem. <strong>Physical cash at home solves the access problem</strong> — the 72-hour period when digital systems may be slow, disrupted, or unavailable. These are not the same thing, and one doesn't substitute for the other.</p>
+    </div>
+
+    <p>The practical physical cash target: $500 minimum, $1,000 to $2,000 for households with dependents. Mixed denominations — larger bills for the fund, fives and tens for day-to-day transactions. Stored securely at home, separate from your wallet. This is the layer the emergency preparedness guide covers in its cash reserve chapter.</p>
+
+    <h2 id="documentation">The Documentation Layer</h2>
+
+    <p>Job loss creates immediate documentation needs: unemployment insurance applications require employment history and wage verification. Expense negotiation with lenders requires income documentation. COBRA enrollment requires insurance information from your employer. If your household also faces a physical disruption at the same time — which happens — you may need insurance policies, property records, and medical records simultaneously.</p>
+
+    <div class="checklist">
+      <div class="checklist-title">Documents to have organized and accessible now</div>
+      <ul>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Recent pay stubs (last 3 months)</strong>
+            <span>Required for unemployment insurance applications in most states. Employer may not be cooperative once you're separated.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Health insurance policy details and group plan number</strong>
+            <span>COBRA enrollment window is 60 days from separation. You need the plan details to compare against marketplace options immediately.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Social Security number and government IDs for all household members</strong>
+            <span>Required for unemployment applications, benefits enrollment, and any assistance program access.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>List of all recurring expenses with account numbers and login credentials</strong>
+            <span>So you can contact creditors quickly, pause services, and negotiate if needed. Not stored digitally where a password failure locks you out.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Last two years of tax returns</strong>
+            <span>Required for some assistance programs and any loan modification or forbearance application.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Investment and retirement account statements</strong>
+            <span>Know what's liquid and what's subject to penalties before a crisis requires you to make those decisions under pressure.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <h2 id="the-two-layers">What Emergency Preparedness Adds</h2>
+
+    <p>Financial emergency preparation covers the runway problem — how long you can maintain your household on reserves while income is disrupted. Emergency preparedness covers a different set of problems: what happens if a physical disruption overlaps with financial stress, which happens more often than people expect.</p>
+
+    <p>A household with a six-month financial runway but no physical supplies, no accessible cash, and no go-bag is prepared for one kind of emergency. A household with physical preparedness but no financial runway is prepared for the other. A complete household plan addresses both, because the most destabilizing scenario is when they happen at the same time.</p>
+
+    <p>The guide covers the physical and logistical layer: cash reserves at home, document organization for any claim or application, a go-bag for displacement, and a two-week supply baseline so that a financial emergency doesn't immediately become a food and water emergency on top of it. Those are the tools for the other half of the problem.</p>
+
+    <p>Start with your financial runway. Build it to six months. Then build the household layer alongside it. The two plans don't compete — they cover the parts of an emergency that the other one can't.</p>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="article-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-label">In this article</div>
+      <ul class="toc-list">
+        <li><a href="#the-gap"><span class="toc-num">01</span> The Gap</a></li>
+        <li><a href="#the-runway"><span class="toc-num">02</span> The Runway Number</a></li>
+        <li><a href="#the-audit"><span class="toc-num">03</span> The Expense Audit</a></li>
+        <li><a href="#cash-positioning"><span class="toc-num">04</span> Cash Positioning</a></li>
+        <li><a href="#documentation"><span class="toc-num">05</span> Documentation</a></li>
+        <li><a href="#the-two-layers"><span class="toc-num">06</span> The Two Layers</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-guide">
+      <div class="sidebar-guide-label">Family Emergency Preparedness Guide</div>
+      <h4>Cash reserves, documents, and the household physical layer.</h4>
+      <p>The guide covers the preparedness side — what to keep at home, how to store it, and how to use it when the financial layer isn't enough on its own.</p>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sidebar-guide-btn">Get the Guide · $25 →</a>
+    </div>
+  </aside>
+
+</div>
+
+<!-- RELATED POSTS -->
+<div class="related-section">
+  <div class="related-inner">
+    <div class="related-header">
+      <div class="related-title">Related guides</div>
+      <a href="blog.html" class="related-all">View all →</a>
+    </div>
+    <div class="related-grid">
+      <a href="what-happens-when-fema-cant-help-you.html" class="related-card">
+        <span class="related-cat">Planning</span>
+        <h4>What Happens When FEMA Can't Help You</h4>
+        <p>Federal disaster assistance is conditional, capped, and slow. Understanding what it actually covers changes how you plan.</p>
+      </a>
+      <a href="how-to-financially-prepare-for-ai-job-displacement.html" class="related-card">
+        <span class="related-cat">Planning</span>
+        <h4>How to Financially Prepare for AI Job Displacement</h4>
+        <p>AI is reshaping which roles are stable and which aren't. The financial preparation logic applies regardless of why the job goes.</p>
+      </a>
+      <a href="family-emergency-plan-template.html" class="related-card">
+        <span class="related-cat">Planning</span>
+        <h4>Family Emergency Plan Template: The 45-Minute Conversation</h4>
+        <p>Where do we go? Who makes the call? The decisions that are much easier to make before you need them.</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>
+    © 2026 Family Emergency Preparedness Guide. All rights reserved.
+    · <a href="privacy.html">Privacy Policy</a>
+    · <a href="terms.html">Terms</a>
+    · <a href="refunds.html">Refund Policy</a>
+    · <a href="mailto:support@emergencypreparednesschecklist.com">Contact</a>
+  </p>
+</footer>
+
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-left">Emergency Preparedness Guide <span>· All file formats for $25</span></div>
+  <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sticky-btn">Get the Guide Today →</a>
+</div>
+
+<script>
+  const progress = document.getElementById('readingProgress');
+  const article = document.getElementById('articleBody');
+  window.addEventListener('scroll', () => {
+    const rect = article.getBoundingClientRect();
+    const articleTop = rect.top + window.scrollY;
+    const articleHeight = article.offsetHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = Math.min(100, Math.max(0, (scrolled / articleHeight) * 100));
+    progress.style.width = pct + '%';
+  });
+
+  const articleHeader = document.querySelector('.article-header');
+  const stickyBar = document.getElementById('stickyBar');
+  const observer = new IntersectionObserver(
+    ([e]) => stickyBar.classList.toggle('visible', !e.isIntersecting),
+    { threshold: 0.1 }
+  );
+  observer.observe(articleHeader);
+</script>
+</body>
+</html>

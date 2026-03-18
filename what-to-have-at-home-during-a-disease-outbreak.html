@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What to Have at Home During a Disease Outbreak — Emergency Preparedness Guide</title>
+  <meta name="description" content="Disease outbreaks require different prep than natural disasters. What to stockpile, what supplies serve double duty, and how long you need to plan for at home.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white:    #FFFFFF;
+      --bg:       #F5F5F7;
+      --ink:      #1D1D1F;
+      --gray:     #6E6E73;
+      --gray-lt:  #E8E8ED;
+      --navy:     #1B4FBF;
+      --navy-dk:  #153D96;
+      --navy-lt:  #EEF2FB;
+      --green:    #2A7A4B;
+      --green-lt: #EAF5EE;
+      --amber:    #B45309;
+      --amber-lt: #FEF3C7;
+      --divider:  #D2D2D7;
+      --home-bg:  #F3E8FF;
+      --home-text:#6B21A8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .reading-progress {
+      position: fixed;
+      top: 52px; left: 0;
+      height: 2px;
+      background: var(--home-text);
+      z-index: 199;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 0 40px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .nav-logo { font-size: 14px; font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--gray); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--navy); font-weight: 500; }
+
+    .nav-cta {
+      background: var(--navy) !important;
+      color: white !important;
+      padding: 8px 18px;
+      border-radius: 980px;
+      font-weight: 500 !important;
+      font-size: 13px !important;
+    }
+    .nav-cta:hover { background: var(--navy-dk) !important; }
+
+    .article-header {
+      padding: 100px 40px 64px;
+      background: var(--white);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .article-header-inner { max-width: 720px; margin: 0 auto; }
+
+    .article-breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 28px; font-size: 13px; color: var(--gray);
+    }
+    .article-breadcrumb a { color: var(--navy); text-decoration: none; }
+    .article-breadcrumb a:hover { text-decoration: underline; }
+
+    .article-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--home-text); background: var(--home-bg);
+      padding: 4px 10px; border-radius: 4px;
+      display: inline-block; margin-bottom: 20px;
+    }
+
+    .article-header h1 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700; letter-spacing: -0.03em;
+      line-height: 1.1; color: var(--ink); margin-bottom: 20px;
+    }
+
+    .article-deck { font-size: 19px; line-height: 1.65; color: var(--gray); margin-bottom: 28px; }
+
+    .article-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 12px; color: var(--gray);
+      font-family: 'JetBrains Mono', monospace;
+      padding-top: 20px; border-top: 1px solid var(--divider);
+    }
+    .meta-divider { color: var(--divider); }
+
+    .article-layout {
+      max-width: 1080px; margin: 0 auto;
+      padding: 60px 40px 100px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 80px; align-items: start;
+    }
+
+    .article-body h2 {
+      font-size: 26px; font-weight: 700;
+      letter-spacing: -0.02em; color: var(--ink);
+      margin: 48px 0 16px; line-height: 1.2;
+    }
+
+    .article-body h3 {
+      font-size: 18px; font-weight: 600;
+      letter-spacing: -0.01em; color: var(--ink);
+      margin: 32px 0 12px;
+    }
+
+    .article-body p {
+      font-size: 17px; line-height: 1.8;
+      color: var(--gray); margin-bottom: 20px;
+    }
+
+    .article-body p strong { color: var(--ink); font-weight: 600; }
+    .article-body a { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
+
+    .callout {
+      background: var(--navy-lt);
+      border-left: 3px solid var(--navy);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px; margin: 32px 0;
+    }
+
+    .callout-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--navy); margin-bottom: 8px;
+    }
+
+    .callout p { font-size: 15px; color: var(--ink); margin: 0; line-height: 1.65; }
+    .callout p strong { color: var(--navy-dk); }
+
+    .callout-warning { background: var(--amber-lt); border-left-color: var(--amber); }
+    .callout-warning .callout-label { color: var(--amber); }
+    .callout-warning p { color: var(--ink); }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px; margin: 32px 0;
+    }
+
+    .stat-mini {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 20px; text-align: center;
+    }
+
+    .stat-mini-num {
+      font-size: 32px; font-weight: 700;
+      letter-spacing: -0.04em; color: var(--home-text);
+      line-height: 1; margin-bottom: 6px;
+    }
+
+    .stat-mini-label { font-size: 12px; color: var(--gray); line-height: 1.4; }
+
+    .checklist {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 28px; margin: 32px 0;
+    }
+
+    .checklist-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 16px;
+    }
+
+    .checklist ul { list-style: none; }
+
+    .checklist li {
+      display: flex; align-items: flex-start;
+      gap: 12px; padding: 10px 0;
+      border-bottom: 1px solid var(--gray-lt);
+      font-size: 15px; color: var(--ink); line-height: 1.5;
+    }
+
+    .checklist li:last-child { border-bottom: none; }
+
+    .check-icon {
+      width: 20px; height: 20px;
+      border-radius: 50%; background: var(--green-lt);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+    }
+
+    .check-icon svg { width: 11px; height: 11px; stroke: var(--green); }
+    .checklist li span { font-size: 13px; color: var(--gray); display: block; margin-top: 2px; }
+
+    .tier-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 4px; margin-right: 6px;
+    }
+
+    .tier-1 { background: var(--navy-lt); color: var(--navy); }
+    .tier-2 { background: var(--green-lt); color: var(--green); }
+
+    .mid-cta {
+      background: var(--ink);
+      border-radius: 16px;
+      padding: 32px; margin: 48px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .mid-cta-text {
+      font-size: 16px; font-weight: 600;
+      color: white; line-height: 1.4;
+    }
+
+    .mid-cta-text span {
+      font-size: 14px; font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      display: block; margin-top: 4px;
+    }
+
+    .mid-cta-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: white; color: var(--navy);
+      font-size: 14px; font-weight: 600;
+      padding: 12px 24px; border-radius: 980px;
+      text-decoration: none; white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .mid-cta-btn:hover { background: var(--bg); }
+
+    .article-sidebar { position: sticky; top: 72px; }
+
+    .sidebar-card {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 24px; margin-bottom: 16px;
+    }
+
+    .sidebar-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 16px;
+    }
+
+    .toc-list { list-style: none; }
+    .toc-list li { padding: 7px 0; border-bottom: 1px solid var(--gray-lt); }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { font-size: 13px; color: var(--gray); text-decoration: none; transition: color 0.15s; display: flex; align-items: center; gap: 8px; }
+    .toc-list a:hover { color: var(--navy); }
+    .toc-num { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--divider); width: 16px; flex-shrink: 0; }
+
+    .sidebar-guide { background: var(--navy); border-radius: 16px; padding: 24px; }
+
+    .sidebar-guide-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45); margin-bottom: 12px;
+    }
+
+    .sidebar-guide h4 { font-size: 16px; font-weight: 600; color: white; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .sidebar-guide p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 16px; }
+
+    .sidebar-guide-btn {
+      display: block; background: white; color: var(--navy);
+      text-align: center; font-size: 13px; font-weight: 600;
+      padding: 10px; border-radius: 980px;
+      text-decoration: none; transition: background 0.15s;
+    }
+    .sidebar-guide-btn:hover { background: var(--bg); }
+
+    .related-section { background: var(--bg); padding: 80px 40px; border-top: 1px solid var(--divider); }
+    .related-inner { max-width: 1080px; margin: 0 auto; }
+    .related-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 32px; }
+    .related-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+    .related-all { font-size: 14px; color: var(--navy); text-decoration: none; font-weight: 500; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+    .related-card {
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: 16px; padding: 24px;
+      text-decoration: none; color: inherit;
+      display: block; transition: all 0.2s;
+    }
+    .related-card:hover { border-color: var(--navy); transform: translateY(-2px); }
+
+    .related-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--navy); display: block; margin-bottom: 10px;
+    }
+
+    .related-card h4 { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.35; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .related-card p { font-size: 13px; color: var(--gray); line-height: 1.55; }
+
+    footer { background: var(--bg); border-top: 1px solid var(--divider); padding: 32px 40px; text-align: center; margin-bottom: 80px; }
+    footer p { font-size: 13px; color: var(--gray); }
+    footer a { color: var(--navy); text-decoration: none; }
+
+    .sticky-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: rgba(29,29,31,0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 14px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      z-index: 150;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .sticky-bar.visible { transform: translateY(0); }
+    .sticky-left { font-size: 14px; color: rgba(255,255,255,0.65); font-weight: 500; }
+    .sticky-left span { color: white; font-weight: 600; }
+
+    .sticky-btn {
+      background: white; color: var(--navy);
+      font-size: 14px; font-weight: 600;
+      padding: 10px 28px; border-radius: 980px;
+      text-decoration: none; white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .sticky-btn:hover { background: var(--bg); }
+
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; gap: 40px; }
+      .article-sidebar { position: static; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+      nav { padding: 0 20px; }
+      .nav-links li:not(:last-child) { display: none; }
+      .article-header { padding: 80px 20px 48px; }
+      .article-layout { padding: 40px 20px 80px; }
+    }
+
+    @media (max-width: 600px) {
+      .related-grid { grid-template-columns: 1fr; }
+      .stat-row { grid-template-columns: 1fr; }
+      .mid-cta { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Prepared. Not scared.</a>
+  <ul class="nav-links">
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#inside">What's Inside</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">
+        Get the Guide →
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-breadcrumb">
+      <a href="blog.html">Blog</a>
+      <span>›</span>
+      <span>Home</span>
+    </div>
+    <div class="article-cat">Home</div>
+    <h1>What to Have at Home During a Disease Outbreak</h1>
+    <p class="article-deck">A disease outbreak is a different kind of household emergency than a storm or a power outage. The preparation is different too — and most households are missing the most important parts.</p>
+    <div class="article-meta">
+      <span>March 2026</span>
+      <span class="meta-divider">·</span>
+      <span>7 min read</span>
+      <span class="meta-divider">·</span>
+      <span>From the Emergency Preparedness Guide</span>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE LAYOUT -->
+<div class="article-layout">
+
+  <article class="article-body" id="articleBody">
+
+    <p>US measles cases in 2026 crossed 1,000 before the end of February — a number that hadn't been reached in a single year since before the combination vaccine became routine. Measles is one data point. The broader pattern is a consistent pressure on household health preparedness: disease outbreaks, respiratory illness waves, and the specific challenge of caring for sick household members while minimizing spread to healthy ones.</p>
+
+    <p>The household layer that addresses this is different from what most general emergency preparedness guides cover. A go-bag doesn't help you here. Neither does a water storage plan. What helps is a specific set of medical supplies, a workable home isolation setup, and enough food and medication to stay home for 10 to 14 days without a grocery or pharmacy run.</p>
+
+    <div class="stat-row">
+      <div class="stat-mini">
+        <div class="stat-mini-num">1,000+</div>
+        <div class="stat-mini-label">US measles cases reported in 2026 as of late February — highest in over a decade</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">10 days</div>
+        <div class="stat-mini-label">Typical isolation period for most infectious respiratory illnesses per CDC guidance</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">2 weeks</div>
+        <div class="stat-mini-label">Recommended home supply baseline to cover most outbreak scenarios without leaving</div>
+      </div>
+    </div>
+
+    <h2 id="different-problem">Why Disease Outbreaks Are a Different Preparedness Problem</h2>
+
+    <p>Natural disasters typically require you to leave or to shelter in place without external services. A disease outbreak often requires you to stay home voluntarily, care for sick household members, and limit contact with the outside world — while remaining functional as a household. The supplies you need are medical rather than logistical, and the challenge is maintaining routine when one or more people are sick.</p>
+
+    <p>The other key difference: in a disease outbreak, outside help is less available, not more. Hospitals and urgent care facilities may be overwhelmed. Pharmacies may run short on high-demand OTC medications. Grocery delivery may have delays. The household that has built its supply layer in advance sidesteps all three of those constraints simultaneously.</p>
+
+    <div class="callout">
+      <div class="callout-label">The core principle</div>
+      <p>The goal is not to diagnose or treat serious illness at home. <strong>The goal is to manage mild to moderate illness comfortably without depleting reserves or requiring a trip out</strong> — and to be ready to escalate to professional care when symptoms warrant it.</p>
+    </div>
+
+    <h2 id="isolation-baseline">The Home Isolation Baseline</h2>
+
+    <p>Before the specific medical supplies, the baseline is simple: two weeks of food and water for every household member, plus the ability to function as a household without leaving. This covers most disease outbreak scenarios from mild illness to voluntary quarantine following a known exposure.</p>
+
+    <p>For most households, two weeks of food isn't a dramatic stockpile. It's an extra bag of rice, a case of canned goods, some additional protein options, and beverages beyond what you'd normally keep. The food baseline is identical to the general emergency preparedness recommendation — which is one reason why building your general supply layer first creates the foundation for disease-specific preparedness automatically.</p>
+
+    <p><strong>Fluids specifically deserve attention.</strong> Illness increases fluid requirements, and dehydration is the most common complication of otherwise mild illness. Electrolyte packets, sports drinks, clear broths, and additional water beyond your normal household consumption all belong in the illness-specific prep layer. Plan for each ill household member to need 2 to 3 liters of fluid daily above normal consumption.</p>
+
+    <h2 id="medical-supplies">Medical Supplies That Actually Matter</h2>
+
+    <p>The useful medical supply list for a household disease outbreak is shorter than most preparedness resources suggest. Focus on what you can actually use at home, not on a pharmacy-equivalent stock of every available product.</p>
+
+    <div class="checklist">
+      <div class="checklist-title">Tier 1 — have before any outbreak</div>
+      <ul>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Thermometer — one per household</strong>
+            <span>Digital, oral or temporal. Fever tracking is the most important monitoring tool during illness. During an outbreak, thermometers sell out quickly.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Acetaminophen (Tylenol) and ibuprofen — both</strong>
+            <span>They work through different mechanisms. Having both lets you alternate for fever management and covers situations where one is contraindicated. Keep children's formulations if relevant.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Oral electrolyte solution (Pedialyte or equivalent)</strong>
+            <span>For vomiting or diarrhea illness where fluid retention is difficult. Critical for children; useful for adults.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Pulse oximeter</strong>
+            <span>Measures blood oxygen saturation. Provides early warning for respiratory complications in COVID, flu, pneumonia. Available for under $30 and tells you when symptoms require escalation to medical care.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>N95 or KN95 masks — minimum 20 per adult</strong>
+            <span>For caring for a sick household member while remaining uninfected, or for leaving the house during a high-transmission period. Surgical masks provide less protection for the wearer.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Disposable gloves — one box (100 count)</strong>
+            <span>For handling soiled laundry, cleaning contaminated surfaces, and direct care of a sick household member. Latex-free if allergies are present in the household.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>Disinfectant supplies — EPA-registered products</strong>
+            <span>Enough to clean high-touch surfaces multiple times daily for 10+ days. Disinfectant wipes, spray, and hand sanitizer. Not decorative cleaning products — look for EPA List N certification.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">Tier 1</span>
+            <strong>30-day prescription medication supply</strong>
+            <span>For any household member on daily medications. Many insurers allow 90-day fills. If pharmacy access is limited during an outbreak, a buffer prevents a medical crisis from overlapping with an illness event.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- MID-ARTICLE CTA -->
+    <div class="mid-cta">
+      <div class="mid-cta-text">
+        The guide's medical and special needs chapter covers prescription management, special needs planning, and the complete household medical supply framework.
+        <span>Including what to document for every household member before a health emergency makes documentation impossible.</span>
+      </div>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="mid-cta-btn">Get the Guide · $25 →</a>
+    </div>
+
+    <h2 id="home-quarantine">Household Isolation: The Layer Most Families Skip</h2>
+
+    <p>When one household member is sick with a contagious illness, the goal is to keep others healthy. That requires a workable isolation setup — which most households don't have and most preparedness guides don't address.</p>
+
+    <p><strong>Designate a sick room before you need one.</strong> A bedroom with a dedicated bathroom, if available, is ideal. The goal is to minimize the sick person's movement through shared spaces, particularly kitchens and shared bathrooms. Identify this room and have a conversation about the protocol before anyone gets sick.</p>
+
+    <p><strong>Separate laundry handling.</strong> Contaminated linens and clothing should be handled with gloves and washed at high heat separately from household laundry. This is the step most people skip because it feels excessive — and it's the step that prevents secondary spread within the household in many respiratory and GI illness outbreaks.</p>
+
+    <div class="callout callout-warning">
+      <div class="callout-label">When to escalate</div>
+      <p>Home management is appropriate for mild to moderate illness. <strong>Seek immediate care for: difficulty breathing, pulse ox reading below 95%, high fever unresponsive to medication, signs of dehydration despite oral intake, or altered consciousness.</strong> The pulse oximeter tells you the most important data point for respiratory illness escalation decisions.</p>
+    </div>
+
+    <h2 id="additional-supplies">Tier 2 Additions Once the Foundation Is Covered</h2>
+
+    <div class="checklist">
+      <div class="checklist-title">Tier 2 — add after Tier 1 is complete</div>
+      <ul>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Rapid at-home tests for relevant illnesses</strong>
+            <span>COVID-19, flu A/B, strep combo tests. Knowing what you're dealing with changes care decisions. Stock multiple per household member.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Saline nasal spray and humidifier</strong>
+            <span>Both reduce misery from upper respiratory illness significantly. Humidifier requires regular cleaning to prevent mold.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Zinc lozenges and vitamin D3</strong>
+            <span>Evidence-supported OTC options for reducing illness duration (zinc) and supporting immune function (vitamin D3 at adequate levels). Not treatments — supportive.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Tier 2</span>
+            <strong>Extra pillowcases and towels for sick room rotation</strong>
+            <span>Allows frequent linen changes without overloading the laundry. Small practical detail with real impact on comfort and hygiene during a 10-day illness event.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <h2 id="maintenance">Keep the Supply Current</h2>
+
+    <p>OTC medications expire. Tests lose accuracy past their expiration date. Disinfectant wipes dry out if improperly sealed. A supply layer that was built in 2022 and not checked since is not a supply layer.</p>
+
+    <p>Add a twice-yearly check to the same calendar refresh you do for your general emergency supplies: expiration dates on medications and tests, count on masks and gloves, disinfectant seal integrity. January and July, 20 minutes each. The household that does this check consistently is prepared when the next outbreak arrives — and there will be a next one.</p>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="article-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-label">In this article</div>
+      <ul class="toc-list">
+        <li><a href="#different-problem"><span class="toc-num">01</span> Different Problem</a></li>
+        <li><a href="#isolation-baseline"><span class="toc-num">02</span> Home Baseline</a></li>
+        <li><a href="#medical-supplies"><span class="toc-num">03</span> Medical Supplies</a></li>
+        <li><a href="#home-quarantine"><span class="toc-num">04</span> Home Isolation</a></li>
+        <li><a href="#additional-supplies"><span class="toc-num">05</span> Tier 2 Additions</a></li>
+        <li><a href="#maintenance"><span class="toc-num">06</span> Keep It Current</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-guide">
+      <div class="sidebar-guide-label">Family Emergency Preparedness Guide</div>
+      <h4>Medical chapter, special needs planning, and full supply checklists.</h4>
+      <p>Covers prescription management, household medical documentation, and the complete two-week supply framework.</p>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sidebar-guide-btn">Get the Guide · $25 →</a>
+    </div>
+  </aside>
+
+</div>
+
+<!-- RELATED POSTS -->
+<div class="related-section">
+  <div class="related-inner">
+    <div class="related-header">
+      <div class="related-title">Related guides</div>
+      <a href="blog.html" class="related-all">View all →</a>
+    </div>
+    <div class="related-grid">
+      <a href="home-emergency-preparedness-room-by-room.html" class="related-card">
+        <span class="related-cat">Home</span>
+        <h4>Home Emergency Preparedness: Room by Room</h4>
+        <p>Where to store what, what to keep accessible versus stashed, and the two upgrades under $20 most homeowners skip.</p>
+      </a>
+      <a href="how-much-water-to-store.html" class="related-card">
+        <span class="related-cat">Skills</span>
+        <h4>How Much Water to Store for Emergencies</h4>
+        <p>One gallon per person per day is the floor. During illness, fluid requirements increase significantly.</p>
+      </a>
+      <a href="what-happens-when-fema-cant-help-you.html" class="related-card">
+        <span class="related-cat">Planning</span>
+        <h4>What Happens When FEMA Can't Help You</h4>
+        <p>Federal disaster assistance is conditional, capped, and slow. Understanding the real limits changes how you plan.</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>
+    © 2026 Family Emergency Preparedness Guide. All rights reserved.
+    · <a href="privacy.html">Privacy Policy</a>
+    · <a href="terms.html">Terms</a>
+    · <a href="refunds.html">Refund Policy</a>
+    · <a href="mailto:support@emergencypreparednesschecklist.com">Contact</a>
+  </p>
+</footer>
+
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-left">Emergency Preparedness Guide <span>· All file formats for $25</span></div>
+  <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sticky-btn">Get the Guide Today →</a>
+</div>
+
+<script>
+  const progress = document.getElementById('readingProgress');
+  const article = document.getElementById('articleBody');
+  window.addEventListener('scroll', () => {
+    const rect = article.getBoundingClientRect();
+    const articleTop = rect.top + window.scrollY;
+    const articleHeight = article.offsetHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = Math.min(100, Math.max(0, (scrolled / articleHeight) * 100));
+    progress.style.width = pct + '%';
+  });
+
+  const articleHeader = document.querySelector('.article-header');
+  const stickyBar = document.getElementById('stickyBar');
+  const observer = new IntersectionObserver(
+    ([e]) => stickyBar.classList.toggle('visible', !e.isIntersecting),
+    { threshold: 0.1 }
+  );
+  observer.observe(articleHeader);
+</script>
+</body>
+</html>
