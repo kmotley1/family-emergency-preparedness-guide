@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building a Neighborhood Emergency Network — Emergency Preparedness Guide</title>
+  <meta name="description" content="You don't need a formal group or matching vests. You need three to five neighbors you trust and a shared understanding of who does what when something goes wrong.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white:    #FFFFFF;
+      --bg:       #F5F5F7;
+      --ink:      #1D1D1F;
+      --gray:     #6E6E73;
+      --gray-lt:  #E8E8ED;
+      --navy:     #1B4FBF;
+      --navy-dk:  #153D96;
+      --navy-lt:  #EEF2FB;
+      --green:    #2A7A4B;
+      --green-lt: #EAF5EE;
+      --amber:    #B45309;
+      --amber-lt: #FEF3C7;
+      --divider:  #D2D2D7;
+      --comm:     #BE123C;
+      --comm-lt:  #FFF1F2;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .reading-progress {
+      position: fixed;
+      top: 52px;
+      left: 0;
+      height: 2px;
+      background: var(--navy);
+      z-index: 199;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 0 40px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .nav-logo {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--navy); font-weight: 600; }
+
+    .nav-cta {
+      background: var(--navy) !important;
+      color: white !important;
+      padding: 8px 18px;
+      border-radius: 980px;
+      font-weight: 500 !important;
+      font-size: 13px !important;
+    }
+
+    .nav-cta:hover { background: var(--navy-dk) !important; }
+
+    .article-header {
+      padding: 100px 40px 64px;
+      background: var(--white);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .article-header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .article-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 28px;
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    .article-breadcrumb a { color: var(--navy); text-decoration: none; }
+    .article-breadcrumb a:hover { text-decoration: underline; }
+
+    .article-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--comm);
+      background: var(--comm-lt);
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .article-header h1 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .article-deck {
+      font-size: 19px;
+      line-height: 1.65;
+      color: var(--gray);
+      margin-bottom: 28px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 12px;
+      color: var(--gray);
+      font-family: 'JetBrains Mono', monospace;
+      padding-top: 20px;
+      border-top: 1px solid var(--divider);
+    }
+
+    .meta-divider { color: var(--divider); }
+
+    .article-layout {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 60px 40px 100px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .article-body h2 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 48px 0 16px;
+      line-height: 1.2;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+
+    .article-body p strong { color: var(--ink); font-weight: 600; }
+
+    .article-body a {
+      color: var(--navy);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .callout {
+      background: var(--navy-lt);
+      border-left: 3px solid var(--navy);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+
+    .callout-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .callout p {
+      font-size: 15px;
+      color: var(--ink);
+      margin: 0;
+      line-height: 1.65;
+    }
+
+    .callout p strong { color: var(--navy-dk); }
+
+    .callout-warning {
+      background: var(--amber-lt);
+      border-left-color: var(--amber);
+    }
+
+    .callout-warning .callout-label { color: var(--amber); }
+    .callout-warning p { color: var(--ink); }
+
+    .callout-comm {
+      background: var(--comm-lt);
+      border-left-color: var(--comm);
+    }
+
+    .callout-comm .callout-label { color: var(--comm); }
+    .callout-comm p { color: var(--ink); }
+
+    .checklist {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 32px 0;
+    }
+
+    .checklist-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    .checklist ul { list-style: none; }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gray-lt);
+      font-size: 15px;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .checklist li:last-child { border-bottom: none; }
+
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--green-lt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .check-icon svg { width: 11px; height: 11px; stroke: var(--green); }
+
+    .checklist li span {
+      font-size: 13px;
+      color: var(--gray);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .tier-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .tier-1 { background: var(--navy-lt); color: var(--navy); }
+    .tier-2 { background: var(--green-lt); color: var(--green); }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 32px 0;
+    }
+
+    .stat-mini {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-mini-num {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-mini-label {
+      font-size: 12px;
+      color: var(--gray);
+      line-height: 1.4;
+    }
+
+    .mid-cta {
+      background: var(--ink);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 48px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .mid-cta-text {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      line-height: 1.4;
+    }
+
+    .mid-cta-text span {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      display: block;
+      margin-top: 4px;
+    }
+
+    .mid-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: white;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 980px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+
+    .mid-cta-btn:hover { background: var(--bg); }
+
+    .article-sidebar { position: sticky; top: 72px; }
+
+    .sidebar-card {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .sidebar-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    .toc-list { list-style: none; }
+
+    .toc-list li {
+      padding: 7px 0;
+      border-bottom: 1px solid var(--gray-lt);
+    }
+
+    .toc-list li:last-child { border-bottom: none; }
+
+    .toc-list a {
+      font-size: 13px;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-list a:hover { color: var(--navy); }
+
+    .toc-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--divider);
+      width: 16px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-guide {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .sidebar-guide-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 12px;
+    }
+
+    .sidebar-guide h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .sidebar-guide p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .sidebar-guide-btn {
+      display: block;
+      background: white;
+      color: var(--navy);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px;
+      border-radius: 980px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .sidebar-guide-btn:hover { background: var(--bg); }
+
+    .related-section {
+      background: var(--bg);
+      padding: 80px 40px;
+      border-top: 1px solid var(--divider);
+    }
+
+    .related-inner { max-width: 1080px; margin: 0 auto; }
+
+    .related-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .related-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .related-all {
+      font-size: 14px;
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .related-card {
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: 16px;
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: all 0.2s;
+    }
+
+    .related-card:hover {
+      border-color: var(--navy);
+      box-shadow: 0 4px 20px rgba(27,79,191,0.07);
+      transform: translateY(-2px);
+    }
+
+    .related-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .cat-planning { color: var(--navy); background: var(--navy-lt); }
+    .cat-gear { color: var(--green); background: var(--green-lt); }
+    .cat-skills { color: var(--amber); background: var(--amber-lt); }
+
+    .related-card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .related-card p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--divider);
+      padding: 32px 40px;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    footer p { font-size: 13px; color: var(--gray); }
+    footer a { color: var(--navy); text-decoration: none; }
+
+    .sticky-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(29,29,31,0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 150;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .sticky-bar.visible { transform: translateY(0); }
+    .sticky-left { font-size: 14px; color: rgba(255,255,255,0.65); font-weight: 500; }
+    .sticky-left span { color: white; font-weight: 600; }
+
+    .sticky-btn {
+      background: white;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 28px;
+      border-radius: 980px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; gap: 0; }
+      .article-sidebar { display: none; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+      .stat-row { grid-template-columns: 1fr 1fr; }
+      nav { padding: 0 20px; }
+      .nav-links li:not(:last-child) { display: none; }
+      .article-header, .article-layout, .related-section { padding-left: 20px; padding-right: 20px; }
+      .mid-cta { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 600px) {
+      .related-grid { grid-template-columns: 1fr; }
+      .stat-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Prepared. Not scared.</a>
+  <ul class="nav-links">
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#inside">What's Inside</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">
+        Get the Guide →
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-breadcrumb">
+      <a href="blog.html">Blog</a>
+      <span>›</span>
+      <span>Community</span>
+    </div>
+    <span class="article-cat">Community</span>
+    <h1>Building a Neighborhood Emergency Network</h1>
+    <p class="article-deck">You don't need a formal group, a committee, or matching vests. You need three to five neighbors you trust and a shared understanding of who does what when something goes wrong. Here's how to build that — without making it weird.</p>
+    <div class="article-meta">
+      <span>March 2026</span>
+      <span class="meta-divider">·</span>
+      <span>7 min read</span>
+      <span class="meta-divider">·</span>
+      <span>From the Emergency Preparedness Guide</span>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE LAYOUT -->
+<div class="article-layout">
+
+  <article class="article-body" id="articleBody">
+
+    <p>After Hurricane Katrina in 2005, FEMA researchers studying neighborhood survival outcomes found one variable that predicted recovery speed better than income level, proximity to services, or individual preparedness: whether neighbors had relationships with each other before the storm. Households embedded in active social networks — people who knew names, shared resources informally, and checked on each other — recovered faster and with less permanent loss than isolated households with identical resources.</p>
+
+    <p>The research finding is not that community is nice to have. It is that community is a preparedness multiplier. A household with a two-week food supply and three trusted neighbors is more resilient than a household with a six-month supply and no relationships. The math works because no individual household can anticipate every scenario — but a small network of people with different skills, resources, and information channels covers far more ground.</p>
+
+    <div class="stat-row">
+      <div class="stat-mini">
+        <div class="stat-mini-num">3–5</div>
+        <div class="stat-mini-label">neighbors is the useful minimum for a functioning mutual aid network</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">72h</div>
+        <div class="stat-mini-label">the window where neighbor networks matter most — before outside help arrives</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">1 in 4</div>
+        <div class="stat-mini-label">Americans say they don't know any of their neighbors by name — the starting problem</div>
+      </div>
+    </div>
+
+    <h2 id="why-it-works">Why a Small Network Outperforms Solo Preparedness</h2>
+
+    <p>The limits of individual preparedness are physical and temporal. One household cannot watch its own property while evacuating, cannot assist an injured person and also secure a perimeter, cannot monitor radio traffic while cooking, cannot know what is happening two blocks away. A network of five households that have agreed on basic coordination distributes all of these tasks without requiring anyone to do more than their share.</p>
+
+    <p>The other thing a network provides is information. During the 2020 derecho that knocked out power across the Midwest for up to two weeks, households with neighborhood group chats had real-time updates on where ice was available, which roads were passable, when power was restored to specific areas, and which neighbors needed help. Households without those channels operated on rumor and made worse decisions as a result.</p>
+
+    <div class="callout callout-comm">
+      <div class="callout-label">The useful framing</div>
+      <p>Think of a neighborhood network as distributed capacity, not a club. You are not joining something or asking others to join something. You are identifying who is around you, what they have, and what they can do — and making sure they know the same about you. <strong>The network already exists. You are just making it legible.</strong></p>
+    </div>
+
+    <h2 id="who-to-include">Who to Include — and How to Assess It</h2>
+
+    <p>Start with geography, not ideology. The most useful neighbors in an emergency are the ones physically closest to you — not the ones whose politics or lifestyle choices most closely match yours. Proximity matters because it determines response time, shared infrastructure (same power grid, same water main, same evacuation route), and the ability to physically assist each other.</p>
+
+    <p>Within that geographic constraint, there are four qualities worth assessing before you invest in a relationship:</p>
+
+    <p><strong>Reliability in ordinary life.</strong> Someone who follows through on small commitments — returning borrowed items, showing up when they say they will — is likely to follow through under pressure. The inverse is also true. You learn this through low-stakes interactions before you need it for high-stakes ones.</p>
+
+    <p><strong>Practical skills or resources you lack.</strong> A neighbor with medical training, a generator, a truck capable of towing, a ham radio license, or significant food storage changes what your network can handle. You do not need to approach this transactionally — but knowing what each person brings changes how you coordinate.</p>
+
+    <p><strong>Awareness of their own surroundings.</strong> Some people notice things. They know which houses on the street are vacant, when new people have moved in, what the normal pattern of activity looks like. In an emergency, situational awareness is a scarce resource and people who naturally develop it are disproportionately valuable in a network.</p>
+
+    <p><strong>Stability.</strong> Renters turn over. Families move. Someone who has been in the neighborhood for several years and appears likely to remain is a more durable network node than someone who arrived six months ago and may leave in six more.</p>
+
+    <div class="callout callout-warning">
+      <div class="callout-label">Who to be cautious about</div>
+      <p>Exclude anyone who is volatile under stress, who talks significantly more than they act, or who treats emergency preparedness as primarily an identity rather than a practical project. <strong>A five-person network with one unreliable member is less functional than a four-person network without them.</strong> Keep the group small enough that each person's reliability can be assessed directly.</p>
+    </div>
+
+    <h2 id="how-to-start">How to Start the Conversation Without Making It Weird</h2>
+
+    <p>The most common reason people do not build neighborhood relationships is social friction — specifically, the fear that approaching a neighbor about emergency preparedness will read as alarmist, paranoid, or ideologically charged. This fear is usually overstated, but the framing of the initial conversation matters.</p>
+
+    <p>The conversation that works is not "I'm building an emergency preparedness network and I'd like you to join." That framing immediately requires the neighbor to evaluate a commitment they know nothing about. The conversation that works is much smaller: an exchange of phone numbers with a specific rationale.</p>
+
+    <p>"Hey — I realized we've been neighbors for two years and I don't have your number. Given everything going on lately, it seems like a good idea to have a way to reach each other if something happens on the street." That is the entire conversation. Most people say yes. Most people find it reasonable. No ideology required, no formal commitment asked for, no group to join.</p>
+
+    <p>From there, the relationship builds through ordinary interactions — and through low-stakes tests. Asking to borrow something. Offering to bring in a package. Mentioning something you noticed. These interactions reveal character and build the familiarity that makes coordination natural rather than awkward when the stakes are higher.</p>
+
+    <!-- MID-ARTICLE CTA -->
+    <div class="mid-cta">
+      <div class="mid-cta-text">
+        The Community Networks chapter includes a neighbor assessment worksheet and a community map template.
+        <span>Document what each household has, what they can do, and what they need — before you need to know it under pressure.</span>
+      </div>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="mid-cta-btn">Get the Guide · $25 →</a>
+    </div>
+
+    <h2 id="what-to-agree-on">What the Network Actually Needs to Agree On</h2>
+
+    <p>A neighborhood network does not need bylaws, regular meetings, or a formal structure. It needs four agreements, reached informally, that everyone remembers without having to look them up.</p>
+
+    <p><strong>A check-in signal.</strong> Something simple that indicates a household is okay — a porch light on, a flag in a window, a specific position of a planter. The absence of the signal after a defined period is the trigger to physically check on that household. This removes the ambiguity of "should I knock on their door" and replaces it with a shared, pre-agreed system.</p>
+
+    <p><strong>A shared communication channel.</strong> A group text thread is sufficient for most purposes. It should include every household in the network, have a clear name that everyone recognizes, and be used occasionally for non-emergency neighborhood information so it does not feel clinical when an actual emergency happens. A channel that only activates in emergencies is one where people may not notice messages quickly.</p>
+
+    <p><strong>Known vulnerabilities.</strong> Every network should know which households include people who will need assistance evacuating or sheltering — elderly residents, people with mobility limitations, households with infants, people who are medically dependent on power. This information does not need to be documented anywhere formal. It needs to be known by the people who would act on it.</p>
+
+    <p><strong>A loose resource map.</strong> Who has a generator. Who has significant food and water storage. Who has medical training. Who has a vehicle that can carry more than one household's worth of gear. Who has tools. None of this needs to be exhaustive — even a rough awareness of what exists in the network prevents redundant purchasing and reveals gaps worth filling.</p>
+
+    <div class="checklist">
+      <div class="checklist-title">Build sequence — in order</div>
+      <ul>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">First</span>
+            <strong>Exchange numbers with two to three immediate neighbors</strong>
+            <span>The ones physically closest. Use the straightforward framing above. This takes ten minutes and requires no commitment beyond a phone number.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">First</span>
+            <strong>Create a group text with those neighbors</strong>
+            <span>Name it something neutral — the street name works. Use it once or twice for non-emergency neighborhood information in the first month so it doesn't sit dormant.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-1">First</span>
+            <strong>Identify which households have people who need assistance</strong>
+            <span>You probably already know this from ordinary observation. If not, the phone number exchange conversation often surfaces it naturally.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Over time</span>
+            <strong>Build a loose mental map of resources in the network</strong>
+            <span>Through ordinary conversation. Not an interrogation — just paying attention when people mention what they have or what they do.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Over time</span>
+            <strong>Agree on a check-in signal</strong>
+            <span>Raise it as a practical question once the relationship is established. "If something happened and you couldn't reach anyone, what would be a good way to know you were okay?" Most people engage with this naturally.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <span class="tier-badge tier-2">Over time</span>
+            <strong>Expand to four or five households if the right people are available</strong>
+            <span>Bigger is not better past a point. Five households that coordinate well outperform fifteen that do not. Quality of relationship matters more than network size.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <h2 id="maintaining">Maintaining the Network Without It Becoming a Job</h2>
+
+    <p>The failure mode for neighborhood networks is attrition through over-formalization. Groups that schedule monthly meetings, assign roles, and produce documentation tend to collapse within a year because the overhead exceeds what ordinary neighbors are willing to sustain. The networks that persist are the ones where the maintenance cost is near zero.</p>
+
+    <p>Near-zero maintenance looks like: using the group text occasionally for genuinely useful neighborhood information. Waving when you see people. Noticing when something looks different and mentioning it. Helping when help is asked for. These are the behaviors that keep relationships functional without requiring anyone to treat preparedness as a hobby or a second job.</p>
+
+    <p>The one structured thing worth doing once a year is a five-minute check-in on whether the resource map has changed. Someone moved out and a new household moved in. Someone acquired a generator. Someone's medical situation changed. The group text is sufficient for this — it does not require a meeting.</p>
+
+    <div class="callout">
+      <div class="callout-label">The realistic version</div>
+      <p>Most of the value in a neighborhood network comes from the first two steps — exchanging numbers and knowing who needs help. Everything else improves on a foundation that already functions. <strong>Start there. The rest builds itself if the relationships are real.</strong></p>
+    </div>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="article-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-label">In this guide</div>
+      <ul class="toc-list">
+        <li><a href="#why-it-works"><span class="toc-num">01</span> Why Networks Outperform Solo Prep</a></li>
+        <li><a href="#who-to-include"><span class="toc-num">02</span> Who to Include</a></li>
+        <li><a href="#how-to-start"><span class="toc-num">03</span> How to Start the Conversation</a></li>
+        <li><a href="#what-to-agree-on"><span class="toc-num">04</span> What to Agree On</a></li>
+        <li><a href="#maintaining"><span class="toc-num">05</span> Maintaining Without Overhead</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-guide">
+      <div class="sidebar-guide-label">Family Emergency Preparedness Guide</div>
+      <h4>Community Networks chapter — neighbor assessment worksheet and community map template.</h4>
+      <p>Document skills, resources, and vulnerabilities across your network before you need to know them under pressure.</p>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sidebar-guide-btn">Get the Guide · $25 →</a>
+    </div>
+  </aside>
+
+</div>
+
+<!-- RELATED POSTS -->
+<div class="related-section">
+  <div class="related-inner">
+    <div class="related-header">
+      <div class="related-title">Related guides</div>
+      <a href="blog.html" class="related-all">View all →</a>
+    </div>
+    <div class="related-grid">
+      <a href="family-emergency-plan-template.html" class="related-card">
+        <span class="related-cat cat-planning">Planning</span>
+        <h4>Family Emergency Plan Template: The 45-Minute Conversation</h4>
+        <p>The household plan that complements a neighborhood network — where to go, who decides, how to reach each other.</p>
+      </a>
+      <a href="how-to-prepare-your-family-for-civil-unrest.html" class="related-card">
+        <span class="related-cat cat-planning">Planning</span>
+        <h4>How to Prepare Your Family for Civil Unrest</h4>
+        <p>Civil unrest is the scenario where neighborhood networks matter most — and where isolation is the highest-risk position.</p>
+      </a>
+      <a href="how-to-build-a-long-term-food-supply.html" class="related-card">
+        <span class="related-cat cat-skills">Skills</span>
+        <h4>How to Build a Long-Term Food Supply (Not Just a Stockpile)</h4>
+        <p>Local sourcing and CSA relationships extend the community network logic into the food supply chain.</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>
+    © 2026 Family Emergency Preparedness Guide. All rights reserved.
+    · <a href="privacy.html">Privacy Policy</a>
+    · <a href="terms.html">Terms</a>
+    · <a href="refunds.html">Refund Policy</a>
+    · <a href="mailto:support@emergencypreparednesschecklist.com">Contact</a>
+  </p>
+</footer>
+
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-left">Family Emergency Preparedness Guide <span>· All file formats for $25</span></div>
+  <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sticky-btn">Get the Guide →</a>
+</div>
+
+<script>
+  const progress = document.getElementById('readingProgress');
+  const article = document.getElementById('articleBody');
+  window.addEventListener('scroll', () => {
+    const rect = article.getBoundingClientRect();
+    const articleTop = rect.top + window.scrollY;
+    const articleHeight = article.offsetHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = Math.min(100, Math.max(0, (scrolled / articleHeight) * 100));
+    progress.style.width = pct + '%';
+  });
+
+  const articleHeader = document.querySelector('.article-header');
+  const stickyBar = document.getElementById('stickyBar');
+  const observer = new IntersectionObserver(
+    ([e]) => stickyBar.classList.toggle('visible', !e.isIntersecting),
+    { threshold: 0.1 }
+  );
+  observer.observe(articleHeader);
+</script>
+</body>
+</html>
