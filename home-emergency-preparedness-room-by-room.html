@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Emergency Preparedness: Room by Room — Emergency Preparedness Guide</title>
+  <meta name="description" content="Kitchen, bedroom, garage, utility room. Where to store what, what to keep accessible versus stashed, and the two upgrades under $20 that most homeowners skip.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white:    #FFFFFF;
+      --bg:       #F5F5F7;
+      --ink:      #1D1D1F;
+      --gray:     #6E6E73;
+      --gray-lt:  #E8E8ED;
+      --navy:     #1B4FBF;
+      --navy-dk:  #153D96;
+      --navy-lt:  #EEF2FB;
+      --green:    #2A7A4B;
+      --green-lt: #EAF5EE;
+      --amber:    #B45309;
+      --amber-lt: #FEF3C7;
+      --divider:  #D2D2D7;
+      --home:     #6B21A8;
+      --home-lt:  #F3E8FF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .reading-progress {
+      position: fixed;
+      top: 52px; left: 0;
+      height: 2px;
+      background: var(--navy);
+      z-index: 199;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 0 40px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .nav-logo { font-size: 14px; font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--gray); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--navy); font-weight: 600; }
+    .nav-cta { background: var(--navy) !important; color: white !important; padding: 8px 18px; border-radius: 980px; font-weight: 500 !important; font-size: 13px !important; }
+    .nav-cta:hover { background: var(--navy-dk) !important; }
+
+    .article-header { padding: 100px 40px 64px; background: var(--white); border-bottom: 1px solid var(--divider); }
+    .article-header-inner { max-width: 720px; margin: 0 auto; }
+
+    .article-breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; font-size: 13px; color: var(--gray); }
+    .article-breadcrumb a { color: var(--navy); text-decoration: none; }
+    .article-breadcrumb a:hover { text-decoration: underline; }
+
+    .article-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--home); background: var(--home-lt);
+      padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 20px;
+    }
+
+    .article-header h1 { font-size: clamp(32px, 4vw, 48px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; color: var(--ink); margin-bottom: 20px; }
+    .article-deck { font-size: 19px; line-height: 1.65; color: var(--gray); margin-bottom: 28px; }
+    .article-meta { display: flex; align-items: center; gap: 20px; font-size: 12px; color: var(--gray); font-family: 'JetBrains Mono', monospace; padding-top: 20px; border-top: 1px solid var(--divider); }
+    .meta-divider { color: var(--divider); }
+
+    .article-layout { max-width: 1080px; margin: 0 auto; padding: 60px 40px 100px; display: grid; grid-template-columns: 1fr 300px; gap: 80px; align-items: start; }
+
+    .article-body h2 { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); margin: 48px 0 16px; line-height: 1.2; }
+    .article-body h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); margin: 32px 0 10px; }
+    .article-body p { font-size: 17px; line-height: 1.8; color: var(--gray); margin-bottom: 20px; }
+    .article-body p strong { color: var(--ink); font-weight: 600; }
+    .article-body a { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* Room block */
+    .room-block { border: 1px solid var(--divider); border-radius: 16px; overflow: hidden; margin: 36px 0; }
+
+    .room-header {
+      background: var(--home-lt);
+      border-bottom: 1px solid rgba(107,33,168,0.12);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .room-icon { font-size: 20px; flex-shrink: 0; }
+
+    .room-title { font-size: 17px; font-weight: 700; color: var(--home); letter-spacing: -0.01em; }
+
+    .room-body { padding: 20px 24px 24px; background: var(--bg); }
+    .room-body p { font-size: 15px; line-height: 1.7; color: var(--gray); margin-bottom: 14px; }
+    .room-body p:last-of-type { margin-bottom: 0; }
+    .room-body p strong { color: var(--ink); font-weight: 600; }
+
+    .room-items { margin-top: 16px; display: flex; flex-direction: column; gap: 0; }
+
+    .room-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--gray-lt);
+      font-size: 14px;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .room-item:last-child { border-bottom: none; }
+
+    .room-item-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--home);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    .room-item span { font-size: 12px; color: var(--gray); display: block; margin-top: 2px; }
+
+    .callout {
+      background: var(--navy-lt);
+      border-left: 3px solid var(--navy);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+
+    .callout-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--navy); margin-bottom: 8px;
+    }
+
+    .callout p { font-size: 15px; color: var(--ink); margin: 0; line-height: 1.65; }
+    .callout p strong { color: var(--navy-dk); }
+
+    .callout-warning { background: var(--amber-lt); border-left-color: var(--amber); }
+    .callout-warning .callout-label { color: var(--amber); }
+    .callout-warning p { color: var(--ink); }
+
+    /* $20 upgrades block */
+    .upgrade-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0; }
+
+    .upgrade-card {
+      background: var(--bg);
+      border-radius: 14px;
+      padding: 22px;
+      border: 1px solid var(--gray-lt);
+    }
+
+    .upgrade-price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.08em;
+      color: var(--green); background: var(--green-lt);
+      padding: 3px 8px; border-radius: 4px;
+      display: inline-block; margin-bottom: 10px;
+    }
+
+    .upgrade-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px; letter-spacing: -0.01em; }
+    .upgrade-desc { font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+    .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 32px 0; }
+    .stat-mini { background: var(--bg); border-radius: 12px; padding: 20px; text-align: center; }
+    .stat-mini-num { font-size: 32px; font-weight: 700; letter-spacing: -0.04em; color: var(--navy); line-height: 1; margin-bottom: 6px; }
+    .stat-mini-label { font-size: 12px; color: var(--gray); line-height: 1.4; }
+
+    .mid-cta { background: var(--ink); border-radius: 16px; padding: 32px; margin: 48px 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .mid-cta-text { font-size: 16px; font-weight: 600; color: white; line-height: 1.4; }
+    .mid-cta-text span { font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.55); display: block; margin-top: 4px; }
+    .mid-cta-btn { display: inline-flex; align-items: center; gap: 6px; background: white; color: var(--navy); font-size: 14px; font-weight: 600; padding: 12px 24px; border-radius: 980px; text-decoration: none; white-space: nowrap; transition: background 0.15s; }
+    .mid-cta-btn:hover { background: var(--bg); }
+
+    .article-sidebar { position: sticky; top: 72px; }
+    .sidebar-card { background: var(--bg); border-radius: 16px; padding: 24px; margin-bottom: 16px; }
+    .sidebar-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; }
+    .toc-list { list-style: none; }
+    .toc-list li { padding: 7px 0; border-bottom: 1px solid var(--gray-lt); }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { font-size: 13px; color: var(--gray); text-decoration: none; transition: color 0.15s; display: flex; align-items: center; gap: 8px; }
+    .toc-list a:hover { color: var(--navy); }
+    .toc-num { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--divider); width: 16px; flex-shrink: 0; }
+    .sidebar-guide { background: var(--navy); border-radius: 16px; padding: 24px; }
+    .sidebar-guide-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 12px; }
+    .sidebar-guide h4 { font-size: 16px; font-weight: 600; color: white; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .sidebar-guide p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 16px; }
+    .sidebar-guide-btn { display: block; background: white; color: var(--navy); text-align: center; font-size: 13px; font-weight: 600; padding: 10px; border-radius: 980px; text-decoration: none; transition: background 0.15s; }
+    .sidebar-guide-btn:hover { background: var(--bg); }
+
+    .related-section { background: var(--bg); padding: 80px 40px; border-top: 1px solid var(--divider); }
+    .related-inner { max-width: 1080px; margin: 0 auto; }
+    .related-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 32px; }
+    .related-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+    .related-all { font-size: 14px; color: var(--navy); text-decoration: none; font-weight: 500; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .related-card { background: var(--white); border: 1px solid var(--divider); border-radius: 16px; padding: 24px; text-decoration: none; color: inherit; display: block; transition: all 0.2s; }
+    .related-card:hover { border-color: var(--navy); box-shadow: 0 4px 20px rgba(27,79,191,0.07); transform: translateY(-2px); }
+    .related-cat { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; display: inline-block; margin-bottom: 12px; }
+    .cat-planning { color: var(--navy); background: var(--navy-lt); }
+    .cat-gear { color: var(--green); background: var(--green-lt); }
+    .cat-home { color: var(--home); background: var(--home-lt); }
+    .related-card h4 { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.35; color: var(--ink); margin-bottom: 8px; }
+    .related-card p { font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+    footer { background: var(--bg); border-top: 1px solid var(--divider); padding: 32px 40px; text-align: center; margin-bottom: 80px; }
+    footer p { font-size: 13px; color: var(--gray); }
+    footer a { color: var(--navy); text-decoration: none; }
+
+    .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(29,29,31,0.96); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 14px 40px; display: flex; align-items: center; justify-content: space-between; z-index: 150; transform: translateY(100%); transition: transform 0.3s ease; border-top: 1px solid rgba(255,255,255,0.06); }
+    .sticky-bar.visible { transform: translateY(0); }
+    .sticky-left { font-size: 14px; color: rgba(255,255,255,0.65); font-weight: 500; }
+    .sticky-left span { color: white; font-weight: 600; }
+    .sticky-btn { background: white; color: var(--navy); font-size: 14px; font-weight: 600; padding: 10px 28px; border-radius: 980px; text-decoration: none; white-space: nowrap; }
+
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; gap: 0; }
+      .article-sidebar { display: none; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+      .stat-row { grid-template-columns: 1fr 1fr; }
+      .upgrade-grid { grid-template-columns: 1fr; }
+      nav { padding: 0 20px; }
+      .nav-links li:not(:last-child) { display: none; }
+      .article-header, .article-layout, .related-section { padding-left: 20px; padding-right: 20px; }
+      .mid-cta { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 600px) {
+      .related-grid { grid-template-columns: 1fr; }
+      .stat-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Prepared. Not scared.</a>
+  <ul class="nav-links">
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#inside">What's Inside</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">Get the Guide →</a></li>
+  </ul>
+</nav>
+
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-breadcrumb">
+      <a href="blog.html">Blog</a>
+      <span>›</span>
+      <span>Home</span>
+    </div>
+    <span class="article-cat">Home</span>
+    <h1>Home Emergency Preparedness: Room by Room</h1>
+    <p class="article-deck">Kitchen, bedroom, garage, utility room. Where to store what, what to keep accessible versus stashed, and the two upgrades under $20 that most homeowners skip.</p>
+    <div class="article-meta">
+      <span>March 2026</span>
+      <span class="meta-divider">·</span>
+      <span>6 min read</span>
+      <span class="meta-divider">·</span>
+      <span>From the Emergency Preparedness Guide</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+
+  <article class="article-body" id="articleBody">
+
+    <p>Most preparedness guides treat storage as a single question: how much to have. The better question is where things live. The right item in the wrong location fails at exactly the moment it's needed — the flashlight in the garage when the power goes out at 2am, the first aid kit in the kitchen cabinet when someone is hurt in the backyard. Location determines whether preparedness is theoretical or functional.</p>
+
+    <p>What follows is a room-by-room breakdown of what belongs where and why. It applies to any house. The principle throughout is the same: <strong>the things you reach for first need to be accessible without thought, and the things you store for extended disruptions need to be organized so you can inventory them in under five minutes.</strong></p>
+
+    <div class="stat-row">
+      <div class="stat-mini">
+        <div class="stat-mini-num">4</div>
+        <div class="stat-mini-label">rooms that determine whether a home is genuinely prepared or just stocked</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">&lt;$20</div>
+        <div class="stat-mini-label">cost of the two most commonly skipped home preparedness upgrades</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">2×/yr</div>
+        <div class="stat-mini-label">how often a room-by-room review takes — January and July, same as go-bag maintenance</div>
+      </div>
+    </div>
+
+    <h2 id="kitchen">Kitchen</h2>
+
+    <p>The kitchen is where food and water storage live, and where most household emergencies get managed. It is also where the most common preparedness mistake happens: storing emergency supplies in cabinets so crowded they cannot be accessed quickly or inventoried accurately.</p>
+
+    <p>The kitchen's role in the preparedness system is the rotating pantry — shelf-stable staples bought at today's prices, pulled from the front, restocked from the back. This is not a dedicated emergency shelf separate from everyday food. It is the everyday pantry managed with more depth and more intention.</p>
+
+    <div class="room-block">
+      <div class="room-header">
+        <span class="room-icon">🍳</span>
+        <span class="room-title">Kitchen — what belongs here</span>
+      </div>
+      <div class="room-body">
+        <p><strong>Accessible at all times:</strong> a working flashlight or headlamp within arm's reach of the main cooking area. When power goes out mid-meal, this is the first thing reached for. A drawer near the stove is the right location — not a cabinet, not a shelf across the room.</p>
+        <p><strong>Pantry depth:</strong> 2 to 4 weeks of shelf-stable staples your household actually eats. Rice, dried beans, canned fish, pasta, oats, nut butter, canned tomatoes, olive oil. Organized front-to-back by date so the oldest items are always used first.</p>
+        <p><strong>Water storage:</strong> At minimum, enough water for 72 hours under the kitchen sink or in a nearby closet. For longer storage, food-grade 7-gallon containers in a utility room or garage. What lives in the kitchen is the working supply — what's stored elsewhere is the reserve.</p>
+        <div class="room-items">
+          <div class="room-item"><div class="room-item-dot"></div><div><strong>Manual can opener</strong><span>Not electric. Stored in a kitchen drawer, not in a box with camping gear.</span></div></div>
+          <div class="room-item"><div class="room-item-dot"></div><div><strong>Flashlight or headlamp</strong><span>In a drawer near the stove. Batteries checked twice a year.</span></div></div>
+          <div class="room-item"><div class="room-item-dot"></div><div><strong>Lighter and matches</strong><span>For gas stoves that lose ignition during power outages. Both — lighters fail cold, matches fail wet.</span></div></div>
+          <div class="room-item"><div class="room-item-dot"></div><div><strong>72-hour water supply</strong><span>Under the sink or in the closest accessible storage. 1 gallon per person per day minimum.</span></div></div>
+          <div class="room-item"><div class="room-item-dot"></div><div><strong>2 to 4-week rotating pantry</strong><span>Organized FIFO — oldest items in front. Inventory takes 5 minutes when properly organized.</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="bedroom">Bedroom</h2>
+
+    <p>The bedroom is the room where most people are when nighttime emergencies happen — fires, medical events, severe weather. The preparedness problem with bedrooms is that they are almost always the least prepared room in a house, because nothing in normal life creates a reason to store emergency supplies there.</p>
+
+    <p>The bedroom's role in the system is immediate response: the items that cover the first five minutes of an emergency at night. That window — between something happening and being able to get to the rest of the house — is when being underprepared costs the most.</p>
+
+    <div class="room-block">
+      <div class="room-header">
+        <span class="room-icon">🛏</span>
+        <span class="room-title">Bedroom — what belongs here</span>
+      </div>
+      <div class="room-body">
+        <p><strong>Nightstand essentials:</strong> A headlamp lives on or in the nightstand — not a flashlight that rolls off, a headlamp that stays on your head and keeps hands free. Glasses if you wear them go in the same location every night without exception. Shoes that can be put on in the dark in under ten seconds.</p>
+        <p><strong>Shoes specifically:</strong> After earthquakes and structure fires, one of the most common injuries is foot lacerations from broken glass or debris. People who sleep in second-floor bedrooms and cannot reach their shoes during an evacuation are hobbled before they start. A pair of closed-toe shoes lives under the bed or at the bedside, always.</p>
+        <div class="room-items">
+          <div class="room-item"><div class="room-item-dot"></div><div><strong>Headlamp on nightstand</strong><span>Not in a drawer. On the surface, within arm's reach from a lying position.</span></div></div>
+          <div class="room-item"><div class="room-item-dot"></div><div><strong>Shoes at bedside</strong><span>Closed-toe. Under the bed or directly beside it. This single habit prevents the most common evacuation injury.</span></div></div>
+          <div class="room-item"><div class="room-item-dot"></div><div><strong>Phone charged nightly</strong><span>On a charger, not face-down across the room. Full battery at sleep means full battery at 3am.</span></div></div>
+          <div class="room-item"><div class="room-item-dot"></div><div><strong>Go-bag within 60 seconds</strong><span>Does not need to be in the bedroom — but you need to be able to reach it in the dark without thinking about where it is.</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MID CTA -->
+    <div class="mid-cta">
+      <div class="mid-cta-text">
+        The Home Hardening chapter includes a complete checklist covering security, utility shutoffs, fire safety, and shelter-in-place supplies.
+        <span>Print it, walk the house once, and know exactly what's covered and what still needs attention.</span>
+      </div>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="mid-cta-btn">Get the Guide · $25 →</a>
+    </div>
+
+    <h2 id="garage">Garage</h2>
+
+    <p>The garage is where most households already store the largest preparedness assets — tools, vehicles, fuel — without thinking of them as preparedness assets. The gap is usually not what's there but whether it can be accessed and used quickly when needed.</p>
+
+    <p>The most common garage preparedness failure is the electric garage door. Approximately 70% of homes with attached garages use the garage as the primary point of entry and exit. During a power outage, the garage door opener stops working. Households that have never learned to use the manual release — the red cord hanging from the opener track — are locked in or out of their own garage during the emergency when they most need it.</p>
+
+    <div class="callout callout-warning">
+      <div class="callout-label">The one thing to do today</div>
+      <p>Pull the red manual release cord on your garage door opener right now and practice disengaging it. Takes thirty seconds. The cord releases the trolley from the drive mechanism so the door can be lifted by hand. <strong>Every adult in the household should know how to do this before they need to do it in the dark.</strong></p>
+    </div>
+
+    <div class="room-block">
+      <div class="room-header">
+        <span class="room-icon">🚗</span>
+        <span class="room-title">Garage — what belongs here</span>
+      </div>
+      <div class="room-body">
+        <p><strong>Vehicle:</strong> Kept above half a tank as a standing rule. During emergencies, gas stations either close, run out, or have long lines within hours. A full tank at the start of an event is a significant preparedness asset. Half-tank-minimum is the habit that ensures it.</p>
+        <p><strong>Water reserve:</strong> Food-grade 7-gallon containers on shelving, off the concrete floor. This is where the bulk of stored water lives — the kitchen supply is working stock, the garage supply is the reserve.</p>
+        <p><strong>Tools:</strong> A battery-powered or hand-crank radio, a pipe wrench for shutting off the gas main, a fire extinguisher (ABC-rated, serviced within the last year), and a basic set of hand tools for clearing debris. Most of these are already in most garages — the question is whether everyone in the household knows where they are.</p>
+        <div class="room-items">
+          <div class="room-item"><div class="room-item-dot"></div><div><strong>Vehicle — half tank minimum at all times</strong><span>Fill at half, not at empty. This habit is free and requires nothing beyond changing when you stop for gas.</span></div></div>
+          <div class="room-item"><div class="room-item-dot"></div><div><strong>Bulk water storage</strong><span>Food-grade HDPE containers on shelving, off the floor. Labeled with fill dates. Rotated every 6 months.</span></div></div>
+          <div class="room-item"><div class="room-item-dot"></div><div><strong>ABC fire extinguisher</strong><span>Mounted accessible, not buried. Serviced or replaced within the last year — check the gauge.</span></div></div>
+          <div class="room-item"><div class="room-item-dot"></div><div><strong>Gas shutoff wrench</strong><span>A 12-inch adjustable pipe wrench. Hung near the garage door. Every adult knows where the gas main shutoff is.</span></div></div>
+          <div class="room-item"><div class="room-item-dot"></div><div><strong>Manual garage door release — practiced</strong><span>Not just present. Everyone has done it at least once in normal conditions.</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="utility">Utility Room and First Aid</h2>
+
+    <p>The utility room — or wherever circuit breakers, the water main shutoff, and the HVAC system live — is the most neglected preparedness zone in most homes. The reason is that it only matters in specific scenarios. The cost of neglecting it in those scenarios is high.</p>
+
+    <p>Three things need to be true about this space. First, every adult in the household knows where the main circuit breaker panel is and how to shut off individual circuits or the whole panel. Second, everyone knows where the main water shutoff is and has physically turned it before. Third, the space is clean enough to navigate in the dark — no boxes stacked in front of the panel, no clutter blocking the shutoffs.</p>
+
+    <div class="room-block">
+      <div class="room-header">
+        <span class="room-icon">🔧</span>
+        <span class="room-title">Utility Room — what belongs here</span>
+      </div>
+      <div class="room-body">
+        <p><strong>First aid kit:</strong> If there is no other obvious central location in the house, the utility room or a nearby hallway closet is where the main household first aid kit lives. It should be labeled, accessible without moving anything else, and inventoried twice a year for expired items.</p>
+        <p><strong>Circuit panel:</strong> Breakers labeled accurately. Take twenty minutes now to verify every label matches the circuit it controls — most homes have at least a few that are wrong or blank. A wrong label during a live electrical situation is worse than no label.</p>
+        <p><strong>Water shutoff:</strong> Known location, physically practiced. In older homes the main shutoff may require a special tool — a water meter key — which should be stored within arm's reach of the shutoff itself.</p>
+        <div class="room-items">
+          <div class="room-item"><div class="room-item-dot"></div><div><strong>Labeled circuit breaker panel</strong><span>Verified, not assumed. Each breaker matched to the actual room or appliance it controls.</span></div></div>
+          <div class="room-item"><div class="room-item-dot"></div><div><strong>Water main shutoff — known and practiced</strong><span>Physically turned at least once. Water meter key stored nearby if required.</span></div></div>
+          <div class="room-item"><div class="room-item-dot"></div><div><strong>Main household first aid kit</strong><span>Accessible without moving anything. Inventoried twice a year. Labeled on the outside.</span></div></div>
+          <div class="room-item"><div class="room-item-dot"></div><div><strong>Spare batteries — organized by size</strong><span>AA, AAA, 9V. In a labeled container. Checked annually — batteries self-discharge and corrode.</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="upgrades">The Two Upgrades Under $20 Most Homeowners Skip</h2>
+
+    <p>These are not obscure items. They are sold at every hardware store. The reason most households do not have them is not cost — it is that nothing in ordinary life creates a compelling moment to buy them. An emergency creates that moment, but by then it is too late.</p>
+
+    <div class="upgrade-grid">
+      <div class="upgrade-card">
+        <div class="upgrade-price">Under $15</div>
+        <div class="upgrade-title">Door security bar</div>
+        <div class="upgrade-desc">Wedges under a door handle and braces against the floor. Adds significant resistance to forced entry without any installation. Works on any inward-opening door. No tools, no landlord permission, no permanent modification. Most households have zero door security beyond a standard lock that can be kicked in with one good hit. This changes that for the cost of a lunch.</div>
+      </div>
+      <div class="upgrade-card">
+        <div class="upgrade-price">Under $20</div>
+        <div class="upgrade-title">Carbon monoxide detector — one per sleeping area</div>
+        <div class="upgrade-desc">CO is colorless and odorless. It kills in hours at high concentrations and causes permanent neurological damage at low ones. Generator use during power outages — one of the most common emergency scenarios — is the leading cause of non-fire CO poisoning in the US. Most homes have smoke detectors in every room and zero CO detectors. A $15 plug-in unit per sleeping area closes a gap that costs lives every year.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">The room-by-room review schedule</div>
+      <p>Walk the house twice a year — January 1 and July 1, same as go-bag maintenance. Check food and water dates in the kitchen. Check batteries in the bedroom and utility room. Verify the fire extinguisher gauge in the garage. Confirm the first aid kit is still stocked. <strong>The whole walk takes 20 minutes and keeps the system current without requiring any ongoing attention between reviews.</strong></p>
+    </div>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="article-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-label">In this guide</div>
+      <ul class="toc-list">
+        <li><a href="#kitchen"><span class="toc-num">01</span> Kitchen</a></li>
+        <li><a href="#bedroom"><span class="toc-num">02</span> Bedroom</a></li>
+        <li><a href="#garage"><span class="toc-num">03</span> Garage</a></li>
+        <li><a href="#utility"><span class="toc-num">04</span> Utility Room</a></li>
+        <li><a href="#upgrades"><span class="toc-num">05</span> Two Upgrades Under $20</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-guide">
+      <div class="sidebar-guide-label">Family Emergency Preparedness Guide</div>
+      <h4>Home Hardening chapter — security, utility shutoffs, fire safety, and shelter-in-place supplies.</h4>
+      <p>A complete checklist to walk through once. Know exactly what's covered and what still needs attention.</p>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sidebar-guide-btn">Get the Guide · $25 →</a>
+    </div>
+  </aside>
+
+</div>
+
+<!-- RELATED POSTS -->
+<div class="related-section">
+  <div class="related-inner">
+    <div class="related-header">
+      <div class="related-title">Related guides</div>
+      <a href="blog.html" class="related-all">View all →</a>
+    </div>
+    <div class="related-grid">
+      <a href="emergency-preparedness-for-apartment-dwellers.html" class="related-card">
+        <span class="related-cat cat-home">Home</span>
+        <h4>Emergency Preparedness for Apartment Dwellers</h4>
+        <p>The same room-by-room logic adapted for renters — what changes without a garage or utility room, and what doesn't.</p>
+      </a>
+      <a href="how-to-build-a-go-bag.html" class="related-card">
+        <span class="related-cat cat-gear">Gear</span>
+        <h4>How to Build a 72-Hour Go-Bag for Families</h4>
+        <p>Once the house is set up, the bag is what leaves with you. What to pack, how heavy to go, how to maintain it.</p>
+      </a>
+      <a href="family-emergency-plan-template.html" class="related-card">
+        <span class="related-cat cat-planning">Planning</span>
+        <h4>Family Emergency Plan Template: The 45-Minute Conversation</h4>
+        <p>The house is prepared. Now the plan — where to go, who decides, what to do if you're separated.</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>
+    © 2026 Family Emergency Preparedness Guide. All rights reserved.
+    · <a href="privacy.html">Privacy Policy</a>
+    · <a href="terms.html">Terms</a>
+    · <a href="refunds.html">Refund Policy</a>
+    · <a href="mailto:support@emergencypreparednesschecklist.com">Contact</a>
+  </p>
+</footer>
+
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-left">Family Emergency Preparedness Guide <span>· All file formats for $25</span></div>
+  <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sticky-btn">Get the Guide →</a>
+</div>
+
+<script>
+  const progress = document.getElementById('readingProgress');
+  const article = document.getElementById('articleBody');
+  window.addEventListener('scroll', () => {
+    const rect = article.getBoundingClientRect();
+    const articleTop = rect.top + window.scrollY;
+    const articleHeight = article.offsetHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = Math.min(100, Math.max(0, (scrolled / articleHeight) * 100));
+    progress.style.width = pct + '%';
+  });
+
+  const articleHeader = document.querySelector('.article-header');
+  const stickyBar = document.getElementById('stickyBar');
+  const observer = new IntersectionObserver(
+    ([e]) => stickyBar.classList.toggle('visible', !e.isIntersecting),
+    { threshold: 0.1 }
+  );
+  observer.observe(articleHeader);
+</script>
+</body>
+</html>
