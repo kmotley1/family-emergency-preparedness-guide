@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1D1D1F; --gray: #6E6E73; --gray-lt: #E8E8ED;
+      --bg: #F5F5F7; --white: #FFFFFF;
+      --navy: #1B4FBF; --navy-dk: #153D96; --navy-lt: #EEF2FB;
+      --green: #2A7A4B; --green-lt: #EAF5EE;
+      --amber: #B45309; --amber-lt: #FEF3C7;
+      --red: #DC2626; --divider: #D2D2D7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); }
+
+    nav {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--divider);
+      padding: 0 24px; height: 52px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+    }
+
+    .nav-left { display: flex; align-items: center; gap: 12px; }
+
+    .back-btn {
+      font-size: 13px; color: var(--gray); text-decoration: none;
+      display: flex; align-items: center; gap: 4px;
+    }
+
+    .back-btn:hover { color: var(--ink); }
+
+    .article-title {
+      font-size: 14px; font-weight: 600;
+      max-width: 500px; overflow: hidden;
+      text-overflow: ellipsis; white-space: nowrap;
+    }
+
+    .nav-actions { display: flex; gap: 8px; }
+
+    .btn {
+      font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500;
+      padding: 7px 14px; border-radius: 7px; border: none; cursor: pointer;
+      transition: all 0.15s; display: inline-flex; align-items: center; gap: 6px;
+    }
+
+    .btn-primary { background: var(--navy); color: white; }
+    .btn-primary:hover { background: var(--navy-dk); }
+    .btn-ghost { background: transparent; color: var(--gray); border: 1px solid var(--divider); }
+    .btn-ghost:hover { background: var(--white); color: var(--ink); }
+    .btn-success { background: var(--green); color: white; }
+    .btn-amber { background: var(--amber); color: white; }
+    .btn-danger { background: var(--red); color: white; }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* LAYOUT */
+    .preview-layout {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      height: calc(100vh - 52px);
+    }
+
+    /* IFRAME PREVIEW */
+    .preview-pane {
+      position: relative;
+      background: var(--white);
+      border-right: 1px solid var(--divider);
+    }
+
+    #previewFrame {
+      width: 100%; height: 100%; border: none;
+    }
+
+    /* SIDE PANEL */
+    .side-panel {
+      background: var(--white);
+      overflow-y: auto;
+      padding: 20px;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+
+    .panel-section {
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .panel-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--gray);
+      margin-bottom: 10px;
+    }
+
+    .panel-field { margin-bottom: 12px; }
+    .panel-field:last-child { margin-bottom: 0; }
+
+    .field-label {
+      font-size: 11px; font-weight: 500; color: var(--gray);
+      margin-bottom: 4px;
+    }
+
+    .field-value {
+      font-size: 13px; color: var(--ink); line-height: 1.5;
+    }
+
+    .field-value.mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; color: var(--navy);
+    }
+
+    /* EDIT MODE */
+    .edit-area {
+      width: 100%; font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; line-height: 1.6;
+      border: 1px solid var(--divider); border-radius: 8px;
+      padding: 10px; outline: none; resize: vertical;
+      min-height: 120px; background: var(--white);
+    }
+
+    .edit-area:focus { border-color: var(--navy); }
+
+    .html-editor {
+      min-height: 400px;
+      font-size: 11px;
+    }
+
+    /* ACTION STRIP */
+    .action-strip {
+      display: flex; flex-direction: column; gap: 8px;
+    }
+
+    .action-strip .btn { width: 100%; justify-content: center; }
+
+    /* SOURCE INFO */
+    .source-link {
+      font-size: 12px; color: var(--navy); text-decoration: none;
+      word-break: break-all;
+    }
+
+    .source-link:hover { text-decoration: underline; }
+
+    /* TOAST */
+    .toast {
+      position: fixed; bottom: 20px; right: 20px;
+      background: var(--ink); color: white;
+      font-size: 13px; font-weight: 500;
+      padding: 10px 18px; border-radius: 8px;
+      transform: translateY(60px); opacity: 0;
+      transition: all 0.2s ease; z-index: 999;
+    }
+
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast.success { background: var(--green); }
+    .toast.error { background: var(--red); }
+
+    .spinner {
+      width: 13px; height: 13px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-top-color: white; border-radius: 50%;
+      animation: spin 0.6s linear infinite; display: inline-block;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* REGEN MODAL */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.2s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: var(--white); border-radius: 14px; padding: 24px;
+      width: 100%; max-width: 460px;
+      transform: translateY(16px); transition: transform 0.2s;
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .modal p { font-size: 13px; color: var(--gray); margin-bottom: 14px; line-height: 1.5; }
+    .modal textarea { width: 100%; font-family: 'Inter', sans-serif; font-size: 13px; border: 1px solid var(--divider); border-radius: 8px; padding: 10px; outline: none; resize: vertical; min-height: 90px; }
+    .modal textarea:focus { border-color: var(--navy); }
+    .modal-actions { display: flex; gap: 8px; margin-top: 14px; justify-content: flex-end; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="/" class="back-btn">← Queue</a>
+    <div class="article-title" id="navTitle">Loading...</div>
+  </div>
+  <div class="nav-actions" id="navActions"></div>
+</nav>
+
+<div class="preview-layout">
+
+  <!-- IFRAME PREVIEW -->
+  <div class="preview-pane">
+    <iframe id="previewFrame" sandbox="allow-same-origin allow-scripts"></iframe>
+  </div>
+
+  <!-- SIDE PANEL -->
+  <div class="side-panel">
+
+    <!-- META INFO -->
+    <div class="panel-section">
+      <div class="panel-label">Article Meta</div>
+      <div class="panel-field">
+        <div class="field-label">Slug</div>
+        <div class="field-value mono" id="metaSlug">—</div>
+      </div>
+      <div class="panel-field">
+        <div class="field-label">Category</div>
+        <div class="field-value" id="metaCategory">—</div>
+      </div>
+      <div class="panel-field">
+        <div class="field-label">Read time</div>
+        <div class="field-value" id="metaReadTime">—</div>
+      </div>
+      <div class="panel-field">
+        <div class="field-label">Meta description</div>
+        <div class="field-value" id="metaDesc" style="font-size:12px;color:var(--gray)">—</div>
+      </div>
+    </div>
+
+    <!-- SOURCE -->
+    <div class="panel-section">
+      <div class="panel-label">Source Video</div>
+      <div class="panel-field">
+        <div class="field-value" id="sourceTitle" style="font-weight:500;margin-bottom:6px">—</div>
+        <a href="#" id="sourceLink" class="source-link" target="_blank">View on YouTube →</a>
+      </div>
+    </div>
+
+    <!-- BLOG CARD PREVIEW -->
+    <div class="panel-section">
+      <div class="panel-label">Blog Card HTML</div>
+      <textarea class="edit-area" id="blogCardEditor" rows="8"></textarea>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="panel-section">
+      <div class="panel-label">Actions</div>
+      <div class="action-strip" id="actionStrip"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- REGEN MODAL -->
+<div class="modal-overlay" id="regenModal">
+  <div class="modal">
+    <h3>Regenerate Article</h3>
+    <p>Tell Claude what to change. Be specific.</p>
+    <textarea id="regenNote" placeholder="e.g. Make the opening less alarming. CTA should reference Chapter 5. Add a water filtration section."></textarea>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" id="regenBtn" onclick="submitRegen()">Regenerate</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  const articleId = params.get('id');
+  let article = null;
+
+  async function loadArticle() {
+    if (!articleId) { document.getElementById('navTitle').textContent = 'No article ID'; return; }
+    const res = await fetch(`/api/article/${articleId}`);
+    article = await res.json();
+
+    document.getElementById('navTitle').textContent = article.title || article.video_title;
+    document.getElementById('metaSlug').textContent = article.slug;
+    document.getElementById('metaCategory').textContent = article.category;
+    document.getElementById('metaReadTime').textContent = article.read_time;
+    document.getElementById('metaDesc').textContent = article.meta_description;
+    document.getElementById('sourceTitle').textContent = article.video_title;
+    document.getElementById('sourceLink').href = article.video_url;
+    document.getElementById('blogCardEditor').value = article.blog_card_html || '';
+
+    // Load article into iframe
+    const frame = document.getElementById('previewFrame');
+    const blob = new Blob([article.article_html], { type: 'text/html' });
+    frame.src = URL.createObjectURL(blob);
+
+    renderNavActions();
+  }
+
+  function renderNavActions() {
+    const strip = document.getElementById('navActions');
+    const as = document.getElementById('actionStrip');
+
+    if (article.status === 'pending') {
+      strip.innerHTML = `
+        <button class="btn btn-ghost" onclick="saveEdits()">Save Edits</button>
+        <button class="btn btn-amber" onclick="openRegen()">Regenerate</button>
+        <button class="btn btn-danger" onclick="rejectArticle()">Reject</button>
+        <button class="btn btn-success" onclick="approveAndPublish()">Approve & Publish</button>
+      `;
+      as.innerHTML = `
+        <button class="btn btn-ghost" onclick="saveEdits()">Save Edits</button>
+        <button class="btn btn-success" onclick="approveAndPublish()">Approve & Publish →</button>
+      `;
+    } else if (article.status === 'approved') {
+      strip.innerHTML = `<button class="btn btn-primary" onclick="publishArticle()">Publish to GitHub →</button>`;
+      as.innerHTML = `<button class="btn btn-primary" onclick="publishArticle()">Publish to GitHub →</button>`;
+    } else if (article.status === 'published') {
+      strip.innerHTML = `<span style="font-size:13px;color:var(--gray)">✅ Published · ${article.commit_hash}</span>`;
+      as.innerHTML = `<div style="font-size:13px;color:var(--green);font-weight:500">✅ Published on GitHub</div>`;
+    } else if (article.status === 'rejected') {
+      strip.innerHTML = `<button class="btn btn-ghost" onclick="approveAndPublish()">Restore & Publish</button>`;
+      as.innerHTML = strip.innerHTML;
+    }
+  }
+
+  async function saveEdits() {
+    const blogCardHtml = document.getElementById('blogCardEditor').value;
+    await fetch(`/api/article/${articleId}/edit`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ blog_card_html: blogCardHtml }),
+    });
+    showToast('Edits saved');
+  }
+
+  async function approveAndPublish() {
+    const btn = event.target;
+    btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>';
+    try {
+      await saveEdits();
+      await fetch(`/api/article/${articleId}/approve`, { method: 'POST' });
+      const res = await fetch(`/api/article/${articleId}/publish`, { method: 'POST' });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      showToast(`✅ Published! Commit: ${data.commitHash}`, 'success');
+      setTimeout(() => { window.location.href = '/'; }, 2000);
+    } catch (err) {
+      showToast(err.message, 'error');
+      btn.disabled = false; btn.textContent = 'Approve & Publish';
+    }
+  }
+
+  async function publishArticle() {
+    const btn = event.target;
+    btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>';
+    try {
+      const res = await fetch(`/api/article/${articleId}/publish`, { method: 'POST' });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      showToast(`✅ Published! Commit: ${data.commitHash}`, 'success');
+      setTimeout(() => { window.location.href = '/'; }, 2000);
+    } catch (err) {
+      showToast(err.message, 'error');
+      btn.disabled = false; btn.textContent = 'Publish to GitHub →';
+    }
+  }
+
+  async function rejectArticle() {
+    if (!confirm('Reject this article?')) return;
+    await fetch(`/api/article/${articleId}/reject`, { method: 'POST' });
+    window.location.href = '/';
+  }
+
+  function openRegen() {
+    document.getElementById('regenNote').value = '';
+    document.getElementById('regenModal').classList.add('open');
+  }
+
+  function closeModal() {
+    document.getElementById('regenModal').classList.remove('open');
+  }
+
+  async function submitRegen() {
+    const note = document.getElementById('regenNote').value.trim();
+    if (!note) return;
+    const btn = document.getElementById('regenBtn');
+    btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Regenerating...';
+    try {
+      const res = await fetch(`/api/article/${articleId}/regenerate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ note }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      showToast('✅ Regenerated — reloading preview', 'success');
+      closeModal();
+      setTimeout(() => loadArticle(), 1500);
+    } catch (err) {
+      showToast(err.message, 'error');
+    } finally {
+      btn.disabled = false; btn.textContent = 'Regenerate';
+    }
+  }
+
+  let toastTimer;
+  function showToast(msg, type = '') {
+    const t = document.getElementById('toast');
+    t.textContent = msg; t.className = `toast show ${type}`;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 4000);
+  }
+
+  document.getElementById('regenModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  loadArticle();
+</script>
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Creator Economy Is Collapsing: What It Means for Household Income Security | Emergency Preparedness Checklist</title>
+  <meta name="description" content="Platform algorithm changes are destroying creator incomes overnight. Learn how households dependent on digital income can build financial resilience.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --bg: #F8F8FA;
+      --ink: #1A1A1A;
+      --gray: #6B7280;
+      --gray-lt: #9CA3AF;
+      --navy: #1B4FBF;
+      --navy-dk: #153D96;
+      --navy-lt: #EEF2FB;
+      --green: #2A7A4B;
+      --green-lt: #EAF5EE;
+      --amber: #B45309;
+      --amber-lt: #FEF3C7;
+      --divider: #D2D2D7;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
+    
+    /* Progress Bar */
+    .progress-bar { position: fixed; top: 64px; left: 0; width: 0%; height: 2px; background: var(--navy); z-index: 1000; transition: width 0.1s linear; }
+    
+    /* Navigation */
+    .nav { background: var(--white); border-bottom: 1px solid var(--divider); padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 999; }
+    .nav-logo { font-weight: 700; font-size: 18px; color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a { color: var(--gray); text-decoration: none; font-size: 15px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+    .nav-cta { background: var(--navy); color: var(--white); padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--navy-dk); }
+    
+    /* Sticky Buy Bar */
+    .sticky-buy-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--ink); padding: 16px 24px; display: flex; align-items: center; justify-content: center; gap: 24px; z-index: 998; transform: translateY(100%); transition: transform 0.3s ease; }
+    .sticky-buy-bar.visible { transform: translateY(0); }
+    .sticky-buy-bar p { color: var(--white); font-size: 15px; font-weight: 500; }
+    .sticky-buy-bar a { background: var(--white); color: var(--ink); padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; white-space: nowrap; }
+    
+    /* Article Layout */
+    .article-container { max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+    @media (max-width: 900px) { .article-container { grid-template-columns: 1fr; } .sidebar { display: none; } }
+    
+    /* Article Header */
+    .article-header { grid-column: 1 / -1; max-width: 720px; }
+    .article-cat { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 12px; border-radius: 4px; display: inline-block; margin-bottom: 16px; }
+    .cat-planning { background: var(--navy-lt); color: var(--navy); }
+    .cat-gear { background: var(--green-lt); color: var(--green); }
+    .cat-skills { background: var(--amber-lt); color: var(--amber); }
+    .cat-home { background: #F3E8FF; color: #6B21A8; }
+    .cat-community { background: #FFF1F2; color: #BE123C; }
+    .article-header h1 { font-size: 42px; font-weight: 700; line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.02em; }
+    .article-meta { display: flex; gap: 16px; color: var(--gray); font-size: 14px; font-family: 'JetBrains Mono', monospace; }
+    
+    /* Article Body */
+    .article-body { max-width: 720px; }
+    .article-body h2 { font-size: 28px; font-weight: 700; margin: 48px 0 20px; letter-spacing: -0.01em; }
+    .article-body h3 { font-size: 20px; font-weight: 600; margin: 32px 0 16px; }
+    .article-body p { font-size: 17px; color: var(--ink); margin-bottom: 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 24px 24px; }
+    .article-body li { font-size: 17px; margin-bottom: 12px; }
+    
+    /* Stat Row */
+    .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 32px 0; padding: 24px; background: var(--white); border-radius: 12px; border: 1px solid var(--divider); }
+    .stat-item { text-align: center; }
+    .stat-number { font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; color: var(--navy); display: block; }
+    .stat-label { font-size: 13px; color: var(--gray); margin-top: 4px; }
+    .stat-source { font-size: 11px; color: var(--gray-lt); font-family: 'JetBrains Mono', monospace; }
+    
+    /* Callout Boxes */
+    .callout { padding: 24px; border-radius: 12px; margin: 32px 0; }
+    .callout-navy { background: var(--navy-lt); border-left: 4px solid var(--navy); }
+    .callout-amber { background: var(--amber-lt); border-left: 4px solid var(--amber); }
+    .callout-title { font-weight: 700; font-size: 16px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .callout-navy .callout-title { color: var(--navy); }
+    .callout-amber .callout-title { color: var(--amber); }
+    .callout p, .callout li { font-size: 15px; margin-bottom: 8px; }
+    .callout ul { margin: 12px 0 0 20px; }
+    
+    /* Checklist */
+    .checklist { background: var(--white); border-radius: 12px; padding: 24px; margin: 32px 0; border: 1px solid var(--divider); }
+    .checklist-title { font-weight: 700; font-size: 18px; margin-bottom: 20px; }
+    .checklist-tier { margin-bottom: 24px; }
+    .checklist-tier:last-child { margin-bottom: 0; }
+    .tier-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gray); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--divider); }
+    .checklist ul { list-style: none; margin: 0; padding: 0; }
+    .checklist li { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--divider); font-size: 15px; align-items: flex-start; }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon { width: 20px; height: 20px; min-width: 20px; border: 2px solid var(--divider); border-radius: 4px; flex: 0 0 20px; margin-top: 2px; display: flex; align-items: center; justify-content: center; }
+    .checklist li > div:last-child { flex: 1; }
+    .check-note { font-size: 13px; color: var(--gray); margin-top: 4px; }
+    
+    /* Mid-Article CTA */
+    .mid-cta { background: var(--ink); color: var(--white); padding: 40px; border-radius: 16px; margin: 48px 0; text-align: center; }
+    .mid-cta h3 { font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+    .mid-cta p { color: rgba(255,255,255,0.8); font-size: 16px; margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .mid-cta a { display: inline-block; background: var(--white); color: var(--ink); padding: 14px 32px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: transform 0.2s; }
+    .mid-cta a:hover { transform: translateY(-2px); }
+    
+    /* Sidebar */
+    .sidebar { position: sticky; top: 88px; height: fit-content; }
+    .toc { background: var(--white); border-radius: 12px; padding: 24px; margin-bottom: 24px; border: 1px solid var(--divider); }
+    .toc-title { font-weight: 700; font-size: 14px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gray); }
+    .toc ul { list-style: none; }
+    .toc li { margin-bottom: 12px; }
+    .toc a { color: var(--gray); text-decoration: none; font-size: 14px; transition: color 0.2s; display: block; }
+    .toc a:hover, .toc a.active { color: var(--navy); }
+    
+    .sidebar-cta { background: var(--navy); color: var(--white); padding: 24px; border-radius: 12px; }
+    .sidebar-cta h4 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+    .sidebar-cta p { font-size: 14px; opacity: 0.9; margin-bottom: 20px; line-height: 1.5; }
+    .sidebar-cta a { display: block; background: var(--white); color: var(--navy); padding: 12px 20px; border-radius: 8px; font-weight: 600; text-decoration: none; text-align: center; font-size: 14px; }
+    
+    /* Related Posts */
+    .related-section { grid-column: 1 / -1; margin-top: 48px; padding-top: 48px; border-top: 1px solid var(--divider); }
+    .related-section h2 { font-size: 24px; font-weight: 700; margin-bottom: 24px; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media (max-width: 768px) { .related-grid { grid-template-columns: 1fr; } }
+    .post-card { background: var(--white); border-radius: 12px; padding: 24px; text-decoration: none; border: 1px solid var(--divider); transition: box-shadow 0.2s, transform 0.2s; display: block; }
+    .post-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .post-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .post-cat { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 10px; border-radius: 4px; }
+    .post-read-time { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gray); }
+    .post-title { font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 8px; line-height: 1.3; }
+    .post-excerpt { font-size: 14px; color: var(--gray); margin-bottom: 16px; line-height: 1.5; }
+    .post-footer { display: flex; justify-content: space-between; align-items: center; }
+    .post-date { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gray-lt); }
+    .post-arrow { color: var(--navy); font-weight: 600; }
+    
+    /* Footer */
+    .footer { background: var(--ink); color: var(--white); padding: 64px 24px 32px; margin-top: 80px; }
+    .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+    @media (max-width: 768px) { .footer-content { grid-template-columns: 1fr; gap: 32px; } }
+    .footer-brand h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+    .footer-brand p { color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.6; }
+    .footer-col h4 { font-size: 14px; font-weight: 600; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .footer-col a { display: block; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; margin-bottom: 12px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { max-width: 1200px; margin: 48px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; color: rgba(255,255,255,0.5); font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+  
+  <nav class="nav">
+    <a href="/" class="nav-logo">Emergency Preparedness Checklist</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/#guide">The Guide</a>
+      <a href="/blog.html" class="active">Blog</a>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">Get the Guide — $25</a>
+    </div>
+  </nav>
+  
+  <div class="sticky-buy-bar" id="stickyBar">
+    <p>Build a complete household emergency plan in one weekend</p>
+    <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00">Get the Guide — $25</a>
+  </div>
+  
+  <main class="article-container">
+    <header class="article-header">
+      <span class="article-cat cat-planning">Planning</span>
+      <h1>The Creator Economy Is Collapsing: What It Means for Household Income Security</h1>
+      <div class="article-meta">
+        <span>January 2025</span>
+        <span>·</span>
+        <span>9 min read</span>
+      </div>
+    </header>
+    
+    <article class="article-body" id="articleBody">
+      <p>If your household depends on YouTube ad revenue, Substack subscriptions, or any platform-mediated income stream, you've probably noticed something in the past two years: the money stopped making sense. A video with 500,000 views pays what 50,000 views used to. Newsletter open rates dropped by half despite subscriber growth. The algorithm that once surfaced your work now buries it behind sponsored content and AI-generated summaries.</p>
+      
+      <p>This is not paranoia. The fundamental economics of the creator economy have shifted, and most households reliant on these income streams have not adjusted their financial planning accordingly.</p>
+      
+      <div class="stat-row">
+        <div class="stat-item">
+          <span class="stat-number">-70%</span>
+          <span class="stat-label">YouTube CPM decline (2021-2024)</span>
+          <span class="stat-source">Source: Creator economy reports</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2%</span>
+          <span class="stat-label">Creators earning above poverty line</span>
+          <span class="stat-source">Source: Linktree Creator Report 2023</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">78%</span>
+          <span class="stat-label">Report income instability as primary stress</span>
+          <span class="stat-source">Source: Patreon Creator Survey</span>
+        </div>
+      </div>
+      
+      <h2 id="system">The System That Changed</h2>
+      
+      <p>The creator economy was built on a simple premise: platforms needed content to attract users, so they paid creators a share of advertising revenue. This worked when platforms were growing. YouTube needed millions of hours of content, so it shared ad revenue generously. Instagram needed engaging posts, so it surfaced creator content to millions of followers organically.</p>
+      
+      <p>That growth phase has ended. The major platforms have saturated their markets. Meta has 3.9 billion monthly active users across its platforms. YouTube has 2.7 billion. TikTok has 1.5 billion. When user growth slows, platform economics shift from content acquisition to revenue extraction.</p>
+      
+      <p>The practical result: platforms now optimize for ad inventory, not creator success. Instagram shows your followers your content approximately 10% of the time. YouTube's algorithm increasingly favors longer watch sessions on fewer channels, concentrating revenue at the top. TikTok's algorithmic distribution means a creator with a million followers might see 50,000 views on a new video while a new account gets 10 million on the same content.</p>
+      
+      <p>For households, this means platform income has become structurally unstable. Revenue that seemed reliable was never based on your relationship with your audience. It was based on platform policy that could change with a single algorithm update.</p>
+      
+      <h2 id="risk">Why This Is a Household Emergency</h2>
+      
+      <p>A traditional job loss is disruptive but clear. You know it happened. You know you need to find new work. Platform-based income erosion is different. It happens gradually, with explanation. A bad month becomes a bad quarter becomes a bad year, all while the platform assures you that "content quality" or "audience engagement" is the issue.</p>
+      
+      <p>This ambiguity is financially dangerous. Households tend to dip into savings, take on credit card debt, or reduce contributions to long-term investments while waiting for things to "return to normal." But the old normal is gone. The platform business model has permanently changed.</p>
+      
+      <div class="callout callout-amber">
+        <div class="callout-title">⚠️ Warning Signs Your Platform Income Is Unstable</div>
+        <ul>
+          <li>Revenue per view or engagement has declined more than 30% year-over-year</li>
+          <li>Platform income represents more than 50% of household take-home</li>
+          <li>You have no direct relationship (email, phone, physical) with your audience</li>
+          <li>Your content requires platform-specific features that don't transfer elsewhere</li>
+          <li>Platform terms of service have changed more than twice in the past year</li>
+        </ul>
+      </div>
+      
+      <p>The households most at risk are those who scaled lifestyle to match peak platform earnings. If you bought a house based on 2021 YouTube ad revenue, you are financially exposed in a way that has nothing to do with your content quality or work ethic.</p>
+      
+      <h2 id="action">What to Do Now</h2>
+      
+      <p>The response to platform income instability requires treating it like any other emergency: assess the situation clearly, build a buffer, and create alternative pathways before you need them.</p>
+      
+      <h3>Step 1: Calculate Your True Exposure</h3>
+      
+      <p>Most creator households track revenue but not dependency. Calculate the percentage of your household income that comes from platforms you don't control. Include ad revenue, affiliate income through platform-specific programs, sponsorships that require platform metrics, and any income that disappears if an algorithm changes.</p>
+      
+      <p>If this number exceeds 60%, your household is in the financial equivalent of a single-employer town. The factory closing doesn't require malice from the factory owner. It just requires business conditions to change.</p>
+      
+      <h3>Step 2: Build a Cash Reserve Specifically for Income Disruption</h3>
+      
+      <p>Standard emergency fund advice (3-6 months expenses) assumes income disruption is temporary and clear. Platform income erosion is neither. Build a larger buffer specifically for the scenario where platform income declines 50% over 18 months while you build alternatives.</p>
+      
+      <div class="checklist">
+        <div class="checklist-title">Income Disruption Reserve Checklist</div>
+        <div class="checklist-tier">
+          <div class="tier-label">Tier 1 — Non-Negotiable Foundation</div>
+          <ul>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                30% of monthly take-home in accessible cash
+                <div class="check-note">Not invested, not in platform accounts. Physical cash or checking account at a different bank than your primary.</div>
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                3 months fixed expenses in savings
+                <div class="check-note">Mortgage/rent, utilities, insurance, minimum debt payments. Not lifestyle expenses.</div>
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                Written list of expenses that can be cut within 30 days
+                <div class="check-note">Subscriptions, services, discretionary spending. Know the number before you need it.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="checklist-tier">
+          <div class="tier-label">Tier 2 — After Foundation Is Solid</div>
+          <ul>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                6 months of fixed expenses in savings
+                <div class="check-note">Extended buffer for career transition if needed.</div>
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                Diversified savings across two institutions
+                <div class="check-note">Not for higher returns. For access if one institution has issues.</div>
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                Skills inventory with market rates documented
+                <div class="check-note">What can you do that someone would pay for outside the creator economy?</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <h3>Step 3: Build Direct Audience Relationships</h3>
+      
+      <p>An email list you own is fundamentally different from a subscriber count on a platform you don't. When Patreon changes its fee structure, you can move your patrons if you have their emails. When YouTube demonetizes a category, you can reach your audience directly if you've built that channel.</p>
+      
+      <p>This is not just marketing advice. It's emergency preparedness. The difference between a platform disruption being annoying versus financially devastating is whether you can contact your audience without platform permission.</p>
+      
+      <div class="mid-cta">
+        <h3>Chapter 2 Covers This Exactly</h3>
+        <p>The Family Emergency Preparedness Guide includes a complete cash reserve framework with specific denomination breakdowns, building schedules, and storage protocols for income disruption scenarios.</p>
+        <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00">Get the Complete Guide — $25</a>
+      </div>
+      
+      <h2 id="diversify">Income Diversification That Actually Works</h2>
+      
+      <p>"Diversify your income" is advice so generic it's useless. Here's what actually matters: income streams with different failure modes. If all your income depends on internet infrastructure, social stability, and platform goodwill, you haven't diversified. You've just spread the same bet across multiple tables.</p>
+      
+      <div class="callout callout-navy">
+        <div class="callout-title">📋 Genuine Diversification Criteria</div>
+        <p>Each income stream should differ on at least two of these dimensions:</p>
+        <ul>
+          <li><strong>Dependency:</strong> Platform-mediated vs. direct relationship</li>
+          <li><strong>Geography:</strong> Local/physical vs. digital/global</li>
+          <li><strong>Timing:</strong> Active income (trade time for money) vs. recurring/passive</li>
+          <li><strong>Skill set:</strong> Uses different capabilities you possess</li>
+          <li><strong>Economic cycle:</strong> Discretionary spending vs. essential services</li>
+        </ul>
+      </div>
+      
+      <p>A creator household with YouTube ad revenue, Patreon subscriptions, and brand sponsorships has three income streams with identical failure modes. All three depend on platform access, internet infrastructure, and discretionary entertainment spending. A recession that reduces ad budgets affects all three simultaneously.</p>
+      
+      <p>Contrast this with a household that has YouTube revenue, a part-time local teaching gig, and rental income from a duplex. These have genuinely different failure modes. A platform algorithm change doesn't affect the teaching job. A recession that kills ad revenue might not affect rental demand (housing is non-discretionary). Geographic diversity means local disruption doesn't wipe out everything.</p>
+      
+      <h2 id="skills">Skills That Transfer Out of the Creator Economy</h2>
+      
+      <p>If you've been creating content professionally, you have skills that are valuable outside platform economics. But you likely haven't framed them in terms employers or clients outside the creator space understand.</p>
+      
+      <p>Video editing is "content production." But it's also corporate training development, real estate marketing, legal documentation, and medical education. Each of these markets has different economics than YouTube ad revenue.</p>
+      
+      <p>Writing is "content creation." But it's also technical documentation, grant writing, regulatory compliance, and internal communications. These jobs exist in every company with more than 50 employees, and they pay regardless of engagement metrics.</p>
+      
+      <p>Community management is "audience building." But it's also customer success, developer relations, and member services for professional associations. These roles require the same skills but connect to different economic cycles.</p>
+      
+      <p>The action item is to document your skills in language that doesn't reference platforms. If your resume says "grew YouTube channel to 100K subscribers," a hiring manager outside the creator space doesn't know what that means. If it says "created and managed a media property serving 100,000 monthly users with 15% month-over-month growth," the skill translates.</p>
+      
+      <h2 id="timeline">When to Act</h2>
+      
+      <p>The best time to prepare for platform income disruption was two years ago. The second best time is now, before you need the preparation.</p>
+      
+      <p>If your platform income is currently stable, this is the optimal moment to build reserves and alternatives. You have cash flow to fund the transition. You have time to build direct audience relationships. You have emotional bandwidth to make strategic decisions rather than desperate ones.</p>
+      
+      <p>If your platform income has already declined significantly, the priority order is: cut expenses immediately, preserve cash, and begin building non-platform income streams simultaneously. The temptation to "work harder on content" to recover platform income is usually wrong. The economics have changed. Working harder within a broken system doesn't fix the system.</p>
+      
+      <p>Start with the cash reserve. Get 30% of one month's take-home in physical cash this week. Not because cash is magically better than digital money, but because the act of holding that money makes the situation real in a way that spreadsheets don't.</p>
+      
+    </article>
+    
+    <aside class="sidebar">
+      <div class="toc">
+        <div class="toc-title">Contents</div>
+        <ul>
+          <li><a href="#system">The System That Changed</a></li>
+          <li><a href="#risk">Why This Is a Household Emergency</a></li>
+          <li><a href="#action">What to Do Now</a></li>
+          <li><a href="#diversify">Income Diversification</a></li>
+          <li><a href="#skills">Skills That Transfer</a></li>
+          <li><a href="#timeline">When to Act</a></li>
+        </ul>
+      </div>
+      
+      <div class="sidebar-cta">
+        <h4>Family Emergency Preparedness Guide</h4>
+        <p>Complete cash reserve framework, income disruption protocols, and household emergency planning for unstable times.</p>
+        <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00">Get the Guide — $25</a>
+      </div>
+    </aside>
+    
+    <section class="related-section">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+        <a href="how-to-financially-prepare-for-ai-job-displacement.html" class="post-card">
+          <div class="post-card-header">
+            <span class="post-cat cat-planning">Planning</span>
+            <span class="post-read-time">11 min</span>
+          </div>
+          <div class="post-card-body">
+            <div class="post-title">How to Financially Prepare for AI Job Displacement</div>
+            <p class="post-excerpt">AI is restructuring entire industries faster than workers can retrain. A framework for building financial resilience before displacement happens.</p>
+            <div class="post-footer">
+              <span class="post-date">December 2024</span>
+              <span class="post-arrow">→</span>
+            </div>
+          </div>
+        </a>
+        
+        <a href="how-to-build-a-go-bag.html" class="post-card">
+          <div class="post-card-header">
+            <span class="post-cat cat-gear">Gear</span>
+            <span class="post-read-time">8 min</span>
+          </div>
+          <div class="post-card-body">
+            <div class="post-title">How to Build a Go-Bag That Actually Works</div>
+            <p class="post-excerpt">Most bug-out bags fail because they're packed for fantasy scenarios. A practical tiered system for real evacuations.</p>
+            <div class="post-footer">
+              <span class="post-date">November 2024</span>
+              <span class="post-arrow">→</span>
+            </div>
+          </div>
+        </a>
+        
+        <a href="petrodollar-dollar-reserve-status-household-preparation.html" class="post-card">
+          <div class="post-card-header">
+            <span class="post-cat cat-planning">Planning</span>
+            <span class="post-read-time">10 min</span>
+          </div>
+          <div class="post-card-body">
+            <div class="post-title">Dollar Reserve Status and Household Preparation</div>
+            <p class="post-excerpt">The dollar's global role is shifting. What that means for household purchasing power and how to prepare for currency instability.</p>
+            <div class="post-footer">
+              <span class="post-date">October 2024</span>
+              <span class="post-arrow">→</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>Emergency Preparedness Checklist</h3>
+        <p>Practical emergency preparation for households who want to be ready without the paranoia. Based on real risk assessment, not fear.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Guide</h4>
+        <a href="/#guide">What's Inside</a>
+        <a href="/#chapters">Chapters</a>
+        <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00">Buy Now</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/blog.html">Blog</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Emergency Preparedness Checklist. All rights reserved.
+    </div>
+  </footer>
+  
+  <script>
+    // Progress bar
+    const progressBar = document.getElementById('progressBar');
+    const articleBody = document.getElementById('articleBody');
+    
+    window.addEventListener('scroll', () => {
+      const articleRect = articleBody.getBoundingClientRect();
+      const articleTop = articleRect.top + window.scrollY;
+      const articleHeight = articleBody.offsetHeight;
+      const windowHeight = window.innerHeight;
+      const scrollY = window.scrollY;
+      
+      const progress = Math.min(Math.max((scrollY - articleTop + windowHeight * 0.3) / articleHeight * 100, 0), 100);
+      progressBar.style.width = progress + '%';
+    });
+    
+    // Sticky buy bar
+    const stickyBar = document.getElementById('stickyBar');
+    const articleHeader = document.querySelector('.article-header');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          stickyBar.classList.add('visible');
+        } else {
+          stickyBar.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0 });
+    
+    observer.observe(articleHeader);
+  </script>
+</body>
+</html>

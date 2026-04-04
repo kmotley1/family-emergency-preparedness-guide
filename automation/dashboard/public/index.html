@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Queue — Emergency Prep</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1D1D1F;
+      --gray: #6E6E73;
+      --gray-lt: #E8E8ED;
+      --bg: #F5F5F7;
+      --white: #FFFFFF;
+      --navy: #1B4FBF;
+      --navy-dk: #153D96;
+      --navy-lt: #EEF2FB;
+      --green: #2A7A4B;
+      --green-lt: #EAF5EE;
+      --amber: #B45309;
+      --amber-lt: #FEF3C7;
+      --red: #DC2626;
+      --red-lt: #FEF2F2;
+      --divider: #D2D2D7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; }
+
+    /* NAV */
+    nav {
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--divider);
+      padding: 0 32px;
+      height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+    }
+
+    .nav-brand {
+      font-size: 14px; font-weight: 700; color: var(--ink);
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .nav-brand span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--gray);
+      background: var(--bg); border: 1px solid var(--divider);
+      padding: 3px 8px; border-radius: 4px;
+    }
+
+    .nav-actions { display: flex; gap: 10px; align-items: center; }
+
+    /* BUTTONS */
+    .btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px; font-weight: 500;
+      padding: 8px 16px; border-radius: 8px;
+      border: none; cursor: pointer; transition: all 0.15s;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+    }
+
+    .btn-primary { background: var(--navy); color: white; }
+    .btn-primary:hover { background: var(--navy-dk); }
+    .btn-ghost { background: transparent; color: var(--gray); border: 1px solid var(--divider); }
+    .btn-ghost:hover { background: var(--white); color: var(--ink); }
+    .btn-success { background: var(--green); color: white; }
+    .btn-success:hover { background: #1f5c37; }
+    .btn-danger { background: var(--red); color: white; }
+    .btn-danger:hover { background: #b91c1c; }
+    .btn-amber { background: var(--amber); color: white; }
+    .btn-amber:hover { background: #92400e; }
+    .btn-sm { padding: 6px 12px; font-size: 12px; }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* LAYOUT */
+    .main { max-width: 1100px; margin: 0 auto; padding: 32px; }
+
+    /* PAGE HEADER */
+    .page-header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .page-title { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; }
+    .page-subtitle { font-size: 14px; color: var(--gray); margin-top: 4px; }
+
+    /* TABS */
+    .tabs {
+      display: flex; gap: 2px; margin-bottom: 24px;
+      background: var(--gray-lt); padding: 3px; border-radius: 10px;
+      width: fit-content;
+    }
+
+    .tab {
+      font-size: 13px; font-weight: 500; padding: 7px 16px;
+      border-radius: 8px; cursor: pointer; border: none;
+      background: transparent; color: var(--gray); transition: all 0.15s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .tab.active { background: var(--white); color: var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+
+    /* IMPORT BAR */
+    .import-bar {
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex; gap: 10px; align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .import-bar input {
+      flex: 1; font-family: 'Inter', sans-serif;
+      font-size: 14px; border: 1px solid var(--divider);
+      border-radius: 8px; padding: 9px 14px; outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .import-bar input:focus { border-color: var(--navy); }
+    .import-bar input::placeholder { color: var(--gray); }
+
+    /* CARDS */
+    .queue-grid { display: flex; flex-direction: column; gap: 12px; }
+
+    .article-card {
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: 14px;
+      padding: 20px 24px;
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;
+      transition: box-shadow 0.15s;
+    }
+
+    .article-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+
+    .card-left { flex: 1; min-width: 0; }
+
+    .card-meta {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+    }
+
+    .cat-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 4px;
+    }
+
+    .cat-planning { background: var(--navy-lt); color: var(--navy); }
+    .cat-gear { background: var(--green-lt); color: var(--green); }
+    .cat-skills { background: var(--amber-lt); color: var(--amber); }
+    .cat-home { background: #F3E8FF; color: #6B21A8; }
+    .cat-community { background: #FFF1F2; color: #BE123C; }
+
+    .status-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 4px; font-weight: 500;
+    }
+
+    .status-pending { background: var(--amber-lt); color: var(--amber); }
+    .status-approved { background: var(--green-lt); color: var(--green); }
+    .status-published { background: var(--navy-lt); color: var(--navy); }
+    .status-rejected { background: var(--red-lt); color: var(--red); }
+
+    .read-time {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: var(--gray);
+    }
+
+    .card-title {
+      font-size: 16px; font-weight: 600; letter-spacing: -0.01em;
+      margin-bottom: 4px; line-height: 1.3;
+    }
+
+    .card-desc { font-size: 13px; color: var(--gray); line-height: 1.5; }
+
+    .card-source {
+      font-size: 12px; color: var(--gray); margin-top: 8px;
+      display: flex; align-items: center; gap: 6px;
+    }
+
+    .card-source a { color: var(--navy); text-decoration: none; }
+    .card-source a:hover { text-decoration: underline; }
+
+    .card-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: var(--gray); margin-top: 6px;
+    }
+
+    .card-actions {
+      display: flex; gap: 8px; align-items: flex-start; flex-shrink: 0;
+      flex-wrap: wrap; justify-content: flex-end; max-width: 280px;
+    }
+
+    /* EMPTY STATE */
+    .empty-state {
+      text-align: center; padding: 80px 40px;
+      color: var(--gray);
+    }
+
+    .empty-icon { font-size: 40px; margin-bottom: 16px; }
+    .empty-title { font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+    .empty-text { font-size: 14px; line-height: 1.6; }
+
+    /* TOAST */
+    .toast {
+      position: fixed; bottom: 24px; right: 24px;
+      background: var(--ink); color: white;
+      font-size: 13px; font-weight: 500;
+      padding: 12px 20px; border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      transform: translateY(80px); opacity: 0;
+      transition: all 0.25s ease; z-index: 999;
+    }
+
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast.error { background: var(--red); }
+    .toast.success { background: var(--green); }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 200; opacity: 0; pointer-events: none;
+      transition: opacity 0.2s;
+    }
+
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+    .modal {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px;
+      width: 100%; max-width: 480px;
+      transform: translateY(20px);
+      transition: transform 0.2s;
+    }
+
+    .modal-overlay.open .modal { transform: translateY(0); }
+
+    .modal h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .modal p { font-size: 14px; color: var(--gray); margin-bottom: 16px; line-height: 1.5; }
+
+    .modal textarea {
+      width: 100%; font-family: 'Inter', sans-serif;
+      font-size: 14px; border: 1px solid var(--divider);
+      border-radius: 8px; padding: 12px; outline: none;
+      resize: vertical; min-height: 100px; line-height: 1.5;
+    }
+
+    .modal textarea:focus { border-color: var(--navy); }
+
+    .modal-actions { display: flex; gap: 10px; margin-top: 16px; justify-content: flex-end; }
+
+    /* SPINNER */
+    .spinner {
+      width: 14px; height: 14px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      display: inline-block;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .loading-row {
+      text-align: center; padding: 40px;
+      color: var(--gray); font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    Content Queue
+    <span>Emergency Prep</span>
+  </div>
+  <div class="nav-actions">
+    <button class="btn btn-ghost" onclick="runPipeline()">
+      ⟳ Check Playlist
+    </button>
+    <a href="/preview.html" class="btn btn-ghost">Preview →</a>
+  </div>
+</nav>
+
+<div class="main">
+
+  <div class="page-header">
+    <div>
+      <div class="page-title" id="pageTitle">Review Queue</div>
+      <div class="page-subtitle" id="pageSubtitle">Articles pending your review</div>
+    </div>
+  </div>
+
+  <!-- IMPORT BAR -->
+  <div class="import-bar">
+    <input type="text" id="urlInput" placeholder="Paste a YouTube URL to generate an article on demand..." />
+    <button class="btn btn-primary" onclick="importUrl()">Generate</button>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('pending', this)">Pending</button>
+    <button class="tab" onclick="switchTab('approved', this)">Approved</button>
+    <button class="tab" onclick="switchTab('published', this)">Published</button>
+    <button class="tab" onclick="switchTab('rejected', this)">Rejected</button>
+  </div>
+
+  <!-- QUEUE -->
+  <div class="queue-grid" id="queueGrid">
+    <div class="loading-row">Loading...</div>
+  </div>
+
+</div>
+
+<!-- REGENERATE MODAL -->
+<div class="modal-overlay" id="regenModal">
+  <div class="modal">
+    <h3>Regenerate Article</h3>
+    <p>Tell Claude what to change. Be specific — the transcript goes back through the full spec with your note applied.</p>
+    <textarea id="regenNote" placeholder="e.g. Make the opening less alarming. The CTA should reference Chapter 5 instead. Add a section on water filtration options."></textarea>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" id="regenSubmitBtn" onclick="submitRegen()">Regenerate</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  let currentTab = 'pending';
+  let regenArticleId = null;
+
+  // ── Data ───────────────────────────────────────────────────────
+
+  async function loadQueue() {
+    const res = await fetch('/api/articles');
+    const articles = await res.json();
+    renderQueue(articles.filter(a => a.status === currentTab));
+  }
+
+  function renderQueue(articles) {
+    const grid = document.getElementById('queueGrid');
+
+    if (!articles.length) {
+      grid.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-icon">◇</div>
+          <div class="empty-title">Nothing here</div>
+          <div class="empty-text">Paste a YouTube URL above to generate an article,<br>or click "Check Playlist" to pull new videos.</div>
+        </div>`;
+      return;
+    }
+
+    grid.innerHTML = articles.map(a => `
+      <div class="article-card" id="card-${a.id}">
+        <div class="card-left">
+          <div class="card-meta">
+            <span class="cat-badge cat-${a.category}">${a.category}</span>
+            <span class="status-badge status-${a.status}">${a.status}</span>
+            <span class="read-time">${a.read_time || ''}</span>
+          </div>
+          <div class="card-title">${a.title || a.video_title}</div>
+          <div class="card-desc">${a.meta_description || ''}</div>
+          <div class="card-source">
+            <span>Source:</span>
+            <a href="${a.video_url}" target="_blank">${a.video_title}</a>
+          </div>
+          ${a.commit_hash ? `<div class="card-date">Published · commit ${a.commit_hash}</div>` : `<div class="card-date">${formatDate(a.created_at)}</div>`}
+        </div>
+        <div class="card-actions">
+          ${cardActions(a)}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function cardActions(a) {
+    if (a.status === 'pending') {
+      return `
+        <button class="btn btn-ghost btn-sm" onclick="previewArticle(${a.id})">Preview</button>
+        <button class="btn btn-amber btn-sm" onclick="openRegen(${a.id})">Regenerate</button>
+        <button class="btn btn-danger btn-sm" onclick="rejectArticle(${a.id})">Reject</button>
+        <button class="btn btn-success btn-sm" onclick="approveAndPublish(${a.id})">Approve & Publish</button>
+      `;
+    }
+    if (a.status === 'approved') {
+      return `
+        <button class="btn btn-ghost btn-sm" onclick="previewArticle(${a.id})">Preview</button>
+        <button class="btn btn-primary btn-sm" onclick="publishArticle(${a.id})">Publish →</button>
+      `;
+    }
+    if (a.status === 'published') {
+      return `
+        <button class="btn btn-ghost btn-sm" onclick="previewArticle(${a.id})">Preview</button>
+        ${a.commit_hash ? `<a class="btn btn-ghost btn-sm" href="https://github.com/kmotley1/family-emergency-preparedness-guide/commit/${a.commit_hash}" target="_blank">View Commit</a>` : ''}
+      `;
+    }
+    if (a.status === 'rejected') {
+      return `<button class="btn btn-ghost btn-sm" onclick="approveAndPublish(${a.id})">Restore</button>`;
+    }
+    return '';
+  }
+
+  // ── Actions ────────────────────────────────────────────────────
+
+  async function approveAndPublish(id) {
+    const btn = event.target;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Publishing...';
+
+    try {
+      // Approve first
+      await fetch(`/api/article/${id}/approve`, { method: 'POST' });
+      // Then publish
+      const res = await fetch(`/api/article/${id}/publish`, { method: 'POST' });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      showToast(`✅ Published! Commit: ${data.commitHash}`, 'success');
+      setTimeout(loadQueue, 1000);
+    } catch (err) {
+      showToast(err.message, 'error');
+      btn.disabled = false;
+      btn.textContent = 'Approve & Publish';
+    }
+  }
+
+  async function publishArticle(id) {
+    const btn = event.target;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span>';
+
+    try {
+      const res = await fetch(`/api/article/${id}/publish`, { method: 'POST' });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      showToast(`✅ Published! Commit: ${data.commitHash}`, 'success');
+      setTimeout(loadQueue, 1000);
+    } catch (err) {
+      showToast(err.message, 'error');
+      btn.disabled = false;
+      btn.textContent = 'Publish →';
+    }
+  }
+
+  async function rejectArticle(id) {
+    if (!confirm('Reject this article?')) return;
+    await fetch(`/api/article/${id}/reject`, { method: 'POST' });
+    showToast('Article rejected');
+    loadQueue();
+  }
+
+  function previewArticle(id) {
+    window.open(`/preview.html?id=${id}`, '_blank');
+  }
+
+  async function importUrl() {
+    const input = document.getElementById('urlInput');
+    const url = input.value.trim();
+    if (!url) return;
+
+    const btn = event.target;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Generating...';
+
+    try {
+      const res = await fetch('/api/import/url', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ videoUrl: url }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      showToast(`✅ Generated: "${data.title}"`, 'success');
+      input.value = '';
+      loadQueue();
+    } catch (err) {
+      showToast(err.message, 'error');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Generate';
+    }
+  }
+
+  async function runPipeline() {
+    const btn = event.target;
+    btn.disabled = true;
+    btn.textContent = 'Checking...';
+    try {
+      await fetch('/api/run-pipeline', { method: 'POST' });
+      showToast('Playlist check started — new articles will appear shortly');
+      setTimeout(() => { loadQueue(); btn.disabled = false; btn.textContent = '⟳ Check Playlist'; }, 5000);
+    } catch (err) {
+      showToast(err.message, 'error');
+      btn.disabled = false;
+      btn.textContent = '⟳ Check Playlist';
+    }
+  }
+
+  // ── Regen modal ────────────────────────────────────────────────
+
+  function openRegen(id) {
+    regenArticleId = id;
+    document.getElementById('regenNote').value = '';
+    document.getElementById('regenModal').classList.add('open');
+  }
+
+  function closeModal() {
+    document.getElementById('regenModal').classList.remove('open');
+    regenArticleId = null;
+  }
+
+  async function submitRegen() {
+    const note = document.getElementById('regenNote').value.trim();
+    if (!note) return;
+
+    const btn = document.getElementById('regenSubmitBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Regenerating...';
+
+    try {
+      const res = await fetch(`/api/article/${regenArticleId}/regenerate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ note }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      showToast(`✅ Regenerated: "${data.title}"`, 'success');
+      closeModal();
+      loadQueue();
+    } catch (err) {
+      showToast(err.message, 'error');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Regenerate';
+    }
+  }
+
+  // ── Tabs ───────────────────────────────────────────────────────
+
+  function switchTab(tab, el) {
+    currentTab = tab;
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+
+    const titles = {
+      pending: ['Review Queue', 'Articles pending your review'],
+      approved: ['Approved', 'Ready to publish'],
+      published: ['Published', 'Live on the site'],
+      rejected: ['Rejected', 'Discarded articles'],
+    };
+    document.getElementById('pageTitle').textContent = titles[tab][0];
+    document.getElementById('pageSubtitle').textContent = titles[tab][1];
+
+    loadQueue();
+  }
+
+  // ── Utilities ──────────────────────────────────────────────────
+
+  function formatDate(iso) {
+    if (!iso) return '';
+    return new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+
+  let toastTimer;
+  function showToast(msg, type = '') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = `toast show ${type}`;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 4000);
+  }
+
+  // ── Init ───────────────────────────────────────────────────────
+  loadQueue();
+
+  // Close modal on overlay click
+  document.getElementById('regenModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+</script>
+</body>
+</html>
