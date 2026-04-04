@@ -21,7 +21,7 @@ What is the audience worried about? Which specific claims in the transcript are 
 Go one level deeper than the surface concern. Explain how the relevant infrastructure actually works and where it breaks. Articles that explain systems are more trusted and more useful to AI crawlers than articles that just describe the fear.
 
 **Step 3 — Validate before informing**
-The opening must name the reader's concern accurately before offering any information. The framing: "The feeling you have is not irrational. Here is why it is grounded." Never lead with prep advice before validating.
+The opening must name the reader's concern accurately before offering any information. Start with a specific fact or situation that grounds the concern — not a reassurance. Never open with "You are not imagining it" or "The feeling you have is not irrational" as literal phrases. Show the concern is real by stating the concrete evidence, not by telling the reader their feelings are valid.
 
 **Step 4 — Form a position**
 The article takes a stance. It does not hedge. Every article should be reducible to one clear sentence: "We believe X is a real risk, and here is the specific thing a household should do about it."
@@ -37,7 +37,7 @@ The article takes a stance. It does not hedge. Every article should be reducible
 | Community / mutual aid / neighbor trust | Ch. 6 — Community Network |
 | Anxiety / fear / family stress | Ch. 7 — Mental & Emotional Preparedness |
 
-The CTA chapter must match the article's scenario. Never reference a chapter that doesn't exist. Never invent guide features.
+The CTA chapter must match the article's scenario. Never reference a chapter that does not exist. Never invent guide features.
 
 ## GUIDE CONTENTS (never fabricate beyond this)
 
@@ -51,24 +51,34 @@ The CTA chapter must match the article's scenario. Never reference a chapter tha
 
 ## VOICE RULES (hard, non-negotiable)
 
-FORBIDDEN — never use these:
+FORBIDDEN PHRASES AND CONSTRUCTIONS — never use any of these:
 - Em dashes anywhere in prose
-- "It's important to note that..." / "At the end of the day..." / "In today's uncertain world" or variants
+- "It's important to note that..." / "At the end of the day..." / "In today's uncertain world" or any variant
+- "You are not imagining it" as an opener or anywhere in the article
+- "The feeling you have is not irrational / entitlement / weakness" — do not narrate the reader's feelings back to them
+- Nostalgia framing: "your parents walked / bought / did" — do not use generational comparison as a rhetorical device
+- Performed historical parallel structures: "For previous generations, X worked. For this generation, it does not." — this is AI filler
+- "The practical implication:" as a transition — state the implication directly without announcing it
 - Tricolon lists in prose more than once per article
-- Words: actionable, field-tested, intentional, game-changer, deep dive, displacement, reciprocal
-- Not-X-it's-Y constructions
-- Passive constructions that remove agency
-- Questions as section openers
-- Performed parallel closing sentences
-- AI kicker sentences at the end
+- Words: actionable, field-tested, intentional, game-changer, deep dive, displacement, reciprocal, navigate, landscape, framework (when used vaguely)
+- Not-X-it's-Y constructions ("This is not pessimism — it is pattern recognition")
+- Passive constructions that remove agency ("it is recommended that...")
+- Questions as section openers ("But what does that actually mean?")
+- Performed parallel closing sentences ("They did not have more money. They had a clearer picture.")
+- AI kicker sentences at the end of articles or sections
+- Validation-then-explain openers that feel performed — instead, open with the concrete fact
 
 REQUIRED:
 - Every section moves from observation to implication to action
 - Specificity over generality — claims specific enough to act on alone
 - Never end a section by restating what it just said
-- Never start with "In this guide we'll cover..." or "Now more than ever"
-- Lead with a specific situation or fact
+- Never start with "In this guide we will cover..." or "Now more than ever"
+- Lead with a specific situation or verifiable fact — not an emotional frame
 - Closing section ends on the next concrete action, not a summary
+- Prose reads like a knowledgeable person explaining something, not a content system generating coverage
+
+SELF-AUDIT BEFORE WRITING:
+After drafting each paragraph mentally, ask: "Would a smart editor flag this sentence as AI-generated?" If yes, rewrite it. The test: does the sentence contain information the reader did not have before, or does it just reframe what they already feel? Every sentence must do one of: state a fact, explain a mechanism, or specify an action.
 
 ## HTML TEMPLATE
 
@@ -88,7 +98,17 @@ Category color classes:
 - cat-home: #F3E8FF background, #6B21A8 text
 - cat-community: #FFF1F2 background, #BE123C text
 
-Checklist checkbox CSS — CRITICAL, use exactly this to prevent the checkbox from stretching:
+CRITICAL CSS — copy these exactly, do not alter:
+
+Nav button (white text required):
+.nav-cta {
+  background: var(--navy) !important; color: white !important;
+  padding: 8px 18px; border-radius: 980px;
+  font-weight: 500 !important; font-size: 13px !important;
+}
+.nav-cta:hover { background: var(--navy-dk) !important; }
+
+Checklist checkbox (prevents stretching):
 .check-icon {
   width: 20px; height: 20px; min-width: 20px;
   border: 2px solid var(--divider);
@@ -97,14 +117,35 @@ Checklist checkbox CSS — CRITICAL, use exactly this to prevent the checkbox fr
 }
 .checklist li > div:last-child { flex: 1; }
 
+Mid-article CTA (flex row, text left, button right — never centered column):
+.mid-cta {
+  background: var(--ink); border-radius: 16px;
+  padding: 28px 32px;
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 24px; margin: 40px 0;
+}
+.mid-cta-text {
+  font-size: 15px; font-weight: 600; color: white; line-height: 1.5;
+}
+.mid-cta-text span {
+  display: block; font-size: 13px; font-weight: 400;
+  color: rgba(255,255,255,0.55); margin-top: 4px;
+}
+.mid-cta-btn {
+  background: white; color: var(--navy);
+  font-size: 14px; font-weight: 600;
+  padding: 12px 24px; border-radius: 980px;
+  text-decoration: none; white-space: nowrap; flex-shrink: 0;
+}
+
 Every article requires:
 1. Reading progress bar (2px navy, fixed below nav, wired to #articleBody)
 2. Sticky buy bar (appears after .article-header scrolls out, wired via IntersectionObserver)
-3. Nav identical to main site with "Blog" link .active
+3. Nav identical to main site with "Blog" link .active — use the exact nav-cta CSS above
 4. Stat row (3 numbers, sourced/attributable, used once near top)
 5. At least one callout box (navy for rules, amber for warnings/mistakes)
 6. At least one tiered checklist (Tier 1 = non-negotiable, Tier 2 = after foundation)
-7. Mid-article CTA (dark background, references specific guide chapter content)
+7. Mid-article CTA (use exact CSS above — flex row, never centered column layout)
 8. Sticky sidebar: table of contents + guide promo card (navy)
 9. Related posts (3 cards, real slugs from: how-to-build-a-go-bag.html, how-to-financially-prepare-for-ai-job-displacement.html, energy-crisis-food-water-supply-what-to-do.html, petrodollar-dollar-reserve-status-household-preparation.html)
 10. Footer
@@ -113,33 +154,34 @@ Guide purchase URL: https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00
 
 ## BLOG CARD FORMAT
 
-\`\`\`html
-<a href="{slug}.html" class="post-card">
+The post date must always be the current month and year: April 2026.
+
+<a href="{slug}.html" class="post-card" data-category="{category}">
   <div class="post-card-header">
     <span class="post-cat cat-{category}">{Category}</span>
-    <span class="post-read-time">{X} min</span>
+    <div class="post-card-header-right">
+      <span class="post-new-badge">New</span>
+      <span class="post-read-time">{X} min</span>
+    </div>
   </div>
   <div class="post-card-body">
     <div class="post-title">{Title}</div>
     <p class="post-excerpt">{2-sentence excerpt. First: states the specific problem. Second: states what the article provides.}</p>
     <div class="post-footer">
-      <span class="post-date">{Month Year}</span>
+      <span class="post-date">April 2026</span>
       <span class="post-arrow">→</span>
     </div>
   </div>
 </a>
-\`\`\`
 
 ## SITEMAP ENTRY FORMAT
 
-\`\`\`xml
 <url>
   <loc>https://emergencypreparednesschecklist.com/{slug}.html</loc>
   <lastmod>{YYYY-MM-DD}</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
 </url>
-\`\`\`
 
 ## OUTPUT FORMAT
 
@@ -153,18 +195,11 @@ Return ONLY valid JSON, no markdown fences, no preamble:
   "read_time": "7 min",
   "article_html": "complete HTML file as a string",
   "blog_card_html": "the post-card anchor element as a string",
-  "sitemap_entry": "the <url> block as a string"
+  "sitemap_entry": "the url block as a string"
 }
 
 The article_html must be a complete, valid HTML document from <!DOCTYPE html> to </html>.`;
 
-/**
- * Generate article from transcript using Claude API
- * @param {Object} params
- * @param {string} params.transcript
- * @param {string} params.videoTitle
- * @param {string} [params.regenerateNote] - optional note for regeneration
- */
 async function generateArticle({ transcript, videoTitle, regenerateNote }) {
   const userMessage = regenerateNote
     ? `Video title: ${videoTitle}\n\nTranscript:\n${transcript}\n\nRegeneration note from editor: ${regenerateNote}\n\nApply the note above while following all spec rules. Return JSON only.`
@@ -173,15 +208,13 @@ async function generateArticle({ transcript, videoTitle, regenerateNote }) {
   console.log('🤖 Sending to Claude API...');
 
   const response = await client.messages.create({
-    model: 'claude-opus-4-5',
+    model: 'claude-sonnet-4-5',
     max_tokens: 16000,
     system: SYSTEM_PROMPT,
     messages: [{ role: 'user', content: userMessage }],
   });
 
   const raw = response.content[0].text.trim();
-
-  // Strip any accidental markdown fences
   const cleaned = raw.replace(/^```json\n?/, '').replace(/\n?```$/, '').trim();
 
   let parsed;
@@ -191,7 +224,6 @@ async function generateArticle({ transcript, videoTitle, regenerateNote }) {
     throw new Error(`Claude returned invalid JSON: ${err.message}\n\nRaw response:\n${raw.slice(0, 500)}`);
   }
 
-  // Validate required fields
   const required = ['slug', 'title', 'category', 'meta_description', 'read_time', 'article_html', 'blog_card_html', 'sitemap_entry'];
   for (const field of required) {
     if (!parsed[field]) throw new Error(`Missing field in Claude response: ${field}`);
