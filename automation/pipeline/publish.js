@@ -36,10 +36,13 @@ async function publishArticle(articleId) {
 
 function injectBlogCard(article) {
   let html = fs.readFileSync(BLOG_HTML, 'utf8');
-  const gridMarker = '<div class="posts-grid" id="mainGrid">';
+  const gridMarker = '<!-- ── RECENTLY PUBLISHED ── -->';
   const idx = html.indexOf(gridMarker);
   if (idx === -1) throw new Error('Could not find .posts-grid in blog.html');
-  const insertAt = idx + gridMarker.length;
+  // Inject after the grid-label divider block that follows the comment
+  const dividerEnd = html.indexOf('</div>', idx);
+  const dividerEnd2 = html.indexOf('</div>', dividerEnd + 1);
+  const insertAt = dividerEnd2 + 6; // after second </div>
   const card = `\n\n      ${article.blog_card_html}\n`;
   html = html.slice(0, insertAt) + card + html.slice(insertAt);
   fs.writeFileSync(BLOG_HTML, html, 'utf8');

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Economic Mobility Crisis Is Real: How to Protect Your Household When the System Fails Young Families | Emergency Preparedness Checklist</title>
+  <meta name="description" content="Wealth concentration and housing costs are blocking economic mobility. Here's what households can do to build financial resilience outside traditional paths.">
+  <link rel="canonical" href="https://emergencypreparednesschecklist.com/economic-mobility-crisis-how-to-protect-your-household.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --bg: #F8F8FA;
+      --ink: #1A1A1A;
+      --gray: #6B6B6B;
+      --gray-lt: #9B9B9B;
+      --navy: #1B4FBF;
+      --navy-dk: #153D96;
+      --navy-lt: #EEF2FB;
+      --green: #2A7A4B;
+      --green-lt: #EAF5EE;
+      --amber: #B45309;
+      --amber-lt: #FEF3C7;
+      --divider: #D2D2D7;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    
+    /* Progress bar */
+    .progress-bar { position: fixed; top: 64px; left: 0; height: 2px; background: var(--navy); width: 0%; z-index: 1000; transition: width 0.1s linear; }
+    
+    /* Navigation */
+    .nav { background: var(--white); border-bottom: 1px solid var(--divider); height: 64px; display: flex; align-items: center; position: sticky; top: 0; z-index: 999; }
+    .nav-inner { max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-weight: 700; font-size: 18px; color: var(--navy); }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--gray); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+    .nav-cta { background: var(--navy); color: var(--white); padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--navy-dk); }
+    
+    /* Article layout */
+    .article-container { max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+    @media (max-width: 900px) { .article-container { grid-template-columns: 1fr; } }
+    
+    /* Article header */
+    .article-header { margin-bottom: 40px; }
+    .article-cat { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; padding: 6px 12px; border-radius: 4px; display: inline-block; margin-bottom: 16px; }
+    .cat-planning { background: var(--navy-lt); color: var(--navy); }
+    .cat-gear { background: var(--green-lt); color: var(--green); }
+    .cat-skills { background: var(--amber-lt); color: var(--amber); }
+    .cat-home { background: #F3E8FF; color: #6B21A8; }
+    .cat-community { background: #FFF1F2; color: #BE123C; }
+    .article-title { font-size: 40px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; max-width: 720px; }
+    .article-meta { display: flex; gap: 24px; color: var(--gray); font-size: 14px; }
+    .article-meta span { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Article body */
+    .article-body { max-width: 720px; }
+    .article-body h2 { font-size: 28px; font-weight: 700; margin: 48px 0 20px; }
+    .article-body h3 { font-size: 20px; font-weight: 600; margin: 32px 0 16px; }
+    .article-body p { margin-bottom: 20px; font-size: 17px; color: #2A2A2A; }
+    .article-body ul, .article-body ol { margin: 0 0 24px 24px; }
+    .article-body li { margin-bottom: 12px; font-size: 17px; }
+    
+    /* Stat row */
+    .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 32px 0; padding: 28px; background: var(--white); border-radius: 12px; border: 1px solid var(--divider); }
+    .stat-item { text-align: center; }
+    .stat-num { font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; color: var(--navy); }
+    .stat-label { font-size: 13px; color: var(--gray); margin-top: 4px; }
+    @media (max-width: 600px) { .stat-row { grid-template-columns: 1fr; } }
+    
+    /* Callout boxes */
+    .callout { padding: 24px; border-radius: 12px; margin: 32px 0; }
+    .callout-navy { background: var(--navy-lt); border-left: 4px solid var(--navy); }
+    .callout-amber { background: var(--amber-lt); border-left: 4px solid var(--amber); }
+    .callout-title { font-weight: 700; font-size: 16px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .callout-navy .callout-title { color: var(--navy); }
+    .callout-amber .callout-title { color: var(--amber); }
+    .callout p { margin-bottom: 12px; font-size: 15px; }
+    .callout p:last-child { margin-bottom: 0; }
+    
+    /* Checklist */
+    .checklist { background: var(--white); border-radius: 12px; border: 1px solid var(--divider); padding: 28px; margin: 32px 0; }
+    .checklist-title { font-weight: 700; font-size: 18px; margin-bottom: 20px; }
+    .checklist-tier { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; padding: 4px 8px; border-radius: 4px; margin-bottom: 16px; display: inline-block; }
+    .tier-1 { background: var(--navy-lt); color: var(--navy); }
+    .tier-2 { background: var(--green-lt); color: var(--green); }
+    .checklist ul { list-style: none; margin: 0 0 24px 0; }
+    .checklist li { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--divider); font-size: 15px; }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon { width: 20px; height: 20px; min-width: 20px; border: 2px solid var(--divider); border-radius: 4px; flex: 0 0 20px; margin-top: 2px; display: flex; align-items: center; justify-content: center; }
+    .checklist li > div:last-child { flex: 1; }
+    
+    /* Mid-article CTA */
+    .mid-cta { background: var(--ink); color: var(--white); padding: 40px; border-radius: 16px; margin: 48px 0; text-align: center; }
+    .mid-cta h3 { font-size: 24px; margin-bottom: 12px; }
+    .mid-cta p { color: #B0B0B0; margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .mid-cta a { display: inline-block; background: var(--white); color: var(--ink); padding: 14px 28px; border-radius: 8px; font-weight: 600; transition: transform 0.2s; }
+    .mid-cta a:hover { transform: translateY(-2px); }
+    
+    /* Sidebar */
+    .sidebar { position: sticky; top: 90px; height: fit-content; }
+    @media (max-width: 900px) { .sidebar { display: none; } }
+    .toc { background: var(--white); border: 1px solid var(--divider); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+    .toc-title { font-weight: 700; font-size: 14px; margin-bottom: 16px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; }
+    .toc-list { list-style: none; }
+    .toc-list li { margin-bottom: 12px; }
+    .toc-list a { font-size: 14px; color: var(--gray); transition: color 0.2s; }
+    .toc-list a:hover { color: var(--navy); }
+    
+    .sidebar-promo { background: var(--navy); color: var(--white); border-radius: 12px; padding: 28px; }
+    .sidebar-promo h4 { font-size: 18px; margin-bottom: 12px; }
+    .sidebar-promo p { font-size: 14px; opacity: 0.9; margin-bottom: 20px; }
+    .sidebar-promo a { display: block; background: var(--white); color: var(--navy); text-align: center; padding: 12px; border-radius: 8px; font-weight: 600; font-size: 14px; }
+    
+    /* Sticky buy bar */
+    .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--white); border-top: 1px solid var(--divider); padding: 16px 24px; display: flex; justify-content: center; align-items: center; gap: 24px; z-index: 998; transform: translateY(100%); transition: transform 0.3s ease; }
+    .sticky-bar.visible { transform: translateY(0); }
+    .sticky-bar p { font-size: 15px; font-weight: 500; }
+    .sticky-bar a { background: var(--navy); color: var(--white); padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 14px; }
+    
+    /* Related posts */
+    .related-section { margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--divider); }
+    .related-title { font-size: 24px; font-weight: 700; margin-bottom: 32px; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media (max-width: 768px) { .related-grid { grid-template-columns: 1fr; } }
+    .post-card { background: var(--white); border: 1px solid var(--divider); border-radius: 12px; padding: 24px; transition: box-shadow 0.2s, transform 0.2s; display: block; }
+    .post-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .post-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .post-cat { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 4px; }
+    .post-read-time { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gray-lt); }
+    .post-title { font-size: 17px; font-weight: 600; margin-bottom: 8px; line-height: 1.4; }
+    .post-excerpt { font-size: 14px; color: var(--gray); margin-bottom: 16px; line-height: 1.5; }
+    .post-footer { display: flex; justify-content: space-between; align-items: center; }
+    .post-date { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gray-lt); }
+    .post-arrow { color: var(--navy); font-weight: 600; }
+    
+    /* Footer */
+    .footer { background: var(--ink); color: var(--white); padding: 64px 24px 32px; margin-top: 80px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    .footer-brand p { color: #9B9B9B; font-size: 14px; margin-top: 12px; max-width: 280px; }
+    .footer-col h5 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px; color: #9B9B9B; }
+    .footer-col a { display: block; font-size: 14px; color: var(--white); margin-bottom: 12px; opacity: 0.8; }
+    .footer-col a:hover { opacity: 1; }
+    .footer-bottom { border-top: 1px solid #333; padding-top: 24px; font-size: 13px; color: #9B9B9B; }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+  
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Emergency Preparedness Checklist</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">Get the Guide — $25</a>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="article-container">
+    <main>
+      <article class="article-header">
+        <span class="article-cat cat-planning">PLANNING</span>
+        <h1 class="article-title">The Economic Mobility Crisis Is Real: How to Protect Your Household When the System Fails Young Families</h1>
+        <div class="article-meta">
+          <span>January 2025</span>
+          <span>9 min read</span>
+        </div>
+      </article>
+      
+      <div class="article-body" id="articleBody">
+        <p>You are not imagining it. The economic path your parents walked no longer exists in the same form. The college degree that once guaranteed middle-class stability now comes with $35,000 in average debt. The starter home your parents bought at 27 costs three times more in real terms. The stable job with a pension has been replaced by contract work and 401(k)s that require you to be your own fund manager.</p>
+        
+        <p>The frustration you feel watching housing prices climb while wages flatten is not entitlement. It is pattern recognition. The system that built middle-class wealth for previous generations has shifted in ways that concentrate gains at the top while distributing risk to individual households.</p>
+        
+        <div class="stat-row">
+          <div class="stat-item">
+            <div class="stat-num">55%</div>
+            <div class="stat-label">Of boomers owned homes by 30 vs. 35% of millennials</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">400%</div>
+            <div class="stat-label">Increase in college costs since 1980 (inflation-adjusted)</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">3x</div>
+            <div class="stat-label">Home price to income ratio increase since 1970</div>
+          </div>
+        </div>
+        
+        <p>These numbers represent a structural shift, not a personal failure. When the median home price requires a decade of savings instead of three years, when entry-level jobs require unpaid internships and graduate degrees, when healthcare costs can bankrupt a household with insurance, the rules of economic mobility have fundamentally changed.</p>
+        
+        <h2 id="system">How the Wealth Transfer System Actually Works</h2>
+        
+        <p>Economic mobility depends on three interlocking mechanisms: asset appreciation, wage growth that outpaces inflation, and accessible entry points to wealth-building. For previous generations, these mechanisms worked in concert. A factory job paid enough to buy a house. The house appreciated. The pension guaranteed retirement income. Each step built on the last.</p>
+        
+        <p>Today, these mechanisms have decoupled. Asset prices rise faster than wages, which means existing wealth compounds while new wealth becomes harder to build. Housing, the primary vehicle for middle-class wealth accumulation, has become a speculative asset class dominated by investors and cash buyers.</p>
+        
+        <p>The Federal Reserve's response to economic crises since 2008 has accelerated this divergence. Quantitative easing and near-zero interest rates inflated asset prices, benefiting those who already held assets. Those still trying to acquire them faced higher prices with stagnant purchasing power.</p>
+        
+        <div class="callout callout-navy">
+          <div class="callout-title">⚡ The Mechanism You Need to Understand</div>
+          <p>When central banks inject liquidity to stabilize markets, that money flows first to asset holders. Stock prices rise before wages. Real estate appreciates before renters can save enough for down payments. This is not a conspiracy; it is how monetary policy mechanically operates. Understanding this helps you see why waiting for the system to fix itself is not a viable household strategy.</p>
+        </div>
+        
+        <p>This creates a compounding problem. Each economic cycle that inflates assets while wages lag makes the next generation's entry point more difficult. The 2008 crisis priced out a cohort of would-be homebuyers. The pandemic response widened the gap further. The housing market became a wealth-sorting mechanism rather than an accessibility ladder.</p>
+        
+        <h2 id="position">Our Position: Household Resilience Cannot Wait for Policy</h2>
+        
+        <p>We believe the economic structure that enabled previous generations to build wealth through conventional paths has fundamentally changed, and will not revert on a timeline useful for families making decisions today. Policy solutions that address housing affordability, wage growth, and wealth concentration may come, but betting your household's stability on their arrival is a losing strategy.</p>
+        
+        <p>This means households must build resilience outside traditional frameworks. Not because the system is irredeemable, but because waiting for systemic change while remaining exposed to systemic risk is irrational at the household level.</p>
+        
+        <p>The practical implication: treat economic disruption as an expected condition rather than an aberration. Build financial cushions that assume periods without stable income. Acquire skills that function outside credentialed employment. Develop relationships that provide mutual support during individual crises.</p>
+        
+        <h2 id="cash">The Cash Reserve That Actually Protects You</h2>
+        
+        <p>Standard financial advice suggests three to six months of expenses in savings. This advice assumes job loss is temporary and the next job pays similarly. In an economy where industry disruption can eliminate entire job categories, where the median job search takes five months, and where wage replacement often means a pay cut, this buffer is insufficient.</p>
+        
+        <p>A functional emergency reserve serves two purposes: buying time during income disruption and preventing forced liquidation of long-term assets at unfavorable prices. Selling investments during a market downturn to cover expenses locks in losses. Drawing retirement accounts early triggers penalties and taxes. The cash reserve prevents these compounding mistakes.</p>
+        
+        <div class="checklist">
+          <div class="checklist-title">Cash Reserve Building Priorities</div>
+          <span class="checklist-tier tier-1">TIER 1 — NON-NEGOTIABLE</span>
+          <ul>
+            <li>
+              <div class="check-icon"></div>
+              <div>One month of fixed expenses in a checking account buffer (rent, utilities, insurance, debt payments)</div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>Target: 30% of monthly take-home income directed to reserves until six months is reached</div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>Physical cash component: $500-1000 at home in mixed denominations for infrastructure disruptions</div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>Separate savings account at a different bank (prevents impulsive access, provides institutional redundancy)</div>
+            </li>
+          </ul>
+          <span class="checklist-tier tier-2">TIER 2 — AFTER FOUNDATION</span>
+          <ul>
+            <li>
+              <div class="check-icon"></div>
+              <div>Extend reserve to twelve months if single income, self-employed, or in a volatile industry</div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>Laddered CD structure for portion of reserves to capture higher yields without sacrificing access</div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>I-bonds allocation (up to $10K/year) for inflation-protected reserves with one-year lockup</div>
+            </li>
+          </ul>
+        </div>
+        
+        <p>The denominations matter for the physical cash component. A crisis that closes banks or disables payment systems favors smaller bills. A fifty-dollar bill may be useless if the store cannot make change. Keep a mix of twenties, tens, fives, and ones.</p>
+        
+        <div class="callout callout-amber">
+          <div class="callout-title">⚠️ Common Mistake</div>
+          <p>Keeping emergency reserves in the same account you use for daily spending defeats their purpose. Psychological separation matters. Money that sits next to discretionary spending gets spent. Money in a separate institution, requiring an intentional transfer, stays reserved for actual emergencies.</p>
+        </div>
+        
+        <h2 id="skills">Skills That Function Outside Credentialed Employment</h2>
+        
+        <p>The value of a skill depends on how transferable it is across contexts. A skill locked inside one employer's system disappears when that job does. A skill that produces value directly for households, independent of institutional employment, remains useful regardless of labor market conditions.</p>
+        
+        <p>This does not mean abandoning professional skills or career development. It means diversifying your capabilities so that not all your economic value flows through a single employer or industry.</p>
+        
+        <p>Consider which skills reduce your household's cash requirements during disruption. Growing food reduces grocery bills. Vehicle repair prevents service charges. Home maintenance avoids contractor costs. Medical first aid training reduces unnecessary emergency room visits. Each skill that directly reduces expenses functions as an economic buffer.</p>
+        
+        <p>Consider also which skills can generate income outside traditional employment. Repair skills have local demand. Construction and carpentry serve neighbors directly. Electrical and plumbing knowledge commands premium rates. Food preservation and gardening expertise become valuable when grocery supply chains strain.</p>
+        
+        <div class="mid-cta">
+          <h3>Build a Financial Buffer That Actually Works</h3>
+          <p>Chapter 2 of the Family Emergency Preparedness Guide covers the complete cash reserve system: how much to target, where to store it, what denominations to keep, and how to build it on a real budget.</p>
+          <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00">Get the Complete Guide — $25</a>
+        </div>
+        
+        <h2 id="community">The Network That Replaces Institutional Support</h2>
+        
+        <p>Previous generations relied on institutional safety nets: employer-provided healthcare, defined-benefit pensions, union protections, community organizations with resources. Most of these have weakened or disappeared. The household that depends solely on institutional support during crisis will find the institutions absent.</p>
+        
+        <p>The replacement is not rugged individualism. Individuals and nuclear families lack the redundancy to absorb significant disruptions alone. The replacement is networked households: neighbors who share resources, friends who provide childcare during job transitions, family members who can offer temporary housing.</p>
+        
+        <p>This requires intentional relationship building before crisis. The time to identify which neighbors you can trust is not during the emergency. The time to establish mutual aid agreements is when everyone has resources to offer, not when everyone is depleted.</p>
+        
+        <p>Practical steps: Know your immediate neighbors by name and face. Identify who has skills your household lacks. Establish low-stakes reciprocity (tool lending, occasional favors, holiday acknowledgment) that builds the relational foundation for high-stakes support later.</p>
+        
+        <h2 id="plan">The Emergency Plan for Economic Disruption</h2>
+        
+        <p>Most households have no plan for extended income loss. They have vague intentions to cut spending and find another job. This is not a plan. A plan specifies exactly which expenses stop immediately, which can be negotiated (landlords often prefer partial rent to eviction processes), and which are non-negotiable.</p>
+        
+        <div class="checklist">
+          <div class="checklist-title">Economic Disruption Response Sequence</div>
+          <span class="checklist-tier tier-1">TIER 1 — IMMEDIATE ACTIONS</span>
+          <ul>
+            <li>
+              <div class="check-icon"></div>
+              <div>List all fixed monthly expenses with exact amounts and due dates</div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>Identify minimum survival budget (housing, utilities, food, essential medical)</div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>Document all subscriptions and recurring charges for rapid cancellation</div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>Know your state's unemployment system: application process, waiting period, documentation required</div>
+            </li>
+          </ul>
+          <span class="checklist-tier tier-2">TIER 2 — PREPARATION</span>
+          <ul>
+            <li>
+              <div class="check-icon"></div>
+              <div>Identify income sources available within two weeks (gig work, freelance contacts, temp agencies)</div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>Maintain relationships with former colleagues and industry contacts (these produce job leads faster than applications)</div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>Research healthcare options if employer coverage ends (COBRA costs, marketplace enrollment periods, Medicaid eligibility)</div>
+            </li>
+          </ul>
+        </div>
+        
+        <p>The plan should exist as a written document, not as assumptions in your head. During crisis, cognitive load is already high. Decisions made under stress are worse than decisions made calmly in advance. Write down the sequence of actions so that execution requires following instructions rather than making judgments while panicked.</p>
+        
+        <h2 id="action">Your Next Step</h2>
+        
+        <p>The economic system that worked for previous generations has structurally changed. Waiting for it to change back or for policy solutions to arrive is not a strategy. The household that builds its own buffers, acquires transferable skills, and develops reciprocal relationships with other households will navigate disruption better than the household that remains dependent on institutions that may not be there when needed.</p>
+        
+        <p>Start with the cash reserve. Calculate your monthly fixed expenses. Open a separate savings account at a different bank. Set up automatic transfers for whatever percentage of income you can manage, even if it is less than ideal. A small buffer that exists beats an ideal buffer that you never start building.</p>
+        
+        <p>Then document your emergency plan. List your expenses. Identify your minimum survival budget. Know where the cuts happen and in what order. The plan converts panic into procedure.</p>
+        
+        <p>The family that has done this work faces economic disruption differently. Not without difficulty, but without paralysis. The time to build the buffer is now, while you have income to direct toward it.</p>
+        
+        <div class="related-section">
+          <h2 class="related-title">Related Articles</h2>
+          <div class="related-grid">
+            <a href="how-to-financially-prepare-for-ai-job-displacement.html" class="post-card">
+              <div class="post-card-header">
+                <span class="post-cat cat-planning">PLANNING</span>
+                <span class="post-read-time">8 min</span>
+              </div>
+              <div class="post-card-body">
+                <div class="post-title">How to Financially Prepare for AI Job Displacement</div>
+                <p class="post-excerpt">AI is changing which jobs exist and which skills matter. Here's how to build financial resilience before the disruption reaches your industry.</p>
+                <div class="post-footer">
+                  <span class="post-date">December 2024</span>
+                  <span class="post-arrow">→</span>
+                </div>
+              </div>
+            </a>
+            <a href="how-to-build-a-go-bag.html" class="post-card">
+              <div class="post-card-header">
+                <span class="post-cat cat-gear">GEAR</span>
+                <span class="post-read-time">10 min</span>
+              </div>
+              <div class="post-card-body">
+                <div class="post-title">How to Build a Go-Bag That Actually Works</div>
+                <p class="post-excerpt">Most go-bags fail because they're built for fantasy scenarios. Here's how to build one for the emergencies that actually happen.</p>
+                <div class="post-footer">
+                  <span class="post-date">November 2024</span>
+                  <span class="post-arrow">→</span>
+                </div>
+              </div>
+            </a>
+            <a href="petrodollar-dollar-reserve-status-household-preparation.html" class="post-card">
+              <div class="post-card-header">
+                <span class="post-cat cat-planning">PLANNING</span>
+                <span class="post-read-time">9 min</span>
+              </div>
+              <div class="post-card-body">
+                <div class="post-title">Petrodollar Shifts and Dollar Reserve Status: What Households Should Do</div>
+                <p class="post-excerpt">Changes in global currency dynamics could affect purchasing power. Here's what actually matters for household preparedness.</p>
+                <div class="post-footer">
+                  <span class="post-date">January 2025</span>
+                  <span class="post-arrow">→</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <aside class="sidebar">
+      <div class="toc">
+        <div class="toc-title">Contents</div>
+        <ul class="toc-list">
+          <li><a href="#system">How the Wealth Transfer System Works</a></li>
+          <li><a href="#position">Our Position</a></li>
+          <li><a href="#cash">The Cash Reserve That Protects You</a></li>
+          <li><a href="#skills">Skills Outside Credentialed Employment</a></li>
+          <li><a href="#community">The Network That Replaces Institutions</a></li>
+          <li><a href="#plan">Emergency Plan for Economic Disruption</a></li>
+          <li><a href="#action">Your Next Step</a></li>
+        </ul>
+      </div>
+      
+      <div class="sidebar-promo">
+        <h4>Family Emergency Preparedness Guide</h4>
+        <p>A complete system for building household resilience. Cash reserves, emergency plans, go-bags, and skills that matter.</p>
+        <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00">Get the Guide — $25</a>
+      </div>
+    </aside>
+  </div>
+  
+  <div class="sticky-bar" id="stickyBar">
+    <p>Ready to build your household's financial buffer?</p>
+    <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00">Get the Complete Guide — $25</a>
+  </div>
+  
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-weight: 700; font-size: 18px;">Emergency Preparedness Checklist</div>
+          <p>Practical guidance for household resilience. No fear-mongering, no fantasy scenarios. Just useful preparation.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Guide</h5>
+          <a href="index.html">Overview</a>
+          <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00">Purchase</a>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h5>Legal</h5>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 Emergency Preparedness Checklist. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Progress bar
+    const progressBar = document.getElementById('progressBar');
+    const articleBody = document.getElementById('articleBody');
+    
+    window.addEventListener('scroll', () => {
+      const articleRect = articleBody.getBoundingClientRect();
+      const articleTop = window.scrollY + articleRect.top;
+      const articleHeight = articleBody.offsetHeight;
+      const windowHeight = window.innerHeight;
+      const scrolled = window.scrollY - articleTop + windowHeight;
+      const progress = Math.min(Math.max(scrolled / articleHeight * 100, 0), 100);
+      progressBar.style.width = progress + '%';
+    });
+    
+    // Sticky bar
+    const stickyBar = document.getElementById('stickyBar');
+    const articleHeader = document.querySelector('.article-header');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          stickyBar.classList.add('visible');
+        } else {
+          stickyBar.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0 });
+    
+    observer.observe(articleHeader);
+  </script>
+</body>
+</html>
