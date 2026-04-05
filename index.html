@@ -51,11 +51,10 @@
     }
 
     .nav-logo {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--ink);
+      display: flex;
+      align-items: center;
       text-decoration: none;
-      letter-spacing: -0.01em;
+      line-height: 1;
     }
 
     .nav-links {
@@ -943,7 +942,10 @@
 <body>
 
 <nav>
-  <a href="#top" class="nav-logo">Prepared. Not scared.</a>
+  <a href="#top" class="nav-logo"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="16" cy="16" r="14" stroke="#1B4FBF" stroke-width="2"/>
+    <circle cx="16" cy="16" r="6" fill="#1B4FBF"/>
+  </svg></a>
   <ul class="nav-links">
     <li><a href="blog.html">Blog</a></li>
     <li><a href="#inside">What's Inside</a></li>

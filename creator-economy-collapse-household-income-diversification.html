@@ -32,7 +32,12 @@
     
     /* Navigation */
     .nav { background: var(--white); border-bottom: 1px solid var(--divider); padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 999; }
-    .nav-logo { font-weight: 700; font-size: 18px; color: var(--ink); text-decoration: none; }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      line-height: 1;
+    }
     .nav-links { display: flex; gap: 32px; align-items: center; }
     .nav-links a { color: var(--gray); text-decoration: none; font-size: 15px; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--ink); }
@@ -160,7 +165,10 @@
   <div class="progress-bar" id="progressBar"></div>
   
   <nav class="nav">
-    <a href="/" class="nav-logo">Emergency Preparedness Checklist</a>
+    <a href="/" class="nav-logo"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="16" cy="16" r="14" stroke="#1B4FBF" stroke-width="2"/>
+    <circle cx="16" cy="16" r="6" fill="#1B4FBF"/>
+  </svg></a>
     <div class="nav-links">
       <a href="/">Home</a>
       <a href="/#guide">The Guide</a>
