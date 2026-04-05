@@ -141,7 +141,18 @@ Mid-article CTA (flex row, text left, button right — never centered column):
 Every article requires:
 1. Reading progress bar (2px navy, fixed below nav, wired to #articleBody)
 2. Sticky buy bar (appears after .article-header scrolls out, wired via IntersectionObserver)
-3. Nav identical to main site with "Blog" link .active — use the exact nav-cta CSS above
+3. Nav — use this EXACT HTML, no variations:
+<nav>
+  <a href="index.html" class="nav-logo">Prepared. Not scared.</a>
+  <ul class="nav-links">
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#inside">What's Inside</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">Get the Guide →</a>
+    </li>
+  </ul>
+</nav>
 4. Stat row (3 numbers, sourced/attributable, used once near top)
 5. At least one callout box (navy for rules, amber for warnings/mistakes)
 6. At least one tiered checklist (Tier 1 = non-negotiable, Tier 2 = after foundation)
