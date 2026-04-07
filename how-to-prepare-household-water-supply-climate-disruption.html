@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Prepare Your Household Water Supply for Climate Disruption</title>
+  <meta name="description" content="Climate change is destabilizing water infrastructure. This guide covers how to calculate your household's water needs, build storage capacity, and create redundancy before shortages hit.">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --bg: #F8F9FA;
+      --ink: #1A1A1A;
+      --gray: #6B7280;
+      --gray-lt: #E5E7EB;
+      --navy: #1B4FBF;
+      --navy-dk: #153D96;
+      --navy-lt: #EEF2FB;
+      --green: #2A7A4B;
+      --green-lt: #EAF5EE;
+      --amber: #B45309;
+      --amber-lt: #FEF3C7;
+      --divider: #D2D2D7;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--divider);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--gray);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--ink);
+    }
+
+    .nav-cta {
+      background: var(--navy) !important;
+      color: white !important;
+      padding: 8px 18px;
+      border-radius: 980px;
+      font-weight: 500 !important;
+      font-size: 13px !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--navy-dk) !important;
+    }
+
+    #progress {
+      position: fixed;
+      top: 57px;
+      left: 0;
+      height: 2px;
+      background: var(--navy);
+      width: 0%;
+      z-index: 100;
+      transition: width 0.1s;
+    }
+
+    .sticky-buy-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--ink);
+      padding: 16px 32px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 99;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .sticky-buy-bar.visible {
+      display: flex;
+    }
+
+    .sticky-buy-bar-text {
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .sticky-buy-bar-text span {
+      display: block;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      margin-top: 2px;
+    }
+
+    .sticky-buy-bar-btn {
+      background: white;
+      color: var(--navy);
+      padding: 12px 24px;
+      border-radius: 980px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 32px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 64px;
+    }
+
+    .article-header {
+      margin-bottom: 48px;
+    }
+
+    .article-meta {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+    }
+
+    .cat-home {
+      background: #F3E8FF;
+      color: #6B21A8;
+      padding: 4px 12px;
+      border-radius: 980px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .article-title {
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .article-excerpt {
+      font-size: 18px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    .article-body {
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .article-body h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 48px 0 24px 0;
+      line-height: 1.3;
+    }
+
+    .article-body h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin: 32px 0 16px 0;
+    }
+
+    .article-body p {
+      margin-bottom: 24px;
+    }
+
+    .article-body ul,
+    .article-body ol {
+      margin: 24px 0;
+      padding-left: 24px;
+    }
+
+    .article-body li {
+      margin-bottom: 12px;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 48px 0;
+      padding: 32px;
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid var(--divider);
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--navy);
+      font-family: 'JetBrains Mono', monospace;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--gray);
+      font-weight: 500;
+    }
+
+    .callout {
+      padding: 24px;
+      border-radius: 12px;
+      margin: 32px 0;
+      border-left: 4px solid;
+    }
+
+    .callout-navy {
+      background: var(--navy-lt);
+      border-color: var(--navy);
+    }
+
+    .callout-amber {
+      background: var(--amber-lt);
+      border-color: var(--amber);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .callout p {
+      margin-bottom: 12px;
+    }
+
+    .callout p:last-child {
+      margin-bottom: 0;
+    }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 32px 0;
+    }
+
+    .checklist li {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      align-items: flex-start;
+    }
+
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      border: 2px solid var(--divider);
+      border-radius: 4px;
+      flex: 0 0 20px;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .checklist li > div:last-child {
+      flex: 1;
+    }
+
+    .tier-label {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tier-1 {
+      background: var(--navy);
+      color: white;
+    }
+
+    .tier-2 {
+      background: var(--gray-lt);
+      color: var(--gray);
+    }
+
+    .mid-cta {
+      background: var(--ink);
+      border-radius: 16px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin: 40px 0;
+    }
+
+    .mid-cta-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: white;
+      line-height: 1.5;
+    }
+
+    .mid-cta-text span {
+      display: block;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      margin-top: 4px;
+    }
+
+    .mid-cta-btn {
+      background: white;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 980px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 90px;
+      height: fit-content;
+    }
+
+    .toc {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      border: 1px solid var(--divider);
+    }
+
+    .toc-title {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--gray);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .toc ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .toc li {
+      margin-bottom: 12px;
+    }
+
+    .toc a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .toc a:hover {
+      color: var(--navy);
+    }
+
+    .guide-promo {
+      background: var(--navy);
+      color: white;
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .guide-promo-title {
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .guide-promo-text {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+
+    .guide-promo-btn {
+      display: block;
+      width: 100%;
+      background: white;
+      color: var(--navy);
+      text-align: center;
+      padding: 12px;
+      border-radius: 980px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .related-posts {
+      margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid var(--divider);
+    }
+
+    .related-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .post-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 24px;
+      text-decoration: none;
+      display: block;
+      border: 1px solid var(--divider);
+      transition: border-color 0.2s;
+    }
+
+    .post-card:hover {
+      border-color: var(--navy);
+    }
+
+    .post-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .post-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 980px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .cat-planning {
+      background: var(--navy-lt);
+      color: var(--navy);
+    }
+
+    .cat-gear {
+      background: var(--green-lt);
+      color: var(--green);
+    }
+
+    .cat-skills {
+      background: var(--amber-lt);
+      color: var(--amber);
+    }
+
+    .post-read-time {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    .post-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .post-excerpt {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .post-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--divider);
+    }
+
+    .post-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    .post-arrow {
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    footer {
+      background: var(--ink);
+      color: white;
+      padding: 48px 32px;
+      margin-top: 64px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-weight: 700;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    .footer-text {
+      font-size: 14px;
+      opacity: 0.7;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 968px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much water should a household store for emergencies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Store at least one gallon per person per day for a minimum of 14 days. A family of four needs 56 gallons minimum. This covers drinking, cooking, and basic hygiene. If you have infants, elderly household members, or medical conditions requiring extra water, increase storage to 1.5 gallons per person per day."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to municipal water supply during extreme weather?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Extreme weather overwhelms aging water infrastructure in two ways: floods contaminate treatment facilities and distribution lines, while droughts deplete source reservoirs faster than they can recharge. Treatment plants built decades ago were not designed for the rainfall intensity or heat duration now occurring regularly. Boil-water notices and supply interruptions are becoming more frequent."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I filter water at home if the tap supply is contaminated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A gravity-fed ceramic filter with activated carbon removes bacteria, protozoa, and most chemicals. For viral contamination, add a UV purifier or boil filtered water for one minute. Store replacement filter cartridges and test your system quarterly. A countertop gravity filter can process 2-4 gallons per hour without electricity."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the signs that municipal water infrastructure is failing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Watch for increasing frequency of boil-water advisories, longer repair times for main breaks, and reduced water pressure during peak demand. If your utility issues conservation requests during normal weather, or if treatment plant maintenance is repeatedly delayed, the system is operating at capacity limits. Municipal water departments rarely announce vulnerability until failure is imminent."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use rainwater for drinking during a water supply disruption?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Rainwater collected from a clean roof can be made potable with proper filtration and purification. First, filter through mesh to remove debris, then through ceramic or sand filters, then boil or UV-treat. Do not collect the first 10 minutes of rainfall, which washes contaminants off the roof. Store in food-grade containers only and use within 6 months."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div id="progress"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Prepared. Not scared.</a>
+    <ul class="nav-links">
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="index.html#inside">What's Inside</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li>
+        <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">Get the Guide →</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="sticky-buy-bar">
+    <div class="sticky-buy-bar-text">
+      Family Emergency Preparedness Guide
+      <span>Complete water supply planning and household storage system</span>
+    </div>
+    <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sticky-buy-bar-btn">Get the Guide — $25</a>
+  </div>
+
+  <div class="container">
+    <main>
+      <article>
+        <div class="article-header">
+          <div class="article-meta">
+            <span class="cat-home">Home</span>
+            <span>11 min read</span>
+            <span>April 2026</span>
+          </div>
+          <h1 class="article-title">How to Prepare Your Household Water Supply for Climate Disruption</h1>
+          <p class="article-excerpt">Municipal water systems were not designed for the rainfall intensity and drought duration now occurring regularly. Infrastructure built 50-180 years ago is failing under conditions it was never meant to handle.</p>
+        </div>
+
+        <div class="article-body" id="articleBody">
+          <p>Hamburg's sewer system is 180 years old. The masonry is intact but the system floods during heavy rain because no engineer in 1844 planned for the rainfall volumes climate change now delivers. During a downpour, water rises to the ceiling in sections built to handle 19th-century weather patterns.</p>
+
+          <p>The same mismatch exists in water supply infrastructure across Europe and North America. Treatment plants, distribution lines, and reservoir systems were designed for climate conditions that no longer exist. Extreme weather destabilizes both sides of the water equation: too much water overwhelms drainage and treatment capacity, while extended drought depletes source reservoirs faster than they recharge.</p>
+
+          <p>Most households do not think about water until the tap stops running or a boil-water notice appears. By then, stores are sold out of bottled water and neighbors are competing for the same limited supply. A household that waits for the disruption to prepare has already lost the window to act.</p>
+
+          <div class="stat-row">
+            <div class="stat">
+              <span class="stat-number">180</span>
+              <span class="stat-label">Years old — Hamburg sewer system, still in use</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">80%</span>
+              <span class="stat-label">Of Tunisia's water used by agriculture, causing drinking water shortages</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">90%</span>
+              <span class="stat-label">Wastewater recycling rate at Carlsberg's Denmark plant</span>
+            </div>
+          </div>
+
+          <h2>How Water Infrastructure Actually Fails</h2>
+
+          <p>Municipal water systems fail in three stages. First, source depletion: reservoirs and aquifers drop below sustainable extraction levels. Second, treatment overload: aging plants cannot process contaminated floodwater or maintain output during equipment failures. Third, distribution collapse: pipes designed for steady demand crack under pressure fluctuations caused by surge usage during heat waves or panic buying.</p>
+
+          <p>Hamburg's hydrologist Andreas Kuchenbecker models these scenarios using 30 weather stations across the city. His data shows that rainfall events now exceed design capacity several times per year. The city is retrofitting drainage with "sponge city" infrastructure — permeable surfaces, retention basins, and green roofs that absorb water instead of channeling it into overwhelmed sewers.</p>
+
+          <p>These adaptations take years to implement and require municipal budgets most cities do not have. Household water preparedness cannot depend on infrastructure upgrades that may arrive after the next major disruption.</p>
+
+          <h2>Calculate Your Household's Actual Water Need</h2>
+
+          <p>The standard emergency recommendation is one gallon per person per day. That number covers drinking and minimal food preparation but does not account for sanitation, medical needs, or the reality that most people cannot function on subsistence rations for more than a few days.</p>
+
+          <p>A more accurate baseline: 1.5 gallons per person per day for 14 days minimum. A family of four needs 84 gallons of stored water. If your household includes infants (formula preparation requires clean water), elderly members (higher hydration needs), or anyone with medical conditions requiring water for treatment or hygiene, increase the per-person allocation to 2 gallons.</p>
+
+          <div class="callout callout-navy">
+            <div class="callout-title">Water Calculation by Household Size</div>
+            <p><strong>Single person:</strong> 21 gallons minimum (14 days × 1.5 gal/day)</p>
+            <p><strong>Couple:</strong> 42 gallons</p>
+            <p><strong>Family of four:</strong> 84 gallons</p>
+            <p><strong>Family with medical needs:</strong> Add 50% to base calculation</p>
+          </div>
+
+          <h2>Water Storage That Actually Works</h2>
+
+          <p>Bottled water expires and takes up disproportionate storage space relative to volume. A case of 24 half-liter bottles provides 3 gallons and costs $6-8. For the same money, buy two 5-gallon food-grade containers that last 20 years and store 10 gallons in half the footprint.</p>
+
+          <p>Water storage breaks into three tiers: immediately accessible (drinking and cooking), short-term reserve (hygiene and sanitation), and long-term capacity (extended disruptions). Store water in multiple locations because a single point of failure — basement flooding, contamination of a central tank — eliminates your entire supply.</p>
+
+          <h3>Tier 1: Immediate Access (72 hours)</h3>
+
+          <p>Keep 12 gallons per household member in portable containers where you can grab them during an evacuation or access them without power. Five-gallon jugs with handles work better than large tanks you cannot move. Store half near the kitchen (cooking and drinking) and half near the bathroom (hygiene).</p>
+
+          <p>Rotate this water every six months. Mark the fill date on each container with permanent marker. Use stored water for cooking or watering plants, then refill immediately. This prevents stagnation and confirms the containers remain leak-free.</p>
+
+          <h3>Tier 2: Short-Term Reserve (7-14 days)</h3>
+
+          <p>This is where most households fail. They store 3 days of water and assume infrastructure will recover before that runs out. The data shows otherwise: boil-water notices last an average of 5-9 days, and major treatment plant failures can take two weeks to restore.</p>
+
+          <p>For a 14-day reserve, a family of four needs 72 additional gallons beyond the Tier 1 supply (84 total minus the 12 in immediate access containers). Store this in stackable 5-gallon containers or a 55-gallon drum if you have basement or garage space. Drums require a siphon pump because a full 55-gallon drum weighs 460 pounds and cannot be moved once filled.</p>
+
+          <div class="callout callout-amber">
+            <div class="callout-title">Mistake: Storing Water in Old Milk Jugs</div>
+            <p>Milk residue encourages bacterial growth even after washing. Plastic milk jugs degrade faster than food-grade water containers and will crack within 12 months. A leaking jug stored on a shelf contaminates everything below it and leaves you with no water when you need it.</p>
+            <p>Use only food-grade HDPE containers marked with recycling code 2 or 4. They cost $10-15 for a 5-gallon container and last indefinitely if kept out of direct sunlight.</p>
+          </div>
+
+          <h3>Tier 3: Extended Disruption Capacity (30+ days)</h3>
+
+          <p>If your region's water source is an aquifer in decline or a reservoir facing chronic shortages, plan for supply rationing that lasts longer than two weeks. This requires either bulk storage (multiple 55-gallon drums) or a water sourcing and purification system.</p>
+
+          <p>Bulk storage is straightforward but space-intensive. For extended capacity without massive storage volume, you need a way to collect and purify water from non-municipal sources: rainwater, surface water, or even greywater from your household if you have a filtration system capable of processing it.</p>
+
+          <div class="mid-cta">
+            <div class="mid-cta-text">
+              Chapter 1 of the guide covers how to build a household water plan that maps storage, sourcing, and purification to your home's specific layout and your region's climate risks.
+              <span>Includes storage location checklist, container sizing calculator, and sourcing decision tree.</span>
+            </div>
+            <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="mid-cta-btn">Get the Guide — $25</a>
+          </div>
+
+          <h2>Water Purification Without Municipal Treatment</h2>
+
+          <p>Stored water solves the first two weeks. After that, you need to purify water from sources you would not normally drink from. Municipal disruptions often mean the tap is running but the water is unsafe — contamination from flooding, treatment plant failure, or compromised distribution lines.</p>
+
+          <p>Boiling kills pathogens but does not remove chemical contaminants. A rolling boil for one minute makes water biologically safe but if the source contains agricultural runoff, industrial pollutants, or heavy metals, boiling concentrates those toxins.</p>
+
+          <p>A gravity-fed ceramic filter with activated carbon removes bacteria, protozoa, sediment, and most organic chemicals. Brands like Berkey or Doulton process 2-4 gallons per hour without electricity. The ceramic element lasts 10,000 gallons before replacement. For a family of four drinking 2 gallons per day, that is 13 years of capacity from one set of filters.</p>
+
+          <p>For viral contamination (less common in North America and Europe but possible after flooding), add a UV purifier. SteriPEN and similar devices use ultraviolet light to destroy viruses in 60 seconds. Battery-powered models cost $50-80 and treat 8,000 liters before the bulb requires replacement.</p>
+
+          <h3>Purification Decision Tree</h3>
+
+          <ul class="checklist">
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label tier-1">Tier 1</span>
+                <strong>Boiling:</strong> Free, kills all biological threats, does not remove chemicals. Use for confirmed biological contamination when no filter is available.
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label tier-1">Tier 1</span>
+                <strong>Ceramic + carbon filter:</strong> $200-300, removes bacteria, protozoa, sediment, chlorine, and most organic chemicals. Gravity-fed, no power required. Best all-purpose system for household use.
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label tier-2">Tier 2</span>
+                <strong>UV purifier:</strong> $50-80, kills viruses in treated water. Use after filtering if viral contamination is suspected. Requires batteries or USB charging.
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label tier-2">Tier 2</span>
+                <strong>Reverse osmosis:</strong> $150-400, removes dissolved solids, heavy metals, and chemicals that carbon filters miss. Requires water pressure (usually municipal supply) so not functional during most disruptions. Best for long-term chronic contamination in functioning systems.
+              </div>
+            </li>
+          </ul>
+
+          <h2>Rainwater Collection as Backup Sourcing</h2>
+
+          <p>One inch of rain on a 1,000-square-foot roof yields 600 gallons of water. A single moderate storm refills a household's two-week supply if you have collection infrastructure in place. Tunisia's olive farmers survive in desert conditions using underground water diffusers that harvest seasonal rainfall and store it below ground where evaporation cannot reach it.</p>
+
+          <p>The same principle applies to household rainwater harvesting: capture, filter, store. Gutters channel water from the roof into a first-flush diverter that discards the initial runoff (which carries roof contaminants), then into food-grade storage barrels or tanks.</p>
+
+          <p>Rainwater is not potable without treatment. Even in rural areas far from industrial contamination, rainwater collects airborne particles, bird droppings, and roof residue. Filter collected water through mesh (removes debris), then through ceramic or sand filters (removes bacteria), then boil or UV-treat if you plan to drink it.</p>
+
+          <h3>Household Rainwater System Checklist</h3>
+
+          <ul class="checklist">
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label tier-1">Tier 1</span>
+                <strong>Gutter system:</strong> Clean and functional gutters that channel water to one or two downspouts.
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label tier-1">Tier 1</span>
+                <strong>First-flush diverter:</strong> Diverts the first 10 gallons of roof runoff away from storage (washes contaminants off roof).
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label tier-1">Tier 1</span>
+                <strong>Storage barrels:</strong> 55-gallon food-grade drums or IBC totes (275-330 gallons). Place on raised platform for gravity-fed distribution.
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label tier-2">Tier 2</span>
+                <strong>Overflow routing:</strong> Pipe that diverts excess water away from foundation when barrels are full.
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label tier-2">Tier 2</span>
+                <strong>Sediment filter:</strong> Inline mesh filter that removes leaves and debris before water enters storage.
+              </div>
+            </li>
+          </ul>
+
+          <p>Check local regulations before installing rainwater collection. Some jurisdictions restrict harvesting, though most allow it for non-potable use (irrigation, toilet flushing). Even where drinking rainwater is prohibited, having 200+ gallons of water for hygiene and sanitation during a disruption reduces your dependence on stored drinking water.</p>
+
+          <h2>How to Identify Municipal Water System Failure Before It Happens</h2>
+
+          <p>Water utilities rarely announce vulnerability until failure is imminent. Departments avoid public panic and often do not have accurate models of their own system's remaining capacity. You have to read the signs yourself.</p>
+
+          <p>Watch for boil-water advisory frequency. If your municipality issues two or more advisories per year, treatment capacity is marginal. Advisories mean the system detected contamination after it entered distribution lines — the detection is reactive, not preventive.</p>
+
+          <p>Track water main break repair times. A break that takes 8-12 hours to fix indicates adequate maintenance staffing and parts inventory. Breaks that remain unrepaired for 24+ hours mean the department is understaffed, underfunded, or waiting on parts they do not stock locally. All three signal a system operating at capacity limits.</p>
+
+          <p>Monitor reservoir levels during normal precipitation years. If levels drop during average rainfall, the water source is either over-allocated (more users than the source can sustain) or recharge rates have slowed due to reduced snowpack or aquifer depletion. Both trends worsen under climate change.</p>
+
+          <div class="callout callout-navy">
+            <div class="callout-title">Municipal Water Warning Signs</div>
+            <p><strong>Immediate concern:</strong> Boil-water advisories more than once per year, conservation requests during normal weather, low water pressure during peak demand hours.</p>
+            <p><strong>Medium-term risk:</strong> Reservoir levels below 70% during average rainfall years, aging treatment plants with deferred maintenance, rate increases above inflation (signals infrastructure repair backlog).</p>
+            <p><strong>Long-term structural risk:</strong> Aquifer-dependent systems in regions with declining water tables, cities with population growth exceeding infrastructure expansion, utilities with unfunded pension liabilities (signals deferred maintenance to cover operational costs).</p>
+          </div>
+
+          <h2>When to Fill Bathtubs and Sinks</h2>
+
+          <p>If you receive advance warning of a disruption — hurricane, wildfire, or announced treatment plant shutdown — fill every container in your home before the water stops. Bathtubs hold 40-80 gallons. Sinks add another 10-20 gallons. This water is not potable without treatment but it flushes toilets, washes dishes, and provides water for cleaning.</p>
+
+          <p>Line the bathtub with a heavy-duty plastic liner (WaterBOB or similar product, $30) before filling. A bare tub loses water to evaporation and the porous surface allows bacterial growth. The liner keeps stored water cleaner and prevents contamination from bathtub residue.</p>
+
+          <p>Do this as soon as a disruption warning is issued. Once panic buying starts, stores sell out of bottled water in 2-4 hours. Your tap water is free and still flowing. Fill containers first, then go to the store for anything you still need.</p>
+
+          <h2>Water Preparedness Is Shelter-in-Place Infrastructure</h2>
+
+          <p>Most emergency scenarios that disrupt water supply require sheltering at home, not evacuation. Flooding contaminates treatment plants but does not force you to leave. Drought-driven rationing means you stay home and use less. Boil-water notices last days, not hours, and your tap is still running — you just cannot drink from it without treatment.</p>
+
+          <p>This is a shelter-in-place problem. The household that has water can stay home while everyone else competes for bottled water at stores or stands in line at distribution points. Shelter-in-place capacity determines whether you ride out the disruption in your own home or join the lines.</p>
+
+          <p>Chapter 1 of the Family Emergency Preparedness Guide covers the full shelter-in-place planning framework: when to stay, when to leave, how to calculate your household's supply duration for water, food, and power, and how to make decisions under incomplete information. Water storage is one component of a larger system that keeps your household functional when infrastructure fails.</p>
+
+          <h2>Start with 14 Days of Water This Month</h2>
+
+          <p>The difference between prepared and reactive is 84 gallons of stored water. That is 17 five-gallon containers or two 55-gallon drums. The cost is $100-200 depending on container type. The time investment is one afternoon to fill and label containers and identify storage locations.</p>
+
+          <p>Most households do not have water storage because it feels like an overreaction until the disruption happens. By then, everyone is competing for the same limited bottled water supply and the prepared household is already home using stored water while others stand in line.</p>
+
+          <p>Water preparedness is not about fear. It is about recognizing that infrastructure built for 20th-century climate patterns is failing under 21st-century weather extremes. The household that adapts first has the most options when the system breaks.</p>
+
+          <div class="mid-cta">
+            <div class="mid-cta-text">
+              The Family Emergency Preparedness Guide includes complete shelter-in-place planning, supply duration calculators, and the household decision framework for when to stay and when to leave.
+              <span>Chapter 1 covers emergency planning. Chapter 3 covers go-bag preparation for evacuation scenarios.</span>
+            </div>
+            <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="mid-cta-btn">Get the Guide — $25</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="related-posts">
+        <h2 class="related-title">Related Articles</h2>
+        <div class="related-grid">
+          <a href="how-to-build-a-go-bag.html" class="post-card" data-category="gear">
+            <div class="post-card-header">
+              <span class="post-cat cat-gear">Gear</span>
+              <span class="post-read-time">8 min</span>
+            </div>
+            <div class="post-card-body">
+              <div class="post-title">How to Build a Go-Bag That Actually Works</div>
+              <p class="post-excerpt">Most go-bags are packed with gear the owner has never used under stress. This guide covers the tier system, weight limits, and testing protocol that make a go-bag functional.</p>
+              <div class="post-footer">
+                <span class="post-date">April 2026</span>
+                <span class="post-arrow">→</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="energy-crisis-food-water-supply-what-to-do.html" class="post-card" data-category="planning">
+            <div class="post-card-header">
+              <span class="post-cat cat-planning">Planning</span>
+              <span class="post-read-time">12 min</span>
+            </div>
+            <div class="post-card-body">
+              <div class="post-title">Energy Crisis, Food Supply, Water Access — What Households Actually Need to Do</div>
+              <p class="post-excerpt">Cascading infrastructure failures start with energy and spread to food and water systems. The article maps failure sequences and the household preparations that matter.</p>
+              <div class="post-footer">
+                <span class="post-date">April 2026</span>
+                <span class="post-arrow">→</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="petrodollar-dollar-reserve-status-household-preparation.html" class="post-card" data-category="planning">
+            <div class="post-card-header">
+              <span class="post-cat cat-planning">Planning</span>
+              <span class="post-read-time">14 min</span>
+            </div>
+            <div class="post-card-body">
+              <div class="post-title">Petrodollar Unraveling and Dollar Reserve Status — The Household Preparation That Matters</div>
+              <p class="post-excerpt">Currency crises hit households through inflation and supply disruptions, not abstract exchange rates. The article covers how to calculate your household's import dependence and what to stockpile.</p>
+              <div class="post-footer">
+                <span class="post-date">April 2026</span>
+                <span class="post-arrow">→</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <aside class="sidebar">
+      <div class="toc">
+        <div class="toc-title">Contents</div>
+        <ul>
+          <li><a href="#articleBody">How Water Infrastructure Actually Fails</a></li>
+          <li><a href="#articleBody">Calculate Your Household's Actual Water Need</a></li>
+          <li><a href="#articleBody">Water Storage That Actually Works</a></li>
+          <li><a href="#articleBody">Water Purification Without Municipal Treatment</a></li>
+          <li><a href="#articleBody">Rainwater Collection as Backup Sourcing</a></li>
+          <li><a href="#articleBody">Municipal Water System Failure Signs</a></li>
+          <li><a href="#articleBody">When to Fill Bathtubs and Sinks</a></li>
+        </ul>
+      </div>
+
+      <div class="guide-promo">
+        <div class="guide-promo-title">Family Emergency Preparedness Guide</div>
+        <p class="guide-promo-text">Complete shelter-in-place planning, supply calculators, and household decision framework for water, food, and power disruptions.</p>
+        <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="guide-promo-btn">Get the Guide — $25</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">Prepared. Not scared.</div>
+      <p class="footer-text">Family emergency preparedness for households that want to be ready without living in fear.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Reading progress bar
+    const articleBody = document.getElementById('articleBody');
+    const progressBar = document.getElementById('progress');
+    
+    window.addEventListener('scroll', () => {
+      const articleTop = articleBody.offsetTop;
+      const articleHeight = articleBody.offsetHeight;
+      const windowHeight = window.innerHeight;
+      const scrollY = window.scrollY;
+      
+      const articleStart = articleTop - windowHeight / 2;
+      const articleEnd = articleTop + articleHeight - windowHeight / 2;
+      const scrollProgress = (scrollY - articleStart) / (articleEnd - articleStart);
+      
+      const progress = Math.min(Math.max(scrollProgress * 100, 0), 100);
+      progressBar.style.width = progress + '%';
+    });
+
+    // Sticky buy bar
+    const articleHeader = document.querySelector('.article-header');
+    const stickyBuyBar = document.querySelector('.sticky-buy-bar');
+    
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          stickyBuyBar.classList.add('visible');
+        } else {
+          stickyBuyBar.classList.remove('visible');
+        }
+      },
+      { threshold: 0 }
+    );
+    
+    observer.observe(articleHeader);
+  </script>
+</body>
+</html>

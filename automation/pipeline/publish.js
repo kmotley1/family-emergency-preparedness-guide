@@ -8,6 +8,69 @@ const REPO = config.repoPath;
 const BLOG_HTML = path.join(REPO, 'blog.html');
 const SITEMAP = path.join(REPO, 'sitemap.xml');
 
+const CORRECT_NAV = `<nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="16" r="14" stroke="#1B4FBF" stroke-width="2"/>
+      <circle cx="16" cy="16" r="6" fill="#1B4FBF"/>
+    </svg>
+  </a>
+  <ul class="nav-links">
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#inside">What's Inside</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">Get the Guide →</a>
+    </li>
+  </ul>
+</nav>`;
+
+const CORRECT_NAV_CSS = `    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 0 40px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px; color: var(--gray);
+      text-decoration: none; transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--ink); font-weight: 500; }
+    .nav-cta {
+      background: var(--navy) !important; color: white !important;
+      padding: 8px 18px; border-radius: 980px;
+      font-weight: 500 !important; font-size: 13px !important;
+    }
+    .nav-cta:hover { background: var(--navy-dk) !important; }`;
+
+function fixNav(html) {
+  // Replace whatever nav element Claude generated with the correct one
+  html = html.replace(/<nav[\s\S]*?<\/nav>/, CORRECT_NAV);
+
+  // Replace nav CSS block — handles various formats Claude might generate
+  html = html.replace(/nav\s*\{[\s\S]*?\.nav-cta:hover\s*\{[^}]*\}/m, CORRECT_NAV_CSS);
+
+  return html;
+}
+
 async function publishArticle(articleId) {
   const article = db.getById(articleId);
   if (!article) throw new Error(`Article ${articleId} not found`);
@@ -16,8 +79,10 @@ async function publishArticle(articleId) {
   const articlePath = path.join(REPO, `${article.slug}.html`);
   console.log(`\n📦 Publishing: ${article.title}`);
 
-  fs.writeFileSync(articlePath, article.article_html, 'utf8');
-  console.log(`   ✅ Written: ${article.slug}.html`);
+  // Fix nav before writing to disk
+  const fixedHtml = fixNav(article.article_html);
+  fs.writeFileSync(articlePath, fixedHtml, 'utf8');
+  console.log(`   ✅ Written: ${article.slug}.html (nav fixed)`);
 
   injectBlogCard(article);
   console.log(`   ✅ Blog card injected into blog.html`);
