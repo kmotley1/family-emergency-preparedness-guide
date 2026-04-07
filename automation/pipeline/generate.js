@@ -160,6 +160,25 @@ Every article requires:
 8. Sticky sidebar: table of contents + guide promo card (navy)
 9. Related posts (3 cards, real slugs from: how-to-build-a-go-bag.html, how-to-financially-prepare-for-ai-job-displacement.html, energy-crisis-food-water-supply-what-to-do.html, petrodollar-dollar-reserve-status-household-preparation.html)
 10. Footer
+11. FAQ JSON-LD schema — REQUIRED in every article. Place immediately before </head>. Generate 4-5 questions and answers drawn directly from the article content. Questions must match what someone would actually type into Google or ask an AI assistant. Answers must be 2-4 sentences, specific and complete enough to be useful standalone.
+
+Format:
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Question text here?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Answer text here. Specific, complete, 2-4 sentences."
+      }
+    }
+  ]
+}
+</script>
 
 Guide purchase URL: https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00
 
