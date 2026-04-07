@@ -36,20 +36,40 @@ async function publishArticle(articleId) {
 
 function injectBlogCard(article) {
   let html = fs.readFileSync(BLOG_HTML, 'utf8');
+
+  // Duplicate check — if slug already exists in blog.html, skip injection
+  if (html.includes(`href="${article.slug}.html"`)) {
+    console.log(`   ⚠️  Blog card already exists for ${article.slug} — skipping injection`);
+    return;
+  }
+
   const gridMarker = '<!-- ── RECENTLY PUBLISHED ── -->';
   const idx = html.indexOf(gridMarker);
-  if (idx === -1) throw new Error('Could not find .posts-grid in blog.html');
-  // Inject after the grid-label divider block that follows the comment
+  if (idx === -1) throw new Error('Could not find RECENTLY PUBLISHED marker in blog.html');
+
+  // Inject after the grid-label divider block (two closing </div> tags after the marker)
   const dividerEnd = html.indexOf('</div>', idx);
   const dividerEnd2 = html.indexOf('</div>', dividerEnd + 1);
-  const insertAt = dividerEnd2 + 6; // after second </div>
+  const insertAt = dividerEnd2 + 6;
+
   const card = `\n\n      ${article.blog_card_html}\n`;
   html = html.slice(0, insertAt) + card + html.slice(insertAt);
+
   fs.writeFileSync(BLOG_HTML, html, 'utf8');
 }
 
 function updateSitemap(article) {
   const today = new Date().toISOString().split('T')[0];
+
+  // Duplicate check — if slug already in sitemap, skip
+  if (fs.existsSync(SITEMAP)) {
+    const existing = fs.readFileSync(SITEMAP, 'utf8');
+    if (existing.includes(`/${article.slug}.html`)) {
+      console.log(`   ⚠️  Sitemap entry already exists for ${article.slug} — skipping`);
+      return;
+    }
+  }
+
   if (!fs.existsSync(SITEMAP)) {
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -84,16 +104,10 @@ function gitPush(article) {
 
   try {
     execSync('git add -A', opts);
-
-    // Use execSync with array to avoid shell quoting issues
-    const slug = article.slug;
-    execSync(`git commit -m "feat: add article ${slug}"`, opts);
-
+    execSync(`git commit -m "feat: add article ${article.slug}"`, opts);
     execSync('git push origin main', opts);
-
     const hash = execSync('git rev-parse --short HEAD', opts).trim();
     return hash;
-
   } catch (err) {
     throw new Error(`Git operation failed: ${err.message}`);
   }
