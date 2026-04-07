@@ -39,6 +39,17 @@ The article takes a stance. It does not hedge. Every article should be reducible
 
 The CTA chapter must match the article's scenario. Never reference a chapter that does not exist. Never invent guide features.
 
+## CATEGORY SELECTION
+
+Do not default to "planning" for every article. Assign the most accurate category based on the article's primary focus:
+- planning: economic, financial, systemic risk, emergency plans, institutional fragility
+- gear: physical supplies, go-bags, equipment, tools
+- skills: self-sufficiency, food production, repair, first aid, practical capabilities
+- home: home hardening, shelter-in-place, home security, household infrastructure
+- community: mutual aid, neighbors, local networks, social resilience
+
+If an article spans multiple categories, pick the one most central to the article's closing action. Aim for variety across a batch — not every article should be "planning."
+
 ## GUIDE CONTENTS (never fabricate beyond this)
 
 - Ch. 1: Family emergency planning — meeting points, communication trees, trigger criteria, shelter-in-place decisions
@@ -79,6 +90,39 @@ REQUIRED:
 
 SELF-AUDIT BEFORE WRITING:
 After drafting each paragraph mentally, ask: "Would a smart editor flag this sentence as AI-generated?" If yes, rewrite it. The test: does the sentence contain information the reader did not have before, or does it just reframe what they already feel? Every sentence must do one of: state a fact, explain a mechanism, or specify an action.
+
+## TITLE RULES
+
+Article titles must NOT lead with alarm or threat framing. Titles like "The Job Market Is Collapsing," "Infrastructure Is Failing," or "AI Will Destroy Your Career" are forbidden — they read as sensationalist and repel the reader this site is built for.
+
+Good titles lead with the question the reader is already asking, or the specific knowledge gap the article fills:
+- "What Happens to Your Money If the Dollar Loses Reserve Currency Status" ✅
+- "How to Build a Cash Reserve Before a Disruption Hits" ✅
+- "The Job Market Is Contracting — What Households Need to Do Now" ❌ (alarm first)
+- "AI Job Displacement: The Financial Preparation Your Household Needs Now" ❌ (colon construction, alarm framing)
+
+## EXCERPT RULES
+
+Blog card excerpts must NOT read like ad copy or sales pitch. They should read like a knowledgeable friend summarizing what the article covers.
+
+FORBIDDEN in excerpts:
+- "Here is the X your household needs" — sounds like an ad
+- "Here's how to..." as the second sentence opener
+- Repeating the title's framing in different words
+- Any sentence that starts with "This article..."
+
+REQUIRED:
+- First sentence: one specific fact or situation from the article (not the title reworded)
+- Second sentence: what the reader will be able to do or understand after reading
+- Total length: 2 sentences, under 40 words combined
+
+Example of bad excerpt: "AI is eliminating jobs faster than new ones appear, and most households have less than 30 days of cash reserves. Here's the cash reserve structure and financial preparation plan that protects your family during the transition period."
+
+Example of good excerpt: "White-collar automation is moving faster than most households have planned for. The article covers how to calculate your actual cash runway and what to do with it before income changes."
+
+## READ TIME RULES
+
+Calculate read time accurately at 200 words per minute based on the article's actual word count. Do not default to "9 min" for every article. A 1,200-word article is 6 min. A 1,800-word article is 9 min. A 2,400-word article is 12 min. Count the words and divide by 200, round to nearest minute.
 
 ## HTML TEMPLATE
 
@@ -228,7 +272,7 @@ Return ONLY valid JSON, no markdown fences, no preamble:
   "sitemap_entry": "the url block as a string"
 }
 
-The article_html must be a complete, valid HTML document from <!DOCTYPE html> to </html>. ALL CSS must be inline in a <style> block inside <head>. Never reference external stylesheets. Never use a <link rel="stylesheet"> tag. The document must render correctly with zero external dependencies.`;
+The article_html must be a complete, valid HTML document from <!DOCTYPE html> to </html>.`;
 
 async function generateArticle({ transcript, videoTitle, regenerateNote }) {
   const userMessage = regenerateNote
