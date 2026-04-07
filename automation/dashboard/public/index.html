@@ -311,6 +311,9 @@
     <span>Emergency Prep</span>
   </div>
   <div class="nav-actions">
+    <button class="btn btn-ghost" onclick="refreshSignals()">
+      📡 Refresh Signals
+    </button>
     <button class="btn btn-ghost" onclick="runPipeline()">
       ⟳ Check Playlist
     </button>
@@ -346,6 +349,7 @@
     <button class="tab" onclick="switchTab('approved', this)">Approved</button>
     <button class="tab" onclick="switchTab('published', this)">Published</button>
     <button class="tab" onclick="switchTab('rejected', this)">Rejected</button>
+    <button class="tab" onclick="switchTab('signals', this)">📡 Signals</button>
   </div>
 
   <!-- QUEUE -->
@@ -639,11 +643,101 @@
       approved: ['Approved', 'Ready to publish'],
       published: ['Published', 'Live on the site'],
       rejected: ['Rejected', 'Discarded articles'],
+      signals: ['Signals', 'Trending topics — click Generate to turn into an article'],
     };
     document.getElementById('pageTitle').textContent = titles[tab][0];
     document.getElementById('pageSubtitle').textContent = titles[tab][1];
 
-    loadQueue();
+    if (tab === 'signals') {
+      loadSignals();
+    } else {
+      loadQueue();
+    }
+  }
+
+  // ── Signals ────────────────────────────────────────────────────
+
+  async function loadSignals() {
+    const grid = document.getElementById('queueGrid');
+    grid.innerHTML = '<div class="loading-row">Loading signals...</div>';
+    const res = await fetch('/api/signals');
+    const signals = await res.json();
+    renderSignals(signals);
+  }
+
+  function renderSignals(signals) {
+    const grid = document.getElementById('queueGrid');
+    if (!signals.length) {
+      grid.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-icon">📡</div>
+          <div class="empty-title">No signals yet</div>
+          <div class="empty-text">Click "Refresh Signals" to pull trending topics from Reddit and Google News.</div>
+        </div>`;
+      return;
+    }
+
+    grid.innerHTML = signals.map(s => `
+      <div class="article-card" id="signal-${s.id}">
+        <div class="card-left">
+          <div class="card-meta">
+            <span class="cat-badge" style="background:${s.source === 'reddit' ? '#FF4500' : '#4285F4'};color:white;font-size:9px;padding:3px 8px;border-radius:4px;font-family:monospace;letter-spacing:0.06em;text-transform:uppercase;">
+              ${s.source === 'reddit' ? 'r/' + (s.subreddit || 'reddit') : 'News'}
+            </span>
+            <span style="font-family:monospace;font-size:10px;color:var(--gray);">score: ${s.score}</span>
+          </div>
+          <div class="card-title">${s.title}</div>
+          <div class="card-desc">${s.description || ''}</div>
+          <div class="card-source">
+            <a href="${s.link}" target="_blank" style="color:var(--navy);font-size:12px;text-decoration:none;">View source →</a>
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="btn btn-danger btn-sm" onclick="rejectSignal(${s.id})">Dismiss</button>
+          <button class="btn btn-success btn-sm" onclick="generateFromSignal(${s.id})">Generate Article</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  async function refreshSignals() {
+    const btn = event.target;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Fetching...';
+    try {
+      const res = await fetch('/api/signals/refresh', { method: 'POST' });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      showToast(`✅ ${data.inserted} new signals found (${data.total} total)`, 'success');
+      if (currentTab === 'signals') loadSignals();
+    } catch (err) {
+      showToast(err.message, 'error');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = '📡 Refresh Signals';
+    }
+  }
+
+  async function rejectSignal(id) {
+    await fetch(`/api/signals/${id}/reject`, { method: 'POST' });
+    document.getElementById(`signal-${id}`)?.remove();
+  }
+
+  async function generateFromSignal(id) {
+    const btn = event.target;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Generating...';
+    try {
+      const res = await fetch(`/api/signals/${id}/generate`, { method: 'POST' });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      showToast(`✅ Article queued: "${data.title}"`, 'success');
+      document.getElementById(`signal-${id}`)?.remove();
+    } catch (err) {
+      showToast(err.message, 'error');
+      btn.disabled = false;
+      btn.textContent = 'Generate Article';
+    }
   }
 
   // ── Utilities ──────────────────────────────────────────────────

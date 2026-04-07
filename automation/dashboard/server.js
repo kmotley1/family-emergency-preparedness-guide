@@ -6,10 +6,75 @@ const db = require('../db');
 const { fetchNewVideos, fetchSingleVideo } = require('../pipeline/fetch');
 const { generateArticle } = require('../pipeline/generate');
 const { publishArticle } = require('../pipeline/publish');
+const { fetchSignals } = require('../signals');
 
 const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// ── Signals ────────────────────────────────────────────────────────
+
+app.get('/api/signals', (req, res) => {
+  res.json(db.getPendingSignals());
+});
+
+app.post('/api/signals/refresh', async (req, res) => {
+  try {
+    db.clearOldSignals();
+    const signals = await fetchSignals();
+    const inserted = db.insertSignals(signals);
+    res.json({ ok: true, total: signals.length, inserted });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.post('/api/signals/:id/reject', (req, res) => {
+  try {
+    db.updateSignalStatus(req.params.id, 'rejected');
+    res.json({ ok: true });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.post('/api/signals/:id/generate', async (req, res) => {
+  try {
+    const signal = db.getPendingSignals().find(s => s.id === parseInt(req.params.id));
+    if (!signal) return res.status(404).json({ error: 'Signal not found' });
+
+    db.updateSignalStatus(signal.id, 'generating');
+
+    // Use title + description as the transcript source
+    const transcript = `${signal.title}\n\n${signal.description}\n\nSource: ${signal.link}`;
+
+    const generated = await generateArticle({
+      transcript,
+      videoTitle: signal.title,
+    });
+
+    db.insertArticle({
+      video_id: `signal-${signal.id}-${Date.now()}`,
+      video_title: signal.title,
+      video_url: signal.link,
+      transcript,
+      article_html: generated.article_html,
+      blog_card_html: generated.blog_card_html,
+      sitemap_entry: generated.sitemap_entry,
+      slug: generated.slug,
+      title: generated.title,
+      category: generated.category,
+      meta_description: generated.meta_description,
+      read_time: generated.read_time,
+    });
+
+    db.updateSignalStatus(signal.id, 'rejected'); // Mark used
+    res.json({ ok: true, title: generated.title });
+  } catch (err) {
+    db.updateSignalStatus(parseInt(req.params.id), 'pending'); // Reset on failure
+    res.status(500).json({ error: err.message });
+  }
+});
 
 // ── Queue ──────────────────────────────────────────────────────────
 

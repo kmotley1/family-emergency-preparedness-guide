@@ -21,7 +21,6 @@ function init() {
       video_url TEXT,
       transcript TEXT,
       status TEXT DEFAULT 'pending',
-      -- status: pending | approved | rejected | published
       article_html TEXT,
       blog_card_html TEXT,
       sitemap_entry TEXT,
@@ -40,6 +39,19 @@ function init() {
     CREATE TABLE IF NOT EXISTS processed_videos (
       video_id TEXT PRIMARY KEY,
       processed_at TEXT DEFAULT (datetime('now'))
+    );
+
+    CREATE TABLE IF NOT EXISTS signals (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      title TEXT NOT NULL,
+      link TEXT NOT NULL UNIQUE,
+      description TEXT,
+      source TEXT,
+      subreddit TEXT,
+      query TEXT,
+      score INTEGER DEFAULT 0,
+      status TEXT DEFAULT 'pending',
+      created_at TEXT DEFAULT (datetime('now'))
     );
   `);
 }
@@ -102,8 +114,47 @@ function getPublished() {
   return getDb().prepare(`SELECT * FROM articles WHERE status = 'published' ORDER BY published_at DESC`).all();
 }
 
+// ── Signal operations ─────────────────────────────────────────────
+
+function insertSignals(signals) {
+  const stmt = getDb().prepare(`
+    INSERT OR IGNORE INTO signals (title, link, description, source, subreddit, query, score)
+    VALUES (@title, @link, @description, @source, @subreddit, @query, @score)
+  `);
+  let inserted = 0;
+  for (const s of signals) {
+    const result = stmt.run({
+      title: s.title,
+      link: s.link || '',
+      description: s.description || '',
+      source: s.source || '',
+      subreddit: s.subreddit || null,
+      query: s.query || null,
+      score: s.score || 0,
+    });
+    if (result.changes > 0) inserted++;
+  }
+  return inserted;
+}
+
+function getPendingSignals() {
+  return getDb().prepare(`
+    SELECT * FROM signals WHERE status = 'pending'
+    ORDER BY score DESC, created_at DESC
+  `).all();
+}
+
+function updateSignalStatus(id, status) {
+  getDb().prepare(`UPDATE signals SET status = ? WHERE id = ?`).run(status, id);
+}
+
+function clearOldSignals() {
+  getDb().prepare(`DELETE FROM signals WHERE created_at < datetime('now', '-48 hours')`).run();
+}
+
 module.exports = {
   getById, getPending, getAll, getPublished,
   insertArticle, updateStatus, updateArticle, markPublished,
   isVideoProcessed, markVideoProcessed,
+  insertSignals, getPendingSignals, updateSignalStatus, clearOldSignals,
 };
