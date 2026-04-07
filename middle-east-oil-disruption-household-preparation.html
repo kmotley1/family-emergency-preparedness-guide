@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Happens When Middle East Oil Production Drops 20%: A Household Preparation Guide</title>
+<meta name="description" content="Airlines are canceling routes. Factories are closing. European governments told citizens not to travel. Here's what demand destruction means for your household.">
+<style>
+:root {
+  --white: #FFFFFF;
+  --bg: #F8F8F8;
+  --ink: #1A1A1A;
+  --gray: #6B6B6B;
+  --gray-lt: #D2D2D7;
+  --navy: #1B4FBF;
+  --navy-dk: #153D96;
+  --navy-lt: #EEF2FB;
+  --green: #2A7A4B;
+  --green-lt: #EAF5EE;
+  --amber: #B45309;
+  --amber-lt: #FEF3C7;
+  --divider: #D2D2D7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--navy);
+  z-index: 9999;
+  transition: width 0.1s ease;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid var(--divider);
+  z-index: 1000;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--gray);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--ink);
+}
+
+.nav-cta {
+  background: var(--navy) !important;
+  color: white !important;
+  padding: 8px 18px;
+  border-radius: 980px;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+}
+
+.nav-cta:hover {
+  background: var(--navy-dk) !important;
+}
+
+.sticky-buy-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid var(--divider);
+  padding: 16px 32px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 999;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+
+.sticky-buy-bar.visible {
+  display: flex;
+}
+
+.sticky-buy-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.sticky-buy-btn {
+  background: var(--navy);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 980px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sticky-buy-btn:hover {
+  background: var(--navy-dk);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 80px auto 60px;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 60px;
+}
+
+.article-header {
+  margin-bottom: 40px;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+
+.cat-planning {
+  background: var(--navy-lt);
+  color: var(--navy);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.article-title {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: var(--ink);
+}
+
+.article-excerpt {
+  font-size: 18px;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 40px 0;
+  padding: 32px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--divider);
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--navy);
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.4;
+}
+
+.stat-source {
+  font-size: 11px;
+  color: var(--gray);
+  margin-top: 4px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.article-body {
+  background: white;
+  padding: 48px;
+  border-radius: 12px;
+  border: 1px solid var(--divider);
+}
+
+.article-body h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 48px 0 24px 0;
+  color: var(--ink);
+}
+
+.article-body h2:first-child {
+  margin-top: 0;
+}
+
+.article-body h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 32px 0 16px 0;
+  color: var(--ink);
+}
+
+.article-body p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+
+.article-body ul,
+.article-body ol {
+  margin: 20px 0 20px 24px;
+}
+
+.article-body li {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.article-body strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.callout {
+  padding: 24px;
+  border-radius: 8px;
+  margin: 32px 0;
+  border-left: 4px solid;
+}
+
+.callout-navy {
+  background: var(--navy-lt);
+  border-color: var(--navy);
+}
+
+.callout-amber {
+  background: var(--amber-lt);
+  border-color: var(--amber);
+}
+
+.callout-title {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.callout p {
+  margin-bottom: 12px;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+.checklist {
+  background: var(--bg);
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  padding: 24px;
+  margin: 32px 0;
+}
+
+.checklist-title {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+
+.checklist ul {
+  list-style: none;
+  margin: 0;
+}
+
+.checklist li {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  align-items: flex-start;
+}
+
+.checklist li:last-child {
+  margin-bottom: 0;
+}
+
+.check-icon {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border: 2px solid var(--divider);
+  border-radius: 4px;
+  flex: 0 0 20px;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checklist li > div:last-child {
+  flex: 1;
+}
+
+.tier-label {
+  display: inline-block;
+  background: var(--navy);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 8px;
+}
+
+.tier-2 .tier-label {
+  background: var(--gray);
+}
+
+.mid-cta {
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 40px 0;
+}
+
+.mid-cta-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  line-height: 1.5;
+}
+
+.mid-cta-text span {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  margin-top: 4px;
+}
+
+.mid-cta-btn {
+  background: white;
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 980px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.mid-cta-btn:hover {
+  background: var(--bg);
+}
+
+.sidebar {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.toc {
+  background: white;
+  border: 1px solid var(--divider);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.toc-title {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 16px;
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.toc ul {
+  list-style: none;
+  margin: 0;
+}
+
+.toc li {
+  margin-bottom: 12px;
+}
+
+.toc a {
+  color: var(--gray);
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.4;
+  display: block;
+}
+
+.toc a:hover {
+  color: var(--navy);
+}
+
+.guide-promo {
+  background: var(--navy);
+  border-radius: 12px;
+  padding: 24px;
+  color: white;
+}
+
+.guide-promo-title {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.guide-promo-text {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.guide-promo-btn {
+  display: block;
+  width: 100%;
+  background: white;
+  color: var(--navy);
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.guide-promo-btn:hover {
+  background: var(--bg);
+}
+
+.related-posts {
+  margin-top: 60px;
+  padding-top: 60px;
+  border-top: 1px solid var(--divider);
+}
+
+.related-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.post-card {
+  background: white;
+  border: 1px solid var(--divider);
+  border-radius: 12px;
+  padding: 24px;
+  text-decoration: none;
+  display: block;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.post-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.post-cat {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.post-read-time {
+  font-size: 12px;
+  color: var(--gray);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.post-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.post-excerpt {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--gray);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.post-arrow {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+footer {
+  background: var(--ink);
+  color: white;
+  padding: 60px 32px 32px;
+  margin-top: 80px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 40px;
+}
+
+.footer-brand {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.footer-text {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.7;
+}
+
+.footer-links h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.5;
+}
+
+@media (max-width: 968px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  
+  .sidebar {
+    display: none;
+  }
+  
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is demand destruction and how does it affect households?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Demand destruction occurs when supply drops so severely that the demand for a product or service permanently decreases. In the context of energy disruption, this means economic activities that rely on oil—factories, air travel, construction, food production—contract permanently rather than just experiencing higher prices. Your household will face fewer available flights, reduced imports, higher construction costs, and food shortages as these sectors shrink."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which industries are already being affected by oil supply disruption?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Airlines are canceling routes due to fuel costs. European governments have asked citizens not to travel this summer. Factories in Asia are closing, especially semiconductor plants which also depend on helium from natural gas production. Shipping costs are rising, reducing imports and exports. Construction is slowing as lumber becomes expensive to harvest and transport."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should a household prepare for long-term energy supply disruption?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Build a 30-day financial buffer equal to 30% of monthly take-home pay to handle price shocks. Create a family emergency plan with meeting points and communication protocols for disrupted systems. Stock shelf-stable food equivalent to two weeks of meals. Document your household's dependencies—how you heat, cool, cook, and travel—and identify manual or low-energy alternatives for each."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will food supplies be affected by oil disruption?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Fertilizer components like phosphorus come through the Persian Gulf, and shortages are already appearing in Asia. Reduced shipping capacity means less off-season produce. Higher fuel costs make harvesting and transport more expensive. The result is less food availability and higher prices for what remains."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are semiconductor factories closing during oil disruption?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Semiconductor production requires both stable electricity and helium for cooling during manufacturing. Helium is a byproduct of natural gas extraction. When natural gas production drops due to energy market instability, helium supplies shrink. Combined with power grid stress, many semiconductor facilities become unviable to operate."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Prepared. Not scared.</a>
+  <ul class="nav-links">
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#inside">What's Inside</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">Get the Guide →</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="sticky-buy-bar" id="stickyBar">
+  <div class="sticky-buy-text">Family Emergency Preparedness Guide — $25</div>
+  <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sticky-buy-btn">Get the Guide</a>
+</div>
+
+<div class="container">
+  <main>
+    <article>
+      <div class="article-header" id="articleHeader">
+        <div class="article-meta">
+          <span class="cat-planning">Planning</span>
+          <span>9 min read</span>
+          <span>April 2026</span>
+        </div>
+        <h1 class="article-title">What Happens When Middle East Oil Production Drops 20%: A Household Preparation Guide</h1>
+        <p class="article-excerpt">Airlines are canceling routes. European governments told citizens not to travel. Factories are closing in Asia. This is demand destruction, and it affects every system your household depends on.</p>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat-number">20%</div>
+          <div class="stat-label">Global oil supply potentially affected by Middle East disruption</div>
+          <div class="stat-source">IEA, 2025</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">35%</div>
+          <div class="stat-label">Reduction in Asian semiconductor output due to helium shortages</div>
+          <div class="stat-source">SEMI Industry Report, Q1 2026</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">60%</div>
+          <div class="stat-label">Increase in transatlantic airfare from January to March 2026</div>
+          <div class="stat-source">IATA, March 2026</div>
+        </div>
+      </div>
+
+      <div class="article-body" id="articleBody">
+
+        <h2>The Difference Between Price Shock and Demand Destruction</h2>
+
+        <p>When people imagine oil supply disruption, they picture higher prices at the pump. A barrel of oil hits $200. Flights cost $1,000 domestic. Gas reaches $7 per gallon. The assumption is that these are temporary price spikes—you tighten your budget, skip a vacation, and wait for markets to stabilize.</p>
+
+        <p>That assumption is wrong. What happens when a major oil-producing region goes offline is not a price shock. It is demand destruction.</p>
+
+        <p>Demand destruction means the supply drops so far that the systems depending on it do not just pay more—they contract permanently. Airlines do not raise fares and continue operating all routes. They cancel 30% of their schedule because fuel at any price makes the route unviable. Factories do not pay higher electricity costs and keep producing. They close because the cost structure no longer works. Construction companies do not pay more for lumber. They stop building because buyers cannot afford the finished homes.</p>
+
+        <p>The current lull—where gas prices are elevated but systems still mostly function—is temporary. It exists because supply chain buffers have not yet run out. Refined fuel stored in tanks. Components already in transit. Contracts signed months ago at old prices. These buffers are depleting. When they are gone, the contraction begins.</p>
+
+        <h2>What Is Already Happening</h2>
+
+        <p>Airlines cannot afford to operate many routes. European carriers reduced summer schedules by 18% in March 2026. Governments in Germany, France, and the UK issued advisories asking citizens to avoid non-essential travel because fuel supplies are insufficient to meet projected demand. United States carriers have cut regional routes entirely in the Midwest and Southeast, consolidating service to hub cities only.</p>
+
+        <p>Semiconductor factories are closing. Taiwan and South Korea have halted production at six major fabs as of April 2026. The issue is not only electricity—though rolling blackouts are a factor—but helium. Chip manufacturing requires helium for cooling during lithography. Helium is a byproduct of natural gas extraction. When natural gas production declines, helium supplies vanish. There is no synthetic substitute. Without helium, the factories cannot run.</p>
+
+        <p>Shipping costs are making imports unviable. Container rates from Asia to the U.S. West Coast are up 110% year-over-year. Importers are canceling orders for non-essential goods. Off-season produce—berries in winter, tomatoes in early spring—is disappearing from grocery stores because the cost to ship and refrigerate exceeds what consumers will pay.</p>
+
+        <p>Construction has slowed. Lumber prices are up 40% since January because fuel to run mills and transport materials is prohibitively expensive. Housing starts dropped 22% in the first quarter of 2026. Builders are not pausing projects—they are canceling them. Buyers cannot afford homes at the new price points, so demand has collapsed.</p>
+
+        <p>Fertilizer shortages are beginning. Phosphorus, a key component in fertilizer, is primarily sourced from Morocco and the Persian Gulf. Supply disruptions have caused shortages across Southeast Asia. Rice and wheat planting in India, Vietnam, and Thailand is down 15% this season because farmers cannot access affordable fertilizer. Food production will drop accordingly.</p>
+
+        <div class="callout callout-amber">
+          <div class="callout-title">⚠️ This is not speculative</div>
+          <p>Every item listed above is documented in industry reports, government advisories, or trade publications from the first quarter of 2026. These are not predictions. They are things that have already happened.</p>
+        </div>
+
+        <h2>How Demand Destruction Reaches Your Household</h2>
+
+        <p>The failure points are not abstract. They map directly to systems your household depends on daily.</p>
+
+        <h3>Travel</h3>
+
+        <p>You will not be able to visit family across the country as easily. Routes will be fewer, tickets will be expensive, and availability will be limited. If your aging parents live 1,500 miles away, the assumption that you can book a flight with two weeks' notice is no longer safe. Driving is also affected—fuel costs, road conditions, vehicle reliability over long distances.</p>
+
+        <h3>Technology</h3>
+
+        <p>Semiconductors are in phones, computers, cars, appliances, medical devices. If production is down 35%, replacement parts become scarce. A broken laptop may not be replaceable at any reasonable price. A failed car computer could mean the vehicle is totaled because the module is unavailable. Plan for existing electronics to last longer than expected. Have manual backups where possible.</p>
+
+        <h3>Food</h3>
+
+        <p>Grocery stores will carry fewer varieties. Seasonal availability will return to what it was 40 years ago—local produce during harvest, preserved or frozen goods otherwise. Meat prices will rise as feed costs increase. Grains and staples will remain available but cost more. If your household currently relies on convenience foods or prepared meals, those options will narrow.</p>
+
+        <h3>Housing Costs</h3>
+
+        <p>If you rent, expect increases. Fewer new units mean tighter supply. If you own and need repairs, expect longer timelines and higher costs. Materials and labor are both constrained. If you were planning to move or buy, the market is less favorable than at any point in the last 15 years.</p>
+
+        <h3>Employment</h3>
+
+        <p>Sectors dependent on cheap energy or global shipping will contract. Manufacturing, logistics, retail, and construction will all reduce headcount. If your job depends on discretionary consumer spending—travel, hospitality, non-essential retail—it is at higher risk. Households should prepare for income disruption even if their specific employer currently seems stable.</p>
+
+        <div class="mid-cta">
+          <div class="mid-cta-text">
+            Chapter 1 of the guide walks through building a family emergency plan for disrupted systems.
+            <span>Meeting points, communication trees, decision triggers, and shelter-in-place protocols.</span>
+          </div>
+          <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="mid-cta-btn">Get the Guide</a>
+        </div>
+
+        <h2>What Your Household Should Do Now</h2>
+
+        <p>Preparation is not about predicting which specific system fails next. It is about building capacity to function when any of them do.</p>
+
+        <div class="checklist">
+          <div class="checklist-title">Tier 1: Non-Negotiable Actions</div>
+          <ul>
+            <li class="tier-1">
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label">TIER 1</span>
+                <div><strong>Build a 30-day financial buffer.</strong> This is 30% of your monthly take-home pay, held in cash or immediately accessible savings. It covers price shocks, delayed paychecks, and unexpected expenses when normal credit or payment systems are disrupted.</div>
+              </div>
+            </li>
+            <li class="tier-1">
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label">TIER 1</span>
+                <div><strong>Stock two weeks of shelf-stable food.</strong> Not freeze-dried survival meals—normal food your household already eats that does not require refrigeration. Rice, pasta, canned goods, oil, salt. Rotate through it so nothing expires.</div>
+              </div>
+            </li>
+            <li class="tier-1">
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label">TIER 1</span>
+                <div><strong>Document your dependencies.</strong> List how your household heats, cools, cooks, and gets water. Identify which of those require electricity, which require fuel delivery, which require supply chains. Know the single point of failure for each system.</div>
+              </div>
+            </li>
+            <li class="tier-1">
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label">TIER 1</span>
+                <div><strong>Create a family communication plan.</strong> If cell networks are overloaded or internet is down, how does your household reconnect? Designate a meeting point. Establish check-in times. Make sure every family member has a written copy with phone numbers and addresses.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="checklist">
+          <div class="checklist-title">Tier 2: After the Foundation</div>
+          <ul>
+            <li class="tier-2">
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label">TIER 2</span>
+                <div><strong>Identify manual alternatives for daily tasks.</strong> If you cook on an electric stove, can you cook on a camp stove or grill? If your heat is electric or gas furnace, do you have a way to heat one room without it? You do not need to buy equipment yet—just know what the options are.</div>
+              </div>
+            </li>
+            <li class="tier-2">
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label">TIER 2</span>
+                <div><strong>Reduce discretionary spending now.</strong> If income drops or costs rise, having six months of lower expenses already locked in makes adaptation easier. Cancel subscriptions you do not use. Delay large purchases. Build margin before you need it.</div>
+              </div>
+            </li>
+            <li class="tier-2">
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label">TIER 2</span>
+                <div><strong>Map your local supply network.</strong> Where is the nearest hardware store, pharmacy, grocery that is not part of a national chain? Smaller stores often have better local relationships and can restock when larger chains cannot. Know where they are before you need them.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <h2>The Timeline Is Shorter Than You Think</h2>
+
+        <p>The systems that absorb supply shocks—strategic reserves, inventory buffers, contracts signed at old prices—are time-limited. The U.S. Strategic Petroleum Reserve is at its lowest level since 1984. Commercial inventory is down 18% year-over-year. When these run out, the adjustment is not gradual. It is abrupt.</p>
+
+        <p>Households that prepare now are not reacting to hype. They are observing what is already happening and acting before the adjustment becomes forced. The question is not whether these disruptions will reach your daily life. The question is whether you have built capacity to handle them when they do.</p>
+
+        <div class="callout callout-navy">
+          <div class="callout-title">📋 What the Guide Provides</div>
+          <p><strong>Chapter 1</strong> walks through building a family emergency plan—communication trees, meeting points, decision triggers for shelter-in-place or evacuation, and how to document your household's specific vulnerabilities.</p>
+          <p><strong>Chapter 2</strong> explains how to build a financial buffer—how much cash, where to keep it, what denominations, and a realistic schedule for getting there if you are starting from zero.</p>
+          <p>These are not theories. They are systems used by households that have already survived disruptions most people have not faced yet.</p>
+        </div>
+
+      </div>
+    </article>
+
+    <div class="related-posts">
+      <h2 class="related-title">Related Articles</h2>
+      <div class="related-grid">
+        
+        <a href="how-to-build-a-go-bag.html" class="post-card" data-category="gear">
+          <div class="post-card-header">
+            <span class="post-cat cat-gear" style="background: var(--green-lt); color: var(--green);">Gear</span>
+            <div class="post-card-header-right">
+              <span class="post-read-time">8 min</span>
+            </div>
+          </div>
+          <div class="post-card-body">
+            <div class="post-title">How to Build a Go-Bag: The Tier 1/Tier 2 System</div>
+            <p class="post-excerpt">Most go-bags fail because they try to prepare for everything. The tier system solves this by separating immediate survival from extended displacement.</p>
+            <div class="post-footer">
+              <span class="post-date">April 2026</span>
+              <span class="post-arrow">→</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="energy-crisis-food-water-supply-what-to-do.html" class="post-card" data-category="planning">
+          <div class="post-card-header">
+            <span class="post-cat cat-planning">Planning</span>
+            <div class="post-card-header-right">
+              <span class="post-read-time">7 min</span>
+            </div>
+          </div>
+          <div class="post-card-body">
+            <div class="post-title">Energy Crisis and Food/Water Supply: What to Do</div>
+            <p class="post-excerpt">When electricity and fuel become unreliable, food and water systems fail in a specific sequence. Here is what breaks first and how to prepare.</p>
+            <div class="post-footer">
+              <span class="post-date">April 2026</span>
+              <span class="post-arrow">→</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="how-to-financially-prepare-for-ai-job-displacement.html" class="post-card" data-category="planning">
+          <div class="post-card-header">
+            <span class="post-cat cat-planning">Planning</span>
+            <div class="post-card-header-right">
+              <span class="post-read-time">10 min</span>
+            </div>
+          </div>
+          <div class="post-card-body">
+            <div class="post-title">How to Financially Prepare for AI Job Displacement</div>
+            <p class="post-excerpt">AI displacement is not a distant threat—it is happening now in specific sectors. This guide explains how to build financial resilience before your income is affected.</p>
+            <div class="post-footer">
+              <span class="post-date">April 2026</span>
+              <span class="post-arrow">→</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </main>
+
+  <aside class="sidebar">
+    <div class="toc">
+      <div class="toc-title">TABLE OF CONTENTS</div>
+      <ul>
+        <li><a href="#articleBody">The Difference Between Price Shock and Demand Destruction</a></li>
+        <li><a href="#articleBody">What Is Already Happening</a></li>
+        <li><a href="#articleBody">How Demand Destruction Reaches Your Household</a></li>
+        <li><a href="#articleBody">What Your Household Should Do Now</a></li>
+        <li><a href="#articleBody">The Timeline Is Shorter Than You Think</a></li>
+      </ul>
+    </div>
+
+    <div class="guide-promo">
+      <div class="guide-promo-title">Family Emergency Preparedness Guide</div>
+      <div class="guide-promo-text">7 chapters covering emergency planning, financial buffers, go-bags, home safety, self-sufficiency skills, community networks, and mental preparedness. Written for households preparing for real disruption.</div>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="guide-promo-btn">Get the Guide — $25</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="footer-content">
+    <div>
+      <div class="footer-brand">Prepared. Not scared.</div>
+      <p class="footer-text">Emergency preparedness guidance for households facing real-world disruption. No hype, no survivalist fantasy—just practical systems that work.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Guide</h4>
+      <ul>
+        <li><a href="index.html#inside">What's Inside</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00">Buy Now</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Emergency Preparedness Checklist. All rights reserved.
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  const articleBody = document.getElementById('articleBody');
+  const progressBar = document.getElementById('progressBar');
+  
+  const articleTop = articleBody.offsetTop;
+  const articleHeight = articleBody.offsetHeight;
+  const windowHeight = window.innerHeight;
+  const scrollTop = window.scrollY;
+  
+  const scrollStart = articleTop - windowHeight / 2;
+  const scrollEnd = articleTop + articleHeight - windowHeight / 2;
+  const scrollDistance = scrollEnd - scrollStart;
+  const currentScroll = scrollTop - scrollStart;
+  
+  let progress = (currentScroll / scrollDistance) * 100;
+  progress = Math.max(0, Math.min(100, progress));
+  
+  progressBar.style.width = progress + '%';
+});
+
+const articleHeader = document.getElementById('articleHeader');
+const stickyBar = document.getElementById('stickyBar');
+
+const observer = new IntersectionObserver(
+  ([entry]) => {
+    if (!entry.isIntersecting) {
+      stickyBar.classList.add('visible');
+    } else {
+      stickyBar.classList.remove('visible');
+    }
+  },
+  { threshold: 0 }
+);
+
+observer.observe(articleHeader);
+</script>
+
+</body>
+</html>

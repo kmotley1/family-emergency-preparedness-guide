@@ -228,7 +228,7 @@ Return ONLY valid JSON, no markdown fences, no preamble:
   "sitemap_entry": "the url block as a string"
 }
 
-The article_html must be a complete, valid HTML document from <!DOCTYPE html> to </html>.`;
+The article_html must be a complete, valid HTML document from <!DOCTYPE html> to </html>. ALL CSS must be inline in a <style> block inside <head>. Never reference external stylesheets. Never use a <link rel="stylesheet"> tag. The document must render correctly with zero external dependencies.`;
 
 async function generateArticle({ transcript, videoTitle, regenerateNote }) {
   const userMessage = regenerateNote
