@@ -136,6 +136,43 @@ app.post('/api/import/url', async (req, res) => {
   }
 });
 
+// Import from raw transcript (no YouTube URL needed)
+app.post('/api/import/transcript', async (req, res) => {
+  try {
+    const { transcript } = req.body;
+    if (!transcript || transcript.trim().length < 100) {
+      return res.status(400).json({ error: 'Transcript too short — paste the full text' });
+    }
+
+    const generated = await generateArticle({
+      transcript: transcript.trim(),
+      videoTitle: 'Pasted transcript',
+    });
+
+    // Use slug as a unique ID since there's no video ID
+    const pseudoId = `transcript-${Date.now()}`;
+
+    db.insertArticle({
+      video_id: pseudoId,
+      video_title: generated.title,
+      video_url: '',
+      transcript: transcript.trim(),
+      article_html: generated.article_html,
+      blog_card_html: generated.blog_card_html,
+      sitemap_entry: generated.sitemap_entry,
+      slug: generated.slug,
+      title: generated.title,
+      category: generated.category,
+      meta_description: generated.meta_description,
+      read_time: generated.read_time,
+    });
+
+    res.json({ ok: true, title: generated.title });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // Manually trigger playlist check
 app.post('/api/run-pipeline', async (req, res) => {
   try {

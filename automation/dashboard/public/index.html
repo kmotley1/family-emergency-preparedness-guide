@@ -110,19 +110,46 @@
       border: 1px solid var(--divider);
       border-radius: 12px;
       padding: 16px 20px;
-      display: flex; gap: 10px; align-items: center;
       margin-bottom: 24px;
     }
 
-    .import-bar input {
+    .import-tabs {
+      display: flex; gap: 2px; margin-bottom: 12px;
+      background: var(--bg); padding: 3px; border-radius: 8px;
+      width: fit-content;
+    }
+
+    .import-tab {
+      font-size: 12px; font-weight: 500; padding: 5px 14px;
+      border-radius: 6px; cursor: pointer; border: none;
+      background: transparent; color: var(--gray);
+      font-family: 'Inter', sans-serif; transition: all 0.15s;
+    }
+
+    .import-tab.active { background: var(--white); color: var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+
+    .import-row { display: flex; gap: 10px; align-items: flex-start; }
+
+    .import-bar input[type="text"] {
       flex: 1; font-family: 'Inter', sans-serif;
       font-size: 14px; border: 1px solid var(--divider);
       border-radius: 8px; padding: 9px 14px; outline: none;
       transition: border-color 0.15s;
     }
 
-    .import-bar input:focus { border-color: var(--navy); }
-    .import-bar input::placeholder { color: var(--gray); }
+    .import-bar input[type="text"]:focus { border-color: var(--navy); }
+    .import-bar input[type="text"]::placeholder { color: var(--gray); }
+
+    .import-bar textarea {
+      flex: 1; font-family: 'Inter', sans-serif;
+      font-size: 14px; border: 1px solid var(--divider);
+      border-radius: 8px; padding: 9px 14px; outline: none;
+      transition: border-color 0.15s; resize: vertical;
+      min-height: 100px; line-height: 1.5;
+    }
+
+    .import-bar textarea:focus { border-color: var(--navy); }
+    .import-bar textarea::placeholder { color: var(--gray); }
 
     /* CARDS */
     .queue-grid { display: flex; flex-direction: column; gap: 12px; }
@@ -302,8 +329,15 @@
 
   <!-- IMPORT BAR -->
   <div class="import-bar">
-    <input type="text" id="urlInput" placeholder="Paste a YouTube URL to generate an article on demand..." />
-    <button class="btn btn-primary" onclick="importUrl()">Generate</button>
+    <div class="import-tabs">
+      <button class="import-tab active" onclick="switchImportTab('url', this)">YouTube URL</button>
+      <button class="import-tab" onclick="switchImportTab('transcript', this)">Paste Transcript</button>
+    </div>
+    <div class="import-row">
+      <input type="text" id="urlInput" placeholder="Paste a YouTube URL to generate an article on demand..." />
+      <textarea id="transcriptInput" placeholder="Paste transcript text here..." style="display:none;"></textarea>
+      <button class="btn btn-primary" id="generateBtn" onclick="handleGenerate()">Generate</button>
+    </div>
   </div>
 
   <!-- TABS -->
@@ -463,12 +497,31 @@
     window.open(`/preview.html?id=${id}`, '_blank');
   }
 
+  // ── Import tab switching ───────────────────────────────────────
+  let importMode = 'url';
+
+  function switchImportTab(mode, el) {
+    importMode = mode;
+    document.querySelectorAll('.import-tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('urlInput').style.display = mode === 'url' ? '' : 'none';
+    document.getElementById('transcriptInput').style.display = mode === 'transcript' ? '' : 'none';
+  }
+
+  function handleGenerate() {
+    if (importMode === 'url') {
+      importUrl();
+    } else {
+      importTranscript();
+    }
+  }
+
   async function importUrl() {
     const input = document.getElementById('urlInput');
     const url = input.value.trim();
     if (!url) return;
 
-    const btn = event.target;
+    const btn = document.getElementById('generateBtn');
     btn.disabled = true;
     btn.innerHTML = '<span class="spinner"></span> Generating...';
 
@@ -482,6 +535,34 @@
       if (!res.ok) throw new Error(data.error);
       showToast(`✅ Generated: "${data.title}"`, 'success');
       input.value = '';
+      loadQueue();
+    } catch (err) {
+      showToast(err.message, 'error');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Generate';
+    }
+  }
+
+  async function importTranscript() {
+    const textarea = document.getElementById('transcriptInput');
+    const transcript = textarea.value.trim();
+    if (!transcript) return;
+
+    const btn = document.getElementById('generateBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Generating...';
+
+    try {
+      const res = await fetch('/api/import/transcript', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ transcript }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      showToast(`✅ Generated: "${data.title}"`, 'success');
+      textarea.value = '';
       loadQueue();
     } catch (err) {
       showToast(err.message, 'error');

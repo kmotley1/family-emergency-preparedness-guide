@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Job Market Is Contracting — What Households Need to Do Now</title>
+  <meta name="description" content="Job losses are accelerating while businesses close. Here's how to prepare your household for economic contraction before options narrow.">
+  <link rel="canonical" href="https://emergencypreparednesschecklist.com/job-market-recession-economic-contraction-household-preparation.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --bg: #F8F9FA;
+      --ink: #0A0A0A;
+      --gray: #6B7280;
+      --gray-lt: #9CA3AF;
+      --navy: #1B4FBF;
+      --navy-dk: #153D96;
+      --navy-lt: #EEF2FB;
+      --green: #2A7A4B;
+      --green-lt: #EAF5EE;
+      --amber: #B45309;
+      --amber-lt: #FEF3C7;
+      --divider: #D2D2D7;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .progress-bar {
+      position: fixed;
+      top: 68px;
+      left: 0;
+      height: 2px;
+      background: var(--navy);
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s ease;
+    }
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--divider);
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav > div {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--gray);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+    .nav-cta {
+      background: var(--navy) !important;
+      color: white !important;
+      padding: 8px 18px;
+      border-radius: 980px;
+      font-weight: 500 !important;
+      font-size: 13px !important;
+    }
+    .nav-cta:hover { background: var(--navy-dk) !important; }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 24px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 64px;
+      align-items: start;
+    }
+    .article-header {
+      margin-bottom: 40px;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+    }
+    .cat-planning {
+      background: var(--navy-lt);
+      color: var(--navy);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .article-title {
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+    .article-excerpt {
+      font-size: 18px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 40px 0;
+      padding: 32px;
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid var(--divider);
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--navy);
+      font-family: 'JetBrains Mono', monospace;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: var(--gray);
+      font-weight: 500;
+    }
+    .stat-source {
+      font-size: 11px;
+      color: var(--gray-lt);
+      margin-top: 4px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .article-body h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 48px 0 20px 0;
+      color: var(--ink);
+    }
+    .article-body h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 32px 0 16px 0;
+      color: var(--ink);
+    }
+    .article-body p {
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink);
+    }
+    .article-body ul {
+      margin: 24px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .article-body ul li {
+      padding-left: 28px;
+      position: relative;
+      margin-bottom: 12px;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    .article-body ul li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--navy);
+      font-weight: 600;
+    }
+    .callout {
+      background: var(--navy-lt);
+      border-left: 4px solid var(--navy);
+      padding: 24px;
+      margin: 32px 0;
+      border-radius: 8px;
+    }
+    .callout.warning {
+      background: var(--amber-lt);
+      border-left-color: var(--amber);
+    }
+    .callout-title {
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 12px;
+      color: var(--ink);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .callout p {
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+    .callout p:last-child { margin-bottom: 0; }
+    .checklist {
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: 12px;
+      padding: 28px;
+      margin: 32px 0;
+    }
+    .checklist-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--ink);
+    }
+    .checklist ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .checklist li {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--divider);
+      align-items: flex-start;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      border: 2px solid var(--divider);
+      border-radius: 4px;
+      flex: 0 0 20px;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .checklist li > div:last-child { flex: 1; }
+    .tier-label {
+      font-size: 11px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--gray);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .tier-1 .tier-label { color: var(--navy); }
+    .tier-2 .tier-label { color: var(--green); }
+    .mid-cta {
+      background: var(--ink);
+      border-radius: 16px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin: 40px 0;
+    }
+    .mid-cta-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: white;
+      line-height: 1.5;
+    }
+    .mid-cta-text span {
+      display: block;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      margin-top: 4px;
+    }
+    .mid-cta-btn {
+      background: white;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 980px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .mid-cta-btn:hover {
+      background: var(--bg);
+    }
+    .sidebar {
+      position: sticky;
+      top: 100px;
+    }
+    .toc {
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .toc-title {
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--gray);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .toc li {
+      margin-bottom: 12px;
+    }
+    .toc a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 1.4;
+      display: block;
+      transition: color 0.2s;
+    }
+    .toc a:hover { color: var(--navy); }
+    .guide-promo {
+      background: var(--navy);
+      border-radius: 12px;
+      padding: 24px;
+      color: white;
+    }
+    .guide-promo-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .guide-promo p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 16px;
+    }
+    .guide-promo-btn {
+      display: block;
+      background: white;
+      color: var(--navy);
+      text-align: center;
+      padding: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .guide-promo-btn:hover {
+      background: var(--bg);
+    }
+    .related-posts {
+      margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid var(--divider);
+    }
+    .related-posts h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .post-card {
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: 12px;
+      padding: 24px;
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .post-card:hover {
+      border-color: var(--navy);
+      transform: translateY(-2px);
+    }
+    .post-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .post-cat {
+      font-size: 11px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 4px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .cat-gear {
+      background: var(--green-lt);
+      color: var(--green);
+    }
+    .cat-skills {
+      background: var(--amber-lt);
+      color: var(--amber);
+    }
+    .post-read-time {
+      font-size: 12px;
+      color: var(--gray);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .post-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .post-excerpt {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .post-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--gray);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .post-arrow {
+      color: var(--navy);
+      font-weight: 600;
+    }
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.7);
+      padding: 48px 24px;
+      margin-top: 80px;
+    }
+    footer .container {
+      display: block;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    footer p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .sticky-buy-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-top: 1px solid var(--divider);
+      padding: 16px 24px;
+      z-index: 999;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+    }
+    .sticky-buy-bar.visible {
+      transform: translateY(0);
+    }
+    .sticky-buy-bar-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .sticky-buy-bar-btn {
+      background: var(--navy);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 980px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .sticky-buy-bar-btn:hover {
+      background: var(--navy-dk);
+    }
+    @media (max-width: 968px) {
+      .container {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .sidebar { position: static; }
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+      .stat-row {
+        grid-template-columns: 1fr;
+      }
+      .mid-cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .mid-cta-btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How many jobs are actually being lost right now?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The U.S. has been in negative net job growth for three consecutive months. Official unemployment numbers only count people actively looking for work, meaning actual unemployment is higher than reported figures. More people are currently unemployed than there are open positions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happened to businesses after COVID?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Approximately 64% of businesses that closed during COVID never reopened. The economy has not returned to pre-COVID operating patterns — 24-hour retail locations remain closed, and business density has not recovered to 2019 levels."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much cash reserve should I have if I might lose my job?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Start with 30% of your monthly take-home income in physical cash. This is enough to cover immediate expenses if direct deposit stops or bank access is delayed. Build this reserve systematically over 8-12 weeks, prioritizing smaller bills for flexibility."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I quit my job to start a business right now?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. When disposable income contracts and job openings disappear, this is the worst time to leave stable employment. Consumer spending is falling, business costs are rising, and the margin for error is near zero. Prioritize job security over entrepreneurial risk during contraction phases."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should I do if I'm worried about losing my job?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Document your value at work, reduce discretionary spending immediately, build a physical cash reserve, and create a written emergency plan with your household. Identify which expenses you can cut first and what your household would do if income stopped tomorrow. Have this plan ready before you need it."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+  
+  <nav>
+    <div>
+      <a href="index.html" class="nav-logo">Prepared. Not scared.</a>
+      <ul class="nav-links">
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="index.html#inside">What's Inside</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li>
+          <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">Get the Guide →</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <article>
+      <div class="article-header" id="articleHeader">
+        <div class="article-meta">
+          <span class="cat-planning">Planning</span>
+          <span>·</span>
+          <span>9 min</span>
+          <span>·</span>
+          <span>April 2026</span>
+        </div>
+        <h1 class="article-title">The Job Market Is Contracting — What Households Need to Do Now</h1>
+        <p class="article-excerpt">Three straight months of negative job growth. Businesses closing faster than they open. Rising costs with falling consumer spending. The labor market is not recovering — it is contracting. Here is what that means for your household.</p>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat">
+          <span class="stat-number">64%</span>
+          <span class="stat-label">of COVID-closed businesses never reopened</span>
+          <span class="stat-source">Yelp Economic Impact Report 2020-2023</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">3 mo.</span>
+          <span class="stat-label">consecutive net job losses</span>
+          <span class="stat-source">Bureau of Labor Statistics, Q1 2026</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">Zero</span>
+          <span class="stat-label">major retailers still open 24 hours</span>
+          <span class="stat-source">National Retail Federation survey</span>
+        </div>
+      </div>
+
+      <div class="article-body" id="articleBody">
+        <h2>The Labor Market Is Shrinking</h2>
+        <p>For the first time since the 2020 shutdown, the U.S. has posted three consecutive months of net job losses. This is not a slowdown. It is contraction. More people are unemployed than there are open positions, and the gap is widening.</p>
+        
+        <p>Official unemployment figures only count people actively looking for work. If someone has stopped searching — because they burned through their network, exhausted job boards, or gave up — they disappear from the statistic. Actual unemployment is higher than what gets reported, and the gap between the two numbers grows during contractions.</p>
+
+        <p>The businesses that did not survive COVID never came back. Roughly 64% of closures during the pandemic became permanent. The economy has not returned to pre-2020 operating patterns. Pharmacies, grocery stores, and big-box retailers that once stayed open 24 hours now close at midnight. That change is not temporary. It reflects a structural reduction in consumer spending and labor availability.</p>
+
+        <h2>Disposable Income Has Collapsed</h2>
+        <p>When gas, groceries, insurance, and property taxes all rise simultaneously, discretionary spending disappears. Households are not choosing to spend less on non-essentials — they have less to spend. The businesses that depend on that margin are now operating on depleting reserves.</p>
+
+        <p>Retailers are feeling it. Grocery chains are losing revenue because SNAP benefits were cut. Municipalities are losing funding because federal transfers dried up. The businesses that lobbied for benefit reductions are now discovering that those benefits were propping up their customer base. The cost of goods is rising, but prices cannot increase proportionally because there is no disposable income left to absorb them. Margins compress. Businesses bleed money. More closures follow.</p>
+
+        <div class="callout warning">
+          <div class="callout-title">The Timing Problem</div>
+          <p>A lot of businesses did not plan for this scenario. They expected benefit cuts but assumed consumer spending would hold. It did not. They are now caught between rising costs and falling revenue with no policy lever to pull. This is not a temporary squeeze — it is a structural mismatch that will force more closures over the next 12-18 months.</p>
+        </div>
+
+        <h2>Why This Matters for Employment</h2>
+        <p>When businesses close, jobs disappear. When new businesses do not open, job creation stops. The cycle reinforces itself. Fewer jobs mean less income. Less income means less spending. Less spending means more business failures.</p>
+
+        <p>If you are currently employed, your position is more vulnerable than it was six months ago. Companies are not replacing departures. Teams are absorbing the work of eliminated roles. Hiring freezes are spreading across sectors that were stable through 2024. The assumption that you can always find another job is no longer valid in this environment.</p>
+
+        <div class="mid-cta">
+          <div class="mid-cta-text">
+            Get the emergency plan structure that works when income disappears.
+            <span>Chapter 1 covers the trigger system and communication tree your household needs before a layoff happens.</span>
+          </div>
+          <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="mid-cta-btn">Get the Guide</a>
+        </div>
+
+        <h2>What Households Should Do</h2>
+        <p>This is not the time to quit a stable job to start a business. Consumer spending is falling. Business costs are rising. The margin for error is near zero. If you have employment, the correct move is to secure it — not to leave it for an untested revenue stream in a contracting market.</p>
+
+        <h3>If You Are Currently Employed</h3>
+        <ul>
+          <li>Document your value — keep a running log of completed projects, cost savings, and process improvements you have delivered. If cuts come, you need proof that you are worth keeping.</li>
+          <li>Reduce discretionary spending now — do not wait for a layoff to start cutting expenses. Build the buffer while you still have income.</li>
+          <li>Build a cash reserve — start with 30% of your monthly take-home in physical cash. This is not your emergency fund. This is money you can access if direct deposit stops or your bank restricts withdrawals.</li>
+          <li>Map your household's Plan B — if your income disappeared tomorrow, what would your household do? Write it down. Make decisions now, not in the panic of a layoff.</li>
+        </ul>
+
+        <h3>If You Are Unemployed</h3>
+        <ul>
+          <li>Expand your search radius — geographic flexibility is now a survival tool. If your metro has no openings, you may need to move.</li>
+          <li>Take the available job — a job you are overqualified for is better than no job in a contracting market. You can keep looking while employed. You cannot keep looking indefinitely while broke.</li>
+          <li>Cut housing costs immediately — if rent or mortgage is consuming more than 30% of unemployment income, you are on a countdown to eviction. Downsize now, before you are forced to.</li>
+          <li>Access assistance programs before they close — SNAP, unemployment extensions, and utility assistance programs are being cut. Apply now. Do not assume they will still exist in six months.</li>
+        </ul>
+
+        <div class="callout">
+          <div class="callout-title">The Real Unemployment Number</div>
+          <p>Official unemployment only counts people actively searching for work. If someone has been looking for more than four weeks with no interviews, they often stop — and then they disappear from the data.</p>
+          <p>The actual number of people who want work but cannot find it is higher than the published rate. During contractions, this gap widens. When you hear that unemployment is 4.2%, understand that it undercounts by design.</p>
+        </div>
+
+        <h2>The Cash Reserve Structure</h2>
+        <p>Most households keep their emergency savings in a bank account. That works during normal conditions. It does not work if your bank restricts withdrawals, if direct deposit fails, or if payment systems go offline during a crisis.</p>
+
+        <p>Physical cash solves the access problem. Start with 30% of your monthly take-home income. If you bring home $4,000 per month, that is $1,200 in cash. Break it into denominations that are useful: $20s for most transactions, $10s and $5s for small purchases, $1s for exact change.</p>
+
+        <div class="checklist">
+          <div class="checklist-title">Cash Reserve Checklist</div>
+          <ul>
+            <li class="tier-1">
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label">Tier 1 — Start Here</span>
+                Withdraw $400 in cash this week — $200 in $20s, $100 in $10s, $60 in $5s, $40 in $1s. Store it in a fireproof safe or lockbox at home.
+              </div>
+            </li>
+            <li class="tier-1">
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label">Tier 1 — Start Here</span>
+                Add $200 per paycheck until you reach 30% of monthly take-home. Do not skip this. It is your household's financial firebreak.
+              </div>
+            </li>
+            <li class="tier-1">
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label">Tier 1 — Start Here</span>
+                Split the reserve into two locations — two-thirds at home, one-third in a secure location outside your house (trusted family member, safety deposit box, secondary property).
+              </div>
+            </li>
+            <li class="tier-2">
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label">Tier 2 — After Foundation</span>
+                Once you hit 30%, build toward one full month of take-home income in cash. This gives you 30 days of runway if all electronic systems fail.
+              </div>
+            </li>
+            <li class="tier-2">
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label">Tier 2 — After Foundation</span>
+                Replace bills every 12 months. Cash degrades. Old bills can be refused. Keep the reserve functional by cycling it through normal purchases annually.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <h2>The Employment Plan Your Household Needs</h2>
+        <p>Most households do not have a written plan for what happens if the primary earner loses their job. They assume they will figure it out when it happens. That assumption costs time, money, and options.</p>
+
+        <p>The correct approach: make the decisions now. Write them down. Share them with your household. When a layoff happens, you execute the plan instead of debating it under stress.</p>
+
+        <h3>What the Plan Should Cover</h3>
+        <ul>
+          <li>Expense cuts — which subscriptions, services, and discretionary costs get eliminated immediately? Rank them in order. Cut the bottom third the day you lose your job.</li>
+          <li>Income replacement — what can the household do to generate cash in the first 30 days? This is not a career plan. This is a survival list. Gig work, selling possessions, temporary labor — write it down.</li>
+          <li>Housing decisions — at what point does the household downsize, move in with family, or relocate to a lower-cost area? Define the trigger. Do not wait until eviction is imminent.</li>
+          <li>Communication structure — who needs to know if you lose your job? Your landlord, your creditors, your family, your network. Delaying these conversations costs leverage. Make them early.</li>
+        </ul>
+
+        <p>This plan is not theoretical. It is the document you open the day you get laid off. If it does not exist, you will make worse decisions under panic. Write it now.</p>
+
+        <div class="callout">
+          <div class="callout-title">Layoff Leverage</div>
+          <p>Most people wait until they are broke to negotiate with creditors, landlords, or service providers. By then, they have no leverage.</p>
+          <p>The correct move: contact them the day you lose your job. Explain the situation. Ask for a payment plan, deferral, or reduced rate. You have more negotiating power on Day 1 than on Day 90. Use it.</p>
+        </div>
+
+        <h2>Why Entrepreneurship Is the Wrong Move Right Now</h2>
+        <p>Starting a business requires disposable income from customers. When households are cutting discretionary spending to survive, they are not buying new products or services. The businesses that depend on that spending are closing. New businesses entering the same environment will fail faster.</p>
+
+        <p>The romanticized version of entrepreneurship — quit your job, follow your passion, build something meaningful — does not account for market conditions. Passion does not generate revenue when customers have no money to spend. A great product does not matter if the target market is in survival mode.</p>
+
+        <p>If you are employed and thinking about quitting to start a business, the correct answer is: do not. Keep the stable income. Build the business as a side project. Test demand without risking your household's financial survival. If the market recovers and the business gains traction, then you can quit. Until then, the job is the priority.</p>
+
+        <h2>What Happens Next</h2>
+        <p>The contraction will continue until one of two things happens: disposable income returns, or enough businesses close that competition decreases and the survivors stabilize. The first scenario requires policy intervention — stimulus, benefit restoration, or wage growth. The second scenario requires more pain.</p>
+
+        <p>Households cannot control which scenario unfolds. What they can control: their cash position, their expense structure, their employment stability, and their plan for what happens if income stops.</p>
+
+        <p>The window to prepare is not closed, but it is narrowing. The households that act now will have options later. The households that wait will be making decisions under duress with fewer resources and worse outcomes. Decide which category you want to be in, and then act accordingly.</p>
+      </div>
+
+      <div class="related-posts">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+          <a href="how-to-financially-prepare-for-ai-job-displacement.html" class="post-card" data-category="planning">
+            <div class="post-card-header">
+              <span class="post-cat cat-planning">Planning</span>
+              <span class="post-read-time">8 min</span>
+            </div>
+            <div class="post-card-body">
+              <div class="post-title">How to Financially Prepare for AI Job Displacement</div>
+              <p class="post-excerpt">AI is eliminating roles faster than the market is creating new ones. Here is the financial preparation sequence households need before displacement accelerates.</p>
+              <div class="post-footer">
+                <span class="post-date">April 2026</span>
+                <span class="post-arrow">→</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="petrodollar-dollar-reserve-status-household-preparation.html" class="post-card" data-category="planning">
+            <div class="post-card-header">
+              <span class="post-cat cat-planning">Planning</span>
+              <span class="post-read-time">11 min</span>
+            </div>
+            <div class="post-card-body">
+              <div class="post-title">The Petrodollar Is Ending — What It Means for Your Household Finances</div>
+              <p class="post-excerpt">The global oil trade is moving away from the dollar. That shift will hit household purchasing power directly. Here is what to do before currency volatility accelerates.</p>
+              <div class="post-footer">
+                <span class="post-date">April 2026</span>
+                <span class="post-arrow">→</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="how-to-build-a-go-bag.html" class="post-card" data-category="gear">
+            <div class="post-card-header">
+              <span class="post-cat cat-gear">Gear</span>
+              <span class="post-read-time">12 min</span>
+            </div>
+            <div class="post-card-body">
+              <div class="post-title">How to Build a Go-Bag That Actually Works</div>
+              <p class="post-excerpt">Most go-bags are too heavy, poorly organized, and missing critical items. Here is the tier system that works when you have to leave in under 15 minutes.</p>
+              <div class="post-footer">
+                <span class="post-date">April 2026</span>
+                <span class="post-arrow">→</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <aside class="sidebar">
+      <div class="toc">
+        <div class="toc-title">Contents</div>
+        <ul>
+          <li><a href="#articleBody">The Labor Market Is Shrinking</a></li>
+          <li><a href="#articleBody">Disposable Income Has Collapsed</a></li>
+          <li><a href="#articleBody">What Households Should Do</a></li>
+          <li><a href="#articleBody">The Cash Reserve Structure</a></li>
+          <li><a href="#articleBody">The Employment Plan Your Household Needs</a></li>
+          <li><a href="#articleBody">Why Entrepreneurship Is the Wrong Move</a></li>
+        </ul>
+      </div>
+
+      <div class="guide-promo">
+        <div class="guide-promo-title">Family Emergency Preparedness Guide</div>
+        <p>The complete system for cash reserves, emergency planning, and job loss preparation. Chapter 2 covers the exact cash denomination breakdown and storage system.</p>
+        <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="guide-promo-btn">Get the Guide — $25</a>
+      </div>
+    </aside>
+  </div>
+
+  <div class="sticky-buy-bar" id="stickyBar">
+    <div class="sticky-buy-bar-text">Get the employment loss preparation system</div>
+    <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sticky-buy-bar-btn">Get the Guide — $25</a>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p><strong>Prepared. Not scared.</strong></p>
+      <p style="margin-top: 16px;">Emergency preparedness information and systems for households that want to be ready without the noise.</p>
+      <p style="margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px;">© 2026 Emergency Preparedness Checklist. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Reading progress bar
+    function updateProgressBar() {
+      const article = document.getElementById('articleBody');
+      const progressBar = document.getElementById('progressBar');
+      const articleTop = article.offsetTop;
+      const articleHeight = article.offsetHeight;
+      const windowHeight = window.innerHeight;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollDistance = scrollTop - articleTop + windowHeight;
+      const progress = (scrollDistance / articleHeight) * 100;
+      const boundedProgress = Math.min(Math.max(progress, 0), 100);
+      progressBar.style.width = boundedProgress + '%';
+    }
+
+    // Sticky buy bar
+    const stickyBar = document.getElementById('stickyBar');
+    const articleHeader = document.getElementById('articleHeader');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            stickyBar.classList.add('visible');
+          } else {
+            stickyBar.classList.remove('visible');
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+    observer.observe(articleHeader);
+
+    // Event listeners
+    window.addEventListener('scroll', updateProgressBar);
+    window.addEventListener('resize', updateProgressBar);
+    updateProgressBar();
+  </script>
+</body>
+</html>
