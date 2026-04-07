@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Food Price Increases Mean for Your Household Budget</title>
+<meta name="description" content="Energy costs drive food prices through transportation, refrigeration, and production. How to calculate your household's food inflation exposure and what to stock now.">
+<style>
+:root {
+  --white: #FFFFFF;
+  --bg: #FAFAFA;
+  --ink: #1A1A1A;
+  --gray: #6B6B6B;
+  --gray-lt: #EBEBEB;
+  --navy: #1B4FBF;
+  --navy-dk: #153D96;
+  --navy-lt: #EEF2FB;
+  --green: #2A7A4B;
+  --green-lt: #EAF5EE;
+  --amber: #B45309;
+  --amber-lt: #FEF3C7;
+  --divider: #D2D2D7;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 0 40px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px; color: var(--gray);
+      text-decoration: none; transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--ink); font-weight: 500; }
+    .nav-cta {
+      background: var(--navy) !important; color: white !important;
+      padding: 8px 18px; border-radius: 980px;
+      font-weight: 500 !important; font-size: 13px !important;
+    }
+    .nav-cta:hover { background: var(--navy-dk) !important; }
+
+#progressBar {
+  position: fixed;
+  top: 57px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--navy);
+  z-index: 101;
+  transition: width 0.1s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 32px;
+}
+
+.article-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 60px;
+  align-items: start;
+}
+
+.article-content {
+  max-width: 720px;
+}
+
+.article-header {
+  margin-bottom: 40px;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+
+.cat-planning {
+  background: var(--navy-lt);
+  color: var(--navy);
+  padding: 4px 12px;
+  border-radius: 980px;
+  font-weight: 600;
+}
+
+.article-date {
+  color: var(--gray);
+}
+
+.article-title {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+
+.article-excerpt {
+  font-size: 18px;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+.article-body h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 48px 0 20px 0;
+  color: var(--ink);
+}
+
+.article-body h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 32px 0 16px 0;
+  color: var(--ink);
+}
+
+.article-body p {
+  margin-bottom: 20px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+.article-body ul {
+  margin: 20px 0;
+  padding-left: 20px;
+}
+
+.article-body li {
+  margin-bottom: 12px;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 40px 0;
+  padding: 32px;
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid var(--divider);
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--navy);
+  font-family: 'JetBrains Mono', monospace;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--gray);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.callout-box {
+  background: var(--navy-lt);
+  border-left: 4px solid var(--navy);
+  padding: 24px;
+  margin: 32px 0;
+  border-radius: 8px;
+}
+
+.callout-box.warning {
+  background: var(--amber-lt);
+  border-left-color: var(--amber);
+}
+
+.callout-title {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.callout-box p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.callout-box p:last-child {
+  margin-bottom: 0;
+}
+
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+}
+
+.checklist li {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 16px;
+  background: var(--white);
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  align-items: flex-start;
+}
+
+.check-icon {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border: 2px solid var(--divider);
+  border-radius: 4px;
+  flex: 0 0 20px;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checklist li > div:last-child {
+  flex: 1;
+}
+
+.checklist strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+
+.tier-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.5px;
+}
+
+.tier-1 {
+  background: var(--navy);
+  color: white;
+}
+
+.tier-2 {
+  background: var(--gray-lt);
+  color: var(--gray);
+}
+
+.mid-cta {
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 40px 0;
+}
+
+.mid-cta-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  line-height: 1.5;
+}
+
+.mid-cta-text span {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  margin-top: 4px;
+}
+
+.mid-cta-btn {
+  background: white;
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 980px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.mid-cta-btn:hover {
+  background: var(--bg);
+}
+
+.sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.toc {
+  background: var(--white);
+  border: 1px solid var(--divider);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.toc-title {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--gray);
+}
+
+.toc ul {
+  list-style: none;
+  padding: 0;
+}
+
+.toc li {
+  margin-bottom: 12px;
+}
+
+.toc a {
+  color: var(--gray);
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+
+.toc a:hover {
+  color: var(--navy);
+}
+
+.guide-promo {
+  background: var(--navy);
+  color: white;
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.guide-promo-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.guide-promo-text {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.guide-promo-btn {
+  display: block;
+  width: 100%;
+  background: white;
+  color: var(--navy);
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.guide-promo-btn:hover {
+  background: var(--bg);
+}
+
+.related-posts {
+  margin-top: 60px;
+  padding-top: 60px;
+  border-top: 1px solid var(--divider);
+}
+
+.related-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.post-card {
+  background: var(--white);
+  border: 1px solid var(--divider);
+  border-radius: 12px;
+  padding: 24px;
+  text-decoration: none;
+  display: block;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.post-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.post-cat {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 980px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.cat-gear {
+  background: var(--green-lt);
+  color: var(--green);
+}
+
+.post-read-time {
+  font-size: 12px;
+  color: var(--gray);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.post-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.post-excerpt {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--gray);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.post-arrow {
+  color: var(--navy);
+}
+
+footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.7);
+  padding: 48px 32px;
+  margin-top: 80px;
+  text-align: center;
+  font-size: 14px;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.sticky-buy-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border-top: 1px solid var(--divider);
+  padding: 16px 32px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+
+.sticky-buy-bar.visible {
+  display: flex;
+}
+
+.sticky-buy-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.sticky-buy-btn {
+  background: var(--navy);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 980px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.sticky-buy-btn:hover {
+  background: var(--navy-dk);
+}
+
+@media (max-width: 968px) {
+  .article-layout {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none;
+  }
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<div id="progressBar"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="16" r="14" stroke="#1B4FBF" stroke-width="2"/>
+      <circle cx="16" cy="16" r="6" fill="#1B4FBF"/>
+    </svg>
+  </a>
+  <ul class="nav-links">
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#inside">What's Inside</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">Get the Guide →</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="article-layout">
+    <article class="article-content">
+      <header class="article-header">
+        <div class="article-meta">
+          <span class="cat-planning">Planning</span>
+          <span class="article-date">April 2026</span>
+          <span class="article-date">8 min read</span>
+        </div>
+        <h1 class="article-title">What Food Price Increases Mean for Your Household Budget</h1>
+        <p class="article-excerpt">Energy costs drive food prices through transportation, refrigeration, and production infrastructure. This article explains the transmission mechanism and provides a calculation method for your household's inflation exposure.</p>
+      </header>
+
+      <div class="article-body" id="articleBody">
+
+<div class="stat-row">
+  <div class="stat">
+    <span class="stat-number">30%</span>
+    <span class="stat-label">Energy share of food transport costs (USDA 2023)</span>
+  </div>
+  <div class="stat">
+    <span class="stat-number">18%</span>
+    <span class="stat-label">Average U.S. household spending on food (BLS 2024)</span>
+  </div>
+  <div class="stat">
+    <span class="stat-number">12 mo</span>
+    <span class="stat-label">Typical lag between energy spike and food price peak</span>
+  </div>
+</div>
+
+<p>Diesel fuel prices increased 41% between Q4 2021 and Q2 2022. Twelve months later, grocery prices were still climbing, even after diesel stabilized. The delay is mechanical: fuel costs affect food production first, then transportation, then cold storage, then retail markup. Each step adds time. Most households miss the warning.</p>
+
+<p>Food price inflation does not arrive evenly. Perishables move faster than shelf-stable goods because they require continuous refrigeration. Produce and dairy reflect energy costs within 90 days. Grains and canned goods take six months. The system is predictable once you understand the sequence.</p>
+
+<h2>How Energy Costs Transmit to Food Prices</h2>
+
+<p>Food production requires energy at every stage. Fertilizer manufacturing uses natural gas as both feedstock and fuel. Field equipment runs on diesel. Irrigation pumps use electricity or diesel. Grain drying uses propane or natural gas. Processing plants require electricity and steam. Each input cost compounds.</p>
+
+<p>Transportation amplifies the effect. The average grocery item travels 1,500 miles from farm to store. Refrigerated trucks consume 30% more fuel than dry vans. A 20% increase in diesel adds roughly 6% to the delivered cost of refrigerated goods. Producers pass these costs forward with a delay.</p>
+
+<p>Cold storage is the third transmission point. Warehouse refrigeration accounts for 15-25% of total logistics costs for perishables. Natural gas and electricity price increases hit warehouse operators before they hit retail prices. The lag between wholesale energy increases and grocery shelf prices averages 8-10 months for non-perishables, 3-4 months for produce and dairy.</p>
+
+<h3>Why the Delay Matters</h3>
+
+<p>Households that wait for food price increases to appear before adjusting have already lost purchasing power. Energy price spikes in early 2024 are still working through the system in mid-2026. If you see energy costs rising now, the food price impact arrives later, but it arrives.</p>
+
+<p>The delay creates a window. When diesel or natural gas prices spike, households have roughly 90 days before perishable prices move and six months before shelf-stable prices follow. This is the period when stocking up provides the most protection.</p>
+
+<div class="callout-box warning">
+  <div class="callout-title">Common Mistake</div>
+  <p>Buying extra food only when prices have already increased. By that point, the energy cost spike that caused the increase has already happened, and you are paying the inflated price.</p>
+  <p>The correct sequence: monitor energy prices → stock up during the lag period → ride out the inflation wave.</p>
+</div>
+
+<h2>Calculate Your Household's Food Inflation Exposure</h2>
+
+<p>The average U.S. household spends 11-13% of after-tax income on food. Higher-income households spend a smaller percentage but a larger absolute amount. Lower-income households spend 15-20% of income on food and have less flexibility when prices spike.</p>
+
+<p>Calculate your exposure:</p>
+
+<ul>
+  <li>Monthly take-home income: $______</li>
+  <li>Monthly food spending (groceries + dining): $______</li>
+  <li>Food as percentage of income: _____%</li>
+</ul>
+
+<p>If a 15% food price increase hits, multiply your monthly food spending by 0.15. That is the additional monthly cost. Multiply by 12 to get the annual impact. For a household spending $800/month on food, a 15% increase costs $120/month or $1,440/year.</p>
+
+<p>Now calculate the stocking buffer. If you can afford to spend one extra month's food budget now, you lock in current prices for the items you stock. A $800 investment today avoids $120 in monthly increases for as long as the stockpile lasts. The return depends on inflation timing and magnitude, but the hedge is immediate.</p>
+
+<h3>What Inflation Rate to Plan For</h3>
+
+<p>Official food inflation averages 3-4% in stable years. During energy shocks, it spikes to 8-12%. The 2021-2023 period saw cumulative food inflation of 20% (BLS data). The worst 12-month period was 11.4% (2022). Plan for a 10-15% increase over 12 months when energy prices are rising. That is historically accurate and actionable.</p>
+
+<div class="mid-cta">
+  <div class="mid-cta-text">
+    Chapter 2 of the Family Emergency Preparedness Guide covers cash reserve structure and food stockpiling as part of financial resilience.
+    <span>30-day calculation, storage strategy, rotation system.</span>
+  </div>
+  <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="mid-cta-btn">Get the Guide</a>
+</div>
+
+<h2>What to Stock and When</h2>
+
+<p>Stock shelf-stable staples first. Rice, pasta, canned vegetables, canned protein (tuna, chicken, beans), cooking oil, flour, sugar, salt. These have long shelf lives (1-5 years if stored properly) and are the foundation of most meals. A household of four can build a 90-day staple reserve for $600-$800.</p>
+
+<p>Prioritize calorie density over variety. Rice provides 1,650 calories per pound. Pasta provides 1,600. Cooking oil provides 4,000. Canned vegetables provide 100-200. Focus on the high-calorie items first, then add vegetables and protein for nutrition.</p>
+
+<p>Perishables require rotation. If you stock frozen meat, milk, or produce, mark purchase dates and use oldest items first. Frozen goods maintain quality for 6-12 months depending on type. Rotate every three months to avoid waste.</p>
+
+<h3>Tier 1: Non-Negotiable Staples</h3>
+
+<ul class="checklist">
+  <li>
+    <div class="check-icon"></div>
+    <div>
+      <span class="tier-label tier-1">TIER 1</span>
+      <strong>Rice (white, long-grain)</strong>
+      20-30 lbs per person. Stores 5+ years in airtight containers. Provides base calories for most meals.
+    </div>
+  </li>
+  <li>
+    <div class="check-icon"></div>
+    <div>
+      <span class="tier-label tier-1">TIER 1</span>
+      <strong>Pasta (dry)</strong>
+      15-20 lbs per person. Stores 2-3 years. High calorie density, easy preparation.
+    </div>
+  </li>
+  <li>
+    <div class="check-icon"></div>
+    <div>
+      <span class="tier-label tier-1">TIER 1</span>
+      <strong>Canned beans</strong>
+      30-40 cans per person. Protein and fiber source. Stores 2-5 years.
+    </div>
+  </li>
+  <li>
+    <div class="check-icon"></div>
+    <div>
+      <span class="tier-label tier-1">TIER 1</span>
+      <strong>Cooking oil</strong>
+      2-3 gallons per household. Essential for calorie density. Stores 1-2 years sealed.
+    </div>
+  </li>
+  <li>
+    <div class="check-icon"></div>
+    <div>
+      <span class="tier-label tier-1">TIER 1</span>
+      <strong>Canned vegetables</strong>
+      40-50 cans per person. Provides micronutrients. Stores 2-3 years.
+    </div>
+  </li>
+</ul>
+
+<h3>Tier 2: After Foundation Is In Place</h3>
+
+<ul class="checklist">
+  <li>
+    <div class="check-icon"></div>
+    <div>
+      <span class="tier-label tier-2">TIER 2</span>
+      <strong>Canned meat (tuna, chicken, salmon)</strong>
+      20-30 cans per person. Protein source for variety. Stores 3-5 years.
+    </div>
+  </li>
+  <li>
+    <div class="check-icon"></div>
+    <div>
+      <span class="tier-label tier-2">TIER 2</span>
+      <strong>Flour</strong>
+      10-15 lbs per person. Baking and thickening. Stores 6-12 months (freeze for longer).
+    </div>
+  </li>
+  <li>
+    <div class="check-icon"></div>
+    <div>
+      <span class="tier-label tier-2">TIER 2</span>
+      <strong>Sugar / honey</strong>
+      5-10 lbs per person. Energy source, morale. Stores indefinitely.
+    </div>
+  </li>
+  <li>
+    <div class="check-icon"></div>
+    <div>
+      <span class="tier-label tier-2">TIER 2</span>
+      <strong>Salt</strong>
+      2-3 lbs per household. Preservation and seasoning. Stores indefinitely.
+    </div>
+  </li>
+</ul>
+
+<h2>Storage and Rotation Rules</h2>
+
+<p>Store food in a cool, dry, dark location. Heat and humidity reduce shelf life. A basement or interior closet works better than a garage. Keep items off the floor (use shelving) to prevent moisture contact.</p>
+
+<p>Mark every item with purchase date using a permanent marker. Use a first-in-first-out rotation system. When you buy new cans, move old ones to the front. Use the oldest items first. This prevents waste and maintains freshness.</p>
+
+<p>Check expiration dates every six months. Most canned goods are safe 1-2 years past the printed date if stored properly, but quality declines. Rotate anything within six months of expiration into daily meals.</p>
+
+<div class="callout-box">
+  <div class="callout-title">Food Storage Rule</div>
+  <p>If you would not eat it today, do not store it for an emergency. Stockpile foods your household already eats. You will rotate through it naturally, and you will not face a learning curve under stress.</p>
+  <p>Avoid specialty freeze-dried meals unless you have tested them. Many taste poor and are expensive per calorie. Focus on staples first.</p>
+</div>
+
+<h2>When to Buy</h2>
+
+<p>Buy when energy prices spike but food prices have not yet moved. This is the optimal window. Monitor crude oil, diesel, and natural gas prices. If they increase by 15-20% within a three-month period, expect food price increases to follow within 6-12 months.</p>
+
+<p>The second-best time is during sales or bulk pricing, regardless of energy trends. Warehouse stores offer 20-30% savings on staples compared to grocery stores. Buying in bulk during a sale compounds the advantage.</p>
+
+<p>Do not wait for a crisis to begin stocking. Once shortages appear or panic buying starts, selection shrinks and prices spike. Build the reserve now, before the next disruption.</p>
+
+<h2>What Chapter 2 of the Guide Covers</h2>
+
+<p>Chapter 2 provides the full financial resilience structure, including:</p>
+
+<ul>
+  <li>Cash reserve calculation method (30% of monthly take-home, denomination breakdown)</li>
+  <li>Food stockpile sizing for household of 2, 4, 6+ with calorie and nutrition targets</li>
+  <li>Rotation tracking system (spreadsheet template included)</li>
+  <li>Storage location checklist by home type</li>
+  <li>Budget allocation strategy for building reserves without disrupting monthly expenses</li>
+</ul>
+
+<p>The chapter is designed for households earning $50,000-$150,000/year, which covers 60% of U.S. households. It does not assume homeownership or large upfront capital. The method works for renters and families living paycheck-to-paycheck, as long as they can redirect 10-15% of monthly spending for six months.</p>
+
+      </div>
+    </article>
+
+    <aside class="sidebar">
+      <div class="toc">
+        <div class="toc-title">Contents</div>
+        <ul>
+          <li><a href="#articleBody">How Energy Costs Transmit to Food Prices</a></li>
+          <li><a href="#articleBody">Calculate Your Household's Exposure</a></li>
+          <li><a href="#articleBody">What to Stock and When</a></li>
+          <li><a href="#articleBody">Storage and Rotation Rules</a></li>
+          <li><a href="#articleBody">When to Buy</a></li>
+        </ul>
+      </div>
+
+      <div class="guide-promo">
+        <div class="guide-promo-title">Family Emergency Preparedness Guide</div>
+        <div class="guide-promo-text">7 chapters covering emergency planning, cash reserves, go-bags, home security, self-sufficiency skills, community networks, and mental preparedness.</div>
+        <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="guide-promo-btn">Get the Guide — $25</a>
+      </div>
+    </aside>
+  </div>
+
+  <section class="related-posts">
+    <h2 class="related-title">Related Articles</h2>
+    <div class="related-grid">
+      <a href="how-to-build-a-go-bag.html" class="post-card">
+        <div class="post-card-header">
+          <span class="post-cat cat-gear">Gear</span>
+          <span class="post-read-time">11 min</span>
+        </div>
+        <div class="post-card-body">
+          <div class="post-title">How to Build a Go-Bag That Actually Works</div>
+          <p class="post-excerpt">Most go-bags are too heavy or missing critical items. This guide covers the Tier 1/Tier 2 system, weight limits, and what to pack first.</p>
+          <div class="post-footer">
+            <span class="post-date">April 2026</span>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="how-to-financially-prepare-for-ai-job-displacement.html" class="post-card">
+        <div class="post-card-header">
+          <span class="post-cat cat-planning">Planning</span>
+          <span class="post-read-time">9 min</span>
+        </div>
+        <div class="post-card-body">
+          <div class="post-title">How to Financially Prepare for AI Job Displacement</div>
+          <p class="post-excerpt">White-collar automation is moving faster than most households have planned for. The article covers how to calculate your actual cash runway and what to do with it before income changes.</p>
+          <div class="post-footer">
+            <span class="post-date">April 2026</span>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="petrodollar-dollar-reserve-status-household-preparation.html" class="post-card">
+        <div class="post-card-header">
+          <span class="post-cat cat-planning">Planning</span>
+          <span class="post-read-time">10 min</span>
+        </div>
+        <div class="post-card-body">
+          <div class="post-title">What Happens to Your Money If the Dollar Loses Reserve Currency Status</div>
+          <p class="post-excerpt">Reserve currency status affects import prices, savings value, and household purchasing power. This article explains the transmission mechanism and what to hold instead of dollars.</p>
+          <div class="post-footer">
+            <span class="post-date">April 2026</span>
+            <span class="post-arrow">→</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+</div>
+
+<div class="sticky-buy-bar" id="stickyBar">
+  <div class="sticky-buy-text">Family Emergency Preparedness Guide — $25</div>
+  <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sticky-buy-btn">Get the Guide</a>
+</div>
+
+<footer>
+  <p>&copy; 2026 emergencypreparednesschecklist.com — <a href="index.html">Home</a> · <a href="blog.html">Blog</a> · <a href="index.html#pricing">Pricing</a></p>
+</footer>
+
+<script>
+const progressBar = document.getElementById('progressBar');
+const articleBody = document.getElementById('articleBody');
+const stickyBar = document.getElementById('stickyBar');
+const articleHeader = document.querySelector('.article-header');
+
+window.addEventListener('scroll', () => {
+  const articleTop = articleBody.getBoundingClientRect().top + window.scrollY;
+  const articleHeight = articleBody.offsetHeight;
+  const scrolled = window.scrollY - articleTop;
+  const percentage = Math.min(Math.max((scrolled / articleHeight) * 100, 0), 100);
+  progressBar.style.width = percentage + '%';
+});
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        stickyBar.classList.add('visible');
+      } else {
+        stickyBar.classList.remove('visible');
+      }
+    });
+  },
+  { threshold: 0 }
+);
+
+observer.observe(articleHeader);
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does it take for energy price increases to affect food prices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Energy price increases affect food prices with a delay. Perishables like produce and dairy reflect energy costs within 90 days. Shelf-stable goods like grains and canned items take 6-12 months. The lag exists because energy costs move through production, transportation, and cold storage before reaching retail prices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much should I budget for food stockpiling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A household of four can build a 90-day staple reserve for $600-$800. Focus on high-calorie staples first: rice, pasta, beans, cooking oil, canned vegetables. One extra month's food budget spent today locks in current prices and hedges against future inflation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What foods should I stock first during inflation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Stock shelf-stable, calorie-dense staples first. Rice provides 1,650 calories per pound, pasta provides 1,600, and cooking oil provides 4,000. These items store for 1-5 years and form the foundation of most meals. Add canned beans, vegetables, and protein after the calorie base is covered."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When is the best time to buy food before prices increase?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The optimal time is when energy prices spike but food prices have not yet moved. Monitor crude oil, diesel, and natural gas. If they increase 15-20% within three months, food price increases will follow in 6-12 months. This is the window to stock up at current prices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I prevent food waste when stockpiling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a first-in-first-out rotation system. Mark every item with the purchase date. When you buy new items, move old ones to the front and use the oldest first. Check expiration dates every six months and rotate anything within six months of expiration into daily meals."
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
