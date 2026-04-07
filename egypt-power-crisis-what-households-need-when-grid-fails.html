@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Egypt's Rolling Blackouts Mean for Grid-Dependent Households</title>
+  <meta name="description" content="Egypt is enforcing 9pm shutdowns and remote work mandates due to fuel shortages. Here's what to prepare when grid reliability becomes unpredictable.">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --bg: #FAFAFA;
+      --ink: #0F172A;
+      --gray: #64748B;
+      --gray-lt: #F1F5F9;
+      --navy: #1B4FBF;
+      --navy-dk: #153D96;
+      --navy-lt: #EEF2FB;
+      --green: #2A7A4B;
+      --green-lt: #EAF5EE;
+      --amber: #B45309;
+      --amber-lt: #FEF3C7;
+      --divider: #D2D2D7;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: var(--navy);
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s ease;
+    }
+        nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 0 40px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px; color: var(--gray);
+      text-decoration: none; transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--ink); font-weight: 500; }
+    .nav-cta {
+      background: var(--navy) !important; color: white !important;
+      padding: 8px 18px; border-radius: 980px;
+      font-weight: 500 !important; font-size: 13px !important;
+    }
+    .nav-cta:hover { background: var(--navy-dk) !important; }
+    .sticky-buy-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--ink);
+      padding: 16px 24px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 999;
+      box-shadow: 0 -2px 12px rgba(0,0,0,0.1);
+    }
+    .sticky-buy-bar.visible { display: flex; }
+    .sticky-buy-bar-text {
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .sticky-buy-bar-btn {
+      background: white;
+      color: var(--navy);
+      padding: 10px 24px;
+      border-radius: 980px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 24px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 64px;
+      align-items: start;
+    }
+    .article-header {
+      margin-bottom: 40px;
+    }
+    .article-meta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+    }
+    .cat-home { background: #F3E8FF; color: #6B21A8; padding: 4px 12px; border-radius: 4px; font-weight: 600; }
+    .article-title {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+    .article-excerpt {
+      font-size: 18px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 40px 0;
+      padding: 32px;
+      background: var(--navy-lt);
+      border-radius: 12px;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--navy);
+      font-family: 'JetBrains Mono', monospace;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: var(--gray);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .article-body h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 48px 0 20px 0;
+      color: var(--ink);
+    }
+    .article-body h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 32px 0 16px 0;
+      color: var(--ink);
+    }
+    .article-body p {
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--ink);
+    }
+    .article-body ul, .article-body ol {
+      margin: 20px 0;
+      padding-left: 24px;
+    }
+    .article-body li {
+      margin-bottom: 12px;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    .callout {
+      background: var(--navy-lt);
+      border-left: 4px solid var(--navy);
+      padding: 24px;
+      margin: 32px 0;
+      border-radius: 8px;
+    }
+    .callout.warning {
+      background: var(--amber-lt);
+      border-left-color: var(--amber);
+    }
+    .callout-title {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--navy);
+    }
+    .callout.warning .callout-title { color: var(--amber); }
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+    }
+    .checklist li {
+      display: flex;
+      gap: 12px;
+      align-items: start;
+      padding: 16px;
+      background: white;
+      border: 1px solid var(--divider);
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      border: 2px solid var(--divider);
+      border-radius: 4px;
+      flex: 0 0 20px;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .checklist li > div:last-child { flex: 1; }
+    .tier-badge {
+      display: inline-block;
+      background: var(--navy);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      margin-left: 8px;
+    }
+    .tier-badge.tier-2 { background: var(--gray); }
+    .mid-cta {
+      background: var(--ink);
+      border-radius: 16px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin: 40px 0;
+    }
+    .mid-cta-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: white;
+      line-height: 1.5;
+    }
+    .mid-cta-text span {
+      display: block;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      margin-top: 4px;
+    }
+    .mid-cta-btn {
+      background: white;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 980px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .sidebar {
+      position: sticky;
+      top: 100px;
+    }
+    .toc {
+      background: white;
+      border: 1px solid var(--divider);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .toc-title {
+      font-size: 13px;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      color: var(--gray);
+    }
+    .toc-list {
+      list-style: none;
+    }
+    .toc-list li {
+      margin-bottom: 12px;
+    }
+    .toc-list a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 1.5;
+      display: block;
+      transition: color 0.2s;
+    }
+    .toc-list a:hover { color: var(--navy); }
+    .guide-promo {
+      background: var(--navy);
+      color: white;
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .guide-promo-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .guide-promo-text {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+    .guide-promo-btn {
+      display: block;
+      background: white;
+      color: var(--navy);
+      text-align: center;
+      padding: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .related-posts {
+      margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid var(--divider);
+    }
+    .related-posts-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .post-card {
+      background: white;
+      border: 1px solid var(--divider);
+      border-radius: 12px;
+      padding: 24px;
+      text-decoration: none;
+      display: block;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .post-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .post-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .post-cat {
+      font-size: 11px;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+    .cat-planning { background: var(--navy-lt); color: var(--navy); }
+    .cat-gear { background: var(--green-lt); color: var(--green); }
+    .post-read-time {
+      font-size: 12px;
+      color: var(--gray);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .post-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .post-excerpt {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .post-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--gray);
+    }
+    .post-arrow { color: var(--navy); font-weight: 700; }
+    footer {
+      background: var(--ink);
+      color: white;
+      padding: 48px 24px;
+      margin-top: 64px;
+    }
+    footer .container {
+      display: block;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 32px;
+    }
+    .footer-brand {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .footer-tagline {
+      font-size: 14px;
+      opacity: 0.7;
+      line-height: 1.6;
+    }
+    .footer-links-title {
+      font-size: 13px;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    .footer-links a:hover { opacity: 1; }
+    .footer-bottom {
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 13px;
+      opacity: 0.5;
+    }
+    @media (max-width: 1024px) {
+      .container {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .sidebar { position: static; }
+      .related-grid { grid-template-columns: 1fr; }
+      .stat-row { grid-template-columns: 1fr; }
+      .footer-content { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long can a household survive without grid power?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Without preparation, most households lose critical functions within 4-12 hours. Refrigeration fails first, followed by heating or cooling depending on season. Water pumps in many areas stop working within hours. Prepared households with tiered backup systems can extend that window to 3-7 days."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What causes governments to enforce rolling blackouts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Rolling blackouts happen when electricity demand exceeds supply. This can result from fuel shortages, infrastructure damage, extreme weather, or maintenance backlogs. Governments enforce them to prevent total grid collapse, which would take weeks to restore."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should a household do first when grid reliability drops?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "First action is to calculate your household's critical load in watts and identify what must stay powered during an outage. Then build a tiered backup plan starting with battery banks for communication and lighting, then portable power for medical devices and refrigeration. Fuel-based generators are Tier 2 only."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can solar panels work during a blackout?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Grid-tied solar systems shut down automatically during blackouts to protect utility workers. Only systems with battery storage and islanding capability can provide power during outages. Retrofitting an existing grid-tied system with battery backup costs between $8,000 and $15,000 depending on capacity."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you prepare food storage for unreliable power?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Shift from refrigeration-dependent foods to shelf-stable proteins, grains, and canned goods. Store at least 30 days of food that requires no refrigeration and minimal cooking. Keep a rotation schedule and consume within expiration windows. Freeze water bottles to extend refrigerator cooling during short outages."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+  
+  <nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="16" r="14" stroke="#1B4FBF" stroke-width="2"/>
+      <circle cx="16" cy="16" r="6" fill="#1B4FBF"/>
+    </svg>
+  </a>
+  <ul class="nav-links">
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#inside">What's Inside</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">Get the Guide →</a>
+    </li>
+  </ul>
+</nav>
+
+  <div class="sticky-buy-bar" id="stickyBuyBar">
+    <span class="sticky-buy-bar-text">Family Emergency Preparedness Guide — $25</span>
+    <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sticky-buy-bar-btn">Get the Guide</a>
+  </div>
+
+  <div class="container">
+    <main>
+      <article>
+        <header class="article-header" id="articleHeader">
+          <div class="article-meta">
+            <span class="cat-home">Home</span>
+            <span>•</span>
+            <span>8 min read</span>
+            <span>•</span>
+            <span>April 2026</span>
+          </div>
+          <h1 class="article-title">What Egypt's Rolling Blackouts Mean for Grid-Dependent Households</h1>
+          <p class="article-excerpt">Egypt is mandating 9pm business shutdowns and forced remote work schedules due to fuel shortages. The situation shows how quickly grid reliability can collapse when governments ration energy.</p>
+        </header>
+
+        <div class="stat-row">
+          <div class="stat-item">
+            <span class="stat-number">30%</span>
+            <span class="stat-label">Egypt's fuel import reduction</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">4-12hrs</span>
+            <span class="stat-label">Time to critical failure without power</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">3 days</span>
+            <span class="stat-label">US household median backup window</span>
+          </div>
+        </div>
+
+        <div class="article-body" id="articleBody">
+          <p>Egypt's government recently ordered all commercial businesses to close by 9pm and moved half the public workforce to remote schedules. The reason is straightforward: the country cannot afford enough fuel to keep the electrical grid running at normal capacity. This is not a temporary storm disruption or a single infrastructure failure. It is a national energy budget running into a hard limit.</p>
+
+          <p>The Egyptian government reduced fuel imports by 30% in early 2026 as foreign currency reserves dropped and global oil prices remained elevated. Natural gas supplies, which generate most of Egypt's electricity, became more expensive to secure. Rather than allow the grid to collapse entirely, officials imposed mandatory load reductions across residential and commercial sectors.</p>
+
+          <p>This is how grid rationing works in practice. Governments choose between letting the entire system fail or forcing specific sectors offline on schedules they control. Most choose the second option. The result is predictable power on a timetable, not power on demand.</p>
+
+          <h2>How Grid Rationing Affects Households</h2>
+
+          <p>When a government rations electricity, households lose the assumption of 24/7 availability. Refrigerators stop cooling during blackout windows. Home heating or air conditioning shuts off regardless of outdoor temperature. Water pumps in multi-story buildings stop working if backup generators are not installed. Internet routers go offline unless powered by battery backup.</p>
+
+          <p>The Egyptian government is using rolling blackouts, which means different neighborhoods lose power on rotating schedules. This prevents total grid collapse but forces every household to prepare for recurring outages. The schedule may be published or unpredictable depending on how severe the fuel shortage becomes.</p>
+
+          <p>In grid-rationed environments, households face three specific problems:</p>
+
+          <ul>
+            <li><strong>Food spoilage:</strong> Refrigerators and freezers lose temperature within 4 hours if unopened, faster if opened repeatedly. Perishable food becomes unsafe within 12-24 hours depending on ambient temperature.</li>
+            <li><strong>Climate control failure:</strong> Homes in hot climates become unsafe for vulnerable household members (elderly, infants, those with medical conditions) within hours. Cold climates face similar risks during winter outages.</li>
+            <li><strong>Water access:</strong> High-rise buildings and rural properties relying on electric pumps lose running water immediately when power cuts. Municipal water systems may continue operating, but home delivery systems do not.</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-title">Critical Window</div>
+            <p>Most households experience their first critical failure within 4-12 hours of losing power. Refrigeration is usually first, followed by climate control or water access depending on season and infrastructure. Households that prepare for 72 hours of grid-independent function can outlast most short-term rationing schedules.</p>
+          </div>
+
+          <h2>Why Fuel Shortages Lead to Power Rationing</h2>
+
+          <p>Egypt generates approximately 60% of its electricity from natural gas. When the government cannot afford to import enough gas or extract enough domestically, power plants reduce output. The grid then has less electricity available than households and businesses demand.</p>
+
+          <p>Grid operators have two choices: let voltage drop across the entire system until it collapses, or cut power to specific areas on a schedule. Voltage drops damage electrical equipment and can destroy transformers, which take months to replace. Scheduled blackouts preserve infrastructure while reducing total load.</p>
+
+          <p>This is not unique to Egypt. South Africa has operated under rolling blackouts for over a decade due to coal shortages and aging power plants. Pakistan enforces seasonal rationing during high-demand periods. California has implemented rotating outages during wildfire season when transmission lines are shut down preemptively.</p>
+
+          <p>The common factor is not the specific fuel source or infrastructure type. It is the gap between available generation capacity and household demand. When that gap becomes too large, rationing follows.</p>
+
+          <h2>What Households Should Prepare When Grid Reliability Drops</h2>
+
+          <p>Preparing for unreliable grid power is different from preparing for a single storm outage. The assumption changes from "power will return within 24-48 hours" to "power will cycle on and off on an unpredictable schedule for weeks or months."</p>
+
+          <p>The preparation focus shifts from short-term battery backup to longer-term energy independence and load reduction. Households must answer one question: which functions are critical enough to power independently, and for how long?</p>
+
+          <h3>Tiered Power Backup</h3>
+
+          <p>Most households cannot afford to run everything during an outage. The goal is to identify the smallest set of critical loads and build backup capacity in tiers.</p>
+
+          <ul class="checklist">
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <strong>Tier 1: Communication and lighting</strong><span class="tier-badge">TIER 1</span><br>
+                Battery banks (500-1000Wh capacity) can power phones, radios, LED lighting, and small fans for 24-48 hours. These systems cost $300-$800 and require no fuel. Charge them whenever grid power is available.
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <strong>Tier 1: Medical devices</strong><span class="tier-badge">TIER 1</span><br>
+                CPAP machines, oxygen concentrators, and medication refrigerators are non-negotiable loads. Calculate their watt-hour consumption and size battery backup accordingly. Many medical devices draw under 100W and can run 8-12 hours on a 500Wh battery.
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <strong>Tier 2: Refrigeration</strong><span class="tier-badge tier-2">TIER 2</span><br>
+                A full-size refrigerator draws 100-200W when running. Portable power stations (1500-2000Wh) can extend refrigeration for 12-24 hours. Pair this with ice blocks and minimize door openings. Long-term solution: shift to shelf-stable food storage.
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <strong>Tier 2: Fuel-based generators</strong><span class="tier-badge tier-2">TIER 2</span><br>
+                Generators provide longer runtime but require fuel storage, ventilation, and maintenance. Only deploy if you can secure fuel reliably during rationing periods. Noise and exhaust make them unsuitable for urban apartments.
+              </div>
+            </li>
+          </ul>
+
+          <div class="mid-cta">
+            <div class="mid-cta-text">
+              Chapter 4 covers home hardening and backup power systems in detail
+              <span>Includes watt-hour calculators, equipment checklists, and tiered implementation plans</span>
+            </div>
+            <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="mid-cta-btn">Get the Guide — $25</a>
+          </div>
+
+          <h3>Reducing Critical Load</h3>
+
+          <p>The most effective preparation is not backup power. It is reducing how much power your household needs to maintain critical functions.</p>
+
+          <ul>
+            <li><strong>Food storage:</strong> Transition from refrigeration-dependent meals to shelf-stable proteins (canned fish, beans, dried meats) and grains. Store 30 days of food that requires no refrigeration and minimal cooking.</li>
+            <li><strong>Water storage:</strong> If your building relies on electric pumps, store 1 gallon per person per day for 14 days minimum. Rotate stock every 6 months. Identify manual water sources (municipal fill stations, nearby wells) as backup.</li>
+            <li><strong>Climate control alternatives:</strong> Passive cooling (cross-ventilation, shade, wet towels) and heating (insulation, layered clothing, sleeping bags) reduce reliance on HVAC. High-risk household members may need evacuation plans if outages extend beyond safe temperature windows.</li>
+            <li><strong>Lighting:</strong> LED headlamps and lanterns draw 2-10W and run for days on rechargeable batteries. Replace high-wattage bulbs with LEDs to reduce total load during grid-available periods.</li>
+          </ul>
+
+          <div class="callout warning">
+            <div class="callout-title">Common Mistake</div>
+            <p>Households often oversize their backup power systems by trying to run everything. A 3000W generator or battery bank costs significantly more than a 1000W system, but the household only needs the extra capacity if they refuse to reduce load. Start by cutting non-critical loads, then size backup power to what remains.</p>
+          </div>
+
+          <h2>When to Consider Evacuation</h2>
+
+          <p>Not all households can prepare for extended grid unreliability in place. High-rise apartments without backup generators lose water access within hours. Homes in extreme climates become uninhabitable when heating or cooling fails. Medical conditions requiring powered equipment may not be sustainable on battery backup alone.</p>
+
+          <p>If your household falls into one of these categories, your preparation is not backup power. It is an evacuation plan with a destination that has reliable infrastructure. This could be a relative's home in a different region, a rental property outside the rationing zone, or a pre-identified shelter with generator capacity.</p>
+
+          <p>Evacuation triggers should be specific and measurable:</p>
+
+          <ul>
+            <li>Blackouts extend beyond 6 hours per day for three consecutive days</li>
+            <li>Indoor temperature reaches unsafe levels (above 90°F or below 50°F depending on season)</li>
+            <li>Municipal water stops flowing for more than 12 hours</li>
+            <li>Fuel for backup generator becomes unavailable or rationed</li>
+          </ul>
+
+          <p>Chapter 3 of the Family Emergency Preparedness Guide covers go-bag assembly and evacuation planning. The chapter includes destination checklists, decision trees for when to leave, and what to prioritize when packing under time pressure.</p>
+
+          <h2>What This Means for Grid-Dependent Households</h2>
+
+          <p>Egypt's rolling blackouts are not an isolated event. They are a visible example of what happens when energy supply cannot meet baseline demand. The specific cause may be different in other regions — drought reducing hydroelectric output, aging coal plants going offline, natural gas pipeline constraints, transmission line damage from storms — but the mechanism is the same.</p>
+
+          <p>Households that assume 24/7 grid power will continue indefinitely are making a planning error. The question is not whether your region will experience rationing. The question is how long you have to prepare before it starts, and whether your household can function independently for the duration.</p>
+
+          <p>The preparation steps are the same regardless of location:</p>
+
+          <ol>
+            <li>Calculate your household's critical load in watts</li>
+            <li>Identify which functions are non-negotiable (medical, communication, water, minimum food preservation)</li>
+            <li>Build Tier 1 backup capacity (battery banks, rechargeable lights, manual water storage)</li>
+            <li>Reduce your total load by transitioning to shelf-stable food and passive climate control</li>
+            <li>Establish evacuation triggers and a destination with reliable infrastructure</li>
+          </ol>
+
+          <p>Start with Tier 1. Most households can implement battery backup for communication and lighting within one month for under $500. That alone extends your household's functional window from 4 hours to 48 hours, which is enough to outlast most short-term rationing schedules.</p>
+        </div>
+      </article>
+
+      <div class="related-posts">
+        <h2 class="related-posts-title">Related Articles</h2>
+        <div class="related-grid">
+          <a href="how-to-build-a-go-bag.html" class="post-card">
+            <div class="post-card-header">
+              <span class="post-cat cat-gear">Gear</span>
+              <span class="post-read-time">12 min</span>
+            </div>
+            <div class="post-title">How to Build a Go-Bag That Actually Works</div>
+            <p class="post-excerpt">Most go-bags fail because they are either too heavy or missing critical items. This guide covers the Tier 1/Tier 2 system used by professionals.</p>
+            <div class="post-footer">
+              <span class="post-date">April 2026</span>
+              <span class="post-arrow">→</span>
+            </div>
+          </a>
+          <a href="energy-crisis-food-water-supply-what-to-do.html" class="post-card">
+            <div class="post-card-header">
+              <span class="post-cat cat-planning">Planning</span>
+              <span class="post-read-time">10 min</span>
+            </div>
+            <div class="post-title">Energy Crisis and Food Supply: What Households Should Do Now</div>
+            <p class="post-excerpt">Energy shortages destabilize food and water distribution faster than most households expect. The article covers shelf-stable food storage and backup water plans.</p>
+            <div class="post-footer">
+              <span class="post-date">April 2026</span>
+              <span class="post-arrow">→</span>
+            </div>
+          </a>
+          <a href="petrodollar-dollar-reserve-status-household-preparation.html" class="post-card">
+            <div class="post-card-header">
+              <span class="post-cat cat-planning">Planning</span>
+              <span class="post-read-time">11 min</span>
+            </div>
+            <div class="post-title">What Happens to Your Money If the Dollar Loses Reserve Currency Status</div>
+            <p class="post-excerpt">Reserve currency transitions cause rapid purchasing power loss and import disruptions. The article explains what to do with savings and how to prepare for price instability.</p>
+            <div class="post-footer">
+              <span class="post-date">April 2026</span>
+              <span class="post-arrow">→</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <aside class="sidebar">
+      <div class="toc">
+        <div class="toc-title">Contents</div>
+        <ul class="toc-list">
+          <li><a href="#articleBody">How Grid Rationing Affects Households</a></li>
+          <li><a href="#articleBody">Why Fuel Shortages Lead to Power Rationing</a></li>
+          <li><a href="#articleBody">What Households Should Prepare</a></li>
+          <li><a href="#articleBody">Tiered Power Backup</a></li>
+          <li><a href="#articleBody">Reducing Critical Load</a></li>
+          <li><a href="#articleBody">When to Consider Evacuation</a></li>
+        </ul>
+      </div>
+      <div class="guide-promo">
+        <div class="guide-promo-title">Family Emergency Preparedness Guide</div>
+        <p class="guide-promo-text">Complete home hardening checklists, backup power calculators, and evacuation decision trees. Chapter 4 covers grid-independent systems in detail.</p>
+        <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="guide-promo-btn">Get the Guide — $25</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-brand">Prepared. Not scared.</div>
+          <p class="footer-tagline">Practical emergency preparedness for households that want to be ready without living in fear.</p>
+        </div>
+        <div>
+          <div class="footer-links-title">Guide</div>
+          <ul class="footer-links">
+            <li><a href="index.html#inside">What's Inside</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00">Buy Now</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-links-title">Resources</div>
+          <ul class="footer-links">
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 Emergency Preparedness Checklist. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reading progress bar
+    const progressBar = document.getElementById('progressBar');
+    const articleBody = document.getElementById('articleBody');
+    
+    window.addEventListener('scroll', () => {
+      const articleStart = articleBody.offsetTop;
+      const articleHeight = articleBody.offsetHeight;
+      const windowHeight = window.innerHeight;
+      const scrollTop = window.scrollY;
+      
+      const articleProgress = (scrollTop - articleStart + windowHeight) / articleHeight;
+      const progress = Math.min(Math.max(articleProgress * 100, 0), 100);
+      
+      progressBar.style.width = progress + '%';
+    });
+
+    // Sticky buy bar
+    const stickyBuyBar = document.getElementById('stickyBuyBar');
+    const articleHeader = document.getElementById('articleHeader');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          stickyBuyBar.classList.add('visible');
+        } else {
+          stickyBuyBar.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0 });
+    
+    observer.observe(articleHeader);
+  </script>
+</body>
+</html>
