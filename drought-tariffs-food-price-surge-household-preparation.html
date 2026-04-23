@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What the 2026 Drought and Food Price Surge Means for Your Household Budget</title>
+  <meta name="description" content="U.S. drought and trade policy are pushing food prices up 15-20%. What households need to do now to protect their budgets and food security.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --bg: #F9FAFB;
+      --ink: #111827;
+      --gray: #6B7280;
+      --gray-lt: #9CA3AF;
+      --navy: #1B4FBF;
+      --navy-dk: #153D96;
+      --navy-lt: #EEF2FB;
+      --green: #2A7A4B;
+      --green-lt: #EAF5EE;
+      --amber: #B45309;
+      --amber-lt: #FEF3C7;
+      --divider: #D2D2D7;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    
+        nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 0 40px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px; color: var(--gray);
+      text-decoration: none; transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--ink); font-weight: 500; }
+    .nav-cta {
+      background: var(--navy) !important; color: white !important;
+      padding: 8px 18px; border-radius: 980px;
+      font-weight: 500 !important; font-size: 13px !important;
+    }
+    .nav-cta:hover { background: var(--navy-dk) !important; }
+    
+    #progressBar {
+      position: fixed;
+      top: 57px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--navy);
+      z-index: 99;
+      transition: width 0.1s;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 48px;
+      margin-top: 40px;
+      align-items: start;
+    }
+    
+    .article-header {
+      margin-bottom: 32px;
+    }
+    
+    .article-meta {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    
+    .cat-planning {
+      background: var(--navy-lt);
+      color: var(--navy);
+      padding: 4px 12px;
+      border-radius: 980px;
+      font-size: 12px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .article-date {
+      font-size: 13px;
+      color: var(--gray);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    
+    .article-title {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+    
+    .article-excerpt {
+      font-size: 18px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+    
+    .article-body {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+    }
+    
+    .article-body h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 40px 0 16px 0;
+      color: var(--ink);
+    }
+    
+    .article-body h2:first-child { margin-top: 0; }
+    
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 32px 0 12px 0;
+      color: var(--ink);
+    }
+    
+    .article-body p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      color: var(--ink);
+    }
+    
+    .article-body ul,
+    .article-body ol {
+      margin: 20px 0;
+      padding-left: 24px;
+    }
+    
+    .article-body li {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+    
+    .article-body strong { font-weight: 600; }
+    
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 32px 0;
+    }
+    
+    .stat-card {
+      background: var(--bg);
+      border: 1px solid var(--divider);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    
+    .stat-number {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--navy);
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 8px;
+    }
+    
+    .stat-label {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.4;
+    }
+    
+    .stat-source {
+      font-size: 11px;
+      color: var(--gray-lt);
+      font-family: 'JetBrains Mono', monospace;
+      margin-top: 8px;
+    }
+    
+    .callout {
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+    
+    .callout-navy {
+      background: var(--navy-lt);
+      border-left: 4px solid var(--navy);
+    }
+    
+    .callout-amber {
+      background: var(--amber-lt);
+      border-left: 4px solid var(--amber);
+    }
+    
+    .callout-title {
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+    
+    .callout p { margin-bottom: 12px; }
+    .callout p:last-child { margin-bottom: 0; }
+    
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+    }
+    
+    .checklist li {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      align-items: start;
+    }
+    
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      border: 2px solid var(--divider);
+      border-radius: 4px;
+      flex: 0 0 20px;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .checklist li > div:last-child { flex: 1; }
+    
+    .tier-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 4px;
+    }
+    
+    .tier-1 {
+      background: var(--navy-lt);
+      color: var(--navy);
+    }
+    
+    .tier-2 {
+      background: var(--green-lt);
+      color: var(--green);
+    }
+    
+    .mid-cta {
+      background: var(--ink);
+      border-radius: 16px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin: 40px 0;
+    }
+    
+    .mid-cta-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: white;
+      line-height: 1.5;
+    }
+    
+    .mid-cta-text span {
+      display: block;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      margin-top: 4px;
+    }
+    
+    .mid-cta-btn {
+      background: white;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 980px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    
+    .mid-cta-btn:hover { background: var(--bg); }
+    
+    .sidebar {
+      position: sticky;
+      top: 90px;
+    }
+    
+    .toc {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    
+    .toc-title {
+      font-size: 12px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+    
+    .toc ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .toc li {
+      margin-bottom: 12px;
+    }
+    
+    .toc a {
+      font-size: 14px;
+      color: var(--gray);
+      text-decoration: none;
+      line-height: 1.4;
+    }
+    
+    .toc a:hover { color: var(--navy); }
+    
+    .guide-promo {
+      background: var(--navy);
+      border-radius: 12px;
+      padding: 24px;
+      color: white;
+    }
+    
+    .guide-promo-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    
+    .guide-promo-text {
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      color: rgba(255,255,255,0.85);
+    }
+    
+    .guide-promo-btn {
+      display: block;
+      width: 100%;
+      background: white;
+      color: var(--navy);
+      text-align: center;
+      padding: 12px;
+      border-radius: 980px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    
+    .guide-promo-btn:hover { background: var(--bg); }
+    
+    .related-posts {
+      margin: 60px 0;
+    }
+    
+    .related-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    
+    .post-card {
+      background: white;
+      border: 1px solid var(--divider);
+      border-radius: 12px;
+      padding: 24px;
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.2s;
+    }
+    
+    .post-card:hover { border-color: var(--navy); }
+    
+    .post-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    
+    .post-cat {
+      padding: 4px 10px;
+      border-radius: 980px;
+      font-size: 11px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .cat-planning { background: var(--navy-lt); color: var(--navy); }
+    .cat-gear { background: var(--green-lt); color: var(--green); }
+    .cat-skills { background: var(--amber-lt); color: var(--amber); }
+    
+    .post-read-time {
+      font-size: 12px;
+      color: var(--gray);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    
+    .post-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    
+    .post-excerpt {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    
+    .post-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .post-date {
+      font-size: 12px;
+      color: var(--gray-lt);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    
+    .post-arrow {
+      color: var(--navy);
+      font-size: 16px;
+    }
+    
+    footer {
+      background: white;
+      border-top: 1px solid var(--divider);
+      margin-top: 80px;
+      padding: 40px 24px;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .footer-logo {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    
+    .footer-text {
+      font-size: 14px;
+      color: var(--gray);
+      margin-bottom: 24px;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      list-style: none;
+    }
+    
+    .footer-links a {
+      font-size: 14px;
+      color: var(--gray);
+      text-decoration: none;
+    }
+    
+    .footer-links a:hover { color: var(--navy); }
+    
+    #stickyBuyBar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      border-top: 1px solid var(--divider);
+      padding: 16px 24px;
+      z-index: 98;
+      display: none;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    }
+    
+    #stickyBuyBar.visible { display: block; }
+    
+    .sticky-buy-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .sticky-buy-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    
+    .sticky-buy-btn {
+      background: var(--navy);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 980px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    
+    .sticky-buy-btn:hover { background: var(--navy-dk); }
+    
+    @media (max-width: 968px) {
+      .article-layout {
+        grid-template-columns: 1fr;
+      }
+      
+      .sidebar { display: none; }
+      
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .stat-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .mid-cta {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much are food prices expected to rise due to the drought?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Agricultural economists project a 15-20% increase in staple food prices over the next 12-18 months. Wheat, corn, and soybean-dependent products will see the highest increases. The USDA estimates that for a family of four spending $800/month on groceries, this translates to an additional $120-160 per month in food costs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the best way to prepare for higher food prices?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The most effective approach is to build a 30-90 day supply of shelf-stable staples now, before price increases take full effect. Focus on calorie-dense items like rice, beans, pasta, canned vegetables, and cooking oils. Rotate stock monthly to avoid waste. This creates a buffer against both price increases and potential supply disruptions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I change my budget to account for food price increases?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Add 20% to your current grocery line item starting now. If you currently budget $800/month, increase it to $960. This prevents the common trap of undershooting your food budget and having to cut from other categories mid-month. Track actual spending weekly for the first two months to verify the adjustment is accurate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long will food prices stay elevated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Agricultural recovery cycles typically take 18-24 months from drought end to price normalization. This assumes normal rainfall returns in the next growing season. If drought conditions persist or tariffs remain in place, elevated prices could last 3+ years. Plan household budgets on a 24-month horizon for price increases, not a temporary spike."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What foods should I prioritize stockpiling?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Prioritize items with long shelf life, high caloric density, and multiple uses: white rice (shelf life 4-5 years), dried beans (2-3 years), pasta (2 years), canned tomatoes and vegetables (2-3 years), cooking oil (1-2 years), and flour (6-12 months if stored properly). These provide the foundation of meals and will see the largest price increases as grain costs rise."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div id="progressBar"></div>
+  
+  <nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="16" r="14" stroke="#1B4FBF" stroke-width="2"/>
+      <circle cx="16" cy="16" r="6" fill="#1B4FBF"/>
+    </svg>
+  </a>
+  <ul class="nav-links">
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#inside">What's Inside</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">Get the Guide →</a>
+    </li>
+  </ul>
+</nav>
+  
+  <div id="stickyBuyBar">
+    <div class="sticky-buy-content">
+      <div class="sticky-buy-text">Family Emergency Preparedness Guide — $25</div>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sticky-buy-btn">Get the Guide →</a>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="article-layout">
+      <article>
+        <header class="article-header">
+          <div class="article-meta">
+            <span class="cat-planning">Planning</span>
+            <span class="article-date">April 2026</span>
+          </div>
+          <h1 class="article-title">What the 2026 Drought and Food Price Surge Means for Your Household Budget</h1>
+          <p class="article-excerpt">The convergence of severe drought across the Midwest, ongoing trade disruptions, and higher input costs is pushing food prices up 15-20% over the next 12-18 months. Here is what your household needs to do before the full impact hits grocery bills.</p>
+        </header>
+        
+        <div class="article-body" id="articleBody">
+          <p>The worst drought in the U.S. grain belt since 1988 has reduced corn and wheat yields by 30-40% in key producing states. At the same time, retaliatory tariffs have closed or restricted access to major export markets, leaving domestic supply unable to compensate through imports. The USDA projects retail food price increases of 15-20% across staple categories over the next 12-18 months.</p>
+          
+          <p>For a household spending $800 per month on groceries, that is an additional $120 to $160 in monthly costs. For most families, that amount exceeds discretionary spending capacity and will force cuts elsewhere in the budget. The households that will navigate this with the least disruption are the ones adjusting now, not after prices have already moved.</p>
+          
+          <div class="stat-row">
+            <div class="stat-card">
+              <div class="stat-number">15-20%</div>
+              <div class="stat-label">Projected food price increase over next 12-18 months</div>
+              <div class="stat-source">USDA Economic Research Service, March 2026</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">30-40%</div>
+              <div class="stat-label">Corn and wheat yield reduction in drought-affected states</div>
+              <div class="stat-source">USDA National Agricultural Statistics Service</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">$160/mo</div>
+              <div class="stat-label">Additional monthly grocery cost for family of four (upper range)</div>
+              <div class="stat-source">Based on $800/month baseline, 20% increase</div>
+            </div>
+          </div>
+          
+          <h2>How Food Prices Move After a Drought Event</h2>
+          
+          <p>Grocery prices do not rise overnight. The lag between crop failure and retail price increases is typically 6-9 months. Grain elevators draw down existing inventory first. Food manufacturers delay reformulations and package size reductions. Retailers absorb early cost increases to avoid losing customers. Then the system runs out of buffers, and prices adjust rapidly over a 60-90 day window.</p>
+          
+          <p>We are currently in month four of that cycle. Wholesale grain prices have already moved. Contracts between food manufacturers and retailers are being renegotiated now for deliveries starting in June and July. The retail price increases most households will see at the checkout line are 8-12 weeks away.</p>
+          
+          <p>The households that will be caught off guard are the ones assuming current prices are stable. The households that will maintain their standard of living are the ones buying ahead of the curve and adjusting their budgets before the increases show up in their bank statements.</p>
+          
+          <h2>Which Food Categories Will See the Largest Increases</h2>
+          
+          <p>Not all food prices move at the same rate. Products with high grain content or dependence on industrial livestock see the largest increases. Bread, pasta, breakfast cereals, and crackers will move first because wheat is the direct input. Meat, dairy, and eggs follow 60-90 days later as feed costs rise and producers cull herds to reduce expenses.</p>
+          
+          <p>The categories least affected are fresh produce (which is more sensitive to fuel and labor costs than grain prices) and imported specialty items that are not tied to U.S. agricultural commodity markets. A household that shifts consumption toward seasonal vegetables and reduces reliance on processed grain products will see a smaller total increase than one that maintains current eating patterns.</p>
+          
+          <div class="callout callout-navy">
+            <div class="callout-title">Price Movement Timeline</div>
+            <p><strong>Months 1-3 (current):</strong> Wholesale grain prices rise. Food manufacturers negotiate new contracts. Retail prices stable.</p>
+            <p><strong>Months 4-6 (June-August 2026):</strong> Bread, pasta, cereals see 12-18% increases. Meat prices begin climbing as feed costs hit producers.</p>
+            <p><strong>Months 7-12:</strong> Dairy and eggs reach peak increases (18-22%). Processed foods with multiple grain inputs see compounding effects.</p>
+            <p><strong>Months 13-24:</strong> Prices plateau at new baseline. Recovery to pre-drought levels depends on next two growing seasons.</p>
+          </div>
+          
+          <h2>The Budget Adjustment Most Households Are Not Making</h2>
+          
+          <p>The standard response to food price increases is to wait until the grocery bill is noticeably higher, then reduce consumption or switch to cheaper brands. This is reactive and costly. A better approach is to increase your grocery budget line item now by 20%, then track actual spending weekly for the next two months to verify the adjustment is accurate.</p>
+          
+          <p>If your current monthly grocery budget is $800, increase it to $960 starting this month. This prevents the common failure mode where households undershoot their food budget, overspend by week three, then have to cut from other categories to close the gap. The adjustment should be made before prices move, not after.</p>
+          
+          <p>The second part of the adjustment is rebalancing your overall budget to fund the increase. Most households have three options: reduce discretionary spending (dining out, entertainment, subscriptions), delay a planned purchase (vacation, electronics, home improvement), or increase income (overtime, side work, selling unused items). The households that make this decision deliberately in April will have more options than the ones forced to make it in July when the price increases are already showing up in their checking account balance.</p>
+          
+          <div class="mid-cta">
+            <div class="mid-cta-text">
+              The guide walks through building a financial buffer before disruptions hit.
+              <span>Chapter 2 covers the cash reserve structure and timeline for a household to build 30 days of expenses in liquid savings.</span>
+            </div>
+            <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="mid-cta-btn">Get the Guide — $25</a>
+          </div>
+          
+          <h2>Building a Food Reserve Before Prices Rise</h2>
+          
+          <p>The most effective hedge against food price inflation is a 30-90 day supply of shelf-stable staples purchased before prices increase. This is not hoarding. It is buying three months of normal consumption at current prices instead of paying 15-20% more for the same items in July.</p>
+          
+          <p>The core items to prioritize are calorie-dense staples with long shelf life: white rice (4-5 year shelf life), dried beans (2-3 years), pasta (2 years), canned tomatoes and vegetables (2-3 years), cooking oil (1-2 years), and flour (6-12 months if stored in airtight containers). These form the foundation of most meals and will see the largest price increases as grain costs rise.</p>
+          
+          <p>A 30-day supply for a family of four looks like this: 25 lbs white rice, 15 lbs dried beans, 10 lbs pasta, 20 cans tomatoes, 30 cans vegetables, 2 gallons cooking oil, 10 lbs flour. Total cost at current prices: approximately $120-150. The same purchase in three months will cost $140-180. The difference funds the storage containers and rotation system needed to prevent waste.</p>
+          
+          <div class="callout callout-amber">
+            <div class="callout-title">Common Stockpiling Mistakes</div>
+            <p><strong>Buying items your household does not eat:</strong> A 50 lb bag of wheat berries is useless if no one in your home knows how to cook with them. Buy larger quantities of foods you already prepare.</p>
+            <p><strong>No rotation system:</strong> Food stockpiles that sit untouched for years result in waste and spoilage. Use the oldest items first and replace them with new purchases. This is inventory management, not a bunker.</p>
+            <p><strong>Ignoring storage conditions:</strong> Rice and beans stored in a hot garage or humid basement degrade faster. Cool, dry, dark locations extend shelf life. Airtight containers prevent pest infiltration.</p>
+          </div>
+          
+          <h2>Household Food Reserve Checklist</h2>
+          
+          <p>This is a tiered approach. Tier 1 items provide the most caloric value per dollar and have the longest shelf life. Complete Tier 1 before moving to Tier 2.</p>
+          
+          <ul class="checklist">
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label tier-1">Tier 1</span>
+                <strong>White rice — 25 lbs per person:</strong> Store in food-grade buckets with airtight lids. Shelf life 4-5 years in cool, dry conditions.
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label tier-1">Tier 1</span>
+                <strong>Dried beans — 15 lbs per person:</strong> Black beans, pinto beans, lentils. Rotate every 2-3 years. Cooking time increases with age but nutritional value remains.
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label tier-1">Tier 1</span>
+                <strong>Pasta — 10 lbs per person:</strong> White pasta has longer shelf life than whole wheat (2 years vs 6 months). Store in original packaging inside sealed containers.
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label tier-1">Tier 1</span>
+                <strong>Canned tomatoes — 20 cans:</strong> Base for sauces, soups, stews. Low-sodium versions allow for seasoning control. Check expiration dates and rotate.
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label tier-1">Tier 1</span>
+                <strong>Canned vegetables — 30 cans:</strong> Corn, green beans, peas, carrots. Prioritize vegetables your household actually eats. Shelf life 2-3 years.
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label tier-1">Tier 1</span>
+                <strong>Cooking oil — 2 gallons:</strong> Canola or vegetable oil. Unopened shelf life 1-2 years. Once opened, use within 6 months. Store in cool, dark location.
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label tier-2">Tier 2</span>
+                <strong>Flour — 10 lbs:</strong> Store in airtight container. Shelf life 6-12 months. Keep a smaller quantity and rotate more frequently than rice or beans.
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label tier-2">Tier 2</span>
+                <strong>Salt, sugar, spices:</strong> Salt is indefinite shelf life. Sugar lasts years if kept dry. Spices lose potency after 2-3 years but remain safe to use.
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label tier-2">Tier 2</span>
+                <strong>Canned protein — 15 cans:</strong> Tuna, chicken, salmon. Provides variety and protein without refrigeration. Rotate every 2 years.
+              </div>
+            </li>
+            <li>
+              <div class="check-icon"></div>
+              <div>
+                <span class="tier-label tier-2">Tier 2</span>
+                <strong>Peanut butter — 4 jars:</strong> High calorie density, long shelf life (1-2 years unopened). Good protein source for children.
+              </div>
+            </li>
+          </ul>
+          
+          <h2>What to Do This Week</h2>
+          
+          <p>The households that will navigate the next 18 months with the least financial stress are the ones that act in the next 30 days, not the ones that wait to see how bad it gets. The price increases are coming. The only question is whether your household adjusts before or after they hit your budget.</p>
+          
+          <p>Start with the budget adjustment. Add 20% to your grocery line item starting this month. Track weekly spending to verify the increase is accurate. If you are currently spending $800/month, plan for $960. Identify where that additional $160 will come from — reduced dining out, delayed purchase, or increased income.</p>
+          
+          <p>Then build the 30-day food reserve. One shopping trip focused on Tier 1 staples will cost $120-150 and provide a buffer against both price increases and potential supply disruptions. This is not doomsday preparation. It is purchasing three months of groceries at current prices instead of paying 15-20% more in July.</p>
+          
+          <p>The guide in Chapter 1 covers the full household planning framework: how to calculate your actual monthly expenses, where to cut when income drops, and how to build decision trees for different disruption scenarios. Chapter 2 walks through the cash reserve timeline — how much to hold, in what denominations, and the build schedule that gets you to 30 days of expenses in 6 months without destabilizing your current budget.</p>
+          
+          <p>This is not about fear. It is about making decisions when you have options instead of being forced to react when the prices have already moved and your household budget is underwater.</p>
+        </div>
+      </article>
+      
+      <aside class="sidebar">
+        <div class="toc">
+          <div class="toc-title">Contents</div>
+          <ul>
+            <li><a href="#articleBody">How Food Prices Move After a Drought</a></li>
+            <li><a href="#articleBody">Which Categories See Largest Increases</a></li>
+            <li><a href="#articleBody">The Budget Adjustment to Make Now</a></li>
+            <li><a href="#articleBody">Building a Food Reserve</a></li>
+            <li><a href="#articleBody">Household Checklist</a></li>
+            <li><a href="#articleBody">What to Do This Week</a></li>
+          </ul>
+        </div>
+        
+        <div class="guide-promo">
+          <div class="guide-promo-title">Family Emergency Preparedness Guide</div>
+          <p class="guide-promo-text">Seven chapters covering planning, cash reserves, go-bags, home security, skills, community networks, and mental preparedness. Built for households, not survivalists.</p>
+          <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="guide-promo-btn">Get the Guide — $25</a>
+        </div>
+      </aside>
+    </div>
+    
+    <section class="related-posts">
+      <h2 class="related-title">Related Articles</h2>
+      <div class="related-grid">
+        <a href="how-to-financially-prepare-for-ai-job-displacement.html" class="post-card">
+          <div class="post-card-header">
+            <span class="post-cat cat-planning">Planning</span>
+            <span class="post-read-time">9 min</span>
+          </div>
+          <div class="post-title">How to Financially Prepare for AI Job Displacement</div>
+          <p class="post-excerpt">White-collar automation is moving faster than most households have planned for. This article covers how to calculate your actual cash runway and what to do with it before income changes.</p>
+          <div class="post-footer">
+            <span class="post-date">April 2026</span>
+            <span class="post-arrow">→</span>
+          </div>
+        </a>
+        
+        <a href="how-to-build-a-go-bag.html" class="post-card">
+          <div class="post-card-header">
+            <span class="post-cat cat-gear">Gear</span>
+            <span class="post-read-time">11 min</span>
+          </div>
+          <div class="post-title">How to Build a Go-Bag That Actually Works</div>
+          <p class="post-excerpt">Most go-bags fail because they are packed for fantasy scenarios instead of the actual emergencies that force evacuation. Here is the tier system that keeps weight realistic and contents useful.</p>
+          <div class="post-footer">
+            <span class="post-date">April 2026</span>
+            <span class="post-arrow">→</span>
+          </div>
+        </a>
+        
+        <a href="petrodollar-dollar-reserve-status-household-preparation.html" class="post-card">
+          <div class="post-card-header">
+            <span class="post-cat cat-planning">Planning</span>
+            <span class="post-read-time">10 min</span>
+          </div>
+          <div class="post-title">What Happens If the Dollar Loses Reserve Currency Status</div>
+          <p class="post-excerpt">The end of the petrodollar system would reshape household purchasing power and savings. This article explains what reserve currency status actually does and what households should do if it weakens.</p>
+          <div class="post-footer">
+            <span class="post-date">April 2026</span>
+            <span class="post-arrow">→</span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">Prepared. Not scared.</div>
+      <p class="footer-text">Practical emergency preparedness for households.</p>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.html#inside">What's Inside</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+      </ul>
+    </div>
+  </footer>
+  
+  <script>
+    // Reading progress bar
+    const articleBody = document.getElementById('articleBody');
+    const progressBar = document.getElementById('progressBar');
+    
+    window.addEventListener('scroll', () => {
+      const articleTop = articleBody.offsetTop;
+      const articleHeight = articleBody.offsetHeight;
+      const windowHeight = window.innerHeight;
+      const scrollY = window.scrollY;
+      
+      const articleStart = articleTop - windowHeight / 2;
+      const articleEnd = articleTop + articleHeight - windowHeight / 2;
+      const scrollRange = articleEnd - articleStart;
+      const scrollProgress = scrollY - articleStart;
+      const progress = Math.min(Math.max(scrollProgress / scrollRange, 0), 1);
+      
+      progressBar.style.width = (progress * 100) + '%';
+    });
+    
+    // Sticky buy bar
+    const articleHeader = document.querySelector('.article-header');
+    const stickyBuyBar = document.getElementById('stickyBuyBar');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          stickyBuyBar.classList.add('visible');
+        } else {
+          stickyBuyBar.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0 });
+    
+    observer.observe(articleHeader);
+  </script>
+</body>
+</html>
