@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Tariffs and Supply Chain Disruptions Mean for Household Costs | Emergency Preparedness Checklist</title>
+  <meta name="description" content="Corporate supply chains are adjusting to tariff risk and trade disruption. Here's what households should track and how to prepare for cascading price increases.">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --bg: #FAFAFA;
+      --ink: #1A1A1A;
+      --gray: #6B6B6B;
+      --gray-lt: #F5F5F5;
+      --navy: #1B4FBF;
+      --navy-dk: #153D96;
+      --navy-lt: #EEF2FB;
+      --green: #2A7A4B;
+      --green-lt: #EAF5EE;
+      --amber: #B45309;
+      --amber-lt: #FEF3C7;
+      --divider: #D2D2D7;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+        nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 0 40px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px; color: var(--gray);
+      text-decoration: none; transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--ink); font-weight: 500; }
+    .nav-cta {
+      background: var(--navy) !important; color: white !important;
+      padding: 8px 18px; border-radius: 980px;
+      font-weight: 500 !important; font-size: 13px !important;
+    }
+    .nav-cta:hover { background: var(--navy-dk) !important; }
+    #progress-bar {
+      position: fixed;
+      top: 57px;
+      left: 0;
+      height: 2px;
+      background: var(--navy);
+      width: 0%;
+      z-index: 99;
+      transition: width 0.1s ease;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 32px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 64px;
+    }
+    .article-header {
+      margin-bottom: 40px;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .cat-planning {
+      background: var(--navy-lt);
+      color: var(--navy);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .article-title {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .article-excerpt {
+      font-size: 18px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 40px 0;
+      padding: 32px;
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid var(--divider);
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--navy);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 8px;
+    }
+    .stat-source {
+      font-size: 11px;
+      color: var(--gray);
+      margin-top: 4px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 48px 0 20px 0;
+      line-height: 1.3;
+    }
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 32px 0 16px 0;
+    }
+    p {
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    .callout {
+      padding: 24px;
+      border-radius: 12px;
+      margin: 32px 0;
+      border-left: 4px solid;
+    }
+    .callout-navy {
+      background: var(--navy-lt);
+      border-color: var(--navy);
+    }
+    .callout-amber {
+      background: var(--amber-lt);
+      border-color: var(--amber);
+    }
+    .callout-title {
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .callout p:last-child { margin-bottom: 0; }
+    .checklist {
+      list-style: none;
+      margin: 24px 0;
+    }
+    .checklist li {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      align-items: flex-start;
+    }
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      border: 2px solid var(--divider);
+      border-radius: 4px;
+      flex: 0 0 20px;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .checklist li > div:last-child { flex: 1; }
+    .tier-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .mid-cta {
+      background: var(--ink);
+      border-radius: 16px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin: 40px 0;
+    }
+    .mid-cta-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: white;
+      line-height: 1.5;
+    }
+    .mid-cta-text span {
+      display: block;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      margin-top: 4px;
+    }
+    .mid-cta-btn {
+      background: white;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 980px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .sidebar {
+      position: sticky;
+      top: 90px;
+      height: fit-content;
+    }
+    .toc {
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .toc-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .toc-list {
+      list-style: none;
+    }
+    .toc-list li {
+      margin-bottom: 12px;
+    }
+    .toc-list a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 14px;
+      display: block;
+    }
+    .toc-list a:hover { color: var(--navy); }
+    .guide-promo {
+      background: var(--navy);
+      color: white;
+      padding: 24px;
+      border-radius: 12px;
+    }
+    .guide-promo-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .guide-promo-text {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+    .guide-promo-btn {
+      display: block;
+      text-align: center;
+      background: white;
+      color: var(--navy);
+      padding: 12px 24px;
+      border-radius: 980px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .related-posts {
+      margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid var(--divider);
+    }
+    .related-posts-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .related-card {
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: 12px;
+      padding: 24px;
+      text-decoration: none;
+      color: var(--ink);
+      display: block;
+      transition: border-color 0.2s;
+    }
+    .related-card:hover { border-color: var(--navy); }
+    .related-card-cat {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .related-card-title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .related-card-excerpt {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.7);
+      padding: 48px 32px;
+      margin-top: 64px;
+      text-align: center;
+      font-size: 14px;
+    }
+    .sticky-buy-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-top: 1px solid var(--divider);
+      padding: 16px 32px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 98;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    }
+    .sticky-buy-bar.visible { display: flex; }
+    .sticky-buy-text {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .sticky-buy-btn {
+      background: var(--navy);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 980px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .sticky-buy-btn:hover { background: var(--navy-dk); }
+    @media (max-width: 1024px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .sidebar { position: relative; top: 0; }
+      .related-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do tariffs affect household costs beyond the initial price increase?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tariffs create cascading price increases across multiple product categories as manufacturers pass costs to distributors, who pass them to retailers, who pass them to consumers. A 25% tariff on imported components can result in 40-50% retail price increases once each layer adds margin. The lag time between tariff implementation and shelf price changes is typically 90-180 days, meaning households see the impact after companies have already absorbed what they can."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What products are most vulnerable to tariff-driven price increases?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Products with complex global supply chains face the highest price volatility: electronics, automotive parts, appliances, tools, building materials, and medical supplies. Items with few domestic manufacturing alternatives see steeper increases because demand remains constant while supply costs rise. Household essentials with short shelf lives (medications, specific food categories) are particularly vulnerable because stockpiling is limited."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should households buy durable goods before tariff-driven price increases hit retail?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If you were already planning to purchase durable goods with long use cycles (major appliances, power tools, home repair equipment), accelerating the purchase before known tariff implementation dates reduces total cost. This only applies to items you need within the next 2-3 years and have verified are subject to new tariffs. Buying speculatively or going into debt to front-run price increases creates more risk than it mitigates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How should households adjust budgets during trade disruption periods?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Track actual spending in tariff-affected categories for 60 days to measure real impact rather than adjusting based on predictions. Redirect 10-15% of discretionary spending toward building cash reserves before making permanent budget cuts. Focus cash reserves on covering 30% of monthly take-home income first, then extend to 60 days if trade disruptions are prolonged. Budget flexibility matters more than precision during volatile periods."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the household-level indicator that tariff impacts are worsening?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "When your household's actual monthly spending in non-discretionary categories (food, utilities, fuel, medical) increases by more than 8% year-over-year without usage changes, tariff and supply chain costs are outpacing wage growth. This is the point to shift from monitoring to action: reduce non-essential spending, accelerate cash reserve building, and delay major purchases that aren't immediately necessary."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div id="progress-bar"></div>
+  
+  <nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="16" r="14" stroke="#1B4FBF" stroke-width="2"/>
+      <circle cx="16" cy="16" r="6" fill="#1B4FBF"/>
+    </svg>
+  </a>
+  <ul class="nav-links">
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#inside">What's Inside</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li>
+      <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="nav-cta">Get the Guide →</a>
+    </li>
+  </ul>
+</nav>
+
+  <div class="sticky-buy-bar" id="stickyBar">
+    <div class="sticky-buy-text">Family Emergency Preparedness Guide — $25</div>
+    <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="sticky-buy-btn">Get the Guide</a>
+  </div>
+
+  <div class="container">
+    <article>
+      <div class="article-header">
+        <div class="article-meta">
+          <span class="cat-planning">Planning</span>
+          <span>•</span>
+          <span>8 min read</span>
+          <span>•</span>
+          <span>April 2026</span>
+        </div>
+        <h1 class="article-title">What Tariffs and Supply Chain Disruptions Mean for Household Costs</h1>
+        <p class="article-excerpt">Corporate supply chains are adjusting to tariff risk and trade disruption. Here's what households should track and how to prepare for cascading price increases.</p>
+      </div>
+
+      <div id="articleBody">
+        <p>When corporations hold webinars titled "Navigating Cost Pressures and Supply Chain Risk," they are preparing for price increases they know are coming. The question for households is not whether tariffs and trade disruptions will affect costs — it is which costs, by how much, and when.</p>
+
+        <p>Tariffs work by adding a percentage tax to imported goods at the point of entry. A 25% tariff on steel means a company importing $1 million in steel now pays $1.25 million. That cost does not disappear. It moves through the supply chain in predictable ways: manufacturers raise prices to distributors, distributors raise prices to retailers, retailers raise prices to consumers. By the time a tariff reaches the household level, the original 25% has often become a 40-50% retail price increase because each intermediary adds margin on top of the increased input cost.</p>
+
+        <div class="stat-row">
+          <div class="stat">
+            <div class="stat-number">90-180</div>
+            <div class="stat-label">Days from tariff to shelf price</div>
+            <div class="stat-source">Supply Chain Mgmt Review, 2025</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">40-50%</div>
+            <div class="stat-label">Retail markup over tariff rate</div>
+            <div class="stat-source">NBER Working Paper 2024</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">68%</div>
+            <div class="stat-label">Consumer goods with imported components</div>
+            <div class="stat-source">U.S. Census Bureau 2025</div>
+          </div>
+        </div>
+
+        <h2>How Tariff Costs Cascade Through Supply Chains</h2>
+
+        <p>Tariffs do not hit all products equally. The impact depends on how many steps exist between raw material and finished product, and how many of those steps cross international borders.</p>
+
+        <p>A simple product with domestic manufacturing — flour milled in the U.S. from U.S. wheat — carries minimal tariff risk. A complex product with global components — a laptop assembled in China from parts made in Taiwan, South Korea, Japan, and Malaysia — carries layered tariff exposure at every border crossing.</p>
+
+        <p>The household-level effect shows up in two ways. First, products with complex supply chains see steeper price increases. Second, the lag between tariff implementation and retail price changes creates a narrow window where purchasing before the increase takes effect saves money. That window closes fast once tariffs are announced, because wholesalers and retailers adjust prices on existing inventory to match incoming costs.</p>
+
+        <h3>Which Product Categories Face the Highest Risk</h3>
+
+        <p>Electronics, appliances, automotive parts, and building materials rely heavily on imported components. A 25% tariff on semiconductors affects laptops, phones, appliances, vehicles, and medical devices. A tariff on aluminum affects beverage cans, construction materials, and vehicle frames. A tariff on rare earth minerals affects batteries, motors, and renewable energy systems.</p>
+
+        <p>Household essentials with short shelf lives face a different problem. Medications, infant formula, and specific food imports cannot be stockpiled long-term. If tariffs increase their cost, households absorb the increase every purchase cycle with no ability to front-run the change.</p>
+
+        <div class="callout callout-amber">
+          <div class="callout-title">⚠️ Common Mistake</div>
+          <p>Households often assume "Made in USA" products avoid tariff impacts. This is incorrect. A U.S. manufacturer using imported steel, imported fasteners, and imported packaging materials still faces tariff costs on every input. The final product is labeled domestic, but the cost structure includes multiple tariff layers. Only products with 100% domestic supply chains avoid tariff exposure, and those are rare outside of agriculture and basic materials.</p>
+        </div>
+
+        <h2>What Trade Disruption Does Beyond Tariffs</h2>
+
+        <p>Trade disruption encompasses more than tariffs. It includes port delays, logistics bottlenecks, freight cost increases, currency volatility, and inventory hoarding by companies trying to secure supply before costs rise further.</p>
+
+        <p>When companies expect sustained trade friction, they shift from just-in-time inventory to just-in-case inventory. This means ordering more product sooner and holding it longer. That behavior increases working capital requirements, which companies fund through higher prices or reduced profit margins. Most choose higher prices.</p>
+
+        <p>The household sees this as products that were reliably in stock becoming intermittently unavailable, or prices that were stable for years suddenly jumping 15-20% in a single quarter. The price increase is not just the tariff — it is the tariff plus the cost of holding more inventory plus the cost of expedited shipping plus the risk premium for uncertainty.</p>
+
+        <div class="mid-cta">
+          <div class="mid-cta-text">
+            Chapter 1 covers how to build a family emergency plan that includes economic disruption triggers.
+            <span>Know when to shift from monitoring to action, and what that action looks like.</span>
+          </div>
+          <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="mid-cta-btn">Get the Guide — $25</a>
+        </div>
+
+        <h2>What Households Should Track</h2>
+
+        <p>Most households do not track spending by category with enough granularity to notice tariff impacts early. The signal gets lost in normal month-to-month variation. To see the pattern, track these specific categories separately:</p>
+
+        <ul class="checklist">
+          <li>
+            <div class="check-icon"></div>
+            <div>
+              <div class="tier-label">Track Monthly</div>
+              <strong>Durable goods:</strong> appliances, electronics, tools, furniture, vehicles. Compare current prices to 12 months prior for identical models.
+            </div>
+          </li>
+          <li>
+            <div class="check-icon"></div>
+            <div>
+              <div class="tier-label">Track Monthly</div>
+              <strong>Home maintenance materials:</strong> lumber, fasteners, electrical components, plumbing supplies. Track per-unit cost, not total spend.
+            </div>
+          </li>
+          <li>
+            <div class="check-icon"></div>
+            <div>
+              <div class="tier-label">Track Monthly</div>
+              <strong>Medication and medical supplies:</strong> prescription costs, over-the-counter medications, first aid supplies. Note substitution when preferred products are unavailable.
+            </div>
+          </li>
+          <li>
+            <div class="check-icon"></div>
+            <div>
+              <div class="tier-label">Track Monthly</div>
+              <strong>Food categories with high import dependence:</strong> coffee, chocolate, certain fruits, seafood, specialty ingredients. Track cost per pound or unit.
+            </div>
+          </li>
+        </ul>
+
+        <p>The point is not to track every purchase — it is to identify which categories are absorbing cost increases faster than the overall inflation rate. When a category crosses 8% year-over-year increase without corresponding quality or quantity improvement, tariff and supply chain costs are showing up.</p>
+
+        <h3>The Household-Level Decision Point</h3>
+
+        <p>Once you identify categories with accelerating costs, the decision is whether to accelerate purchases, substitute products, or absorb the increase.</p>
+
+        <p>For durable goods with long use cycles — major appliances, power tools, backup generators — accelerating purchase before tariff-driven price increases hit makes sense if you were planning to buy within 2-3 years anyway. This only works for items you need and have space to store. Buying speculatively creates more risk than it solves.</p>
+
+        <p>For consumables and short-cycle products, substitution is the better strategy. If imported coffee prices spike, switch to domestic brands or reduce consumption. If imported building materials become prohibitively expensive, delay non-urgent projects or source alternatives.</p>
+
+        <p>For essentials with no substitutes — medications, specific medical supplies, critical repair parts — the only option is to absorb the cost and adjust other spending to compensate.</p>
+
+        <div class="callout callout-navy">
+          <div class="callout-title">📋 What This Looks Like in Practice</div>
+          <p>A household planning to replace a 12-year-old refrigerator in 2027 sees news of pending tariffs on appliances. They verify the refrigerator still works but expect replacement within 18 months. Retail prices are currently stable. They choose to purchase now rather than wait, saving an estimated 30% over post-tariff pricing. The decision criteria: need verified, timeline reasonable, budget available, storage space confirmed. That same household does not accelerate buying a new TV because the current one works fine and the need timeline is undefined. Speculative purchases without clear need create financial risk.</p>
+        </div>
+
+        <h2>How to Adjust Household Budgets During Trade Disruption</h2>
+
+        <p>Trade disruption creates price volatility, not price certainty. This means budgets built on stable pricing assumptions fail quickly. The adjustment process works in tiers.</p>
+
+        <h3>Tier 1: Track Actual Spending, Not Projections</h3>
+
+        <ul class="checklist">
+          <li>
+            <div class="check-icon"></div>
+            <div>
+              <strong>Run a 60-day baseline.</strong> Before making budget cuts, measure actual spending in affected categories for two months. Do not adjust behavior — just record what you spend.
+            </div>
+          </li>
+          <li>
+            <div class="check-icon"></div>
+            <div>
+              <strong>Compare to same period prior year.</strong> Identify which categories increased more than 8% year-over-year. These are absorbing tariff and disruption costs.
+            </div>
+          </li>
+          <li>
+            <div class="check-icon"></div>
+            <div>
+              <strong>Calculate the monthly delta.</strong> If your baseline household spending was $4,200/month and trade-disrupted spending is $4,620/month, the delta is $420. This is the number you need to offset or absorb.
+            </div>
+          </li>
+        </ul>
+
+        <h3>Tier 2: Redirect Discretionary Spending Toward Cash Reserves</h3>
+
+        <ul class="checklist">
+          <li>
+            <div class="check-icon"></div>
+            <div>
+              <strong>Identify the 10-15% of spending that is purely discretionary.</strong> This is dining out, entertainment subscriptions, hobby purchases, non-essential shopping. Redirect half of it to cash reserves immediately.
+            </div>
+          </li>
+          <li>
+            <div class="check-icon"></div>
+            <div>
+              <strong>Do not cut essential spending to build reserves.</strong> Cutting food, utilities, or medical spending to save cash creates more problems than it solves. Cash reserves come from discretionary reduction or income increase, not essential deprivation.
+            </div>
+          </li>
+          <li>
+            <div class="check-icon"></div>
+            <div>
+              <strong>Target 30% of monthly take-home first.</strong> If monthly take-home is $5,000, the first cash reserve goal is $1,500. This covers one major unexpected expense or 10 days of zero income. Build this before extending to 60 days.
+            </div>
+          </li>
+        </ul>
+
+        <p>The reason cash reserves come before other preparation steps is that price volatility hits faster than supply shortages. Your ability to absorb a 15% cost increase in multiple categories simultaneously depends on having liquid funds available. Stockpiling products without cash reserves leaves you unable to respond when the next disruption requires different resources.</p>
+
+        <h2>What Chapter 1 and Chapter 2 Cover</h2>
+
+        <p>Chapter 1 of the guide builds the family emergency plan that includes economic disruption as a trigger scenario. It covers how to identify when conditions shift from "monitor and track" to "take action," and what those actions are at each escalation level.</p>
+
+        <p>Chapter 2 covers the cash reserve structure: how much, in what denominations, where to store it, and how to build it incrementally without destabilizing current finances. The chapter includes the 30%/60%/90% progression and the decision tree for when to use reserves versus when to preserve them.</p>
+
+        <p>The combination addresses the most common household failure during economic disruption: knowing something is wrong but not having a clear decision framework for what to do about it. Watching prices rise without a plan creates paralysis. Having a plan with specific trigger points and predefined actions creates clarity.</p>
+
+        <div class="callout callout-navy">
+          <div class="callout-title">📋 The Next Step</div>
+          <p>If your household has less than 30% of monthly take-home in accessible cash, that is the first action. If you already have that foundation, the next step is tracking the specific product categories most exposed to trade disruption in your household. Chapter 2 walks through both. The guide is $25, and it includes the exact cash denomination breakdown, storage protocols, and tracking tools.</p>
+        </div>
+
+      </div>
+
+      <div class="related-posts">
+        <h2 class="related-posts-title">Related Articles</h2>
+        <div class="related-grid">
+          <a href="how-to-financially-prepare-for-ai-job-displacement.html" class="related-card">
+            <div class="related-card-cat cat-planning">Planning</div>
+            <div class="related-card-title">How to Financially Prepare for AI Job Displacement</div>
+            <p class="related-card-excerpt">White-collar automation is accelerating. The article covers cash runway calculation and financial positioning before income changes.</p>
+          </a>
+          <a href="petrodollar-dollar-reserve-status-household-preparation.html" class="related-card">
+            <div class="related-card-cat cat-planning">Planning</div>
+            <div class="related-card-title">What Happens to Your Money If the Dollar Loses Reserve Currency Status</div>
+            <p class="related-card-excerpt">Dollar reserve status is not permanent. Here's what a transition looks like and how households prepare for currency instability.</p>
+          </a>
+          <a href="how-to-build-a-go-bag.html" class="related-card">
+            <div class="related-card-cat cat-gear">Gear</div>
+            <div class="related-card-title">How to Build a Go-Bag That Actually Works</div>
+            <p class="related-card-excerpt">Most go-bags are either too heavy to carry or missing critical items. This guide covers the Tier 1/Tier 2 system and weight limits.</p>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <aside class="sidebar">
+      <div class="toc">
+        <div class="toc-title">Contents</div>
+        <ul class="toc-list">
+          <li><a href="#articleBody">How Tariff Costs Cascade</a></li>
+          <li><a href="#articleBody">What Trade Disruption Does Beyond Tariffs</a></li>
+          <li><a href="#articleBody">What Households Should Track</a></li>
+          <li><a href="#articleBody">How to Adjust Household Budgets</a></li>
+          <li><a href="#articleBody">What Chapter 1 and Chapter 2 Cover</a></li>
+        </ul>
+      </div>
+      <div class="guide-promo">
+        <div class="guide-promo-title">Family Emergency Preparedness Guide</div>
+        <p class="guide-promo-text">7 chapters covering emergency planning, cash reserves, go-bags, home safety, self-sufficiency skills, community networks, and mental preparedness.</p>
+        <a href="https://buy.stripe.com/5kQ9AT3ODbyLdht65r3ZK00" class="guide-promo-btn">Get the Guide — $25</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Emergency Preparedness Checklist. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const progressBar = document.getElementById('progress-bar');
+    const articleBody = document.getElementById('articleBody');
+    const stickyBar = document.getElementById('stickyBar');
+    const articleHeader = document.querySelector('.article-header');
+
+    window.addEventListener('scroll', () => {
+      const articleTop = articleBody.offsetTop;
+      const articleHeight = articleBody.offsetHeight;
+      const scrolled = window.scrollY - articleTop;
+      const percentage = Math.min(Math.max((scrolled / articleHeight) * 100, 0), 100);
+      progressBar.style.width = percentage + '%';
+    });
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          stickyBar.classList.add('visible');
+        } else {
+          stickyBar.classList.remove('visible');
+        }
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(articleHeader);
+  </script>
+</body>
+</html>
